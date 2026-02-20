@@ -1,7 +1,3 @@
-/**
- * DashboardPage — trang tổng quan.
- * Skeleton: chỉ layout cơ bản.
- */
 const DashboardPage = () => {
   return (
     <div>

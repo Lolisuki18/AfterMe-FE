@@ -10,9 +10,6 @@ export interface AuthResponse {
   refreshToken: string;
 }
 
-/**
- * Auth API service — skeleton cho các auth endpoints.
- */
 export const authApi = {
   login: (payload: LoginPayload) =>
     api.post<AuthResponse>("/auth/login", payload),
