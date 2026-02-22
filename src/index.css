@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-/* ============================================================
-   TAILWIND v4 — Đăng ký token thành utility class
-   Sau khi khai báo ở đây bạn có thể dùng trong JSX:
-     bg-primary, text-primary, border-border, bg-surface ...
-   ============================================================ */
 @theme {
   /* Brand */
   --color-primary: var(--app-primary);
@@ -23,12 +18,11 @@
   --color-success: var(--app-success);
   --color-warning: var(--app-warning);
   --color-error: var(--app-error);
+
+  /* Other */
+  --color-accent: var(--app-accent);
 }
 
-/* ============================================================
-   CSS VARIABLES — Thêm / sửa màu tại đây, toàn bộ dự án sẽ
-   cập nhật tự động (cả light lẫn dark mode).
-   ============================================================ */
 @layer base {
   /* ── LIGHT MODE (mặc định) ── */
   :root {
@@ -44,7 +38,7 @@
 
     /* Text */
     --app-text: #1e293b; /* Văn bản chính */
-    --app-text-muted: #64748b; /* Văn bản phụ / placeholder */
+    --app-text-muted: #7a7f8c; /* Văn bản phụ / placeholder */
 
     /* Border */
     --app-border: #e2e8f0;
@@ -53,6 +47,8 @@
     --app-success: #22c55e;
     --app-warning: #f59e0b;
     --app-error: #ef4444;
+    /* Other */
+    --app-accent: #ef7a73;
   }
 
   /* ── DARK MODE ── */
@@ -77,6 +73,9 @@
     --app-success: #4ade80;
     --app-warning: #fbbf24;
     --app-error: #f87171;
+
+    /* Other */
+    --app-accent: #f49791;
   }
 
   /* ── Body defaults ── */
