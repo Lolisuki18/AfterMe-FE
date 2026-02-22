@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-const Headerimg = (props: SVGProps<SVGSVGElement>) => (
+const HeaderimgIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={784}
@@ -162,4 +162,4 @@ const Headerimg = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
-export default Headerimg;
+export default HeaderimgIcon;

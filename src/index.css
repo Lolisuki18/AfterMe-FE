@@ -22,6 +22,7 @@
 
   /* Other */
   --color-accent: var(--app-accent);
+  --color-third: var(--app-third);
 }
 
 @layer base {
@@ -32,6 +33,7 @@
     --app-primary-hover: #3e948b;
     --app-secondary: #1e3a5f;
     --app-navy: #1e3a5f; /* Fixed dark navy – never changes between modes */
+    --app-third: #f4faf9;
 
     /* Surface */
     --app-bg: #ffffff; /* Nền toàn trang */

@@ -1,5 +1,5 @@
-import Headerimg from "@/features/home/icon/Headerimg";
-import Start from "../icon/Start";
+import HeaderimgIcon from "../icon/HeaderimgIcon";
+import StartIcon from "../icon/StartIcon";
 
 export const Hero = () => {
   return (
@@ -51,7 +51,7 @@ export const Hero = () => {
               href="#how-it-works"
               className="border-border bg-surface text-text hover:bg-surface-alt inline-flex items-center gap-2 rounded-xl border px-7 py-3.5 text-base font-semibold transition-colors"
             >
-              <Start />
+              <StartIcon />
               See How It Works
             </a>
           </div>
@@ -92,7 +92,7 @@ export const Hero = () => {
               className="bg-primary/10 absolute -inset-6 rounded-3xl blur-2xl"
             />
             <div className="relative">
-              <Headerimg />
+              <HeaderimgIcon />
             </div>
           </div>
         </div>
