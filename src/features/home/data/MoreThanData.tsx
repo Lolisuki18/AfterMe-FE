@@ -7,7 +7,7 @@ import {
   ShieldIcon,
 } from "@/shared/icon";
 import type { Feature } from "../interface";
-import type { FeatureItem } from "@/locales/en";
+import type { FeatureItem } from "../locales/en";
 
 export const FEATURE_ICONS = [
   { iconBg: "bg-primary", icon: <AlarmIcon className="text-bg h-6 w-6" /> },

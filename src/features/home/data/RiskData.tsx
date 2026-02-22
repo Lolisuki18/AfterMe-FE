@@ -1,6 +1,5 @@
 import { ClockIcon, KeyIcon, ScenariosIcon, WarningIcon } from "@/shared/icon";
-import type { RiskCard } from "../interface";
-import type { RiskItem } from "@/locales/en";
+import type { RiskCard, RiskItem } from "../interface";
 
 export const RISK_ICONS = [
   <ScenariosIcon className="text-accent h-7 w-7" />,

@@ -1,6 +1,5 @@
 import { HeartIcon, PlaneIcon, ProfessionalsIcon } from "@/shared/icon";
-import type { Audience } from "../interface";
-import type { AudienceItem } from "@/locales/en";
+import type { Audience, AudienceItem } from "../interface";
 
 export const AUDIENCE_ICONS = [
   <PlaneIcon className="text-primary h-7 w-7" />,

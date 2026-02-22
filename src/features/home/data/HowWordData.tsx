@@ -4,8 +4,7 @@ import {
   DoublePersonIcon,
   VerifyIcon,
 } from "@/shared/icon";
-import type { Step } from "../interface";
-import type { StepItem } from "@/locales/en";
+import type { Step, StepItem } from "../interface";
 
 export const STEP_ICONS = [
   <AddPersonIcon className="text-bg h-6 w-6" />,
