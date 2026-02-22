@@ -3,7 +3,6 @@ import { RISKS } from "../data";
 export const TheRisk = () => {
   return (
     <section className="bg-bg relative overflow-hidden py-24">
-      {/* Striped bg */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
@@ -14,7 +13,6 @@ export const TheRisk = () => {
       />
 
       <div className="container mx-auto px-6">
-        {/* Heading */}
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <h2 className="text-secondary mb-4 text-4xl font-bold">
             The Risks We Often Ignore

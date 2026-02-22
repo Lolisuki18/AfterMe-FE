@@ -14,7 +14,6 @@ export const Hero = () => {
 
       <div className="container mx-auto grid min-h-[calc(100vh-4rem)] grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:gap-16">
         <div className="flex flex-col items-start">
-          {/* Badge */}
           <span className="border-accent/30 bg-accent/10 text-accent mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-medium">
             <span className="bg-accent h-2 w-2 rounded-full" />
             Gentle reminders for a meaningful life
@@ -30,8 +29,6 @@ export const Hero = () => {
             <br />
             <span className="text-primary">human way.</span>
           </h1>
-
-          {/* Sub-text */}
           <p className="text-text-muted mb-10 max-w-md text-lg leading-relaxed">
             AfterMe helps you remember and maintain the habits that matter in
             life&nbsp;— without pressure, without feeling mechanical.
@@ -54,8 +51,6 @@ export const Hero = () => {
               See How It Works
             </a>
           </div>
-
-          {/* Social proof */}
           <div className="mt-10 flex items-center gap-3">
             <div className="flex -space-x-2">
               {["A", "B", "C", "D"].map((letter, i) => (
@@ -80,12 +75,8 @@ export const Hero = () => {
             </p>
           </div>
         </div>
-
-        {/* ════ RIGHT COLUMN ════ */}
         <div className="flex justify-center lg:justify-end">
-          {/* Decorative card wrapper with depth */}
           <div className="relative">
-            {/* Glow / shadow blob behind card */}
             <div
               aria-hidden="true"
               className="bg-primary/10 absolute -inset-6 rounded-3xl blur-2xl"

@@ -1,37 +1,8 @@
-import { HeartIcon, PlaneIcon, ProfessionalsIcon } from "@/shared/icon";
-import type { ReactNode } from "react";
-
-interface Audience {
-  icon: ReactNode;
-  title: string;
-  description: string;
-}
-
-const audiences: Audience[] = [
-  {
-    icon: <PlaneIcon className="text-primary" />,
-    title: "Solo Travelers",
-    description:
-      "Explore the world with confidence. If you don't check in from your hike or trip, local authorities or family get your location and itinerary details immediately.",
-  },
-  {
-    icon: <HeartIcon className="text-accent" />,
-    title: "Living Alone",
-    description:
-      "Maintain your independence while having a safety net. Perfect for elderly individuals or anyone living solo who wants reassurance that someone will know if they need help.",
-  },
-  {
-    icon: <ProfessionalsIcon className="text-secondary" />,
-    title: "Professionals",
-    description:
-      "Secure your business continuity. Ensure critical work passwords and project details are transferred to colleagues if you're incapacitated.",
-  },
-];
+import { AUDIENCES } from "../data";
 
 export const WhoNeed = () => {
   return (
     <section className="bg-navy relative overflow-hidden py-24">
-      {/* Dark vertical stripe pattern */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
@@ -42,7 +13,6 @@ export const WhoNeed = () => {
       />
 
       <div className="container mx-auto px-6">
-        {/* Heading */}
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <h2 className="mb-4 text-4xl font-bold text-white">
             Who Needs AfterMe?
@@ -55,7 +25,7 @@ export const WhoNeed = () => {
 
         {/* Cards */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {audiences.map((a) => (
+          {AUDIENCES.map((a) => (
             <div
               key={a.title}
               className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-colors hover:bg-white/10"

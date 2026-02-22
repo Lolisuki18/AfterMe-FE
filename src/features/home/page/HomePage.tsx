@@ -1,9 +1,11 @@
-import { Hero } from "../components/Hero";
-import { TheRisk } from "../components/TheRisk";
-import { HowWork } from "../components/HowWork";
-import { MoreThan } from "../components/MoreThan";
-import { WhoNeed } from "../components/WhoNeed";
-import { Pricing } from "../components/Pricing";
+import {
+  Hero,
+  HowWork,
+  MoreThan,
+  Pricing,
+  TheRisk,
+  WhoNeed,
+} from "../components";
 
 const HomePage = () => {
   return (
