@@ -1,9 +1,5 @@
 import { appConfig } from "@/app/config";
 
-/**
- * Navbar — top navigation bar.
- * Hiển thị tên app, user info, notification, v.v.
- */
 export const Navbar = () => {
   return (
     <header className="border-border bg-surface flex h-16 items-center justify-between border-b px-6">

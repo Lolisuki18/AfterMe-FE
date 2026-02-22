@@ -10,10 +10,6 @@ const sidebarLinks: SidebarLink[] = [
   { label: "Users", to: "/users" },
 ];
 
-/**
- * Sidebar — navigation panel bên trái.
- * Dùng NavLink để highlight active route.
- */
 export const Sidebar = () => {
   return (
     <aside className="border-border bg-surface flex w-64 flex-col border-r">

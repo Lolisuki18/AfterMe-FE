@@ -5,11 +5,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
 }
-
-/**
- * Input — reusable input component với label và error state.
- * Sử dụng forwardRef để hỗ trợ react-hook-form và các form libraries.
- */
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, className = "", id, ...props }, ref) => {
     const inputId = id || label?.toLowerCase().replace(/\s+/g, "-");
