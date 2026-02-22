@@ -7,58 +7,59 @@ export const Footer = () => {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div>
             <h3 className="text-text mb-4 text-sm font-semibold">
-              Về {appConfig.appName}
+              About {appConfig.appName}
             </h3>
             <p className="text-text-muted text-sm">
-              Nền tảng quản lý và lưu trữ thông tin quan trọng cho tương lai.
+              A platform for managing and storing important information for the
+              future.
             </p>
           </div>
           <div>
-            <h3 className="text-text mb-4 text-sm font-semibold">Liên kết</h3>
+            <h3 className="text-text mb-4 text-sm font-semibold">Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="/about" className="text-text-muted hover:text-text">
-                  Giới thiệu
+                  About
                 </a>
               </li>
               <li>
                 <a href="/services" className="text-text-muted hover:text-text">
-                  Dịch vụ
+                  Services
                 </a>
               </li>
               <li>
                 <a href="/pricing" className="text-text-muted hover:text-text">
-                  Bảng giá
+                  Pricing
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-text mb-4 text-sm font-semibold">Hỗ trợ</h3>
+            <h3 className="text-text mb-4 text-sm font-semibold">Support</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="/faq" className="text-text-muted hover:text-text">
-                  Câu hỏi thường gặp
+                  FAQ
                 </a>
               </li>
               <li>
                 <a href="/contact" className="text-text-muted hover:text-text">
-                  Liên hệ
+                  Contact
                 </a>
               </li>
               <li>
                 <a href="/privacy" className="text-text-muted hover:text-text">
-                  Chính sách bảo mật
+                  Privacy Policy
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-text mb-4 text-sm font-semibold">Liên hệ</h3>
+            <h3 className="text-text mb-4 text-sm font-semibold">Contact</h3>
             <ul className="text-text-muted space-y-2 text-sm">
               <li>Email: info@afterme.com</li>
-              <li>Hotline: 1900-xxxx</li>
-              <li>Địa chỉ: TP. Hồ Chí Minh</li>
+              <li>Hotline: 0123456789</li>
+              <li>Address: Ho Chi Minh City</li>
             </ul>
           </div>
         </div>
