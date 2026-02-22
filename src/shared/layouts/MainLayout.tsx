@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Footer, Header } from "../components";
+import { ThemeToggle } from "../components/ThemeToggle";
 
 export const MainLayout = () => {
   return (
@@ -9,6 +10,7 @@ export const MainLayout = () => {
         <Outlet />
       </main>
       <Footer />
+      <ThemeToggle />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { useLanguage } from "@/app/useLanguage";
 import type { OnboardingFormData } from "../interface";
 import { ProgressBar } from "./ProgressBar";
+import { SunIcon, CalendarIcon } from "@/shared/icon";
 
 interface Step3CheckInProps {
   data: OnboardingFormData;
@@ -49,35 +50,9 @@ export const Step3CheckIn = ({
               }`}
             >
               {freq === "daily" ? (
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <circle cx="12" cy="12" r="4" strokeWidth="2" />
-                  <path
-                    strokeWidth="2"
-                    d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-                  />
-                </svg>
+                <SunIcon className="text-text-muted h-6 w-6" />
               ) : (
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <rect
-                    x="3"
-                    y="4"
-                    width="18"
-                    height="18"
-                    rx="2"
-                    strokeWidth="2"
-                  />
-                  <path strokeWidth="2" d="M16 2v4M8 2v4M3 10h18" />
-                </svg>
+                <CalendarIcon className="text-text-muted h-6 w-6" />
               )}
               {freq === "daily" ? c.daily : c.weekly}
             </button>

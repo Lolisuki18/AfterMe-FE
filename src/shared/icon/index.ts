@@ -20,3 +20,6 @@ export * from "./HamburgerIcon";
 export * from "./XIcon";
 export * from "./BackIcon";
 export * from "./CheckIcon";
+export * from "./SunIcon";
+export * from "./MoonIcon";
+export * from "./CalendarIcon";

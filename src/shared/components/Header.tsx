@@ -4,7 +4,6 @@ import { Button } from "./Button";
 import { HamburgerIcon, XIcon } from "../icon";
 import { useLanguage } from "@/app/useLanguage";
 import { LanguageToggle } from "./LanguageToggle";
-import { ThemeToggle } from "./ThemeToggle";
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,7 +37,6 @@ export const Header = () => {
               </a>
             ))}
           </nav>
-          <ThemeToggle />
           <LanguageToggle />
           <Button>
             <a href="/onboarding">{t.header.cta}</a>
@@ -47,7 +45,6 @@ export const Header = () => {
 
         {/* Mobile hamburger */}
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
           <LanguageToggle />
           <button
             className="text-text flex items-center justify-center rounded-lg p-2"

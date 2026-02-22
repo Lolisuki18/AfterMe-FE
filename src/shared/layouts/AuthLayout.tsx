@@ -16,7 +16,6 @@ export const AuthLayout = () => {
 
           {/* Controls */}
           <div className="flex items-center gap-2">
-            <ThemeToggle />
             <LanguageToggle />
             <a
               href="/"
@@ -58,6 +57,7 @@ export const AuthLayout = () => {
           © {new Date().getFullYear()} {appConfig.appName}. All rights reserved.
         </div>
       </footer>
+      <ThemeToggle />
     </div>
   );
 };

@@ -24,13 +24,13 @@ export const OnboardingLayout = () => {
                 <span>Home</span>
               </Link>
 
-              <ThemeToggle />
               <LanguageToggle />
             </div>
           </div>
           <Outlet />
         </div>
       </main>
+      <ThemeToggle />
     </div>
   );
 };
