@@ -80,7 +80,7 @@ const CheckIcon = () => (
 
 export const Pricing = () => {
   return (
-    <section className="bg-bg relative overflow-hidden py-24">
+    <section className="bg-bg relative overflow-hidden py-12 lg:py-24">
       {/* Striped bg */}
       <div
         aria-hidden="true"
@@ -91,20 +91,20 @@ export const Pricing = () => {
         }}
       />
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Heading */}
-        <div className="mx-auto mb-14 max-w-2xl text-center">
-          <h2 className="text-secondary mb-4 text-4xl font-bold">
+        <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+          <h2 className="text-secondary mb-4 text-2xl font-bold sm:text-3xl lg:text-4xl">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-text-muted text-lg">
+          <p className="text-text-muted text-base lg:text-lg">
             Start for free. Upgrade when you need more protection. No hidden
             fees.
           </p>
         </div>
 
         {/* Plans grid */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan) => (
             <div
               key={plan.name}

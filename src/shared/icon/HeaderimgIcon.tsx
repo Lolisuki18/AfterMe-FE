@@ -3,8 +3,8 @@ import type { SVGProps } from "react";
 export const HeaderimgIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={784}
-    height={717}
+    viewBox="0 0 784 717"
+    className="h-auto w-full"
     fill="none"
     {...props}
   >

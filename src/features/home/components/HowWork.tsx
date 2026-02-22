@@ -2,7 +2,7 @@ import { STEPS } from "../data";
 
 export const HowWork = () => {
   return (
-    <section className="bg-bg relative overflow-hidden">
+    <section className="bg-bg relative overflow-hidden py-12 lg:py-24">
       {/* Striped bg */}
       <div
         aria-hidden="true"
@@ -14,14 +14,14 @@ export const HowWork = () => {
       />
 
       {/* Blue-tinted border wrapper */}
-      <div className="container mx-auto px-6">
-        <div className="border-primary/20 bg-primary/5 rounded-3xl border px-8 py-14">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="border-primary/20 bg-primary/5 rounded-3xl border px-4 py-8 sm:px-8 sm:py-14">
           {/* Heading */}
-          <div className="mx-auto mb-14 max-w-2xl text-center">
-            <h2 className="text-secondary mb-4 text-4xl font-bold">
+          <div className="mx-auto mb-8 max-w-2xl text-center sm:mb-14">
+            <h2 className="text-secondary mb-4 text-2xl font-bold sm:text-3xl lg:text-4xl">
               How AfterMe Works
             </h2>
-            <p className="text-text-muted text-lg">
+            <p className="text-text-muted text-base lg:text-lg">
               Simple setup for powerful protection. It takes less than 5 minutes
               to secure your digital legacy.
             </p>

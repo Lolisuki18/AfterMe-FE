@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <footer className="border-border bg-surface border-t">
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div>
             <h3 className="text-text mb-4 text-sm font-semibold">
               Về {appConfig.appName}

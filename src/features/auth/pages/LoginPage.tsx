@@ -1,7 +1,7 @@
 const LoginPage = () => {
   return (
     <div className="bg-bg flex min-h-screen items-center justify-center">
-      <div className="bg-surface w-full max-w-md rounded-xl p-8 shadow-lg">
+      <div className="bg-surface w-full max-w-md rounded-xl p-6 shadow-lg sm:p-8">
         <h2 className="text-text mb-6 text-center text-2xl font-bold">
           Sign In
         </h2>

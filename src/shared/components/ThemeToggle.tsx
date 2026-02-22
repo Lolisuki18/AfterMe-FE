@@ -10,7 +10,7 @@ export const ThemeToggle = () => {
       onClick={toggleTheme}
       className="fixed right-4 bottom-4 shadow-lg"
     >
-      {isDark ? "☀️ Giao diện Sáng" : "🌙 Giao diện Tối"}
+      {isDark ? "☀️ Light Mode" : "🌙 Dark Mode"}
     </Button>
   );
 };

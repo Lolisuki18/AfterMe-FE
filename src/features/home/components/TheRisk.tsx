@@ -2,7 +2,7 @@ import { RISKS } from "../data";
 
 export const TheRisk = () => {
   return (
-    <section className="bg-bg relative overflow-hidden py-24">
+    <section className="bg-bg relative overflow-hidden py-12 lg:py-24">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
@@ -12,12 +12,12 @@ export const TheRisk = () => {
         }}
       />
 
-      <div className="container mx-auto px-6">
-        <div className="mx-auto mb-16 max-w-2xl text-center">
-          <h2 className="text-secondary mb-4 text-4xl font-bold">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-16">
+          <h2 className="text-secondary mb-4 text-2xl font-bold sm:text-3xl lg:text-4xl">
             The Risks We Often Ignore
           </h2>
-          <p className="text-text-muted text-lg">
+          <p className="text-text-muted text-base lg:text-lg">
             Modern life is digital and often solitary. We've built a solution
             for the vulnerabilities that most apps overlook.
           </p>

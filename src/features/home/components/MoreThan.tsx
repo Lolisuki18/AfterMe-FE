@@ -2,7 +2,7 @@ import { FEATURES } from "../data/MoreThanData";
 
 export const MoreThan = () => {
   return (
-    <section className="bg-bg relative overflow-hidden py-24">
+    <section className="bg-bg relative overflow-hidden py-12 lg:py-24">
       {/* Striped bg */}
       <div
         aria-hidden="true"
@@ -13,16 +13,16 @@ export const MoreThan = () => {
         }}
       />
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Heading */}
-        <div className="mb-14 max-w-lg">
+        <div className="mb-10 max-w-lg lg:mb-14">
           <span className="text-primary mb-3 inline-block text-sm font-semibold tracking-widest uppercase">
             Features
           </span>
-          <h2 className="text-secondary mb-4 text-4xl font-bold">
+          <h2 className="text-secondary mb-4 text-2xl font-bold sm:text-3xl lg:text-4xl">
             More Than Just a Reminder App
           </h2>
-          <p className="text-text-muted text-lg">
+          <p className="text-text-muted text-base lg:text-lg">
             A comprehensive system designed to protect your digital legacy and
             ensure your physical safety.
           </p>

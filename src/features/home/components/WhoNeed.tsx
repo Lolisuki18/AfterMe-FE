@@ -2,7 +2,7 @@ import { AUDIENCES } from "../data";
 
 export const WhoNeed = () => {
   return (
-    <section className="bg-navy relative overflow-hidden py-24">
+    <section className="bg-navy relative overflow-hidden py-12 lg:py-24">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
@@ -12,12 +12,12 @@ export const WhoNeed = () => {
         }}
       />
 
-      <div className="container mx-auto px-6">
-        <div className="mx-auto mb-14 max-w-2xl text-center">
-          <h2 className="mb-4 text-4xl font-bold text-white">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+          <h2 className="mb-4 text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
             Who Needs AfterMe?
           </h2>
-          <p className="text-lg text-white/60">
+          <p className="text-base text-white/60 lg:text-lg">
             Designed for anyone who wants to live more intentionally and protect
             those they care about.
           </p>

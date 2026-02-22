@@ -12,15 +12,14 @@ export const Hero = () => {
         }}
       />
 
-      <div className="container mx-auto grid min-h-[calc(100vh-4rem)] grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:gap-16">
-        <div className="flex flex-col items-start">
-          <span className="border-accent/30 bg-accent/10 text-accent mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-medium">
+      <div className="container mx-auto grid min-h-[calc(100vh-4rem)] grid-cols-1 items-center gap-8 px-6 py-12 lg:grid-cols-2 lg:gap-16 lg:py-20">
+        <div className="flex flex-col items-start pt-8 lg:pt-0">
+          <span className="border-accent/30 bg-accent/10 text-accent mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-medium sm:text-sm">
             <span className="bg-accent h-2 w-2 rounded-full" />
             Gentle reminders for a meaningful life
           </span>
 
-          {/* Headline */}
-          <h1 className="text-text mb-6 text-5xl leading-tight font-extrabold tracking-tight lg:text-6xl">
+          <h1 className="text-text mb-6 text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
             Reminding you
             <br />
             of what matters
@@ -29,34 +28,35 @@ export const Hero = () => {
             <br />
             <span className="text-primary">human way.</span>
           </h1>
-          <p className="text-text-muted mb-10 max-w-md text-lg leading-relaxed">
+
+          <p className="text-text-muted mb-10 max-w-md text-base leading-relaxed sm:text-lg">
             AfterMe helps you remember and maintain the habits that matter in
             life&nbsp;— without pressure, without feeling mechanical.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex w-full flex-col gap-4 sm:flex-row sm:flex-wrap">
             <a
               href="/login"
-              className="bg-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-base font-semibold text-white shadow-md transition-colors"
+              className="bg-primary hover:bg-primary-hover inline-flex w-full items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-base font-semibold text-white shadow-md transition-colors sm:w-auto"
             >
               Start your journey
               <span aria-hidden="true">→</span>
             </a>
             <a
               href="#how-it-works"
-              className="border-border bg-surface text-text hover:bg-surface-alt inline-flex items-center gap-2 rounded-xl border px-7 py-3.5 text-base font-semibold transition-colors"
+              className="border-border bg-surface text-text hover:bg-surface-alt inline-flex w-full items-center justify-center gap-2 rounded-xl border px-7 py-3.5 text-base font-semibold transition-colors sm:w-auto"
             >
               <StarIcon />
               See How It Works
             </a>
           </div>
+
           <div className="mt-10 flex items-center gap-3">
             <div className="flex -space-x-2">
               {["A", "B", "C", "D"].map((letter, i) => (
                 <div
                   key={letter}
-                  className="border-bg flex h-9 w-9 items-center justify-center rounded-full border-2 text-xs font-bold text-white"
+                  className="border-bg flex h-8 w-8 items-center justify-center rounded-full border-2 text-xs font-bold text-white sm:h-9 sm:w-9"
                   style={{
                     backgroundColor: [
                       "#4fb6ac",
@@ -70,13 +70,14 @@ export const Hero = () => {
                 </div>
               ))}
             </div>
-            <p className="text-text-muted text-sm">
+            <p className="text-text-muted text-xs sm:text-sm">
               Trusted by users worldwide
             </p>
           </div>
         </div>
-        <div className="flex justify-center lg:justify-end">
-          <div className="relative">
+
+        <div className="flex w-full justify-center lg:justify-end">
+          <div className="relative w-full max-w-[320px] sm:max-w-md lg:max-w-full">
             <div
               aria-hidden="true"
               className="bg-primary/10 absolute -inset-6 rounded-3xl blur-2xl"
