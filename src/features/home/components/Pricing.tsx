@@ -80,7 +80,10 @@ const CheckIcon = () => (
 
 export const Pricing = () => {
   return (
-    <section className="bg-bg relative overflow-hidden py-12 lg:py-24">
+    <section
+      id="pricing"
+      className="bg-bg relative overflow-hidden py-12 lg:py-24"
+    >
       {/* Striped bg */}
       <div
         aria-hidden="true"

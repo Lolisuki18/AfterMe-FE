@@ -2,7 +2,10 @@ import { RISKS } from "../data";
 
 export const TheRisk = () => {
   return (
-    <section className="bg-bg relative overflow-hidden py-12 lg:py-24">
+    <section
+      id="the-risk"
+      className="bg-bg relative overflow-hidden py-12 lg:py-24"
+    >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"

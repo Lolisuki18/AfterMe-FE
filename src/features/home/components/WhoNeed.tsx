@@ -2,7 +2,10 @@ import { AUDIENCES } from "../data";
 
 export const WhoNeed = () => {
   return (
-    <section className="bg-navy relative overflow-hidden py-12 lg:py-24">
+    <section
+      id="who-needs"
+      className="bg-navy relative overflow-hidden py-12 lg:py-24"
+    >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"

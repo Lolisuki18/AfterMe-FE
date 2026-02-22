@@ -16,3 +16,5 @@ export * from "./ActivityIcon";
 export * from "./PlaneIcon";
 export * from "./HeartIcon";
 export * from "./ProfessionalsIcon";
+export * from "./HamburgerIcon";
+export * from "./XIcon";

@@ -2,7 +2,10 @@ import { FEATURES } from "../data/MoreThanData";
 
 export const MoreThan = () => {
   return (
-    <section className="bg-bg relative overflow-hidden py-12 lg:py-24">
+    <section
+      id="features"
+      className="bg-bg relative overflow-hidden py-12 lg:py-24"
+    >
       {/* Striped bg */}
       <div
         aria-hidden="true"

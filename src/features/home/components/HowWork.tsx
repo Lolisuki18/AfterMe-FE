@@ -2,7 +2,10 @@ import { STEPS } from "../data";
 
 export const HowWork = () => {
   return (
-    <section className="bg-bg relative overflow-hidden py-12 lg:py-24">
+    <section
+      id="how-it-works"
+      className="bg-bg relative overflow-hidden py-12 lg:py-24"
+    >
       {/* Striped bg */}
       <div
         aria-hidden="true"
