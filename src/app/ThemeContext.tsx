@@ -1,17 +1,11 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  type ReactNode,
-} from "react";
+import { createContext, useEffect, useState, type ReactNode } from "react";
 
 /* ============================================================
    Types
    ============================================================ */
-type Theme = "light" | "dark";
+export type Theme = "light" | "dark";
 
-interface ThemeContextValue {
+export interface ThemeContextValue {
   theme: Theme;
   isDark: boolean;
   toggleTheme: () => void;
@@ -22,6 +16,8 @@ interface ThemeContextValue {
    Context
    ============================================================ */
 const ThemeContext = createContext<ThemeContextValue | null>(null);
+
+export { ThemeContext };
 
 /* ============================================================
    Provider
@@ -59,16 +55,4 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       {children}
     </ThemeContext.Provider>
   );
-};
-
-/* ============================================================
-   Hook — dùng trong bất kỳ component nào:
-     const { isDark, toggleTheme } = useTheme();
-   ============================================================ */
-export const useTheme = (): ThemeContextValue => {
-  const ctx = useContext(ThemeContext);
-  if (!ctx) {
-    throw new Error("useTheme must be used inside <ThemeProvider>");
-  }
-  return ctx;
 };

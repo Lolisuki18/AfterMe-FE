@@ -1,4 +1,4 @@
-import { useTheme } from "@/app/ThemeContext";
+import { useTheme } from "@/app/useTheme";
 import { Button } from "./Button";
 
 export const ThemeToggle = () => {
