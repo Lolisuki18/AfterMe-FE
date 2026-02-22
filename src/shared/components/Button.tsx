@@ -23,9 +23,6 @@ const sizeStyles: Record<ButtonSize, string> = {
   lg: "px-6 py-3 text-base",
 };
 
-/**
- * Button — reusable button component với variants và sizes.
- */
 export const Button = ({
   variant = "primary",
   size = "md",
