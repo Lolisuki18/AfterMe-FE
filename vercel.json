@@ -8,11 +8,5 @@
       "source": "/((?!assets/).*)",
       "destination": "/index.html"
     }
-  ],
-  "git": {
-    "deploymentEnabled": {
-      "production": true,
-      "preview": false
-    }
-  }
+  ]
 }
