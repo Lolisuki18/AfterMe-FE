@@ -1,8 +1,10 @@
 import { useTheme } from "@/app/useTheme";
+import { useLanguage } from "@/app/useLanguage";
 import { Button } from "./Button";
 
 export const ThemeToggle = () => {
   const { isDark, toggleTheme } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <Button
@@ -10,7 +12,7 @@ export const ThemeToggle = () => {
       onClick={toggleTheme}
       className="fixed right-4 bottom-4 shadow-lg"
     >
-      {isDark ? "☀️ Light Mode" : "🌙 Dark Mode"}
+      {isDark ? t.themeToggle.light : t.themeToggle.dark}
     </Button>
   );
 };

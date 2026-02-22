@@ -25,6 +25,10 @@ export const sharedEn = {
     addressValue: "Ho Chi Minh City",
     rights: "All rights reserved.",
   },
+  themeToggle: {
+    light: "☀️ Light Mode",
+    dark: "🌙 Dark Mode",
+  },
 };
 
 export type SharedTranslations = typeof sharedEn;

@@ -27,4 +27,8 @@ export const sharedVi: SharedTranslations = {
     addressValue: "TP. Hồ Chí Minh",
     rights: "Đã đăng ký bản quyền.",
   },
+  themeToggle: {
+    light: "☀️ Sáng",
+    dark: "🌙 Tối",
+  },
 };
