@@ -1,10 +1,13 @@
 import type { SVGProps } from "react";
 
-export const VerifyIcon = (props: SVGProps<SVGSVGElement>) => (
+export const VerifyIcon = ({
+  className = "h-6 w-6",
+  ...props
+}: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={34}
-    height={34}
+    viewBox="0 0 34 34"
+    className={className}
     fill="none"
     {...props}
   >

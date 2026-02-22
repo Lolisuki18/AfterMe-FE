@@ -1,12 +1,16 @@
 import type { SVGProps } from "react";
 
-export const XIcon = (props: SVGProps<SVGSVGElement>) => (
+export const XIcon = ({
+  className = "h-6 w-6",
+  ...props
+}: SVGProps<SVGSVGElement>) => (
   <svg
-    className="h-6 w-6"
+    className={className}
     fill="none"
     stroke="currentColor"
     strokeWidth={2}
     viewBox="0 0 24 24"
+    {...props}
   >
     <path
       stroke="currentColor"

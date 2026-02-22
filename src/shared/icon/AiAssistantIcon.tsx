@@ -1,10 +1,13 @@
 import type { SVGProps } from "react";
 
-export const AiAssistantIcon = (props: SVGProps<SVGSVGElement>) => (
+export const AiAssistantIcon = ({
+  className = "h-6 w-6",
+  ...props
+}: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={33}
-    height={33}
+    viewBox="0 0 33 33"
+    className={className}
     fill="none"
     {...props}
   >

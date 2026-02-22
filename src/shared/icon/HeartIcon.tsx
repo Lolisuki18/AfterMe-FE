@@ -1,10 +1,13 @@
 import type { SVGProps } from "react";
 
-export const HeartIcon = (props: SVGProps<SVGSVGElement>) => (
+export const HeartIcon = ({
+  className = "h-7 w-7",
+  ...props
+}: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={44}
-    height={44}
+    viewBox="0 0 44 44"
+    className={className}
     fill="none"
     {...props}
   >

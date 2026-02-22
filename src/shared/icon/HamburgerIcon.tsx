@@ -1,8 +1,11 @@
 import type { SVGProps } from "react";
 
-export const HamburgerIcon = (props: SVGProps<SVGSVGElement>) => (
+export const HamburgerIcon = ({
+  className = "h-6 w-6",
+  ...props
+}: SVGProps<SVGSVGElement>) => (
   <svg
-    className="h-6 w-6"
+    className={className}
     fill="none"
     stroke="currentColor"
     strokeWidth={2}
