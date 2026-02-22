@@ -13,3 +13,6 @@ export * from "./ShieldIcon";
 export * from "./DatabaseIcon";
 export * from "./AiAssistantIcon";
 export * from "./ActivityIcon";
+export * from "./PlaneIcon";
+export * from "./HeartIcon";
+export * from "./ProfessionalsIcon";
