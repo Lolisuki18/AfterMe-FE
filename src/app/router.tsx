@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { DashboardLayout } from "@/shared/layouts/DashboardLayout";
+import { DashboardLayout, MainLayout, AuthLayout } from "@/shared/layouts";
 
 // Feature page imports (lazy load cho performance)
 import { lazy, Suspense } from "react";
+import { HomePage } from "@/features/home";
 
 const LoginPage = lazy(() => import("@/features/auth/pages/LoginPage"));
 const DashboardPage = lazy(
@@ -21,17 +22,31 @@ export const AppRouter = () => {
     <BrowserRouter>
       <Suspense fallback={<PageLoader />}>
         <Routes>
-          {/* Public Routes */}
-          <Route path="/login" element={<LoginPage />} />
+          {/* Auth Routes - Sử dụng AuthLayout */}
+          <Route element={<AuthLayout />}>
+            <Route path="/login" element={<LoginPage />} />
+            {/* Có thể thêm các route auth khác: */}
+            {/* <Route path="/register" element={<RegisterPage />} /> */}
+            {/* <Route path="/forgot-password" element={<ForgotPasswordPage />} /> */}
+          </Route>
 
-          {/* Protected Routes — wrapped in DashboardLayout */}
+          {/* Public Routes - Sử dụng MainLayout */}
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<HomePage />} />
+            {/* Có thể thêm các route public khác: */}
+            {/* <Route path="/about" element={<AboutPage />} /> */}
+            {/* <Route path="/services" element={<ServicesPage />} /> */}
+            {/* <Route path="/contact" element={<ContactPage />} /> */}
+          </Route>
+
+          {/* Protected Routes - Sử dụng DashboardLayout */}
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/users" element={<UserListPage />} />
           </Route>
 
           {/* Redirect */}
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

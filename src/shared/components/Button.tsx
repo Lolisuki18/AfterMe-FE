@@ -11,10 +11,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500",
-  secondary: "bg-gray-100 text-gray-700 hover:bg-gray-200 focus:ring-gray-500",
-  danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
-  ghost: "bg-transparent text-gray-600 hover:bg-gray-100 focus:ring-gray-500",
+  primary: "bg-primary text-white hover:bg-primary-hover focus:ring-primary",
+  secondary: "bg-surface-alt text-text hover:bg-border focus:ring-border",
+  danger: "bg-error text-white hover:bg-error/90 focus:ring-error",
+  ghost:
+    "bg-transparent text-text-muted hover:bg-surface-alt focus:ring-border",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -23,9 +24,6 @@ const sizeStyles: Record<ButtonSize, string> = {
   lg: "px-6 py-3 text-base",
 };
 
-/**
- * Button — reusable button component với variants và sizes.
- */
 export const Button = ({
   variant = "primary",
   size = "md",

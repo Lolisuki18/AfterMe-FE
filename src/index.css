@@ -1,1 +1,99 @@
 @import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem; /* height of sticky header */
+}
+
+@theme {
+  /* Brand */
+  --color-primary: var(--app-primary);
+  --color-primary-hover: var(--app-primary-hover);
+  --color-secondary: var(--app-secondary);
+  --color-navy: var(--app-navy);
+
+  /* Semantic – surface & text */
+  --color-bg: var(--app-bg);
+  --color-surface: var(--app-surface);
+  --color-surface-alt: var(--app-surface-alt);
+  --color-text: var(--app-text);
+  --color-text-muted: var(--app-text-muted);
+  --color-border: var(--app-border);
+
+  /* Status */
+  --color-success: var(--app-success);
+  --color-warning: var(--app-warning);
+  --color-error: var(--app-error);
+
+  /* Other */
+  --color-accent: var(--app-accent);
+  --color-third: var(--app-third);
+}
+
+@layer base {
+  /* ── LIGHT MODE (mặc định) ── */
+  :root {
+    /* Brand */
+    --app-primary: #4fb6ac;
+    --app-primary-hover: #3e948b;
+    --app-secondary: #1e3a5f;
+    --app-navy: #1e3a5f; /* Fixed dark navy – never changes between modes */
+    --app-third: #f4faf9;
+
+    /* Surface */
+    --app-bg: #ffffff; /* Nền toàn trang */
+    --app-surface: #f8fafc; /* Nền card / panel */
+    --app-surface-alt: #f1f5f9; /* Nền hover row / alternate */
+
+    /* Text */
+    --app-text: #1e293b; /* Văn bản chính */
+    --app-text-muted: #7a7f8c; /* Văn bản phụ / placeholder */
+
+    /* Border */
+    --app-border: #e2e8f0;
+
+    /* Status */
+    --app-success: #22c55e;
+    --app-warning: #f59e0b;
+    --app-error: #ef4444;
+    /* Other */
+    --app-accent: #ef7a73;
+  }
+
+  /* ── DARK MODE ── */
+  .dark {
+    /* Brand */
+    --app-primary: #4fb6ac; /* Giữ nguyên màu brand */
+    --app-primary-hover: #6bcfc5;
+    --app-secondary: #93c5fd; /* Light blue – readable on dark backgrounds */
+
+    /* Surface */
+    --app-bg: #0f172a; /* Nền toàn trang */
+    --app-surface: #1e293b; /* Nền card / panel */
+    --app-surface-alt: #334155; /* Nền hover row / alternate */
+
+    /* Text */
+    --app-text: #f1f5f9;
+    --app-text-muted: #94a3b8;
+
+    /* Border */
+    --app-border: #334155;
+
+    /* Status */
+    --app-success: #4ade80;
+    --app-warning: #fbbf24;
+    --app-error: #f87171;
+
+    /* Other */
+    --app-accent: #f49791;
+  }
+
+  /* ── Body defaults ── */
+  body {
+    background-color: var(--app-bg);
+    color: var(--app-text);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+}

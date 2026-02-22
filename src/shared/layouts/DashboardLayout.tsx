@@ -2,13 +2,9 @@ import { Outlet } from "react-router-dom";
 import { Navbar } from "@/shared/components/Navbar";
 import { Sidebar } from "@/shared/components/Sidebar";
 
-/**
- * DashboardLayout — layout chính cho các trang sau khi đăng nhập.
- * Bao gồm Sidebar bên trái, Navbar trên cùng, và content area.
- */
 export const DashboardLayout = () => {
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="bg-bg flex h-screen">
       {/* Sidebar */}
       <Sidebar />
 

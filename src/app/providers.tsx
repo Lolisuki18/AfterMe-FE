@@ -1,19 +1,15 @@
 import type { ReactNode } from "react";
+import { ThemeProvider } from "./ThemeContext";
 
-/**
- * AppProviders — nơi wrap tất cả global providers.
- * Khi thêm state management (Redux, Zustand, React Query...),
- * wrap provider tại đây để giữ App.tsx clean.
- */
 interface AppProvidersProps {
   children: ReactNode;
 }
 
 export const AppProviders = ({ children }: AppProvidersProps) => {
   return (
-    <>
+    <ThemeProvider>
       {/* 
-        Ví dụ khi cần thêm:
+        Thêm providers khác tại đây, ví dụ:
         <QueryClientProvider client={queryClient}>
           <AuthProvider>
             {children}
@@ -21,6 +17,6 @@ export const AppProviders = ({ children }: AppProvidersProps) => {
         </QueryClientProvider>
       */}
       {children}
-    </>
+    </ThemeProvider>
   );
 };
