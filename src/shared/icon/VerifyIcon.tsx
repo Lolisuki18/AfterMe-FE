@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-const VerifyIcon = (props: SVGProps<SVGSVGElement>) => (
+export const VerifyIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={34}
@@ -24,4 +24,3 @@ const VerifyIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-export default VerifyIcon;

@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-const StartIcon = (props: SVGProps<SVGSVGElement>) => (
+export const StarIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={23}
@@ -24,5 +24,3 @@ const StartIcon = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
-
-export default StartIcon;

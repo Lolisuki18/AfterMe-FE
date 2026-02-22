@@ -1,7 +1,9 @@
-import AddPersonIcon from "../icon/AddPersonIcon";
-import AlarmIcon from "../icon/AlarmIcon";
-import DoublePersonIcon from "../icon/DoublePersonIcon";
-import VerifyIcon from "../icon/VerifyIcon";
+import {
+  AddPersonIcon,
+  AlarmIcon,
+  DoublePersonIcon,
+  VerifyIcon,
+} from "@/shared/icon";
 import type { Step } from "../interface";
 
 export const STEPS: Step[] = [

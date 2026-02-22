@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-const KeyIcon = (props: SVGProps<SVGSVGElement>) => (
+export const KeyIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={45}
@@ -17,4 +17,3 @@ const KeyIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-export default KeyIcon;

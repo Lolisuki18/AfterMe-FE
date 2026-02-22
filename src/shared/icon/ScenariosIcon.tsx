@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-const ScenariosIcon = (props: SVGProps<SVGSVGElement>) => (
+export const ScenariosIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={45}
@@ -17,4 +17,3 @@ const ScenariosIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-export default ScenariosIcon;

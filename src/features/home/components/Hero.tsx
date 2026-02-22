@@ -1,5 +1,4 @@
-import HeaderimgIcon from "../icon/HeaderimgIcon";
-import StartIcon from "../icon/StartIcon";
+import { HeaderimgIcon, StarIcon } from "@/shared/icon";
 
 export const Hero = () => {
   return (
@@ -51,7 +50,7 @@ export const Hero = () => {
               href="#how-it-works"
               className="border-border bg-surface text-text hover:bg-surface-alt inline-flex items-center gap-2 rounded-xl border px-7 py-3.5 text-base font-semibold transition-colors"
             >
-              <StartIcon />
+              <StarIcon />
               See How It Works
             </a>
           </div>

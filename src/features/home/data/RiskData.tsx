@@ -1,7 +1,4 @@
-import ClockIcon from "../icon/ClockIcon";
-import KeyIcon from "../icon/KeyIcon";
-import ScenariosIcon from "../icon/ScenariosIcon";
-import WarningIcon from "../icon/WarningIcon";
+import { ClockIcon, KeyIcon, ScenariosIcon, WarningIcon } from "@/shared/icon";
 import type { RiskCard } from "../interface";
 
 export const RISKS: RiskCard[] = [
