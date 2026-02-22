@@ -5,6 +5,7 @@
   --color-primary: var(--app-primary);
   --color-primary-hover: var(--app-primary-hover);
   --color-secondary: var(--app-secondary);
+  --color-navy: var(--app-navy);
 
   /* Semantic – surface & text */
   --color-bg: var(--app-bg);
@@ -30,6 +31,7 @@
     --app-primary: #4fb6ac;
     --app-primary-hover: #3e948b;
     --app-secondary: #1e3a5f;
+    --app-navy: #1e3a5f; /* Fixed dark navy – never changes between modes */
 
     /* Surface */
     --app-bg: #ffffff; /* Nền toàn trang */
@@ -56,6 +58,7 @@
     /* Brand */
     --app-primary: #4fb6ac; /* Giữ nguyên màu brand */
     --app-primary-hover: #6bcfc5;
+    --app-secondary: #93c5fd; /* Light blue – readable on dark backgrounds */
 
     /* Surface */
     --app-bg: #0f172a; /* Nền toàn trang */
