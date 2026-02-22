@@ -1,6 +1,11 @@
-import { AUDIENCES } from "../data";
+import { getAudiences } from "../data";
+import { useLanguage } from "@/app/useLanguage";
 
 export const WhoNeed = () => {
+  const { t } = useLanguage();
+  const wn = t.whoNeed;
+  const AUDIENCES = getAudiences(wn.audiences);
+
   return (
     <section
       id="who-needs"
@@ -18,12 +23,9 @@ export const WhoNeed = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
           <h2 className="mb-4 text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-            Who Needs AfterMe?
+            {wn.title}
           </h2>
-          <p className="text-base text-white/60 lg:text-lg">
-            Designed for anyone who wants to live more intentionally and protect
-            those they care about.
-          </p>
+          <p className="text-base text-white/60 lg:text-lg">{wn.subtitle}</p>
         </div>
 
         {/* Cards */}

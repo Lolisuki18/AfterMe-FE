@@ -1,6 +1,10 @@
 import { HeaderimgIcon, StarIcon } from "@/shared/icon";
+import { useLanguage } from "@/app/useLanguage";
 
 export const Hero = () => {
+  const { t } = useLanguage();
+  const h = t.hero;
+
   return (
     <section className="bg-bg relative overflow-hidden">
       <div
@@ -16,22 +20,21 @@ export const Hero = () => {
         <div className="flex flex-col items-start pt-8 lg:pt-0">
           <span className="border-accent/30 bg-accent/10 text-accent mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-medium sm:text-sm">
             <span className="bg-accent h-2 w-2 rounded-full" />
-            Gentle reminders for a meaningful life
+            {h.badge}
           </span>
 
           <h1 className="text-text mb-6 text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            Reminding you
+            {h.heading1}
             <br />
-            of what matters
+            {h.heading2}
             <br />
-            <span className="text-primary">in the most</span>
+            <span className="text-primary">{h.heading3}</span>
             <br />
-            <span className="text-primary">human way.</span>
+            <span className="text-primary">{h.heading4}</span>
           </h1>
 
           <p className="text-text-muted mb-10 max-w-md text-base leading-relaxed sm:text-lg">
-            AfterMe helps you remember and maintain the habits that matter in
-            life&nbsp;— without pressure, without feeling mechanical.
+            {h.description}
           </p>
 
           <div className="flex w-full flex-col gap-4 sm:flex-row sm:flex-wrap">
@@ -39,7 +42,7 @@ export const Hero = () => {
               href="/login"
               className="bg-primary hover:bg-primary-hover inline-flex w-full items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-base font-semibold text-white shadow-md transition-colors sm:w-auto"
             >
-              Start your journey
+              {h.ctaPrimary}
               <span aria-hidden="true">→</span>
             </a>
             <a
@@ -47,7 +50,7 @@ export const Hero = () => {
               className="border-border bg-surface text-text hover:bg-surface-alt inline-flex w-full items-center justify-center gap-2 rounded-xl border px-7 py-3.5 text-base font-semibold transition-colors sm:w-auto"
             >
               <StarIcon />
-              See How It Works
+              {h.ctaSecondary}
             </a>
           </div>
 
@@ -71,7 +74,7 @@ export const Hero = () => {
               ))}
             </div>
             <p className="text-text-muted text-xs sm:text-sm">
-              Trusted by users worldwide
+              {h.socialProof}
             </p>
           </div>
         </div>

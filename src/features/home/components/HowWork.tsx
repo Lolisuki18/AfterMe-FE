@@ -1,6 +1,11 @@
-import { STEPS } from "../data";
+import { getSteps } from "../data";
+import { useLanguage } from "@/app/useLanguage";
 
 export const HowWork = () => {
+  const { t } = useLanguage();
+  const hw = t.howWork;
+  const STEPS = getSteps(hw.steps);
+
   return (
     <section
       id="how-it-works"
@@ -22,11 +27,10 @@ export const HowWork = () => {
           {/* Heading */}
           <div className="mx-auto mb-8 max-w-2xl text-center sm:mb-14">
             <h2 className="text-secondary mb-4 text-2xl font-bold sm:text-3xl lg:text-4xl">
-              How AfterMe Works
+              {hw.title}
             </h2>
             <p className="text-text-muted text-base lg:text-lg">
-              Simple setup for powerful protection. It takes less than 5 minutes
-              to secure your digital legacy.
+              {hw.subtitle}
             </p>
           </div>
 

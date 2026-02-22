@@ -1,6 +1,11 @@
-import { FEATURES } from "../data/MoreThanData";
+import { getFeatures } from "../data/MoreThanData";
+import { useLanguage } from "@/app/useLanguage";
 
 export const MoreThan = () => {
+  const { t } = useLanguage();
+  const mt = t.moreThan;
+  const FEATURES = getFeatures(mt.features);
+
   return (
     <section
       id="features"
@@ -20,15 +25,12 @@ export const MoreThan = () => {
         {/* Heading */}
         <div className="mb-10 max-w-lg lg:mb-14">
           <span className="text-primary mb-3 inline-block text-sm font-semibold tracking-widest uppercase">
-            Features
+            {mt.badge}
           </span>
           <h2 className="text-secondary mb-4 text-2xl font-bold sm:text-3xl lg:text-4xl">
-            More Than Just a Reminder App
+            {mt.title}
           </h2>
-          <p className="text-text-muted text-base lg:text-lg">
-            A comprehensive system designed to protect your digital legacy and
-            ensure your physical safety.
-          </p>
+          <p className="text-text-muted text-base lg:text-lg">{mt.subtitle}</p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
