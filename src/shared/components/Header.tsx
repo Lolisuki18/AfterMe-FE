@@ -2,16 +2,19 @@ import { useState } from "react";
 import Logo from "../icon/Logo";
 import { Button } from "./Button";
 import { HamburgerIcon, XIcon } from "../icon";
-
-const NAV_LINKS = [
-  { href: "/#features", label: "Features" },
-  { href: "/#how-it-works", label: "How It Works" },
-  { href: "/#pricing", label: "Pricing" },
-  { href: "/login", label: "Log In" },
-];
+import { useLanguage } from "@/app/useLanguage";
+import { LanguageToggle } from "./LanguageToggle";
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const NAV_LINKS = [
+    { href: "/#features", label: t.header.features },
+    { href: "/#how-it-works", label: t.header.howItWorks },
+    { href: "/#pricing", label: t.header.pricing },
+    { href: "/login", label: t.header.login },
+  ];
 
   return (
     <header className="border-border bg-surface sticky top-0 z-50 border-b shadow-sm">
@@ -34,24 +37,23 @@ export const Header = () => {
               </a>
             ))}
           </nav>
+          <LanguageToggle />
           <Button>
-            <a href="/login">Start your journey</a>
+            <a href="/login">{t.header.cta}</a>
           </Button>
         </div>
 
         {/* Mobile hamburger */}
-        <button
-          className="text-text flex items-center justify-center rounded-lg p-2 md:hidden"
-          aria-label="Toggle menu"
-          onClick={() => setMenuOpen((prev) => !prev)}
-        >
-          {menuOpen ? (
-            <XIcon />
-          ) : (
-            /* Hamburger icon */
-            <HamburgerIcon />
-          )}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageToggle />
+          <button
+            className="text-text flex items-center justify-center rounded-lg p-2"
+            aria-label="Toggle menu"
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            {menuOpen ? <XIcon /> : <HamburgerIcon />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile dropdown menu */}
@@ -72,7 +74,7 @@ export const Header = () => {
           <div className="mt-3">
             <Button>
               <a href="/login" className="block w-full text-center">
-                Start your journey
+                {t.header.cta}
               </a>
             </Button>
           </div>

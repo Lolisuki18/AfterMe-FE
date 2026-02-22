@@ -1,6 +1,11 @@
-import { RISKS } from "../data";
+import { getRisks } from "../data";
+import { useLanguage } from "@/app/useLanguage";
 
 export const TheRisk = () => {
+  const { t } = useLanguage();
+  const tr = t.theRisk;
+  const RISKS = getRisks(tr.risks);
+
   return (
     <section
       id="the-risk"
@@ -18,12 +23,9 @@ export const TheRisk = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-16">
           <h2 className="text-secondary mb-4 text-2xl font-bold sm:text-3xl lg:text-4xl">
-            The Risks We Often Ignore
+            {tr.title}
           </h2>
-          <p className="text-text-muted text-base lg:text-lg">
-            Modern life is digital and often solitary. We've built a solution
-            for the vulnerabilities that most apps overlook.
-          </p>
+          <p className="text-text-muted text-base lg:text-lg">{tr.subtitle}</p>
         </div>
 
         {/* Cards grid */}
