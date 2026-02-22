@@ -30,7 +30,7 @@ export const Step3CheckIn = ({
     <>
       <ProgressBar currentStep={3} />
 
-      <h1 className="text-navy dark:text-text mb-2 text-center text-3xl font-bold">
+      <h1 className="text-navy dark:text-text mb-2 text-center text-2xl font-bold sm:text-3xl">
         {c.title}
       </h1>
       <p className="text-text-muted mb-10 text-center text-sm">{c.subtitle}</p>
@@ -38,7 +38,7 @@ export const Step3CheckIn = ({
       {/* Frequency selector */}
       <div className="mb-8 flex flex-col items-center gap-4">
         <p className="text-primary font-semibold">{c.frequency}</p>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
           {(["daily", "weekly"] as const).map((freq) => (
             <button
               key={freq}
@@ -61,44 +61,46 @@ export const Step3CheckIn = ({
       </div>
 
       {/* Time picker */}
-      <div className="flex items-center justify-center gap-3">
+      <div className="flex flex-col items-center gap-3">
         <span className="text-text-muted text-sm font-medium">{c.time}</span>
-        <input
-          type="number"
-          min={1}
-          max={12}
-          className={timeBoxClass}
-          value={data.checkInHour}
-          onChange={(e) =>
-            onChange("checkInHour", e.target.value.padStart(2, "0"))
-          }
-        />
-        <span className="text-text text-xl font-bold">:</span>
-        <input
-          type="number"
-          min={0}
-          max={59}
-          className={timeBoxClass}
-          value={data.checkInMinute}
-          onChange={(e) =>
-            onChange("checkInMinute", e.target.value.padStart(2, "0"))
-          }
-        />
-        {/* AM / PM */}
-        <div className="border-primary flex flex-col overflow-hidden rounded-lg border-2">
-          {(["AM", "PM"] as const).map((period) => (
-            <button
-              key={period}
-              onClick={() => onChange("checkInPeriod", period)}
-              className={`cursor-pointer px-3 py-1 text-sm font-bold transition-colors ${
-                data.checkInPeriod === period
-                  ? "bg-primary text-white"
-                  : "text-text-muted hover:bg-primary/10"
-              }`}
-            >
-              {period === "AM" ? c.am : c.pm}
-            </button>
-          ))}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <input
+            type="number"
+            min={1}
+            max={12}
+            className={timeBoxClass}
+            value={data.checkInHour}
+            onChange={(e) =>
+              onChange("checkInHour", e.target.value.padStart(2, "0"))
+            }
+          />
+          <span className="text-text text-xl font-bold">:</span>
+          <input
+            type="number"
+            min={0}
+            max={59}
+            className={timeBoxClass}
+            value={data.checkInMinute}
+            onChange={(e) =>
+              onChange("checkInMinute", e.target.value.padStart(2, "0"))
+            }
+          />
+          {/* AM / PM */}
+          <div className="border-primary flex flex-col overflow-hidden rounded-lg border-2">
+            {(["AM", "PM"] as const).map((period) => (
+              <button
+                key={period}
+                onClick={() => onChange("checkInPeriod", period)}
+                className={`cursor-pointer px-3 py-1 text-sm font-bold transition-colors ${
+                  data.checkInPeriod === period
+                    ? "bg-primary text-white"
+                    : "text-text-muted hover:bg-primary/10"
+                }`}
+              >
+                {period === "AM" ? c.am : c.pm}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 

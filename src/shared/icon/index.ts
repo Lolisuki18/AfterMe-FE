@@ -23,3 +23,5 @@ export * from "./CheckIcon";
 export * from "./SunIcon";
 export * from "./MoonIcon";
 export * from "./CalendarIcon";
+export * from "./CalendarDayIcon";
+export * from "./CheckmarkIcon";

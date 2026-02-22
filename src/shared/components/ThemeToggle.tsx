@@ -1,6 +1,5 @@
 import { useTheme } from "@/app/useTheme";
-import { SunIcon } from "../icon/SunIcon";
-import { MoonIcon } from "../icon/MoonIcon";
+import { MoonIcon, SunIcon } from "../icon";
 
 export const ThemeToggle = () => {
   const { isDark, toggleTheme } = useTheme();

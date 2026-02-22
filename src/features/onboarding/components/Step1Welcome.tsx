@@ -14,7 +14,7 @@ export const Step1Welcome = ({ onNext }: Step1WelcomeProps) => {
       <ProgressBar currentStep={1} />
 
       {/* Title */}
-      <h1 className="text-navy dark:text-text mb-4 text-center text-3xl font-bold">
+      <h1 className="text-navy dark:text-text mb-4 text-center text-2xl font-bold sm:text-3xl">
         {o.welcome.title}
       </h1>
       <p className="text-text-muted mb-8 text-center text-base">

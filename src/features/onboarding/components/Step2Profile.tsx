@@ -32,14 +32,14 @@ export const Step2Profile = ({
     <>
       <ProgressBar currentStep={2} />
 
-      <h1 className="text-navy dark:text-text mb-2 text-center text-3xl font-bold">
+      <h1 className="text-navy dark:text-text mb-2 text-center text-2xl font-bold sm:text-3xl">
         {p.title}
       </h1>
       <p className="text-text-muted mb-8 text-center text-sm">{p.subtitle}</p>
 
       {/* Form grid */}
       <div className="space-y-5">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label className="text-text mb-1 block text-sm font-medium">
               {p.firstName}
@@ -64,7 +64,7 @@ export const Step2Profile = ({
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label className="text-text mb-1 block text-sm font-medium">
               {p.email}

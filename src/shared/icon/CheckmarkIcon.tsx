@@ -1,20 +1,22 @@
 import type { SVGProps } from "react";
 
-export const MoonIcon = (props: SVGProps<SVGSVGElement>) => (
+export const CheckmarkIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     viewBox="0 0 24 24"
+    fill="none"
     {...props}
   >
     <path
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={2}
-      d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+      strokeWidth={2.5}
+      d="M5 13l4 4L19 7"
     />
   </svg>
 );
+
+export default CheckmarkIcon;

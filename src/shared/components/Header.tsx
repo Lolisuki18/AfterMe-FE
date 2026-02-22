@@ -73,7 +73,7 @@ export const Header = () => {
           </nav>
           <div className="mt-3">
             <Button>
-              <a href="/login" className="block w-full text-center">
+              <a href="/onboarding" className="block w-full text-center">
                 {t.header.cta}
               </a>
             </Button>

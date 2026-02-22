@@ -1,4 +1,3 @@
-import * as React from "react";
 import type { SVGProps } from "react";
 
 export const SunIcon = (props: SVGProps<SVGSVGElement>) => (
@@ -19,5 +18,3 @@ export const SunIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
-export default SunIcon;

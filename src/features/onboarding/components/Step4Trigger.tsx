@@ -1,6 +1,7 @@
 import { useLanguage } from "@/app/useLanguage";
 import type { OnboardingFormData } from "../interface";
 import { ProgressBar } from "./ProgressBar";
+import { CalendarDayIcon } from "@/shared/icon";
 
 interface Step4TriggerProps {
   data: OnboardingFormData;
@@ -35,7 +36,7 @@ export const Step4Trigger = ({
     <>
       <ProgressBar currentStep={4} />
 
-      <h1 className="text-navy dark:text-text mb-2 text-center text-3xl font-bold">
+      <h1 className="text-navy dark:text-text mb-2 text-center text-2xl font-bold sm:text-3xl">
         {tr.title}
       </h1>
       <p className="text-text-muted mx-auto mb-10 max-w-sm text-center text-sm">
@@ -44,18 +45,19 @@ export const Step4Trigger = ({
 
       {/* Slider */}
       <div className="mb-8 px-4">
-        <div className="relative mb-2 flex justify-center">
+        <div className="relative mb-6">
           <div
-            className="bg-primary absolute -top-8 flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white shadow"
+            className="bg-primary absolute -top-6 flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-white shadow-lg transition-all"
             style={{
-              left: `calc(${sliderPercent}% - 16px + 4px)`,
+              left: `${sliderPercent}%`,
+              transform: "translateX(-50%)",
             }}
           >
             {data.inactivityDays}
           </div>
         </div>
 
-        <p className="text-text-muted mt-4 mb-4 text-center text-sm font-medium">
+        <p className="text-text-muted mb-4 text-center text-sm font-medium">
           {tr.label}
         </p>
 
@@ -73,7 +75,7 @@ export const Step4Trigger = ({
       </div>
 
       {/* Quick-select chips */}
-      <div className="flex justify-center gap-3">
+      <div className="flex flex-wrap justify-center gap-3">
         {DAYS.map((d) => (
           <button
             key={d}
@@ -84,15 +86,7 @@ export const Step4Trigger = ({
                 : "text-text-muted hover:border-primary/40"
             }`}
           >
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <rect x="3" y="4" width="18" height="18" rx="2" strokeWidth="2" />
-              <path strokeWidth="2" d="M16 2v4M8 2v4M3 10h18" />
-            </svg>
+            <CalendarDayIcon className="h-4 w-4" />
             {dayLabel(d)}
           </button>
         ))}

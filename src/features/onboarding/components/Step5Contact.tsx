@@ -32,7 +32,7 @@ export const Step5Contact = ({
     <>
       <ProgressBar currentStep={5} />
 
-      <h1 className="text-navy dark:text-text mb-2 text-center text-3xl font-bold">
+      <h1 className="text-navy dark:text-text mb-2 text-center text-2xl font-bold sm:text-3xl">
         {c.title}
       </h1>
       <p className="text-text-muted mx-auto mb-8 max-w-sm text-center text-sm">
@@ -54,7 +54,7 @@ export const Step5Contact = ({
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label className="text-text mb-1 block text-sm font-medium">
               {c.email}
