@@ -1,1 +1,90 @@
 @import "tailwindcss";
+
+/* ============================================================
+   TAILWIND v4 — Đăng ký token thành utility class
+   Sau khi khai báo ở đây bạn có thể dùng trong JSX:
+     bg-primary, text-primary, border-border, bg-surface ...
+   ============================================================ */
+@theme {
+  /* Brand */
+  --color-primary: var(--app-primary);
+  --color-primary-hover: var(--app-primary-hover);
+  --color-secondary: var(--app-secondary);
+
+  /* Semantic – surface & text */
+  --color-bg: var(--app-bg);
+  --color-surface: var(--app-surface);
+  --color-surface-alt: var(--app-surface-alt);
+  --color-text: var(--app-text);
+  --color-text-muted: var(--app-text-muted);
+  --color-border: var(--app-border);
+
+  /* Status */
+  --color-success: var(--app-success);
+  --color-warning: var(--app-warning);
+  --color-error: var(--app-error);
+}
+
+/* ============================================================
+   CSS VARIABLES — Thêm / sửa màu tại đây, toàn bộ dự án sẽ
+   cập nhật tự động (cả light lẫn dark mode).
+   ============================================================ */
+@layer base {
+  /* ── LIGHT MODE (mặc định) ── */
+  :root {
+    /* Brand */
+    --app-primary: #4fb6ac;
+    --app-primary-hover: #3e948b;
+    --app-secondary: #1e3a5f;
+
+    /* Surface */
+    --app-bg: #ffffff; /* Nền toàn trang */
+    --app-surface: #f8fafc; /* Nền card / panel */
+    --app-surface-alt: #f1f5f9; /* Nền hover row / alternate */
+
+    /* Text */
+    --app-text: #1e293b; /* Văn bản chính */
+    --app-text-muted: #64748b; /* Văn bản phụ / placeholder */
+
+    /* Border */
+    --app-border: #e2e8f0;
+
+    /* Status */
+    --app-success: #22c55e;
+    --app-warning: #f59e0b;
+    --app-error: #ef4444;
+  }
+
+  /* ── DARK MODE ── */
+  .dark {
+    /* Brand */
+    --app-primary: #4fb6ac; /* Giữ nguyên màu brand */
+    --app-primary-hover: #6bcfc5;
+
+    /* Surface */
+    --app-bg: #0f172a; /* Nền toàn trang */
+    --app-surface: #1e293b; /* Nền card / panel */
+    --app-surface-alt: #334155; /* Nền hover row / alternate */
+
+    /* Text */
+    --app-text: #f1f5f9;
+    --app-text-muted: #94a3b8;
+
+    /* Border */
+    --app-border: #334155;
+
+    /* Status */
+    --app-success: #4ade80;
+    --app-warning: #fbbf24;
+    --app-error: #f87171;
+  }
+
+  /* ── Body defaults ── */
+  body {
+    background-color: var(--app-bg);
+    color: var(--app-text);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+}

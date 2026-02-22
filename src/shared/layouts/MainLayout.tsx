@@ -5,7 +5,7 @@ export const MainLayout = () => {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1 bg-gray-50">
+      <main className="bg-bg flex-1">
         <Outlet />
       </main>
       <Footer />

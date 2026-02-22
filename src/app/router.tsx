@@ -3,6 +3,7 @@ import { DashboardLayout, MainLayout, AuthLayout } from "@/shared/layouts";
 
 // Feature page imports (lazy load cho performance)
 import { lazy, Suspense } from "react";
+import { HomePage } from "@/features/home";
 
 const LoginPage = lazy(() => import("@/features/auth/pages/LoginPage"));
 const DashboardPage = lazy(
@@ -13,34 +14,6 @@ const UserListPage = lazy(() => import("@/features/user/pages/UserListPage"));
 const PageLoader = () => (
   <div className="flex h-screen items-center justify-center">
     <p className="text-gray-500">Loading...</p>
-  </div>
-);
-
-// Temporary HomePage component
-const HomePage = () => (
-  <div className="container mx-auto px-4 py-16">
-    <div className="text-center">
-      <h1 className="mb-4 text-4xl font-bold text-gray-900">
-        Chào mừng đến với AfterMe
-      </h1>
-      <p className="mb-8 text-lg text-gray-600">
-        Nền tảng quản lý và lưu trữ thông tin quan trọng cho tương lai
-      </p>
-      <div className="flex justify-center gap-4">
-        <a
-          href="/login"
-          className="rounded-md bg-blue-600 px-6 py-3 text-white hover:bg-blue-700"
-        >
-          Đăng nhập
-        </a>
-        <a
-          href="/register"
-          className="rounded-md border border-gray-300 bg-white px-6 py-3 text-gray-700 hover:bg-gray-50"
-        >
-          Đăng ký ngay
-        </a>
-      </div>
-    </div>
   </div>
 );
 

@@ -3,19 +3,19 @@ import { appConfig } from "@/app/config";
 
 export const AuthLayout = () => {
   return (
-    <div className="flex min-h-screen flex-col bg-gray-50">
+    <div className="bg-bg flex min-h-screen flex-col">
       {/* Simple Header */}
-      <header className="border-b border-gray-200 bg-white">
+      <header className="border-border bg-surface border-b">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           {/* Logo */}
-          <a href="/" className="text-xl font-bold text-gray-900">
+          <a href="/" className="text-text text-xl font-bold">
             {appConfig.appName}
           </a>
 
           {/* Back to home link */}
           <a
             href="/"
-            className="text-sm font-medium text-gray-600 hover:text-gray-900"
+            className="text-text-muted hover:text-text text-sm font-medium"
           >
             ← Về trang chủ
           </a>

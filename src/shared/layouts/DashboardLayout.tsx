@@ -4,7 +4,7 @@ import { Sidebar } from "@/shared/components/Sidebar";
 
 export const DashboardLayout = () => {
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="bg-bg flex h-screen">
       {/* Sidebar */}
       <Sidebar />
 
