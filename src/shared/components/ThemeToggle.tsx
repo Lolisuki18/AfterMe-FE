@@ -34,10 +34,10 @@ export const ThemeToggle = () => {
   }, [open]);
 
   return (
-    <div ref={containerRef} className="fixed bottom-6 left-6 z-50 lg:bottom-8">
+    <div ref={containerRef} className="fixed right-6 bottom-6 z-50 lg:bottom-8">
       {/* Dropdown Panel */}
       <div
-        className={`border-border bg-surface absolute bottom-16 left-0 w-56 origin-bottom-left rounded-2xl border shadow-2xl transition-all duration-200 ${
+        className={`border-border bg-surface absolute right-0 bottom-16 w-56 origin-bottom-left rounded-2xl border shadow-2xl transition-all duration-200 ${
           open
             ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
             : "pointer-events-none translate-y-2 scale-95 opacity-0"
@@ -81,7 +81,7 @@ export const ThemeToggle = () => {
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div className="flex items-center gap-2">
             <span className="flex-shrink-0 text-base" aria-hidden="true">
-              <LanguageIcon />
+              <LanguageIcon className="text-blue-400" />
             </span>
             <span className="text-text text-sm font-medium">
               {t.settings.language}

@@ -34,7 +34,7 @@ export const Pricing = () => {
           {p.plans.map((plan, idx) => (
             <div
               key={plan.name}
-              className={`relative flex flex-col rounded-2xl p-8 ${
+              className={`relative flex flex-col rounded-2xl p-8 sm:[&:last-child]:col-span-2 sm:[&:last-child]:mx-auto sm:[&:last-child]:w-1/2 lg:[&:last-child]:col-span-1 lg:[&:last-child]:mx-0 lg:[&:last-child]:w-auto ${
                 idx === 1
                   ? "border-primary bg-surface border-2 shadow-xl"
                   : "border-border bg-surface border shadow-sm"

@@ -33,7 +33,7 @@ export const WhoNeed = () => {
           {AUDIENCES.map((a) => (
             <div
               key={a.title}
-              className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-colors hover:bg-white/10"
+              className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-colors hover:bg-white/10 sm:last:col-span-2 sm:last:mx-auto sm:last:w-1/2 lg:last:col-span-1 lg:last:mx-0 lg:last:w-auto"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10">
                 {a.icon}

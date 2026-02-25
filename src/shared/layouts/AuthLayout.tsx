@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import { appConfig } from "@/app/config";
-import { LanguageToggle } from "@/shared/components/LanguageToggle";
 import { ThemeToggle } from "@/shared/components/ThemeToggle";
 
 export const AuthLayout = () => {
@@ -16,7 +15,6 @@ export const AuthLayout = () => {
 
           {/* Controls */}
           <div className="flex items-center gap-2">
-            <LanguageToggle />
             <a
               href="/"
               className="text-text-muted hover:text-text ml-2 text-sm font-medium"

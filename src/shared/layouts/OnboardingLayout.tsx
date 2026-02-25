@@ -1,6 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
 import Logo from "@/shared/icon/Logo";
-import { LanguageToggle } from "@/shared/components/LanguageToggle";
 import { ThemeToggle } from "@/shared/components/ThemeToggle";
 import { BackIcon } from "../icon";
 
@@ -23,8 +22,6 @@ export const OnboardingLayout = () => {
                 <BackIcon />
                 <span>Home</span>
               </Link>
-
-              <LanguageToggle />
             </div>
           </div>
           <Outlet />
