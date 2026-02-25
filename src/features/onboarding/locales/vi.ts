@@ -6,7 +6,7 @@ export const onboardingVi: OnboardingTranslations = {
     of: "trong",
     percentComplete: "% Hoàn thành",
     back: "← Quay lại",
-    next: "Bước tiếp theo →",
+    next: "Tiếp theo →",
     getStarted: "Bắt đầu",
     goToDashboard: "Đến Bảng điều khiển →",
 
@@ -66,6 +66,7 @@ export const onboardingVi: OnboardingTranslations = {
       day: "1 ngày",
       days3: "3 ngày",
       days7: "7 ngày",
+      daysChoose: "Số ngày bạn đã chọn là :",
     },
 
     // Step 5 – Trusted contact

@@ -2,6 +2,7 @@ import { useLanguage } from "@/app/useLanguage";
 import type { Step4TriggerProps } from "../interface";
 import { ProgressBar } from "./ProgressBar";
 import { CalendarDayIcon } from "@/shared/icon";
+import { Button } from "@/shared/components";
 
 const DAYS: Array<1 | 3 | 7> = [1, 3, 7];
 const MIN = 1;
@@ -17,7 +18,7 @@ export const Step4Trigger = ({
   const o = t.onboarding;
   const tr = o.trigger;
 
-  const sliderPercent = ((data.inactivityDays - MIN) / (MAX - MIN)) * 100;
+  // const sliderPercent = ((data.inactivityDays - MIN) / (MAX - MIN)) * 100;
 
   const dayLabel = (d: 1 | 3 | 7) => {
     if (d === 1) return tr.day;
@@ -38,18 +39,6 @@ export const Step4Trigger = ({
 
       {/* Slider */}
       <div className="mb-8 px-4">
-        <div className="relative mb-6">
-          <div
-            className="bg-primary absolute -top-6 flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-white shadow-lg transition-all"
-            style={{
-              left: `${sliderPercent}%`,
-              transform: "translateX(-50%)",
-            }}
-          >
-            {data.inactivityDays}
-          </div>
-        </div>
-
         <p className="text-text-muted mb-4 text-center text-sm font-medium">
           {tr.label}
         </p>
@@ -65,6 +54,9 @@ export const Step4Trigger = ({
           }
           className="accent-primary w-full cursor-pointer"
         />
+        <p className="text-text-muted mb-4 text-center text-sm font-medium">
+          {tr.daysChoose} {data.inactivityDays}
+        </p>
       </div>
 
       {/* Quick-select chips */}
@@ -87,18 +79,12 @@ export const Step4Trigger = ({
 
       {/* Navigation */}
       <div className="mt-10 flex items-center justify-between">
-        <button
-          onClick={onBack}
-          className="text-text-muted hover:text-text cursor-pointer text-sm transition-colors"
-        >
+        <Button onClick={onBack} variant="ghost" size="sm">
           {o.back}
-        </button>
-        <button
-          onClick={onNext}
-          className="bg-primary hover:bg-primary-hover cursor-pointer rounded-xl px-8 py-3 font-semibold text-white transition-colors"
-        >
+        </Button>
+        <Button onClick={onNext} variant="primary" size="lg">
           {o.next}
-        </button>
+        </Button>
       </div>
     </>
   );

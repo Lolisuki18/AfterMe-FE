@@ -1,6 +1,7 @@
 import { useLanguage } from "@/app/useLanguage";
 import { ProgressBar } from "./ProgressBar";
 import type { Step1WelcomeProps } from "../interface";
+import { Button } from "@/shared/components";
 
 export const Step1Welcome = ({ onNext }: Step1WelcomeProps) => {
   const { t } = useLanguage();
@@ -35,12 +36,9 @@ export const Step1Welcome = ({ onNext }: Step1WelcomeProps) => {
 
       {/* CTA */}
       <div className="flex justify-end">
-        <button
-          onClick={onNext}
-          className="bg-primary hover:bg-primary-hover cursor-pointer rounded-xl px-8 py-3 font-semibold text-white transition-colors"
-        >
+        <Button onClick={onNext} variant="primary" size="lg">
           {o.getStarted}
-        </button>
+        </Button>
       </div>
     </>
   );

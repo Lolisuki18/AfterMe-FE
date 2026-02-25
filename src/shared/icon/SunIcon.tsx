@@ -3,8 +3,6 @@ import type { SVGProps } from "react";
 export const SunIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={24}
-    height={24}
     viewBox="0 0 29 29"
     fill="none"
     {...props}

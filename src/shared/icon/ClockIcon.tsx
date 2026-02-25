@@ -19,7 +19,7 @@ export const ClockIcon = ({
       d="M22.059 40.441c10.152 0 18.382-8.23 18.382-18.382 0-10.152-8.23-18.382-18.382-18.382-10.152 0-18.382 8.23-18.382 18.382 0 10.152 8.23 18.382 18.382 18.382Z"
     />
     <path
-      stroke="#1E3A5F"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={2.757}

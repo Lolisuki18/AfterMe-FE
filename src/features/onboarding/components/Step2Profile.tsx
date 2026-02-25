@@ -2,6 +2,7 @@ import { useLanguage } from "@/app/useLanguage";
 
 import { ProgressBar } from "./ProgressBar";
 import type { Step2ProfileProps } from "../interface";
+import { Button } from "@/shared/components";
 
 const inputClass =
   "border-border bg-bg text-text placeholder:text-text-muted w-full rounded-lg border px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/50 transition-all";
@@ -107,19 +108,17 @@ export const Step2Profile = ({
 
       {/* Navigation */}
       <div className="mt-8 flex items-center justify-between">
-        <button
-          onClick={onBack}
-          className="text-text-muted hover:text-text cursor-pointer text-sm transition-colors"
-        >
+        <Button onClick={onBack} variant="ghost" size="sm">
           {o.back}
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={onNext}
           disabled={!isValid}
-          className="bg-primary hover:bg-primary-hover disabled:bg-border cursor-pointer rounded-xl px-8 py-3 font-semibold text-white transition-colors disabled:cursor-not-allowed"
+          variant="primary"
+          size="lg"
         >
           {o.next}
-        </button>
+        </Button>
       </div>
     </>
   );

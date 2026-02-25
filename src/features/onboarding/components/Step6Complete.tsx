@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
 import { CheckmarkIcon } from "@/shared/icon";
+import { Button } from "@/shared/components";
 
 export const Step6Complete = () => {
   const { t } = useLanguage();
@@ -24,12 +25,14 @@ export const Step6Complete = () => {
         {o.complete.title}
       </h1>
 
-      <button
+      <Button
         onClick={() => navigate("/dashboard")}
-        className="bg-primary hover:bg-primary-hover w-full max-w-xs cursor-pointer rounded-xl py-3 font-semibold text-white transition-colors"
+        variant="primary"
+        size="lg"
+        className="w-full max-w-xs"
       >
         {o.goToDashboard}
-      </button>
+      </Button>
     </div>
   );
 };

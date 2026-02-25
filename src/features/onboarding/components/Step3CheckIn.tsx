@@ -2,6 +2,7 @@ import { useLanguage } from "@/app/useLanguage";
 import type { Step3CheckInProps } from "../interface";
 import { ProgressBar } from "./ProgressBar";
 import { SunIcon, CalendarIcon } from "@/shared/icon";
+import { Button } from "@/shared/components";
 
 const timeBoxClass =
   "border-border bg-bg text-text w-14 rounded-lg border px-2 py-2.5 text-center text-lg font-semibold outline-none focus:ring-2 focus:ring-primary/50";
@@ -96,18 +97,12 @@ export const Step3CheckIn = ({
 
       {/* Navigation */}
       <div className="mt-10 flex items-center justify-between">
-        <button
-          onClick={onBack}
-          className="text-text-muted hover:text-text cursor-pointer text-sm transition-colors"
-        >
+        <Button onClick={onBack} variant="ghost" size="sm">
           {o.back}
-        </button>
-        <button
-          onClick={onNext}
-          className="bg-primary hover:bg-primary-hover cursor-pointer rounded-xl px-8 py-3 font-semibold text-white transition-colors"
-        >
+        </Button>
+        <Button onClick={onNext} variant="primary" size="lg">
           {o.next}
-        </button>
+        </Button>
       </div>
     </>
   );

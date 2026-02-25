@@ -64,6 +64,7 @@ export const onboardingEn = {
       day: "1 day",
       days3: "3 days",
       days7: "7 days",
+      daysChoose: "The number of day you choose is :",
     },
 
     // Step 5 – Trusted contact
