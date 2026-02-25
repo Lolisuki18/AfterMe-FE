@@ -1,13 +1,6 @@
 import { useLanguage } from "@/app/useLanguage";
-import type { OnboardingFormData } from "../interface";
+import type { Step5ContactProps } from "../interface";
 import { ProgressBar } from "./ProgressBar";
-
-interface Step5ContactProps {
-  data: OnboardingFormData;
-  onChange: (field: keyof OnboardingFormData, value: string | boolean) => void;
-  onNext: () => void;
-  onBack: () => void;
-}
 
 const inputClass =
   "border-border bg-bg text-text placeholder:text-text-muted w-full rounded-lg border px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/50 transition-all disabled:opacity-50";

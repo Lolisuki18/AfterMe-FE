@@ -1,14 +1,7 @@
 import { useLanguage } from "@/app/useLanguage";
-import type { OnboardingFormData } from "../interface";
+import type { Step4TriggerProps } from "../interface";
 import { ProgressBar } from "./ProgressBar";
 import { CalendarDayIcon } from "@/shared/icon";
-
-interface Step4TriggerProps {
-  data: OnboardingFormData;
-  onChange: (field: keyof OnboardingFormData, value: 1 | 3 | 7) => void;
-  onNext: () => void;
-  onBack: () => void;
-}
 
 const DAYS: Array<1 | 3 | 7> = [1, 3, 7];
 const MIN = 1;

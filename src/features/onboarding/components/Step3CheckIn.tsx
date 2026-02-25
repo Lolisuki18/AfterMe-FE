@@ -1,17 +1,7 @@
 import { useLanguage } from "@/app/useLanguage";
-import type { OnboardingFormData } from "../interface";
+import type { Step3CheckInProps } from "../interface";
 import { ProgressBar } from "./ProgressBar";
 import { SunIcon, CalendarIcon } from "@/shared/icon";
-
-interface Step3CheckInProps {
-  data: OnboardingFormData;
-  onChange: (
-    field: keyof OnboardingFormData,
-    value: string | "daily" | "weekly",
-  ) => void;
-  onNext: () => void;
-  onBack: () => void;
-}
 
 const timeBoxClass =
   "border-border bg-bg text-text w-14 rounded-lg border px-2 py-2.5 text-center text-lg font-semibold outline-none focus:ring-2 focus:ring-primary/50";

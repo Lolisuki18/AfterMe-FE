@@ -1,9 +1,6 @@
 import { useLanguage } from "@/app/useLanguage";
 import { ProgressBar } from "./ProgressBar";
-
-interface Step1WelcomeProps {
-  onNext: () => void;
-}
+import type { Step1WelcomeProps } from "../interface";
 
 export const Step1Welcome = ({ onNext }: Step1WelcomeProps) => {
   const { t } = useLanguage();

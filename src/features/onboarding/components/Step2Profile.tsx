@@ -1,13 +1,7 @@
 import { useLanguage } from "@/app/useLanguage";
-import type { OnboardingFormData } from "../interface";
-import { ProgressBar } from "./ProgressBar";
 
-interface Step2ProfileProps {
-  data: OnboardingFormData;
-  onChange: (field: keyof OnboardingFormData, value: string) => void;
-  onNext: () => void;
-  onBack: () => void;
-}
+import { ProgressBar } from "./ProgressBar";
+import type { Step2ProfileProps } from "../interface";
 
 const inputClass =
   "border-border bg-bg text-text placeholder:text-text-muted w-full rounded-lg border px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/50 transition-all";
