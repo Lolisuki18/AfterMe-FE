@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import Logo from "@/shared/icon/Logo";
-import { ThemeToggle } from "@/shared/components/ThemeToggle";
 import { BackIcon } from "../icon";
+import { SettingToggle } from "../components";
 
 export const OnboardingLayout = () => {
   return (
@@ -27,7 +27,7 @@ export const OnboardingLayout = () => {
           <Outlet />
         </div>
       </main>
-      <ThemeToggle />
+      <SettingToggle />
     </div>
   );
 };

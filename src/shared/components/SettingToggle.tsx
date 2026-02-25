@@ -4,7 +4,7 @@ import { useTheme } from "@/app/useTheme";
 import { GearIcon, MoonIcon, SunIcon } from "../icon";
 import LanguageIcon from "@mui/icons-material/Language";
 
-export const ThemeToggle = () => {
+export const SettingToggle = () => {
   const { isDark, toggleTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
   const [open, setOpen] = useState(false);

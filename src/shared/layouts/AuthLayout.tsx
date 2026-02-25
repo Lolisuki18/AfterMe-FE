@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { appConfig } from "@/app/config";
-import { ThemeToggle } from "@/shared/components/ThemeToggle";
+import { SettingToggle } from "@/shared/components/SettingToggle";
 
 export const AuthLayout = () => {
   return (
@@ -55,7 +55,7 @@ export const AuthLayout = () => {
           © {new Date().getFullYear()} {appConfig.appName}. All rights reserved.
         </div>
       </footer>
-      <ThemeToggle />
+      <SettingToggle />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Navbar } from "@/shared/components/Navbar";
 import { Sidebar } from "@/shared/components/Sidebar";
-import { ThemeToggle } from "@/shared/components/ThemeToggle";
+import { SettingToggle } from "../components";
 
 export const DashboardLayout = () => {
   return (
@@ -17,7 +17,7 @@ export const DashboardLayout = () => {
           <Outlet />
         </main>
       </div>
-      <ThemeToggle />
+      <SettingToggle />
     </div>
   );
 };
