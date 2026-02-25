@@ -1,5 +1,6 @@
 import { appConfig } from "@/app/config";
 import { useLanguage } from "@/app/useLanguage";
+import { CONTACT } from "../constants";
 
 export const Footer = () => {
   const { t } = useLanguage();
@@ -62,10 +63,14 @@ export const Footer = () => {
               {f.contactTitle}
             </h3>
             <ul className="text-text-muted space-y-2 text-sm">
-              <li>{f.email}: info@afterme.com</li>
-              <li>{f.hotline}: 0123456789</li>
               <li>
-                {f.address}: {f.addressValue}
+                {f.email}: {CONTACT.EMAIL}
+              </li>
+              <li>
+                {f.hotline}: {CONTACT.PHONE}
+              </li>
+              <li>
+                {f.address}: {CONTACT.ADDRESS}
               </li>
             </ul>
           </div>
