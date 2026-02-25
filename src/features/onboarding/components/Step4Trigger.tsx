@@ -18,8 +18,7 @@ export const Step4Trigger = ({
   const o = t.onboarding;
   const tr = o.trigger;
 
-  // const sliderPercent = ((data.inactivityDays - MIN) / (MAX - MIN)) * 100;
-
+  const percentage = ((data.inactivityDays - MIN) / (MAX - MIN)) * 100;
   const dayLabel = (d: 1 | 3 | 7) => {
     if (d === 1) return tr.day;
     if (d === 3) return tr.days3;
@@ -52,10 +51,26 @@ export const Step4Trigger = ({
           onChange={(e) =>
             onChange("inactivityDays", Number(e.target.value) as 1 | 3 | 7)
           }
-          className="accent-primary w-full cursor-pointer"
+          className="accent-primary h-1.5 w-full cursor-pointer appearance-none rounded-lg bg-gray-200"
+          style={{
+            background: `linear-gradient(to right, #56B8AF 0%, #56B8AF ${percentage}%, #d1d5db ${percentage}%, #d1d5db 100%)`,
+          }}
         />
-        <p className="text-text-muted mb-4 text-center text-sm font-medium">
-          {tr.daysChoose} {data.inactivityDays}
+        <p className="text-center text-sm font-medium text-slate-500 transition-all">
+          {tr.daysChoose}
+          <span className="ml-2 text-lg font-bold text-[#479b93]">
+            {data.inactivityDays}
+          </span>
+
+          {data.inactivityDays === 1 ? (
+            <span className="ml-1 text-xs tracking-wider uppercase">
+              {tr.day1}
+            </span>
+          ) : (
+            <span className="ml-1 text-xs tracking-wider uppercase">
+              {tr.days}
+            </span>
+          )}
         </p>
       </div>
 

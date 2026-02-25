@@ -59,12 +59,14 @@ export const onboardingEn = {
     trigger: {
       title: "Define Inactivity Trigger",
       subtitle:
-        "If you miss your daily check-ins for a set period, we will assume you are unavailable and activate your legacy plan.",
+        "If no check-in is detected for your chosen duration, your Legacy Plan will be automatically executed.",
       label: "Activate Legacy Mode after:",
       day: "1 day",
       days3: "3 days",
       days7: "7 days",
-      daysChoose: "The number of day you choose is :",
+      daysChoose: "Inactivity period:",
+      day1: "day",
+      days: "days",
     },
 
     // Step 5 – Trusted contact
