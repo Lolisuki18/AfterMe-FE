@@ -29,7 +29,7 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/pricing" className="text-text-muted hover:text-text">
+                <a href="/#pricing" className="text-text-muted hover:text-text">
                   {f.pricingLink}
                 </a>
               </li>
