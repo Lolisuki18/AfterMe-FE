@@ -82,6 +82,7 @@ export const onboardingVi: OnboardingTranslations = {
       note: "Liên hệ tin cậy của bạn sẽ được xác lập sau khi họ xác nhận qua email",
       skip: "Bỏ qua bước này",
       required: "*",
+      tooltip1: "Sẽ được bổ sung sau",
     },
 
     // Step 6 – Complete

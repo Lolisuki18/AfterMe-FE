@@ -80,6 +80,7 @@ export const onboardingEn = {
       note: "Your trusted contact will be established after they confirm it via email",
       skip: "Skip this for now",
       required: "*",
+      tooltip1: "Will be added later",
     },
 
     // Step 6 – Complete

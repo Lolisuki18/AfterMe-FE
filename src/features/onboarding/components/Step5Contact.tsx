@@ -2,6 +2,7 @@ import { useLanguage } from "@/app/useLanguage";
 import type { Step5ContactProps } from "../interface";
 import { ProgressBar } from "./ProgressBar";
 import { Button } from "@/shared/components";
+import Tippy from "@tippyjs/react";
 
 const inputClass =
   "border-border bg-bg text-text placeholder:text-text-muted w-full rounded-lg border px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/50 transition-all disabled:opacity-50";
@@ -80,15 +81,22 @@ export const Step5Contact = ({
         {/* Note + Skip */}
         <div className="flex items-start justify-between gap-4 pt-1">
           <p className="text-text-muted max-w-xs text-xs">{c.note}</p>
-          <label className="flex shrink-0 cursor-pointer items-center gap-2 text-sm">
-            <input
-              type="radio"
-              checked={data.skipContact}
-              onChange={() => onChange("skipContact", !data.skipContact)}
-              className="accent-primary"
-            />
-            <span className="text-text-muted">{c.skip}</span>
-          </label>
+          <Tippy
+            content={c.tooltip1}
+            theme="app-tooltip"
+            animation="scale"
+            duration={200}
+          >
+            <label className="flex shrink-0 cursor-pointer items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={data.skipContact}
+                onChange={() => onChange("skipContact", !data.skipContact)}
+                className="accent-primary h-4 w-4 cursor-pointer"
+              />
+              <span className="text-text-muted">{c.skip}</span>
+            </label>
+          </Tippy>
         </div>
       </div>
 
