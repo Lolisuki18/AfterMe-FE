@@ -3,7 +3,8 @@ import type { Step5ContactProps } from "../interface";
 import { ProgressBar } from "./ProgressBar";
 import { Button } from "@/shared/components";
 import Tippy from "@tippyjs/react";
-
+import "tippy.js/dist/tippy.css";
+import "tippy.js/animations/scale.css";
 const inputClass =
   "border-border bg-bg text-text placeholder:text-text-muted w-full rounded-lg border px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/50 transition-all disabled:opacity-50";
 

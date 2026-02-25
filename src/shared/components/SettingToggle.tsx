@@ -123,6 +123,7 @@ export const SettingToggle = () => {
       </div>
 
       {/* Gear Button */}
+
       <button
         onClick={() => setOpen((prev) => !prev)}
         aria-label="Open settings"
