@@ -15,7 +15,7 @@ export interface Step3CheckInProps {
   data: OnboardingFormData;
   onChange: (
     field: keyof OnboardingFormData,
-    value: string | "daily" | "weekly",
+    value: string | "daily" | "weekly" | boolean,
   ) => void;
   onNext: () => void;
   onBack: () => void;

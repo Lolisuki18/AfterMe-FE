@@ -3,7 +3,6 @@ import type { OnboardingTranslations } from "./en";
 export const onboardingVi: OnboardingTranslations = {
   onboarding: {
     step: "Bước",
-    of: "trong",
     percentComplete: "% Hoàn thành",
     back: "← Quay lại",
     next: "Tiếp theo →",
@@ -18,7 +17,7 @@ export const onboardingVi: OnboardingTranslations = {
       coverTitle: "Những gì chúng tôi sẽ thiết lập:",
       items: [
         "Thông tin hồ sơ cơ bản của bạn",
-        "Thiết lập lịch check-in hàng ngày",
+        "Cài đặt lịch check-in định kỳ",
         "Xác định ngưỡng không hoạt động",
         "Thêm liên hệ tin cậy",
       ],
@@ -27,7 +26,7 @@ export const onboardingVi: OnboardingTranslations = {
     // Step 2 – Profile
     profile: {
       title: "Hãy để chúng tôi hiểu bạn hơn",
-      subtitle: "Chúng tôi cần một vài thông tin để cá nhân hóa trải nghiệm.",
+      subtitle: "Hãy cho chúng tôi biết tần suất bạn muốn thực hiện check-in",
       firstName: "Họ",
       lastName: "Tên",
       email: "Email",
@@ -47,14 +46,23 @@ export const onboardingVi: OnboardingTranslations = {
 
     // Step 3 – Check-in
     checkin: {
-      title: "Thiết lập lịch check-in hàng ngày",
-      subtitle: "Chúng tôi cần một vài thông tin để cá nhân hóa trải nghiệm.",
+      title: "Cài đặt lịch check-in định kỳ",
+      subtitle: "Hãy cho chúng tôi biết tần suất bạn muốn thực hiện check-in.",
       frequency: "Tần suất check-in",
       daily: "Hàng ngày",
       weekly: "Hàng tuần",
       time: "Giờ check-in",
       am: "SA",
       pm: "CH",
+      "...": "...",
+      selectDay: "Chọn ngày trong tuần",
+      mon: "T2",
+      tue: "T3",
+      wed: "T4",
+      thu: "T5",
+      fri: "T6",
+      sat: "T7",
+      sun: "CN",
     },
 
     // Step 4 – Inactivity trigger

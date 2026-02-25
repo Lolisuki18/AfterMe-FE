@@ -5,7 +5,7 @@ import { SunIcon, CalendarIcon } from "@/shared/icon";
 import { Button } from "@/shared/components";
 
 const timeBoxClass =
-  "border-border bg-bg text-text w-14 rounded-lg border px-2 py-2.5 text-center text-lg font-semibold outline-none focus:ring-2 focus:ring-primary/50";
+  "border-border bg-bg text-text w-14 rounded-lg border px-2 py-2.5 text-center text-lg font-semibold outline-none focus:ring-2 focus:ring-primary/50 transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none";
 
 export const Step3CheckIn = ({
   data,
@@ -17,6 +17,17 @@ export const Step3CheckIn = ({
   const o = t.onboarding;
   const c = o.checkin;
 
+  // Đưa mảng này vào trong để lấy data từ object `c` của ngôn ngữ
+  const daysOfWeek = [
+    { value: "Mon", label: c.mon || "T2" },
+    { value: "Tue", label: c.tue || "T3" },
+    { value: "Wed", label: c.wed || "T4" },
+    { value: "Thu", label: c.thu || "T5" },
+    { value: "Fri", label: c.fri || "T6" },
+    { value: "Sat", label: c.sat || "T7" },
+    { value: "Sun", label: c.sun || "CN" },
+  ];
+
   return (
     <>
       <ProgressBar currentStep={3} />
@@ -27,7 +38,7 @@ export const Step3CheckIn = ({
       <p className="text-text-muted mb-10 text-center text-sm">{c.subtitle}</p>
 
       {/* Frequency selector */}
-      <div className="mb-8 flex flex-col items-center gap-4">
+      <div className="mb-6 flex flex-col items-center gap-4">
         <p className="text-primary font-semibold">{c.frequency}</p>
         <div className="flex flex-wrap justify-center gap-4">
           {(["daily", "weekly"] as const).map((freq) => (
@@ -41,9 +52,9 @@ export const Step3CheckIn = ({
               }`}
             >
               {freq === "daily" ? (
-                <SunIcon className="text-text-muted h-6 w-6" />
+                <SunIcon className="h-6 w-6" />
               ) : (
-                <CalendarIcon className="text-text-muted h-6 w-6" />
+                <CalendarIcon className="h-6 w-6" />
               )}
               {freq === "daily" ? c.daily : c.weekly}
             </button>
@@ -51,31 +62,82 @@ export const Step3CheckIn = ({
         </div>
       </div>
 
+      {/* Weekday Selector (Chỉ hiện khi chọn Weekly) */}
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          data.checkInFrequency === "weekly"
+            ? "mb-8 max-h-32 opacity-100"
+            : "mb-0 max-h-0 opacity-0"
+        }`}
+      >
+        <div className="flex flex-col items-center gap-3">
+          <span className="text-text-muted text-sm font-medium">
+            {c.selectDay || "Chọn ngày trong tuần"}
+          </span>
+          <div className="flex flex-wrap justify-center gap-2">
+            {daysOfWeek.map((day) => (
+              <button
+                key={day.value}
+                onClick={() => onChange("checkInDay", day.value)}
+                className={`flex h-10 w-10 items-center justify-center rounded-lg text-sm font-bold transition-all ${
+                  data.checkInDay === day.value
+                    ? "bg-primary shadow-primary/30 text-white shadow-lg"
+                    : "bg-bg border-border text-text-muted hover:border-primary/50 hover:text-primary border"
+                }`}
+              >
+                {day.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Time picker */}
       <div className="flex flex-col items-center gap-3">
         <span className="text-text-muted text-sm font-medium">{c.time}</span>
         <div className="flex items-center gap-2 sm:gap-3">
+          {/* Hour Input */}
           <input
             type="number"
             min={1}
             max={12}
             className={timeBoxClass}
             value={data.checkInHour}
-            onChange={(e) =>
-              onChange("checkInHour", e.target.value.padStart(2, "0"))
-            }
+            placeholder="12"
+            onChange={(e) => {
+              let val = e.target.value;
+              if (parseInt(val) > 12) val = "12";
+              onChange("checkInHour", val);
+            }}
+            onBlur={() => {
+              let val = data.checkInHour;
+              if (!val || parseInt(val) < 1) val = "1";
+              onChange("checkInHour", val.toString().padStart(2, "0"));
+            }}
           />
-          <span className="text-text text-xl font-bold">:</span>
+
+          <span className="text-text mb-1 text-xl font-bold">:</span>
+
+          {/* Minute Input */}
           <input
             type="number"
             min={0}
             max={59}
             className={timeBoxClass}
             value={data.checkInMinute}
-            onChange={(e) =>
-              onChange("checkInMinute", e.target.value.padStart(2, "0"))
-            }
+            placeholder="00"
+            onChange={(e) => {
+              let val = e.target.value;
+              if (parseInt(val) > 59) val = "59";
+              onChange("checkInMinute", val);
+            }}
+            onBlur={() => {
+              let val = data.checkInMinute;
+              if (!val || val === "") val = "0";
+              onChange("checkInMinute", val.toString().padStart(2, "0"));
+            }}
           />
+
           {/* AM / PM */}
           <div className="border-primary flex flex-col overflow-hidden rounded-lg border-2">
             {(["AM", "PM"] as const).map((period) => (

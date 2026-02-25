@@ -1,7 +1,6 @@
 export const onboardingEn = {
   onboarding: {
     step: "Step",
-    of: "of",
     percentComplete: "% Complete",
     back: "← Back",
     next: "Next Step →",
@@ -16,7 +15,7 @@ export const onboardingEn = {
       coverTitle: "What we'll cover:",
       items: [
         "Your basic profile information",
-        "Establish your daily check-in",
+        "Establish your check-in routine",
         "Define inactivity trigger",
         "Setting up a trusted contact",
       ],
@@ -25,7 +24,7 @@ export const onboardingEn = {
     // Step 2 – Profile
     profile: {
       title: "Let's get to know you",
-      subtitle: "We need a few details to personalize your experience.",
+      subtitle: "Choose how often you want AfterMe to check in on you.",
       firstName: "First Name",
       lastName: "Last Name",
       email: "Email",
@@ -45,14 +44,23 @@ export const onboardingEn = {
 
     // Step 3 – Check-in
     checkin: {
-      title: "Establish your daily check-in",
-      subtitle: "We need a few details to personalize your experience.",
+      title: "Establish your check-in routine",
+      subtitle: "Choose how often you want AfterMe to check in on you.",
       frequency: "Check-in Frequency",
       daily: "Daily",
       weekly: "Weekly",
       time: "Check-in Time",
       am: "AM",
       pm: "PM",
+      "...": "...",
+      selectDay: "Select day of the week",
+      mon: "Mon",
+      tue: "Tue",
+      wed: "Wed",
+      thu: "Thu",
+      fri: "Fri",
+      sat: "Sat",
+      sun: "Sun",
     },
 
     // Step 4 – Inactivity trigger

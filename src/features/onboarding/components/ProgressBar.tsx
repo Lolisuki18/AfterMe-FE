@@ -16,7 +16,7 @@ export const ProgressBar = ({
     <div className="mb-8">
       <div className="text-text-muted mb-2 flex items-center justify-between text-sm">
         <span>
-          {t.onboarding.step} {currentStep} {t.onboarding.of} {totalSteps}
+          {t.onboarding.step} {currentStep}/{totalSteps}
         </span>
         <span>
           {percent}

@@ -8,6 +8,7 @@ export interface OnboardingFormData {
 
   // Step 3 – Check-in
   checkInFrequency: "daily" | "weekly";
+  checkInDay: "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun";
   checkInHour: string; // "09"
   checkInMinute: string; // "00"
   checkInPeriod: "AM" | "PM";
@@ -29,6 +30,7 @@ export const defaultFormData: OnboardingFormData = {
   phone: "",
   hearAboutUs: "",
   checkInFrequency: "daily",
+  checkInDay: "Mon",
   checkInHour: "09",
   checkInMinute: "00",
   checkInPeriod: "AM",
