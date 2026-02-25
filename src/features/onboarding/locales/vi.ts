@@ -77,6 +77,7 @@ export const onboardingVi: OnboardingTranslations = {
       daysChoose: "Thời gian không hoạt động:",
       day1: "ngày",
       days: "ngày",
+      quickSelect: "Lựa chọn nhanh:",
     },
 
     // Step 5 – Trusted contact

@@ -75,7 +75,10 @@ export const Step4Trigger = ({
       </div>
 
       {/* Quick-select chips */}
-      <div className="flex flex-wrap justify-center gap-3">
+      <div className="flex flex-wrap items-center justify-center gap-3">
+        <p className="text-text-muted w-full text-center text-sm font-medium sm:w-auto">
+          {tr.quickSelect}
+        </p>
         {DAYS.map((d) => (
           <button
             key={d}

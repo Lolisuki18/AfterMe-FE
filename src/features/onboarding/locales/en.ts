@@ -75,6 +75,7 @@ export const onboardingEn = {
       daysChoose: "Inactivity period:",
       day1: "day",
       days: "days",
+      quickSelect: "Quick Select:",
     },
 
     // Step 5 – Trusted contact
