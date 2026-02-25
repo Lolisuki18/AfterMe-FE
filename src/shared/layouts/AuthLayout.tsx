@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { appConfig } from "@/app/config";
+import { SettingToggle } from "@/shared/components/SettingToggle";
 
 export const AuthLayout = () => {
   return (
@@ -12,13 +13,15 @@ export const AuthLayout = () => {
             {appConfig.appName}
           </a>
 
-          {/* Back to home link */}
-          <a
-            href="/"
-            className="text-text-muted hover:text-text text-sm font-medium"
-          >
-            ← Về trang chủ
-          </a>
+          {/* Controls */}
+          <div className="flex items-center gap-2">
+            <a
+              href="/"
+              className="text-text-muted hover:text-text ml-2 text-sm font-medium"
+            >
+              ← Về trang chủ
+            </a>
+          </div>
         </div>
       </header>
 
@@ -52,6 +55,7 @@ export const AuthLayout = () => {
           © {new Date().getFullYear()} {appConfig.appName}. All rights reserved.
         </div>
       </footer>
+      <SettingToggle />
     </div>
   );
 };

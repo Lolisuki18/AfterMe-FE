@@ -29,6 +29,19 @@ export const sharedEn = {
     light: "☀️ Light Mode",
     dark: "🌙 Dark Mode",
   },
+  settings: {
+    title: "Settings",
+    darkMode: "Dark mode",
+    lightMode: "Light mode",
+    language: "Language",
+  },
+  notFound: {
+    title: "Page Not Found",
+    description:
+      "Oops! The page you're looking for doesn't exist or hasn't been built yet. We're working on it!",
+    goBack: "Go Back",
+    goHome: "Back to Home",
+  },
 };
 
 export type SharedTranslations = typeof sharedEn;

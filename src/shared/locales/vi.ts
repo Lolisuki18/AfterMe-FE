@@ -31,4 +31,17 @@ export const sharedVi: SharedTranslations = {
     light: "☀️ Sáng",
     dark: "🌙 Tối",
   },
+  settings: {
+    title: "Cài đặt",
+    darkMode: "Chế độ tối",
+    lightMode: "Chế độ sáng",
+    language: "Ngôn ngữ",
+  },
+  notFound: {
+    title: "Không Tìm Thấy Trang",
+    description:
+      "Ối! Trang bạn đang tìm không tồn tại hoặc chưa được xây dựng. Chúng tôi đang phát triển tính năng này!",
+    goBack: "Quay Lại",
+    goHome: "Về Trang Chủ",
+  },
 };

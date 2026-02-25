@@ -1,20 +1,5 @@
 import { useLanguage } from "@/app/useLanguage";
-
-const CheckIcon = () => (
-  <svg
-    className="text-primary h-5 w-5 shrink-0"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.5}
-    viewBox="0 0 24 24"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="m4.5 12.75 6 6 9-13.5"
-    />
-  </svg>
-);
+import { CheckIcon } from "@/shared/icon";
 
 export const Pricing = () => {
   const { t } = useLanguage();
@@ -49,7 +34,7 @@ export const Pricing = () => {
           {p.plans.map((plan, idx) => (
             <div
               key={plan.name}
-              className={`relative flex flex-col rounded-2xl p-8 ${
+              className={`relative flex flex-col rounded-2xl p-8 sm:[&:last-child]:col-span-2 sm:[&:last-child]:mx-auto sm:[&:last-child]:w-1/2 lg:[&:last-child]:col-span-1 lg:[&:last-child]:mx-0 lg:[&:last-child]:w-auto ${
                 idx === 1
                   ? "border-primary bg-surface border-2 shadow-xl"
                   : "border-border bg-surface border shadow-sm"

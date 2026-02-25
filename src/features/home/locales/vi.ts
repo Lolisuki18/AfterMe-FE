@@ -10,7 +10,7 @@ export const homeVi: HomeTranslations = {
     description:
       "AfterMe giúp bạn ghi nhớ và duy trì những thói quen quan trọng trong cuộc sống — không áp lực, không cơ học.",
     ctaPrimary: "Bắt đầu hành trình",
-    ctaSecondary: "Xem cách hoạt động",
+    ctaSecondary: "Cách hoạt động",
     socialProof: "Được tin dùng bởi người dùng trên toàn thế giới",
   },
   howWork: {

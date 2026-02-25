@@ -1,15 +1,27 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { DashboardLayout, MainLayout, AuthLayout } from "@/shared/layouts";
+import {
+  DashboardLayout,
+  MainLayout,
+  AuthLayout,
+  OnboardingLayout,
+} from "@/shared/layouts";
 
 // Feature page imports (lazy load cho performance)
 import { lazy, Suspense } from "react";
 import { HomePage } from "@/features/home";
+
+const NotFoundPage = lazy(
+  () => import("@/features/not-found/page/NotFoundPage"),
+);
 
 const LoginPage = lazy(() => import("@/features/auth/pages/LoginPage"));
 const DashboardPage = lazy(
   () => import("@/features/dashboard/pages/DashboardPage"),
 );
 const UserListPage = lazy(() => import("@/features/user/pages/UserListPage"));
+const OnboardingPage = lazy(
+  () => import("@/features/onboarding/page/OnboardingPage"),
+);
 
 const PageLoader = () => (
   <div className="flex h-screen items-center justify-center">
@@ -25,9 +37,11 @@ export const AppRouter = () => {
           {/* Auth Routes - Sử dụng AuthLayout */}
           <Route element={<AuthLayout />}>
             <Route path="/login" element={<LoginPage />} />
-            {/* Có thể thêm các route auth khác: */}
-            {/* <Route path="/register" element={<RegisterPage />} /> */}
-            {/* <Route path="/forgot-password" element={<ForgotPasswordPage />} /> */}
+          </Route>
+
+          {/* Onboarding Routes - Sử dụng OnboardingLayout */}
+          <Route element={<OnboardingLayout />}>
+            <Route path="/onboarding" element={<OnboardingPage />} />
           </Route>
 
           {/* Public Routes - Sử dụng MainLayout */}
@@ -45,8 +59,11 @@ export const AppRouter = () => {
             <Route path="/users" element={<UserListPage />} />
           </Route>
 
-          {/* Redirect */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          {/* 404 - Not Found */}
+          <Route path="/404" element={<NotFoundPage />} />
+
+          {/* Redirect tất cả route không tồn tại về 404 */}
+          <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

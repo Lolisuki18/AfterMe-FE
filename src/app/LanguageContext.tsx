@@ -1,9 +1,6 @@
 import { createContext, useState, type ReactNode } from "react";
 import { en, vi, type Translations } from "@/locales";
 
-/* ============================================================
-   Types
-   ============================================================ */
 export type Language = "en" | "vi";
 
 export interface LanguageContextValue {

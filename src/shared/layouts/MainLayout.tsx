@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Footer, Header } from "../components";
+import { Footer, Header, SettingToggle } from "../components";
 
 export const MainLayout = () => {
   return (
@@ -9,6 +9,7 @@ export const MainLayout = () => {
         <Outlet />
       </main>
       <Footer />
+      <SettingToggle />
     </div>
   );
 };

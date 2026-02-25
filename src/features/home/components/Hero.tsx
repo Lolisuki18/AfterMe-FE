@@ -39,7 +39,7 @@ export const Hero = () => {
 
           <div className="flex w-full flex-col gap-4 sm:flex-row sm:flex-wrap">
             <a
-              href="/login"
+              href="/onboarding"
               className="bg-primary hover:bg-primary-hover inline-flex w-full items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-base font-semibold text-white shadow-md transition-colors sm:w-auto"
             >
               {h.ctaPrimary}
