@@ -53,7 +53,7 @@ export const onboardingEn = {
       am: "AM",
       pm: "PM",
       "...": "...",
-      selectDay: "Select day of the week",
+      selectDay: "Select days of the week",
       mon: "Mon",
       tue: "Tue",
       wed: "Wed",

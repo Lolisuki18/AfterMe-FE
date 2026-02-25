@@ -1,3 +1,5 @@
+import type { CheckInDay } from "../types";
+
 export interface OnboardingFormData {
   // Step 2 – Profile
   firstName: string;
@@ -8,7 +10,7 @@ export interface OnboardingFormData {
 
   // Step 3 – Check-in
   checkInFrequency: "daily" | "weekly";
-  checkInDay: "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun";
+  checkInDays: CheckInDay[];
   checkInHour: string; // "09"
   checkInMinute: string; // "00"
   checkInPeriod: "AM" | "PM";
@@ -30,7 +32,7 @@ export const defaultFormData: OnboardingFormData = {
   phone: "",
   hearAboutUs: "",
   checkInFrequency: "daily",
-  checkInDay: "Mon",
+  checkInDays: ["Mon"],
   checkInHour: "09",
   checkInMinute: "00",
   checkInPeriod: "AM",

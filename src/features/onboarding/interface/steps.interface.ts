@@ -1,4 +1,5 @@
-import type { OnboardingFormData } from "./onboarding";
+import type { CheckInDay } from "../types";
+import type { OnboardingFormData } from "./onboarding.interface";
 
 export interface Step1WelcomeProps {
   onNext: () => void;
@@ -15,7 +16,7 @@ export interface Step3CheckInProps {
   data: OnboardingFormData;
   onChange: (
     field: keyof OnboardingFormData,
-    value: string | "daily" | "weekly" | boolean,
+    value: string | "daily" | "weekly" | boolean | CheckInDay[],
   ) => void;
   onNext: () => void;
   onBack: () => void;

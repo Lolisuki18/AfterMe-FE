@@ -55,7 +55,7 @@ export const onboardingVi: OnboardingTranslations = {
       am: "SA",
       pm: "CH",
       "...": "...",
-      selectDay: "Chọn ngày trong tuần",
+      selectDay: "Chọn các ngày trong tuần",
       mon: "T2",
       tue: "T3",
       wed: "T4",

@@ -3,6 +3,7 @@ import type { Step3CheckInProps } from "../interface";
 import { ProgressBar } from "./ProgressBar";
 import { SunIcon, CalendarIcon } from "@/shared/icon";
 import { Button } from "@/shared/components";
+import type { CheckInDay } from "../types";
 
 const timeBoxClass =
   "border-border bg-bg text-text w-14 rounded-lg border px-2 py-2.5 text-center text-lg font-semibold outline-none focus:ring-2 focus:ring-primary/50 transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none";
@@ -17,7 +18,6 @@ export const Step3CheckIn = ({
   const o = t.onboarding;
   const c = o.checkin;
 
-  // Đưa mảng này vào trong để lấy data từ object `c` của ngôn ngữ
   const daysOfWeek = [
     { value: "Mon", label: c.mon || "T2" },
     { value: "Tue", label: c.tue || "T3" },
@@ -27,6 +27,18 @@ export const Step3CheckIn = ({
     { value: "Sat", label: c.sat || "T7" },
     { value: "Sun", label: c.sun || "CN" },
   ];
+  const handleDayToggle = (dayValue: CheckInDay) => {
+    const currentDays = Array.isArray(data.checkInDays) ? data.checkInDays : [];
+
+    if (currentDays.includes(dayValue)) {
+      onChange(
+        "checkInDays",
+        currentDays.filter((d) => d !== dayValue),
+      );
+    } else {
+      onChange("checkInDays", [...currentDays, dayValue]);
+    }
+  };
 
   return (
     <>
@@ -62,7 +74,7 @@ export const Step3CheckIn = ({
         </div>
       </div>
 
-      {/* Weekday Selector (Chỉ hiện khi chọn Weekly) */}
+      {/* Weekday Selector */}
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
           data.checkInFrequency === "weekly"
@@ -72,22 +84,28 @@ export const Step3CheckIn = ({
       >
         <div className="flex flex-col items-center gap-3">
           <span className="text-text-muted text-sm font-medium">
-            {c.selectDay || "Chọn ngày trong tuần"}
+            {c.selectDay || "Chọn các ngày trong tuần"}
           </span>
           <div className="flex flex-wrap justify-center gap-2">
-            {daysOfWeek.map((day) => (
-              <button
-                key={day.value}
-                onClick={() => onChange("checkInDay", day.value)}
-                className={`flex h-10 w-10 items-center justify-center rounded-lg text-sm font-bold transition-all ${
-                  data.checkInDay === day.value
-                    ? "bg-primary shadow-primary/30 text-white shadow-lg"
-                    : "bg-bg border-border text-text-muted hover:border-primary/50 hover:text-primary border"
-                }`}
-              >
-                {day.label}
-              </button>
-            ))}
+            {daysOfWeek.map((day) => {
+              const isSelected =
+                Array.isArray(data.checkInDays) &&
+                data.checkInDays.includes(day.value as CheckInDay);
+
+              return (
+                <button
+                  key={day.value}
+                  onClick={() => handleDayToggle(day.value as CheckInDay)}
+                  className={`flex h-10 w-10 items-center justify-center rounded-lg text-sm font-bold transition-all ${
+                    isSelected
+                      ? "bg-primary shadow-primary/30 text-white shadow-lg"
+                      : "bg-bg border-border text-text-muted hover:border-primary/50 hover:text-primary border"
+                  }`}
+                >
+                  {day.label}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
