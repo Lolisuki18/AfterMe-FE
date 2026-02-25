@@ -31,4 +31,10 @@ export const sharedVi: SharedTranslations = {
     light: "☀️ Sáng",
     dark: "🌙 Tối",
   },
+  settings: {
+    title: "Cài đặt",
+    darkMode: "Chế độ tối",
+    lightMode: "Chế độ sáng",
+    language: "Ngôn ngữ",
+  },
 };

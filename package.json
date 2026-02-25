@@ -12,6 +12,7 @@
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css,json}\""
   },
   "dependencies": {
+    "@mui/icons-material": "^7.3.8",
     "@tippyjs/react": "^4.2.6",
     "axios": "^1.13.5",
     "react": "^19.0.0",

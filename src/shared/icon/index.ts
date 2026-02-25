@@ -25,3 +25,4 @@ export * from "./MoonIcon";
 export * from "./CalendarIcon";
 export * from "./CalendarDayIcon";
 export * from "./CheckmarkIcon";
+export * from "./GearIcon";

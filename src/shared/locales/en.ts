@@ -29,6 +29,12 @@ export const sharedEn = {
     light: "☀️ Light Mode",
     dark: "🌙 Dark Mode",
   },
+  settings: {
+    title: "Settings",
+    darkMode: "Dark mode",
+    lightMode: "Light mode",
+    language: "Language",
+  },
 };
 
 export type SharedTranslations = typeof sharedEn;
