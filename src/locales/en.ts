@@ -2,12 +2,14 @@ import { sharedEn } from "@/shared/locales/en";
 import { homeEn } from "@/features/home/locales/en";
 import { onboardingEn } from "@/features/onboarding/locales/en";
 import { dashboardEn } from "@/features/dashboard/locales/en";
+import { remindersEn } from "@/features/reminders/locales/en";
 
 export const en = {
   ...sharedEn,
   ...homeEn,
   ...onboardingEn,
   ...dashboardEn,
+  ...remindersEn,
 };
 
 export type Translations = typeof en;

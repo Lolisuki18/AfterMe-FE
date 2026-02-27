@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
 import { MOCK_TASKS } from "../data";
 import { Section } from "../components";
@@ -7,6 +8,7 @@ import { SearchIcon, PlusIcon, SunIcon } from "@/shared/icon";
 const DashboardPage = () => {
   const { t } = useLanguage();
   const d = t.dashboard;
+  const navigate = useNavigate();
 
   const [search, setSearch] = useState("");
 
@@ -55,7 +57,10 @@ const DashboardPage = () => {
           </div>
 
           {/* New Reminder button */}
-          <button className="bg-primary hover:bg-primary-hover flex items-center justify-center gap-2 rounded-full px-5 py-2 text-sm font-semibold text-white shadow transition-colors">
+          <button
+            onClick={() => navigate("/reminders/new")}
+            className="bg-primary hover:bg-primary-hover flex items-center justify-center gap-2 rounded-full px-5 py-2 text-sm font-semibold text-white shadow transition-colors"
+          >
             <PlusIcon />
             <span className="whitespace-nowrap">{d.newReminder}</span>
           </button>

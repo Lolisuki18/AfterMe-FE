@@ -22,6 +22,9 @@ const UserListPage = lazy(() => import("@/features/user/pages/UserListPage"));
 const OnboardingPage = lazy(
   () => import("@/features/onboarding/page/OnboardingPage"),
 );
+const CreateReminderPage = lazy(
+  () => import("@/features/reminders/pages/CreateReminderPage"),
+);
 
 const PageLoader = () => (
   <div className="flex h-screen items-center justify-center">
@@ -57,6 +60,7 @@ export const AppRouter = () => {
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/users" element={<UserListPage />} />
+            <Route path="/reminders/new" element={<CreateReminderPage />} />
           </Route>
 
           {/* 404 - Not Found */}

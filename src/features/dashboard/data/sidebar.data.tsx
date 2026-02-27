@@ -15,8 +15,8 @@ export const SIDEBAR_LINK: SidebarLink[] = [
     icon: <PeopleOutlineIcon fontSize="small" />,
   },
   {
-    label: "Reminders",
-    to: "/reminders",
+    label: "New Reminder",
+    to: "/reminders/new",
     icon: <NotificationsNoneOutlinedIcon fontSize="small" />,
   },
   {
