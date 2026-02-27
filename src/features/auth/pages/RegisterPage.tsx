@@ -1,8 +1,8 @@
 import { useLanguage } from "@/app/useLanguage";
 import { AuthLayout } from "../components/AuthLayout";
-import { LoginForm } from "../components/LoginForm";
+import { RegisterForm } from "../components/RegisterForm";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const { t } = useLanguage();
 
   return (
@@ -10,15 +10,17 @@ const LoginPage = () => {
       {/* Heading */}
       <div className="mb-8">
         <h1 className="text-navy text-3xl font-black tracking-tight">
-          {t.auth.login.welcomeBack}
+          {t.auth.register.createAccount}
         </h1>
-        <p className="text-text-muted mt-2 text-sm">{t.auth.login.subtitle}</p>
+        <p className="text-text-muted mt-2 text-sm">
+          {t.auth.register.subtitle}
+        </p>
       </div>
 
       {/* Form */}
-      <LoginForm />
+      <RegisterForm />
     </AuthLayout>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

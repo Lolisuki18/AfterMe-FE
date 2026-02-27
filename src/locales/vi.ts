@@ -3,6 +3,7 @@ import { homeVi } from "@/features/home/locales/vi";
 import { onboardingVi } from "@/features/onboarding/locales/vi";
 import { dashboardVi } from "@/features/dashboard/locales/vi";
 import { remindersVi } from "@/features/reminders/locales/vi";
+import { authVi } from "@/features/auth/locales/vi";
 
 export const vi = {
   ...sharedVi,
@@ -10,4 +11,5 @@ export const vi = {
   ...onboardingVi,
   ...dashboardVi,
   ...remindersVi,
+  ...authVi,
 };

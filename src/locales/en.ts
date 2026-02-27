@@ -3,6 +3,7 @@ import { homeEn } from "@/features/home/locales/en";
 import { onboardingEn } from "@/features/onboarding/locales/en";
 import { dashboardEn } from "@/features/dashboard/locales/en";
 import { remindersEn } from "@/features/reminders/locales/en";
+import { authEn } from "@/features/auth/locales/en";
 
 export const en = {
   ...sharedEn,
@@ -10,6 +11,7 @@ export const en = {
   ...onboardingEn,
   ...dashboardEn,
   ...remindersEn,
+  ...authEn,
 };
 
 export type Translations = typeof en;

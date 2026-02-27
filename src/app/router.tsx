@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import {
   DashboardLayout,
   MainLayout,
-  AuthLayout,
   OnboardingLayout,
 } from "@/shared/layouts";
 
@@ -15,6 +14,7 @@ const NotFoundPage = lazy(
 );
 
 const LoginPage = lazy(() => import("@/features/auth/pages/LoginPage"));
+const RegisterPage = lazy(() => import("@/features/auth/pages/RegisterPage"));
 const DashboardPage = lazy(
   () => import("@/features/dashboard/pages/DashboardPage"),
 );
@@ -37,10 +37,9 @@ export const AppRouter = () => {
     <BrowserRouter>
       <Suspense fallback={<PageLoader />}>
         <Routes>
-          {/* Auth Routes - Sử dụng AuthLayout */}
-          <Route element={<AuthLayout />}>
-            <Route path="/login" element={<LoginPage />} />
-          </Route>
+          {/* Auth Routes - pages manage their own full-page split-screen layout */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
 
           {/* Onboarding Routes - Sử dụng OnboardingLayout */}
           <Route element={<OnboardingLayout />}>
