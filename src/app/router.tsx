@@ -25,6 +25,9 @@ const OnboardingPage = lazy(
 const CreateReminderPage = lazy(
   () => import("@/features/reminders/pages/CreateReminderPage"),
 );
+const SettingsPage = lazy(
+  () => import("@/features/dashboard/pages/SettingsPage"),
+);
 
 const PageLoader = () => (
   <div className="flex h-screen items-center justify-center">
@@ -58,6 +61,7 @@ export const AppRouter = () => {
           {/* Protected Routes - Sử dụng DashboardLayout */}
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/dashboard/settings" element={<SettingsPage />} />
             <Route path="/users" element={<UserListPage />} />
             <Route path="/reminders/new" element={<CreateReminderPage />} />
           </Route>

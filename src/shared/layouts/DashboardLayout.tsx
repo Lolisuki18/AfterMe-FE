@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Sidebar } from "@/features/dashboard/components/Sidebar";
-import { SettingToggle } from "../components";
 import { HamburgerIcon } from "@/shared/icon";
 import Logo from "@/shared/icon/Logo";
 
@@ -16,7 +15,7 @@ export const DashboardLayout = () => {
       {/* Main content area */}
       <div className="flex flex-1 flex-col overflow-hidden">
         {/* Top bar with hamburger on mobile */}
-        <header className="border-border bg-surface flex h-14 items-center gap-3 border-b px-4 md:hidden">
+        <header className="border-border bg-surface flex h-14 items-center gap-3 border-b px-4 lg:hidden">
           <button
             type="button"
             onClick={() => setSidebarOpen(true)}
@@ -31,7 +30,6 @@ export const DashboardLayout = () => {
           <Outlet />
         </main>
       </div>
-      <SettingToggle />
     </div>
   );
 };
