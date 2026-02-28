@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
 import Logo from "@/shared/icon/Logo";
 import { XIcon } from "@/shared/icon";
@@ -10,21 +11,282 @@ import {
   ShieldIcon,
 } from "../icon";
 
+/* Inline mini-icons for new nav items */
+const PhoneIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+    />
+  </svg>
+);
+const LockIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+    />
+  </svg>
+);
+const HeartIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+    />
+  </svg>
+);
+const PeopleIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+    />
+  </svg>
+);
+const ChartIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+    />
+  </svg>
+);
+const ShieldLockIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+    />
+  </svg>
+);
+const EyeIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+    />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+    />
+  </svg>
+);
+const ChevronDownIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+  </svg>
+);
+const CreditCardIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+    />
+  </svg>
+);
+
 interface SidebarProps {
   open?: boolean;
   onClose?: () => void;
 }
 
+/* ── Types ──────────────────────────────────────────────────────────── */
+interface NavItem {
+  label: string;
+  to: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+interface NavGroup {
+  key: string;
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  children: NavItem[];
+}
+
 export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
   const { t } = useLanguage();
   const s = t.dashboard.sidebar;
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const NAV_LINKS = [
-    { label: s.home, to: "/dashboard", icon: HomeIcon },
-    { label: s.safetySettings, to: "/dashboard/settings", icon: SettingsIcon },
-    { label: s.reminders, to: "/reminders/new", icon: BellIcon },
-    { label: s.account, to: "/dashboard/account", icon: UserIcon },
+  /* ── Nav groups ─────────────────────────────────────────────────── */
+  const NAV_GROUPS: NavGroup[] = [
+    {
+      key: "safety",
+      label: s.safetyGroup,
+      icon: ShieldIcon,
+      children: [
+        {
+          label: s.safetySettings,
+          to: "/dashboard/settings",
+          icon: SettingsIcon,
+        },
+        {
+          label: s.emergencyContacts,
+          to: "/dashboard/emergency-contacts",
+          icon: PhoneIcon,
+        },
+        {
+          label: s.digitalVault,
+          to: "/dashboard/digital-vault",
+          icon: LockIcon,
+        },
+      ],
+    },
+    {
+      key: "life",
+      label: s.dailyLifeGroup,
+      icon: HeartIcon,
+      children: [
+        { label: s.lifestyle, to: "/dashboard/lifestyle", icon: HeartIcon },
+        { label: s.family, to: "/dashboard/family", icon: PeopleIcon },
+        {
+          label: s.activityLog,
+          to: "/dashboard/activity-log",
+          icon: ChartIcon,
+        },
+        { label: s.reminders, to: "/reminders/new", icon: BellIcon },
+      ],
+    },
+    {
+      key: "account",
+      label: s.account,
+      icon: UserIcon,
+      children: [
+        {
+          label: s.personalInfo,
+          to: "/dashboard/account/personal",
+          icon: UserIcon,
+        },
+        {
+          label: s.security,
+          to: "/dashboard/account/security",
+          icon: ShieldLockIcon,
+        },
+        { label: s.privacy, to: "/dashboard/account/privacy", icon: EyeIcon },
+        {
+          label: s.notifications,
+          to: "/dashboard/account/notifications",
+          icon: BellIcon,
+        },
+      ],
+    },
   ];
+
+  /* ── Collapsible state ──────────────────────────────────────────── */
+  const isChildActive = (group: NavGroup) =>
+    group.children.some(
+      (c) =>
+        location.pathname === c.to || location.pathname.startsWith(c.to + "/"),
+    );
+
+  const [openGroups, setOpenGroups] = useState<Set<string>>(() => {
+    const init = new Set<string>();
+    NAV_GROUPS.forEach((g) => {
+      if (isChildActive(g)) init.add(g.key);
+    });
+    return init;
+  });
+
+  // Auto-expand when navigating into a group
+  useEffect(() => {
+    NAV_GROUPS.forEach((g) => {
+      if (isChildActive(g)) {
+        setOpenGroups((prev) => {
+          if (prev.has(g.key)) return prev;
+          return new Set([...prev, g.key]);
+        });
+      }
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
+  const toggleGroup = (key: string) =>
+    setOpenGroups((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+
+  /* ── Render helpers ─────────────────────────────────────────────── */
+  const linkClass = (isActive: boolean) =>
+    `flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
+      isActive
+        ? "bg-primary text-white"
+        : "text-text-muted hover:bg-surface-alt hover:text-text"
+    }`;
+
+  const childLinkClass = (isActive: boolean) =>
+    `flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-colors ${
+      isActive
+        ? "bg-primary text-white"
+        : "text-text-muted hover:bg-surface-alt hover:text-text"
+    }`;
 
   return (
     <>
@@ -41,16 +303,10 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* Logo + Safety Hub */}
+        {/* Logo + AfterMe */}
         <div className="flex h-16 items-center justify-between px-5">
-          <div className="flex items-center gap-2.5">
-            <ShieldIcon className="text-primary h-5 w-5" />
-            <div className="leading-tight">
-              <Logo className="h-6 w-auto" />
-              <p className="text-text-muted text-[10px] font-medium tracking-wide">
-                {s.safetyHub}
-              </p>
-            </div>
+          <div className="flex items-center gap-2">
+            <Logo className="h-8 w-auto" />
           </div>
           <button
             type="button"
@@ -61,38 +317,97 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
           </button>
         </div>
 
-        {/* Navigation links */}
-        <nav className="mt-4 flex-1 space-y-1 px-3">
-          {NAV_LINKS.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={link.to === "/dashboard"}
-              onClick={onClose}
-              className={({ isActive }) =>
-                `flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
-                  isActive
-                    ? "bg-primary text-white"
-                    : "text-text-muted hover:bg-surface-alt hover:text-text"
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  <link.icon
-                    className={`h-[18px] w-[18px] ${isActive ? "text-white" : ""}`}
+        {/* Navigation */}
+        <nav className="mt-4 flex-1 space-y-1 overflow-y-auto px-3">
+          {/* Home — standalone */}
+          <NavLink
+            to="/dashboard"
+            end
+            onClick={onClose}
+            className={({ isActive }) => linkClass(isActive)}
+          >
+            {({ isActive }) => (
+              <>
+                <HomeIcon
+                  className={`h-[18px] w-[18px] ${isActive ? "text-white" : ""}`}
+                />
+                {s.home}
+              </>
+            )}
+          </NavLink>
+
+          {/* Collapsible groups */}
+          {NAV_GROUPS.map((group) => {
+            const isOpen = openGroups.has(group.key);
+            const hasActive = isChildActive(group);
+
+            return (
+              <div key={group.key}>
+                {/* Group header */}
+                <button
+                  type="button"
+                  onClick={() => toggleGroup(group.key)}
+                  className={`flex w-full items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
+                    hasActive && !isOpen
+                      ? "text-primary"
+                      : "text-text-muted hover:bg-surface-alt hover:text-text"
+                  }`}
+                >
+                  <group.icon className="h-[18px] w-[18px]" />
+                  <span className="flex-1 text-left">{group.label}</span>
+                  <ChevronDownIcon
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
                   />
-                  {link.label}
-                </>
-              )}
-            </NavLink>
-          ))}
+                </button>
+
+                {/* Children */}
+                {isOpen && (
+                  <div className="border-border mt-1 ml-4 space-y-0.5 border-l pl-3">
+                    {group.children.map((child) => (
+                      <NavLink
+                        key={child.to}
+                        to={child.to}
+                        onClick={onClose}
+                        className={({ isActive }) => childLinkClass(isActive)}
+                      >
+                        {({ isActive }) => (
+                          <>
+                            <child.icon
+                              className={`h-4 w-4 ${isActive ? "text-white" : ""}`}
+                            />
+                            {child.label}
+                          </>
+                        )}
+                      </NavLink>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+
+          {/* Subscription — standalone */}
+          <NavLink
+            to="/dashboard/subscription"
+            onClick={onClose}
+            className={({ isActive }) => linkClass(isActive)}
+          >
+            {({ isActive }) => (
+              <>
+                <CreditCardIcon
+                  className={`h-[18px] w-[18px] ${isActive ? "text-white" : ""}`}
+                />
+                {s.subscription}
+              </>
+            )}
+          </NavLink>
         </nav>
 
-        {/* User info at bottom */}
-        <div className="border-border border-t px-4 py-4">
+        {/* User info + actions at bottom */}
+        <div className="border-border space-y-3 border-t px-4 py-4">
           <div className="flex items-center gap-3">
-            {/* Avatar placeholder */}
             <div className="bg-primary/20 flex h-9 w-9 shrink-0 items-center justify-center rounded-full">
               <UserIcon className="text-primary h-4 w-4" />
             </div>
@@ -104,6 +419,53 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
                 {s.studentPlan}
               </p>
             </div>
+          </div>
+
+          {/* Back to Home + Logout */}
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => navigate("/")}
+              className="text-text-muted hover:bg-surface-alt hover:text-text flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2 text-xs font-medium transition-colors"
+            >
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"
+                />
+              </svg>
+              {s.backToHome}
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                localStorage.removeItem("token");
+                navigate("/login");
+              }}
+              className="flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-red-500 transition-colors hover:bg-red-50 hover:text-red-600"
+            >
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                />
+              </svg>
+              {s.logout}
+            </button>
           </div>
         </div>
       </aside>

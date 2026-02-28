@@ -44,4 +44,9 @@ export const sharedVi: SharedTranslations = {
     goBack: "Quay Lại",
     goHome: "Về Trang Chủ",
   },
+  comingSoon: {
+    title: "Sắp Ra Mắt",
+    description:
+      "Chúng tôi đang nỗ lực phát triển tính năng này. Hãy đón chờ nhé!",
+  },
 };

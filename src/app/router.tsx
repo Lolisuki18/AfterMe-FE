@@ -28,6 +28,34 @@ const CreateReminderPage = lazy(
 const SettingsPage = lazy(
   () => import("@/features/dashboard/pages/SettingsPage"),
 );
+const PersonalInfoPage = lazy(
+  () => import("@/features/settings/pages/PersonalInfoPage"),
+);
+const SecurityPage = lazy(
+  () => import("@/features/settings/pages/SecurityPage"),
+);
+const PrivacyPage = lazy(() => import("@/features/settings/pages/PrivacyPage"));
+const NotificationsPage = lazy(
+  () => import("@/features/settings/pages/NotificationsPage"),
+);
+const EmergencyContactsPage = lazy(
+  () => import("@/features/emergency-contacts/pages/EmergencyContactsPage"),
+);
+const DigitalVaultPage = lazy(
+  () => import("@/features/digital-vault/pages/DigitalVaultPage"),
+);
+const LifestyleAssistantPage = lazy(
+  () => import("@/features/lifestyle/pages/LifestyleAssistantPage"),
+);
+const FamilyDashboardPage = lazy(
+  () => import("@/features/family/pages/FamilyDashboardPage"),
+);
+const ActivityLogPage = lazy(
+  () => import("@/features/activity/pages/ActivityLogPage"),
+);
+const SubscriptionPage = lazy(
+  () => import("@/features/subscription/pages/SubscriptionPage"),
+);
 
 const PageLoader = () => (
   <div className="flex h-screen items-center justify-center">
@@ -62,6 +90,47 @@ export const AppRouter = () => {
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/dashboard/settings" element={<SettingsPage />} />
+            <Route
+              path="/dashboard/account"
+              element={<Navigate to="/dashboard/account/personal" replace />}
+            />
+            <Route
+              path="/dashboard/account/personal"
+              element={<PersonalInfoPage />}
+            />
+            <Route
+              path="/dashboard/account/security"
+              element={<SecurityPage />}
+            />
+            <Route
+              path="/dashboard/account/privacy"
+              element={<PrivacyPage />}
+            />
+            <Route
+              path="/dashboard/account/notifications"
+              element={<NotificationsPage />}
+            />
+            <Route
+              path="/dashboard/emergency-contacts"
+              element={<EmergencyContactsPage />}
+            />
+            <Route
+              path="/dashboard/digital-vault"
+              element={<DigitalVaultPage />}
+            />
+            <Route
+              path="/dashboard/lifestyle"
+              element={<LifestyleAssistantPage />}
+            />
+            <Route path="/dashboard/family" element={<FamilyDashboardPage />} />
+            <Route
+              path="/dashboard/activity-log"
+              element={<ActivityLogPage />}
+            />
+            <Route
+              path="/dashboard/subscription"
+              element={<SubscriptionPage />}
+            />
             <Route path="/users" element={<UserListPage />} />
             <Route path="/reminders/new" element={<CreateReminderPage />} />
           </Route>

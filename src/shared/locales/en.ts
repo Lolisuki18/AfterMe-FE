@@ -42,6 +42,11 @@ export const sharedEn = {
     goBack: "Go Back",
     goHome: "Back to Home",
   },
+  comingSoon: {
+    title: "Coming Soon",
+    description:
+      "We're working hard to bring you this feature. Stay tuned for updates!",
+  },
 };
 
 export type SharedTranslations = typeof sharedEn;
