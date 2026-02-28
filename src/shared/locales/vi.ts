@@ -49,4 +49,12 @@ export const sharedVi: SharedTranslations = {
     description:
       "Chúng tôi đang nỗ lực phát triển tính năng này. Hãy đón chờ nhé!",
   },
+  authLayout: {
+    backToHome: "← Về trang chủ",
+    termsNotice: "Bằng việc tiếp tục, bạn đồng ý với",
+    termsOfService: "Điều khoản dịch vụ",
+    and: "và",
+    privacyPolicy: "Chính sách bảo mật",
+    rights: "Đã đăng ký bản quyền.",
+  },
 };

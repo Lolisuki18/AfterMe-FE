@@ -10,3 +10,6 @@ export { Header } from "./Header";
 export { Footer } from "./Footer";
 export { LanguageToggle } from "./LanguageToggle";
 export * from "./SettingToggle";
+export { ProtectedRoute } from "./ProtectedRoute";
+export { ErrorBoundary } from "./ErrorBoundary";
+export { PageSkeleton } from "./PageSkeleton";

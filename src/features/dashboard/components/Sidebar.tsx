@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
+import { useAuthStore } from "@/features/auth/store/authStore";
 import Logo from "@/shared/icon/Logo";
 import {
   XIcon,
@@ -45,6 +46,7 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
   const s = t.dashboard.sidebar;
   const location = useLocation();
   const navigate = useNavigate();
+  const { user, clearSession } = useAuthStore();
 
   /* ── Nav groups ─────────────────────────────────────────────────── */
   const NAV_GROUPS: NavGroup[] = [
@@ -295,10 +297,10 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
             </div>
             <div className="min-w-0 flex-1">
               <p className="text-text truncate text-sm font-medium">
-                Alex Morgan
+                {user?.name ?? "User"}
               </p>
               <p className="text-text-muted truncate text-xs">
-                {s.studentPlan}
+                {user?.email ?? s.studentPlan}
               </p>
             </div>
           </div>
@@ -316,7 +318,7 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
             <button
               type="button"
               onClick={() => {
-                localStorage.removeItem("token");
+                clearSession();
                 navigate("/login");
               }}
               className="flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-red-500 transition-colors hover:bg-red-50 hover:text-red-600"

@@ -2,8 +2,10 @@ import { dashboardStore } from "../store/dashboardStore";
 import { WelcomeHeader } from "../components/WelcomeHeader";
 import { CheckInCard } from "../components/CheckInCard";
 import { RoutineTimeline } from "../components/RoutineTimeline";
+import { useDocumentTitle } from "@/hooks";
 
 const DashboardPage = () => {
+  useDocumentTitle("Dashboard");
   const { user, routines } = dashboardStore.getData();
 
   return (

@@ -47,6 +47,14 @@ export const sharedEn = {
     description:
       "We're working hard to bring you this feature. Stay tuned for updates!",
   },
+  authLayout: {
+    backToHome: "← Back to Home",
+    termsNotice: "By continuing, you agree to our",
+    termsOfService: "Terms of Service",
+    and: "and",
+    privacyPolicy: "Privacy Policy",
+    rights: "All rights reserved.",
+  },
 };
 
 export type SharedTranslations = typeof sharedEn;

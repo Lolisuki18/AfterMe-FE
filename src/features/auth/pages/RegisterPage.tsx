@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
+import { useDocumentTitle } from "@/hooks";
 import { AuthLayout } from "../components/AuthLayout";
 import { RegisterForm } from "../components/RegisterForm";
 import { BellIcon, PeopleIcon, ShieldCheckIcon } from "@/shared/icon";
@@ -75,6 +76,7 @@ const RegisterLeftContent = () => {
 // ─── Page ───────────────────────────────────────────────────────────────────────
 const RegisterPage = () => {
   const { t } = useLanguage();
+  useDocumentTitle("Register");
 
   return (
     <AuthLayout

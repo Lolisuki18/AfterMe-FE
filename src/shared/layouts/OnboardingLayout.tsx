@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import Logo from "@/shared/icon/Logo";
-import { SettingToggle } from "../components";
 
 export const OnboardingLayout = () => {
   return (
@@ -14,7 +13,6 @@ export const OnboardingLayout = () => {
           <Outlet />
         </div>
       </main>
-      <SettingToggle />
     </div>
   );
 };

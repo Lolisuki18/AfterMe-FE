@@ -4,6 +4,8 @@ import {
   MainLayout,
   OnboardingLayout,
 } from "@/shared/layouts";
+import { ProtectedRoute } from "@/shared/components/ProtectedRoute";
+import { PageSkeleton } from "@/shared/components/PageSkeleton";
 
 // Feature page imports (lazy load cho performance)
 import { lazy, Suspense } from "react";
@@ -79,16 +81,10 @@ const SosTriggerPage = lazy(
   () => import("@/features/sos-trigger/pages/SosTriggerPage"),
 );
 
-const PageLoader = () => (
-  <div className="flex h-screen items-center justify-center">
-    <p className="text-gray-500">Loading...</p>
-  </div>
-);
-
 export const AppRouter = () => {
   return (
     <BrowserRouter>
-      <Suspense fallback={<PageLoader />}>
+      <Suspense fallback={<PageSkeleton />}>
         <Routes>
           {/* Auth Routes - pages manage their own full-page split-screen layout */}
           <Route path="/login" element={<LoginPage />} />
@@ -108,48 +104,53 @@ export const AppRouter = () => {
           </Route>
 
           {/* Protected Routes - Sử dụng DashboardLayout */}
-          <Route element={<DashboardLayout />}>
-            <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/dashboard/settings" element={<SettingsPage />} />
-            <Route
-              path="/dashboard/account"
-              element={<Navigate to="/dashboard/account/personal" replace />}
-            />
-            <Route
-              path="/dashboard/account/personal"
-              element={<PersonalInfoPage />}
-            />
-            <Route
-              path="/dashboard/account/security"
-              element={<SecurityPage />}
-            />
-            <Route
-              path="/dashboard/account/notifications"
-              element={<NotificationsPage />}
-            />
-            <Route
-              path="/dashboard/emergency-contacts"
-              element={<EmergencyContactsPage />}
-            />
-            <Route
-              path="/dashboard/digital-vault"
-              element={<DigitalVaultPage />}
-            />
-            <Route
-              path="/dashboard/lifestyle"
-              element={<LifestyleAssistantPage />}
-            />
-            <Route path="/dashboard/family" element={<FamilyDashboardPage />} />
-            <Route
-              path="/dashboard/activity-log"
-              element={<ActivityLogPage />}
-            />
-            <Route
-              path="/dashboard/subscription"
-              element={<SubscriptionPage />}
-            />
-            <Route path="/dashboard/referral" element={<ReferralPage />} />
-            <Route path="/reminders/new" element={<CreateReminderPage />} />
+          <Route element={<ProtectedRoute />}>
+            <Route element={<DashboardLayout />}>
+              <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/dashboard/settings" element={<SettingsPage />} />
+              <Route
+                path="/dashboard/account"
+                element={<Navigate to="/dashboard/account/personal" replace />}
+              />
+              <Route
+                path="/dashboard/account/personal"
+                element={<PersonalInfoPage />}
+              />
+              <Route
+                path="/dashboard/account/security"
+                element={<SecurityPage />}
+              />
+              <Route
+                path="/dashboard/account/notifications"
+                element={<NotificationsPage />}
+              />
+              <Route
+                path="/dashboard/emergency-contacts"
+                element={<EmergencyContactsPage />}
+              />
+              <Route
+                path="/dashboard/digital-vault"
+                element={<DigitalVaultPage />}
+              />
+              <Route
+                path="/dashboard/lifestyle"
+                element={<LifestyleAssistantPage />}
+              />
+              <Route
+                path="/dashboard/family"
+                element={<FamilyDashboardPage />}
+              />
+              <Route
+                path="/dashboard/activity-log"
+                element={<ActivityLogPage />}
+              />
+              <Route
+                path="/dashboard/subscription"
+                element={<SubscriptionPage />}
+              />
+              <Route path="/dashboard/referral" element={<ReferralPage />} />
+              <Route path="/reminders/new" element={<CreateReminderPage />} />
+            </Route>
           </Route>
 
           {/* Standalone pages – no layout wrapper */}

@@ -1,12 +1,12 @@
-// ─── Auth Store: Mock authentication with localStorage ────────────────────────
+import { create } from "zustand";
+
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 const STORAGE_KEYS = {
   TOKEN: "afterme_token",
   USER: "afterme_current_user",
   USERS: "afterme_users",
 } as const;
-
-// ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface StoredUser {
   id: string;
@@ -34,11 +34,11 @@ export interface RegisterPayload {
 
 export interface AuthResult {
   success: boolean;
-  messageKey: string; // translation key for i18n
+  messageKey: string;
   user?: AuthUser;
 }
 
-// ─── Default mock user (when no one has registered yet) ───────────────────────
+// ─── Default mock user ────────────────────────────────────────────────────────
 
 const MOCK_USER: StoredUser = {
   id: "mock-001",
@@ -50,10 +50,9 @@ const MOCK_USER: StoredUser = {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
-
 const generateToken = (email: string) => btoa(`${email}:${Date.now()}`);
 
-// ─── LocalStorage helpers ─────────────────────────────────────────────────────
+// ─── localStorage helpers ─────────────────────────────────────────────────────
 
 const getUsers = (): StoredUser[] => {
   try {
@@ -64,7 +63,7 @@ const getUsers = (): StoredUser[] => {
   }
 };
 
-const saveUser = (user: StoredUser): void => {
+const saveUserToStorage = (user: StoredUser): void => {
   const users = getUsers();
   users.push(user);
   localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
@@ -73,100 +72,122 @@ const saveUser = (user: StoredUser): void => {
 const findByEmail = (email: string): StoredUser | undefined =>
   getUsers().find((u) => u.email.toLowerCase() === email.toLowerCase());
 
-const setToken = (token: string): void =>
-  localStorage.setItem(STORAGE_KEYS.TOKEN, token);
+// ─── Zustand store ────────────────────────────────────────────────────────────
 
-const getToken = (): string | null => localStorage.getItem(STORAGE_KEYS.TOKEN);
+interface AuthState {
+  user: AuthUser | null;
+  token: string | null;
+  isAuthenticated: boolean;
 
-const removeToken = (): void => localStorage.removeItem(STORAGE_KEYS.TOKEN);
+  // Actions
+  login: (payload: LoginPayload) => Promise<AuthResult>;
+  register: (payload: RegisterPayload) => Promise<AuthResult>;
+  getCurrentUser: () => AuthUser | null;
+  getToken: () => string | null;
+  clearSession: () => void;
+}
 
-const setCurrentUser = (user: AuthUser): void =>
-  localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(user));
-
-const getCurrentUser = (): AuthUser | null => {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEYS.USER);
-    return raw ? (JSON.parse(raw) as AuthUser) : null;
-  } catch {
-    return null;
-  }
-};
-
-const clearSession = (): void => {
-  removeToken();
-  localStorage.removeItem(STORAGE_KEYS.USER);
-};
-
-// ─── Mock Auth Actions ────────────────────────────────────────────────────────
-
-const login = async (payload: LoginPayload): Promise<AuthResult> => {
-  await delay(1000);
-
-  const users = getUsers();
-  let matched = users.find(
-    (u) =>
-      u.email.toLowerCase() === payload.email.toLowerCase() &&
-      u.password === payload.password,
-  );
-
-  // Fallback to built-in mock user when nobody has registered yet
-  if (!matched && users.length === 0) {
-    if (
-      payload.email.toLowerCase() === MOCK_USER.email.toLowerCase() &&
-      payload.password === MOCK_USER.password
-    ) {
-      matched = MOCK_USER;
+export const useAuthStore = create<AuthState>()((set, get) => ({
+  // ─── Initial state (hydrate from localStorage) ────────────────────────────
+  token: localStorage.getItem(STORAGE_KEYS.TOKEN),
+  user: (() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEYS.USER);
+      return raw ? (JSON.parse(raw) as AuthUser) : null;
+    } catch {
+      return null;
     }
-  }
+  })(),
+  isAuthenticated: !!localStorage.getItem(STORAGE_KEYS.TOKEN),
 
-  if (!matched) {
-    return { success: false, messageKey: "auth.login.errorInvalidCredentials" };
-  }
+  // ─── Login ────────────────────────────────────────────────────────────────
+  login: async (payload) => {
+    await delay(1000);
 
-  const token = generateToken(matched.email);
-  setToken(token);
+    const users = getUsers();
+    let matched = users.find(
+      (u) =>
+        u.email.toLowerCase() === payload.email.toLowerCase() &&
+        u.password === payload.password,
+    );
 
-  const authUser: AuthUser = {
-    id: matched.id,
-    name: matched.name,
-    email: matched.email,
-  };
-  setCurrentUser(authUser);
+    if (!matched && users.length === 0) {
+      if (
+        payload.email.toLowerCase() === MOCK_USER.email.toLowerCase() &&
+        payload.password === MOCK_USER.password
+      ) {
+        matched = MOCK_USER;
+      }
+    }
 
-  return {
-    success: true,
-    messageKey: "auth.login.successMessage",
-    user: authUser,
-  };
-};
+    if (!matched) {
+      return {
+        success: false,
+        messageKey: "auth.login.errorInvalidCredentials",
+      };
+    }
 
-const register = async (payload: RegisterPayload): Promise<AuthResult> => {
-  await delay(1000);
+    const token = generateToken(matched.email);
+    const authUser: AuthUser = {
+      id: matched.id,
+      name: matched.name,
+      email: matched.email,
+    };
 
-  const existing = findByEmail(payload.email);
-  if (existing) {
-    return { success: false, messageKey: "auth.register.errorEmailTaken" };
-  }
+    localStorage.setItem(STORAGE_KEYS.TOKEN, token);
+    localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(authUser));
 
-  const newUser: StoredUser = {
-    id: `user-${Date.now()}`,
-    name: payload.name,
-    email: payload.email,
-    password: payload.password,
-  };
+    set({ token, user: authUser, isAuthenticated: true });
 
-  saveUser(newUser);
+    return {
+      success: true,
+      messageKey: "auth.login.successMessage",
+      user: authUser,
+    };
+  },
 
-  return { success: true, messageKey: "auth.register.successMessage" };
-};
+  // ─── Register ─────────────────────────────────────────────────────────────
+  register: async (payload) => {
+    await delay(1000);
 
-// ─── Public API ───────────────────────────────────────────────────────────────
+    const existing = findByEmail(payload.email);
+    if (existing) {
+      return { success: false, messageKey: "auth.register.errorEmailTaken" };
+    }
+
+    const newUser: StoredUser = {
+      id: `user-${Date.now()}`,
+      name: payload.name,
+      email: payload.email,
+      password: payload.password,
+    };
+
+    saveUserToStorage(newUser);
+    return { success: true, messageKey: "auth.register.successMessage" };
+  },
+
+  // ─── Getters ──────────────────────────────────────────────────────────────
+  getCurrentUser: () => get().user,
+  getToken: () => get().token,
+
+  // ─── Clear session ────────────────────────────────────────────────────────
+  clearSession: () => {
+    localStorage.removeItem(STORAGE_KEYS.TOKEN);
+    localStorage.removeItem(STORAGE_KEYS.USER);
+    set({ token: null, user: null, isAuthenticated: false });
+  },
+}));
+
+// ─── Backwards-compatible object API ──────────────────────────────────────────
+// Lets existing code (e.g. ProtectedRoute, axios interceptor) call
+// `authStore.isAuthenticated()` without refactoring everything at once.
 
 export const authStore = {
-  login,
-  register,
-  getToken,
-  getCurrentUser,
-  clearSession,
-  isAuthenticated: () => !!getToken(),
+  login: (payload: LoginPayload) => useAuthStore.getState().login(payload),
+  register: (payload: RegisterPayload) =>
+    useAuthStore.getState().register(payload),
+  getToken: () => useAuthStore.getState().token,
+  getCurrentUser: () => useAuthStore.getState().user,
+  clearSession: () => useAuthStore.getState().clearSession(),
+  isAuthenticated: () => useAuthStore.getState().isAuthenticated,
 };

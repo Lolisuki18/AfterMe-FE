@@ -6,8 +6,11 @@ import {
   TheRisk,
   WhoNeed,
 } from "../components";
+import { useDocumentTitle } from "@/hooks";
 
 const HomePage = () => {
+  useDocumentTitle();
+
   return (
     <>
       <Hero />
