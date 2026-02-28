@@ -42,5 +42,28 @@ export const familyVi = {
 
     today: "Hôm nay",
     yesterday: "Hôm qua",
+
+    // Add Member Modal
+    addMemberTitle: "Thêm Thành viên Gia đình",
+    fullName: "Họ và tên",
+    fullNamePlaceholder: "VD: Nguyễn Văn A",
+    relationship: "Mối quan hệ",
+    relationshipPlaceholder: "VD: Anh, Chị, Bố Mẹ",
+    emailOrPhone: "Email hoặc SĐT",
+    emailOrPhonePlaceholder: "VD: nguyen@email.com",
+    sendInvite: "Gửi lời mời",
+    cancel: "Hủy",
+
+    // View Profile Modal
+    profileTitle: "Hồ sơ Thành viên",
+    status: "Trạng thái",
+    relation: "Quan hệ",
+
+    // Send Message Modal
+    sendMessageTitle: "Gửi Tin nhắn",
+    messageTo: "Đến",
+    messageLabel: "Tin nhắn",
+    messagePlaceholder: "Nhập tin nhắn của bạn...",
+    send: "Gửi",
   },
 };

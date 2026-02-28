@@ -2,7 +2,11 @@ import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
 import { TrashIcon } from "@/shared/icon";
 
-export const DangerZone = () => {
+interface DangerZoneProps {
+  onDelete?: () => void;
+}
+
+export const DangerZone = ({ onDelete }: DangerZoneProps) => {
   const { t } = useLanguage();
   const s = t.accountSettings.danger;
 
@@ -18,6 +22,7 @@ export const DangerZone = () => {
           size="sm"
           rounded
           leftIcon={<TrashIcon className="h-4 w-4" />}
+          onClick={onDelete}
         >
           {s.deleteAccount}
         </Button>

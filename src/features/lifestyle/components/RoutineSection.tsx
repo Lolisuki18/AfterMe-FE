@@ -14,6 +14,7 @@ interface RoutineSectionProps {
   section: RoutineTime;
   items: RoutineItem[];
   onToggle: (section: RoutineTime, id: string) => void;
+  onQuickAdd: (section: RoutineTime) => void;
 }
 
 const SECTION_ICONS: Record<RoutineTime, React.ReactNode> = {
@@ -26,6 +27,7 @@ export const RoutineSection = ({
   section,
   items,
   onToggle,
+  onQuickAdd,
 }: RoutineSectionProps) => {
   const { t } = useLanguage();
   const ls = t.lifestyle;
@@ -52,7 +54,12 @@ export const RoutineSection = ({
             <p className="text-text-muted text-xs">{desc}</p>
           </div>
         </div>
-        <Button variant="ghost" size="sm" rounded>
+        <Button
+          variant="ghost"
+          size="sm"
+          rounded
+          onClick={() => onQuickAdd(section)}
+        >
           <PlusIcon className="mr-1 h-3.5 w-3.5" />
           {ls.quickAdd}
         </Button>

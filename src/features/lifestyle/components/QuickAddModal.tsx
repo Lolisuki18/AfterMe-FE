@@ -1,0 +1,95 @@
+import { useState } from "react";
+import { useLanguage } from "@/app/useLanguage";
+import { Modal, Button, Input } from "@/shared/components";
+import type { RoutineTime } from "../store/lifestyleStore";
+
+interface QuickAddModalProps {
+  open: boolean;
+  onClose: () => void;
+  section: RoutineTime;
+  onAdd: (section: RoutineTime, name: string, time: string) => void;
+}
+
+export const QuickAddModal = ({
+  open,
+  onClose,
+  section,
+  onAdd,
+}: QuickAddModalProps) => {
+  const { t } = useLanguage();
+  const ls = t.lifestyle;
+
+  const [name, setName] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+
+  const sectionLabel =
+    section === "sunup"
+      ? ls.sunup
+      : section === "midday"
+        ? ls.midday
+        : ls.sleeptime;
+
+  const handleSubmit = () => {
+    if (!name.trim() || !startTime || !endTime) return;
+    onAdd(section, name.trim(), `${startTime} – ${endTime}`);
+    setName("");
+    setStartTime("");
+    setEndTime("");
+    onClose();
+  };
+
+  const handleClose = () => {
+    setName("");
+    setStartTime("");
+    setEndTime("");
+    onClose();
+  };
+
+  return (
+    <Modal
+      open={open}
+      onClose={handleClose}
+      title={`${ls.quickAddTitle} — ${sectionLabel}`}
+      footer={
+        <>
+          <Button variant="ghost" size="sm" rounded onClick={handleClose}>
+            {ls.cancel}
+          </Button>
+          <Button
+            variant="primary"
+            size="sm"
+            rounded
+            onClick={handleSubmit}
+            disabled={!name.trim() || !startTime || !endTime}
+          >
+            {ls.addRoutine}
+          </Button>
+        </>
+      }
+    >
+      <div className="space-y-4">
+        <Input
+          label={ls.routineName}
+          placeholder={ls.routineNamePlaceholder}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <div className="grid grid-cols-2 gap-3">
+          <Input
+            label={ls.startTime}
+            type="time"
+            value={startTime}
+            onChange={(e) => setStartTime(e.target.value)}
+          />
+          <Input
+            label={ls.endTime}
+            type="time"
+            value={endTime}
+            onChange={(e) => setEndTime(e.target.value)}
+          />
+        </div>
+      </div>
+    </Modal>
+  );
+};

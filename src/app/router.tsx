@@ -103,6 +103,8 @@ export const AppRouter = () => {
           <Route element={<MainLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/wellbeing" element={<WellbeingPage />} />
+            <Route path="/privacy" element={<PrivacyCenterPage />} />
           </Route>
 
           {/* Protected Routes - Sử dụng DashboardLayout */}
@@ -120,10 +122,6 @@ export const AppRouter = () => {
             <Route
               path="/dashboard/account/security"
               element={<SecurityPage />}
-            />
-            <Route
-              path="/dashboard/account/privacy"
-              element={<PrivacyCenterPage />}
             />
             <Route
               path="/dashboard/account/notifications"
@@ -150,7 +148,6 @@ export const AppRouter = () => {
               path="/dashboard/subscription"
               element={<SubscriptionPage />}
             />
-            <Route path="/dashboard/wellbeing" element={<WellbeingPage />} />
             <Route path="/dashboard/referral" element={<ReferralPage />} />
             <Route path="/reminders/new" element={<CreateReminderPage />} />
           </Route>

@@ -12,6 +12,13 @@ export const lifestyleEn = {
     sleeptimeDesc: "Wind down and prepare for rest",
 
     quickAdd: "Quick Add",
+    quickAddTitle: "Add New Routine",
+    routineName: "Routine Name",
+    routineNamePlaceholder: "e.g. Evening Yoga",
+    startTime: "Start Time",
+    endTime: "End Time",
+    addRoutine: "Add Routine",
+    cancel: "Cancel",
     enabled: "Enabled",
     disabled: "Disabled",
 

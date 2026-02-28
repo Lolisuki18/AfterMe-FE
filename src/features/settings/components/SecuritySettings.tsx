@@ -3,7 +3,13 @@ import { useLanguage } from "@/app/useLanguage";
 import { Button, Toggle } from "@/shared/components";
 import { settingsStore } from "../store/settingsStore";
 
-export const SecuritySettings = () => {
+interface SecuritySettingsProps {
+  onChangePassword?: () => void;
+}
+
+export const SecuritySettings = ({
+  onChangePassword,
+}: SecuritySettingsProps) => {
   const { t } = useLanguage();
   const s = t.accountSettings.security;
   const profile = settingsStore.getProfile();
@@ -29,7 +35,12 @@ export const SecuritySettings = () => {
               {s.lastChanged.replace("{time}", profile.passwordLastChanged)}
             </p>
           </div>
-          <Button variant="outline" size="sm" rounded>
+          <Button
+            variant="outline"
+            size="sm"
+            rounded
+            onClick={onChangePassword}
+          >
             {s.changePassword}
           </Button>
         </div>

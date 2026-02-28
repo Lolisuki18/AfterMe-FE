@@ -18,9 +18,15 @@ const AVATAR_COLORS: Record<MemberStatus, string> = {
 
 interface FamilyMemberCardProps {
   member: FamilyMember;
+  onSendMessage: (member: FamilyMember) => void;
+  onViewProfile: (member: FamilyMember) => void;
 }
 
-export const FamilyMemberCard = ({ member }: FamilyMemberCardProps) => {
+export const FamilyMemberCard = ({
+  member,
+  onSendMessage,
+  onViewProfile,
+}: FamilyMemberCardProps) => {
   const { t } = useLanguage();
   const f = t.family as Record<string, string>;
 
@@ -67,12 +73,14 @@ export const FamilyMemberCard = ({ member }: FamilyMemberCardProps) => {
             <button
               type="button"
               className="text-primary border-border hover:bg-primary/5 rounded-lg border px-3 py-1.5 text-xs font-semibold"
+              onClick={() => onSendMessage(member)}
             >
               {f.sendMessage}
             </button>
             <button
               type="button"
               className="text-text-muted border-border hover:bg-surface-alt rounded-lg border px-3 py-1.5 text-xs font-semibold"
+              onClick={() => onViewProfile(member)}
             >
               {f.viewProfile}
             </button>

@@ -46,5 +46,28 @@ export const familyEn = {
 
     today: "Today",
     yesterday: "Yesterday",
+
+    // Add Member Modal
+    addMemberTitle: "Add Family Member",
+    fullName: "Full Name",
+    fullNamePlaceholder: "e.g. John Doe",
+    relationship: "Relationship",
+    relationshipPlaceholder: "e.g. Brother, Sister, Parent",
+    emailOrPhone: "Email or Phone",
+    emailOrPhonePlaceholder: "e.g. john@example.com",
+    sendInvite: "Send Invite",
+    cancel: "Cancel",
+
+    // View Profile Modal
+    profileTitle: "Member Profile",
+    status: "Status",
+    relation: "Relation",
+
+    // Send Message Modal
+    sendMessageTitle: "Send Message",
+    messageTo: "To",
+    messageLabel: "Message",
+    messagePlaceholder: "Type your message here...",
+    send: "Send",
   },
 };

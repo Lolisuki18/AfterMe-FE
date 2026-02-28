@@ -12,6 +12,13 @@ export const lifestyleVi = {
     sleeptimeDesc: "Thư giãn và chuẩn bị nghỉ ngơi",
 
     quickAdd: "Thêm nhanh",
+    quickAddTitle: "Thêm Thói quen Mới",
+    routineName: "Tên thói quen",
+    routineNamePlaceholder: "VD: Yoga buổi tối",
+    startTime: "Giờ bắt đầu",
+    endTime: "Giờ kết thúc",
+    addRoutine: "Thêm thói quen",
+    cancel: "Hủy",
     enabled: "Đã bật",
     disabled: "Đã tắt",
 

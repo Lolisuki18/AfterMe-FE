@@ -89,7 +89,7 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
         { label: s.reminders, to: "/reminders/new", icon: BellIcon },
         {
           label: s.wellbeing,
-          to: "/dashboard/wellbeing",
+          to: "/wellbeing",
           icon: HeartOutlineIcon,
         },
       ],
@@ -109,7 +109,7 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
           to: "/dashboard/account/security",
           icon: ShieldCheckIcon,
         },
-        { label: s.privacy, to: "/dashboard/account/privacy", icon: EyeIcon },
+        { label: s.privacy, to: "/privacy", icon: EyeIcon },
         {
           label: s.notifications,
           to: "/dashboard/account/notifications",

@@ -30,6 +30,12 @@ export const settingsEn = {
       changePassword: "Change Password",
       twoFactor: "Two-Factor Authentication",
       twoFactorDesc: "Add an extra layer of security to your account.",
+      changePasswordTitle: "Change Password",
+      currentPassword: "Current Password",
+      newPassword: "New Password",
+      confirmPassword: "Confirm New Password",
+      updatePassword: "Update Password",
+      cancel: "Cancel",
     },
 
     // ── Danger Zone ────────────────────────────────────────────────────
@@ -38,6 +44,11 @@ export const settingsEn = {
       description:
         "Permanently remove your Personal Info and all of its contents from the AfterMe platform. This action is not reversible, so please continue with caution.",
       deleteAccount: "Delete Account & Erase All Data",
+      confirmTitle: "Delete Account?",
+      confirmDescription:
+        "This will permanently delete your account and all associated data. This action cannot be undone.",
+      confirmButton: "Yes, Delete My Account",
+      cancel: "Cancel",
     },
   },
 };

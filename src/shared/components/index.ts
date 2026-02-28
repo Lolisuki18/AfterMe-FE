@@ -3,6 +3,7 @@ export { Input } from "./Input";
 export { Textarea } from "./Textarea";
 export { Toggle } from "./Toggle";
 export { Select } from "./Select";
+export { Modal } from "./Modal";
 export { Navbar } from "./Navbar";
 export { Sidebar } from "../../features/dashboard/components/Sidebar";
 export { Header } from "./Header";

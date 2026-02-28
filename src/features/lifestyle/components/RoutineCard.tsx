@@ -37,8 +37,12 @@ export const RoutineCard = ({ item, section, onToggle }: RoutineCardProps) => {
       </div>
 
       <div className="min-w-0 flex-1">
-        <p className="text-text text-sm font-semibold">{ls[item.titleKey]}</p>
-        <p className="text-text-muted text-xs">{ls[item.timeKey]}</p>
+        <p className="text-text text-sm font-semibold">
+          {item.customTitle || ls[item.titleKey]}
+        </p>
+        <p className="text-text-muted text-xs">
+          {item.customTime || ls[item.timeKey]}
+        </p>
       </div>
 
       <Toggle

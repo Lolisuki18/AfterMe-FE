@@ -5,6 +5,10 @@ export interface RoutineItem {
   titleKey: string;
   timeKey: string;
   enabled: boolean;
+  /** Direct title for user-created items (bypasses i18n lookup) */
+  customTitle?: string;
+  /** Direct time for user-created items (bypasses i18n lookup) */
+  customTime?: string;
 }
 
 export interface LifestyleData {
@@ -94,6 +98,20 @@ export const lifestyleStore = {
     data[section] = data[section].map((item) =>
       item.id === id ? { ...item, enabled: !item.enabled } : item,
     );
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  },
+
+  addItem(section: RoutineTime, name: string, time: string): void {
+    const data = this.getData();
+    const id = `${section[0]}${Date.now()}`;
+    data[section].push({
+      id,
+      titleKey: "",
+      timeKey: "",
+      enabled: true,
+      customTitle: name,
+      customTime: time,
+    });
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   },
 };
