@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { useLanguage } from "../../../app/useLanguage";
-import { CheckIcon, XCircleIcon } from "../icon";
+import { CheckIcon, XCircleIcon } from "@/shared/icon";
 
 /* ───── Shared consent item ───── */
 

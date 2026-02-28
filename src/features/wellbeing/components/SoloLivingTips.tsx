@@ -1,5 +1,5 @@
 import { useLanguage } from "@/app/useLanguage";
-import { ShieldCheckIcon, RefreshIcon, PeopleGroupIcon } from "../icon";
+import { ShieldCheckIcon, RefreshIcon, PeopleGroupIcon } from "@/shared/icon";
 
 interface TipCardProps {
   icon: React.ReactNode;

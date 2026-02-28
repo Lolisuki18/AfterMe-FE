@@ -1,6 +1,6 @@
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
-import { BoltIcon, PhoneIcon, ShieldAlertIcon, ShareIcon } from "../icon";
+import { BoltIcon, PhoneIcon, ShieldAlertIcon, ShareIcon } from "@/shared/icon";
 
 export const ActionCenter = () => {
   const { t } = useLanguage();

@@ -1,6 +1,6 @@
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
-import { CheckCircleSmIcon } from "../icon";
+import { CheckCircleSmIcon } from "@/shared/icon";
 
 export const PricingPreview = () => {
   const { t } = useLanguage();

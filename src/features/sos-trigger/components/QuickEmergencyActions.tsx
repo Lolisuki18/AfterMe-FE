@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { useLanguage } from "../../../app/useLanguage";
-import { PoliceShieldIcon, AmbulanceIcon, SilentIcon } from "../icon";
+import { PoliceShieldIcon, AmbulanceIcon, SilentIcon } from "@/shared/icon";
 
 interface ActionCardProps {
   icon: ReactNode;

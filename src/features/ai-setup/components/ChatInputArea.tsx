@@ -1,6 +1,6 @@
 import { useState, type KeyboardEvent } from "react";
 import { useLanguage } from "../../../app/useLanguage";
-import { PlusCircleIcon, SendIcon } from "../icon";
+import { PlusCircleIcon, SendIcon } from "@/shared/icon";
 
 interface ChatInputAreaProps {
   onSend: (text: string) => void;

@@ -1,6 +1,6 @@
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
-import { ShieldIcon } from "../icon";
+import { ShieldBadgeIcon } from "@/shared/icon";
 
 interface WelcomeHeaderProps {
   userName: string;
@@ -26,7 +26,7 @@ export const WelcomeHeader = ({ userName }: WelcomeHeaderProps) => {
         variant="outline"
         size="sm"
         rounded
-        leftIcon={<ShieldIcon className="h-4 w-4" />}
+        leftIcon={<ShieldBadgeIcon className="h-4 w-4" />}
       >
         {d.checkStatus}
       </Button>

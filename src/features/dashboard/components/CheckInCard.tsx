@@ -1,6 +1,6 @@
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
-import { CheckIcon } from "../icon";
+import { CheckBasicIcon } from "@/shared/icon";
 import { dashboardStore } from "../store/dashboardStore";
 
 export const CheckInCard = () => {
@@ -24,7 +24,7 @@ export const CheckInCard = () => {
           size="lg"
           fullWidth
           rounded
-          leftIcon={<CheckIcon className="h-5 w-5" />}
+          leftIcon={<CheckBasicIcon className="h-5 w-5" />}
           onClick={handleCheckIn}
         >
           {d.checkInAction}

@@ -1,6 +1,6 @@
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
-import { HeartIcon } from "../icon";
+import { HeartOutlineIcon } from "@/shared/icon";
 
 export const WellbeingHero = () => {
   const { t } = useLanguage();
@@ -11,7 +11,7 @@ export const WellbeingHero = () => {
       <div className="relative z-10 max-w-lg">
         {/* Heart icon */}
         <div className="bg-primary/15 mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
-          <HeartIcon />
+          <HeartOutlineIcon />
         </div>
 
         <h1 className="text-text text-2xl font-bold sm:text-3xl">

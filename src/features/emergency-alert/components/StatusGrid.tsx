@@ -1,5 +1,5 @@
 import { useLanguage } from "@/app/useLanguage";
-import { ClockIcon, MapPinIcon } from "../icon";
+import { ClockBasicIcon, MapPinIcon } from "@/shared/icon";
 
 export const StatusGrid = () => {
   const { t } = useLanguage();
@@ -10,7 +10,7 @@ export const StatusGrid = () => {
       {/* Last Check-In Card */}
       <div className="rounded-2xl bg-gray-800/70 p-5 sm:p-6">
         <div className="mb-3 flex items-center gap-2 text-xs font-bold tracking-wider text-gray-400 uppercase">
-          <ClockIcon className="text-primary h-4 w-4" />
+          <ClockBasicIcon className="text-primary h-4 w-4" />
           {a.lastCheckIn}
         </div>
         <p className="text-3xl font-extrabold text-white">10:42 AM</p>

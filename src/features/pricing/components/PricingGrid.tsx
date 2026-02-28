@@ -1,6 +1,6 @@
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
-import { CheckSmIcon } from "../icon";
+import { CheckSmIcon } from "@/shared/icon";
 
 interface PlanCardProps {
   title: string;

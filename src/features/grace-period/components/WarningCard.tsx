@@ -1,6 +1,6 @@
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
-import { WarningIcon, CheckCircleIcon } from "../icon";
+import { WarningTriangleIcon, CheckCircleOutlineIcon } from "@/shared/icon";
 import { CountdownTimer } from "./CountdownTimer";
 import { useCountdown } from "../hooks/useCountdown";
 
@@ -17,7 +17,7 @@ export const WarningCard = () => {
       <div className="flex flex-col items-center px-6 py-8 sm:px-10 sm:py-10">
         {/* Warning icon */}
         <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-yellow-500/15">
-          <WarningIcon className="h-8 w-8 text-yellow-500" />
+          <WarningTriangleIcon className="h-8 w-8 text-yellow-500" />
         </div>
 
         <h1 className="text-xl font-extrabold text-white sm:text-2xl">
@@ -42,7 +42,7 @@ export const WarningCard = () => {
           size="lg"
           rounded
           fullWidth
-          leftIcon={<CheckCircleIcon className="h-5 w-5" />}
+          leftIcon={<CheckCircleOutlineIcon className="h-5 w-5" />}
           className="py-4 text-base font-bold"
           onClick={cancel}
         >

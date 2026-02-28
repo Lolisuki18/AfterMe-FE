@@ -1,5 +1,5 @@
 import { useLanguage } from "../../../app/useLanguage";
-import { XIcon } from "../icon";
+import { XIcon } from "@/shared/icon";
 
 const CancelEmergency = () => {
   const { t } = useLanguage();

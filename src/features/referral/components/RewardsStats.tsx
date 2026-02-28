@@ -1,5 +1,5 @@
 import { useLanguage } from "../../../app/useLanguage";
-import { UsersIcon, TrophyIcon } from "../icon";
+import { UsersIcon, TrophyIcon } from "@/shared/icon";
 
 /* ───── helpers ───── */
 

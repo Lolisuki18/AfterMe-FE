@@ -1,15 +1,6 @@
 import { useLanguage } from "@/app/useLanguage";
 import type { RoutineItem as RoutineItemData } from "../store/dashboardStore";
-import {
-  CoffeeIcon,
-  BookIcon,
-  ForkKnifeIcon,
-  MoonIcon,
-  RunIcon,
-  HeartSmIcon,
-  CheckCircleSmIcon,
-  ClockSmIcon,
-} from "../icon";
+import { CoffeeIcon, BookIcon, ForkKnifeIcon, MoonIcon, RunIcon, HeartSmIcon, CheckCircleSmFilledIcon, ClockSmIcon } from "@/shared/icon";
 import type { ComponentType } from "react";
 
 interface RoutineItemProps {
@@ -36,7 +27,7 @@ export const RoutineItem = ({ item, isLast = false }: RoutineItemProps) => {
 
   /* ── Status dot ─────────────────────────────────────────────────── */
   const statusDot = isCompleted ? (
-    <CheckCircleSmIcon className="h-5 w-5 text-green-500" />
+    <CheckCircleSmFilledIcon className="h-5 w-5 text-green-500" />
   ) : isActive ? (
     <span className="bg-primary h-3.5 w-3.5 rounded-full ring-4 ring-indigo-500/20" />
   ) : (

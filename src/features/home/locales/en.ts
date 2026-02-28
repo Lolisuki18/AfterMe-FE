@@ -133,7 +133,7 @@ export const homeEn = {
       },
     ] satisfies AudienceItem[],
   },
-  pricing: {
+  homePricing: {
     title: "Simple, Transparent Pricing",
     subtitle:
       "Start for free. Upgrade when you need more protection. No hidden fees.",

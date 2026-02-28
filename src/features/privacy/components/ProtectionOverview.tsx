@@ -1,16 +1,5 @@
 import { useLanguage } from "@/app/useLanguage";
-
-const CheckIcon = () => (
-  <svg
-    className="text-primary mt-0.5 h-4 w-4 shrink-0"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2}
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-  </svg>
-);
+import { CheckIcon } from "@/shared/icon";
 
 interface FeatureItemProps {
   title: string;
@@ -19,7 +8,7 @@ interface FeatureItemProps {
 
 const FeatureItem = ({ title, desc }: FeatureItemProps) => (
   <div className="flex gap-2.5">
-    <CheckIcon />
+    <CheckIcon className="text-primary mt-0.5 h-4 w-4 shrink-0" />
     <div>
       <p className="text-text text-sm font-semibold">{title}</p>
       <p className="text-text-muted mt-0.5 text-xs leading-relaxed">{desc}</p>

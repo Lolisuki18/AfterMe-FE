@@ -1,16 +1,5 @@
 import { useLanguage } from "@/app/useLanguage";
-
-const CheckIcon = () => (
-  <svg
-    className="text-primary mt-0.5 h-4 w-4 shrink-0"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2}
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-  </svg>
-);
+import { CheckIcon } from "@/shared/icon";
 
 interface PlanSummaryCardProps {
   planName: string;
@@ -53,7 +42,7 @@ export const PlanSummaryCard = ({
         <ul className="mt-2 space-y-2">
           {features.map((f, i) => (
             <li key={i} className="text-text flex items-start gap-2 text-sm">
-              <CheckIcon />
+              <CheckIcon className="text-primary mt-0.5 h-4 w-4 shrink-0" />
               {f}
             </li>
           ))}

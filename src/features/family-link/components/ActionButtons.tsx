@@ -1,6 +1,6 @@
 import { useLanguage } from "../../../app/useLanguage";
 import { Button } from "../../../shared/components";
-import { LockIcon } from "../icon";
+import { LockIcon } from "@/shared/icon";
 
 const ActionButtons = () => {
   const { t } = useLanguage();

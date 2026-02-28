@@ -8,11 +8,13 @@ import { Button } from "@/shared/components/Button";
 import { loginSchema, type LoginFormData } from "../schemas/authSchemas";
 import { authStore } from "../store/authStore";
 import { resolveKey } from "../utils/authUtils";
-import { MailIcon } from "../icon/MailIcon";
-import { LockIcon } from "../icon/LockIcon";
-import { EyeIcon } from "../icon/EyeIcon";
-import { EyeOffIcon } from "../icon/EyeOffIcon";
-import { ArrowRightIcon } from "../icon/ArrowRightIcon";
+import {
+  MailIcon,
+  LockIcon,
+  EyeIcon,
+  EyeOffIcon,
+  ArrowRightIcon,
+} from "@/shared/icon";
 import { SocialAuth } from "./SocialAuth";
 
 // ─────────────────────────────────────────────────────────────────────────────

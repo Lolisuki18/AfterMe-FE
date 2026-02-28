@@ -1,7 +1,7 @@
 import { useLanguage } from "@/app/useLanguage";
 import { useTheme } from "@/app/useTheme";
 import { SunIcon, MoonIcon } from "@/shared/icon";
-import { SettingsIcon } from "@/features/dashboard/icon";
+import { SettingsIcon } from "@/shared/icon";
 
 const SettingsPage = () => {
   const { isDark, toggleTheme } = useTheme();

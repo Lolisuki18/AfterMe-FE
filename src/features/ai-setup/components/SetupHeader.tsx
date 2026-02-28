@@ -1,6 +1,6 @@
 import { useLanguage } from "../../../app/useLanguage";
 import Logo from "../../../shared/icon/Logo";
-import { ExitIcon } from "../icon";
+import { ExitIcon } from "@/shared/icon";
 
 const SetupHeader = () => {
   const { t } = useLanguage();

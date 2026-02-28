@@ -1,6 +1,6 @@
 import { useLanguage } from "../../../app/useLanguage";
 import { Button } from "../../../shared/components";
-import { GiftIcon } from "../icon";
+import { GiftIcon } from "@/shared/icon";
 
 const ReferralHero = () => {
   const { t } = useLanguage();

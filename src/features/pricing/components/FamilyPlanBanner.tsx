@@ -1,6 +1,6 @@
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
-import { FamilyGroupIcon } from "../icon";
+import { FamilyGroupIcon } from "@/shared/icon";
 
 export const FamilyPlanBanner = () => {
   const { t } = useLanguage();

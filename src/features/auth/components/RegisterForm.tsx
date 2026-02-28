@@ -8,9 +8,7 @@ import { Button } from "@/shared/components/Button";
 import { registerSchema, type RegisterFormData } from "../schemas/authSchemas";
 import { authStore } from "../store/authStore";
 import { resolveKey } from "../utils/authUtils";
-import { UserIcon } from "../icon/UserIcon";
-import { MailIcon } from "../icon/MailIcon";
-import { LockIcon } from "../icon/LockIcon";
+import { UserIcon, MailIcon, LockIcon } from "@/shared/icon";
 
 // ─────────────────────────────────────────────────────────────────────────────
 export const RegisterForm = () => {

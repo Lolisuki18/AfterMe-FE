@@ -1,5 +1,5 @@
 import { useLanguage } from "@/app/useLanguage";
-import { ShieldLockIcon, CheckCircleSmIcon } from "../icon";
+import { ShieldLockIcon, CheckCircleSmIcon } from "@/shared/icon";
 
 export const SecurityTrust = () => {
   const { t } = useLanguage();

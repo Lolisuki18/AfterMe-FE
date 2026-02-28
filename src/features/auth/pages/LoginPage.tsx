@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
 import { AuthLayout } from "../components/AuthLayout";
 import { LoginForm } from "../components/LoginForm";
-import { ShieldCheckIcon } from "../icon/ShieldCheckIcon";
-import { AuthCheckIcon } from "../icon/AuthCheckIcon";
+import { ShieldCheckIcon, AuthCheckIcon } from "@/shared/icon";
 
 // ─── Left column: Banner card with lamp + features ────────────────────────────
 const LoginLeftContent = () => {

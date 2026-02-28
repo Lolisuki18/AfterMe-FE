@@ -1,4 +1,4 @@
-import { BotAvatarIcon } from "../icon";
+import { BotAvatarIcon } from "@/shared/icon";
 
 const TypingIndicator = () => (
   <div className="flex items-end gap-2">

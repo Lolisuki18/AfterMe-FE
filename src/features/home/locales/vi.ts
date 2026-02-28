@@ -127,7 +127,7 @@ export const homeVi: HomeTranslations = {
       },
     ],
   },
-  pricing: {
+  homePricing: {
     title: "Bảng Giá Đơn Giản & Minh Bạch",
     subtitle: "Bắt đầu miễn phí. Nâng cấp khi cần thêm bảo vệ. Không phí ẩn.",
     mostPopular: "Phổ biến nhất",

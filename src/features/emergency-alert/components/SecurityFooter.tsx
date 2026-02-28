@@ -1,5 +1,5 @@
 import { useLanguage } from "@/app/useLanguage";
-import { ShieldAlertIcon } from "../icon";
+import { ShieldAlertIcon } from "@/shared/icon";
 
 export const SecurityFooter = () => {
   const { t } = useLanguage();

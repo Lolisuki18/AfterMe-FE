@@ -1,14 +1,7 @@
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
 import { ProgressBar } from "./ProgressBar";
-import {
-  SunriseIcon,
-  SunMiddayIcon,
-  SunsetIcon,
-  MoonStarIcon,
-  PlusCircleIcon,
-  InfoCircleIcon,
-} from "../icon";
+import { SunriseIcon, SunMiddayIcon, SunsetIcon, MoonStarIcon, PlusCircleIcon, InfoCircleIcon } from "@/shared/icon";
 import type { PulseData } from "../store/onboardingStore";
 
 interface Step2PulseProps {

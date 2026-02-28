@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
 import { AuthLayout } from "../components/AuthLayout";
 import { RegisterForm } from "../components/RegisterForm";
-import { BellIcon } from "../icon/BellIcon";
-import { PeopleIcon } from "../icon/PeopleIcon";
-import { ShieldCheckIcon } from "../icon/ShieldCheckIcon";
+import { BellIcon, PeopleIcon, ShieldCheckIcon } from "@/shared/icon";
 
 // ─── Left column: Welcome headline + feature list ─────────────────────────────
 const RegisterLeftContent = () => {

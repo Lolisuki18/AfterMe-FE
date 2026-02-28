@@ -1,7 +1,6 @@
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components/Button";
-import { GoogleIcon } from "../icon/GoogleIcon";
-import { AppleIcon } from "../icon/AppleIcon";
+import { GoogleIcon, AppleIcon } from "@/shared/icon";
 
 // ─────────────────────────────────────────────────────────────────────────────
 export const SocialAuth = () => {

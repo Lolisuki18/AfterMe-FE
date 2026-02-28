@@ -1,7 +1,7 @@
 import { useRef, useState, type KeyboardEvent } from "react";
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
-import { LockIcon } from "../icon";
+import { LockIcon } from "@/shared/icon";
 
 export const SecureVaultUnlock = () => {
   const { t } = useLanguage();

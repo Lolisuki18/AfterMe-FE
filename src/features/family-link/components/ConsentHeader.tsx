@@ -1,5 +1,5 @@
 import { useLanguage } from "../../../app/useLanguage";
-import { LinkShieldIcon } from "../icon";
+import { LinkShieldIcon } from "@/shared/icon";
 
 const ConsentHeader = () => {
   const { t } = useLanguage();

@@ -3,7 +3,7 @@ import { CheckIcon } from "@/shared/icon";
 
 export const Pricing = () => {
   const { t } = useLanguage();
-  const p = t.pricing;
+  const p = t.homePricing;
 
   return (
     <section

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { useLanguage } from "../../../app/useLanguage";
-import { BotAvatarIcon } from "../icon";
+import { BotAvatarIcon } from "@/shared/icon";
 
 interface ChatMessageProps {
   from: "bot" | "user";

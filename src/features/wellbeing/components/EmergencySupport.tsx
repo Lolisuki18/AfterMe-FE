@@ -1,5 +1,5 @@
 import { useLanguage } from "@/app/useLanguage";
-import { PhoneCallIcon, ChatBubbleIcon, MapPinIcon } from "../icon";
+import { PhoneCallIcon, ChatBubbleIcon, MapPinIcon } from "@/shared/icon";
 
 interface CardProps {
   icon: React.ReactNode;

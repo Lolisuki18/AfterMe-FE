@@ -1,5 +1,5 @@
 import { useLanguage } from "@/app/useLanguage";
-import { BreathingIcon, PencilEditIcon, SmileFaceIcon } from "../icon";
+import { BreathingIcon, PencilEditIcon, SmileFaceIcon } from "@/shared/icon";
 
 interface ToolItemProps {
   icon: React.ReactNode;

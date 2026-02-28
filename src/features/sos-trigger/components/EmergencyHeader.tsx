@@ -1,5 +1,5 @@
 import { useLanguage } from "../../../app/useLanguage";
-import { ShieldRedIcon } from "../icon";
+import { ShieldRedIcon } from "@/shared/icon";
 
 const EmergencyHeader = () => {
   const { t } = useLanguage();

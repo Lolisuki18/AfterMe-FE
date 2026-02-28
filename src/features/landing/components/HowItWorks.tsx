@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { useLanguage } from "@/app/useLanguage";
-import { CalendarSetIcon, SunIcon, BellCheckIcon } from "../icon";
+import { CalendarSetIcon, SunRaysIcon, BellCheckIcon } from "@/shared/icon";
 
 interface StepCardProps {
   icon: ReactNode;
@@ -39,7 +39,7 @@ export const HowItWorks = () => {
             description={l.step1Desc}
           />
           <StepCard
-            icon={<SunIcon />}
+            icon={<SunRaysIcon />}
             title={l.step2Title}
             description={l.step2Desc}
           />

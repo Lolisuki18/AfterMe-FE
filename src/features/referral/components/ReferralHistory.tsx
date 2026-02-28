@@ -1,5 +1,5 @@
 import { useLanguage } from "../../../app/useLanguage";
-import { ChevronRightIcon } from "../icon";
+import { ChevronRightIcon } from "@/shared/icon";
 
 const statusColor: Record<string, string> = {
   subscribed:

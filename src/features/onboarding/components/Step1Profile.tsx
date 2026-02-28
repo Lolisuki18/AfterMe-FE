@@ -2,16 +2,7 @@ import { useState } from "react";
 import { useLanguage } from "@/app/useLanguage";
 import { Input, Textarea, Button } from "@/shared/components";
 import { ProgressBar } from "./ProgressBar";
-import {
-  ShieldLockIcon,
-  CriticalInfoIcon,
-  EncryptedIcon,
-  UserProfileIcon,
-  NoteIcon,
-  SunriseIcon,
-  MoonStarIcon,
-  ArrowRightIcon,
-} from "../icon";
+import { ShieldLockAltIcon, CriticalInfoIcon, EncryptedIcon, UserProfileIcon, NoteIcon, SunriseIcon, MoonStarIcon, ArrowRightIcon } from "@/shared/icon";
 import type { ProfileData } from "../store/onboardingStore";
 
 interface Step1ProfileProps {
@@ -49,7 +40,7 @@ export const Step1Profile = ({
       {/* ── Header ─────────────────────────────────────── */}
       <div className="text-center">
         <div className="bg-primary/10 mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full">
-          <ShieldLockIcon className="text-primary h-6 w-6" />
+          <ShieldLockAltIcon className="text-primary h-6 w-6" />
         </div>
         <h1 className="text-text text-xl font-bold break-words sm:text-2xl">
           {t.onboarding.welcomeTitle}
@@ -66,7 +57,7 @@ export const Step1Profile = ({
             {t.onboarding.step1.title}
           </span>
           <span className="bg-primary/10 text-primary inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium">
-            <ShieldLockIcon className="h-3 w-3" />
+            <ShieldLockAltIcon className="h-3 w-3" />
             {t.onboarding.privacyFirst}
           </span>
         </div>

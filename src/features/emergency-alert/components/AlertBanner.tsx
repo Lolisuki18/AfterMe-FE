@@ -1,5 +1,5 @@
 import { useLanguage } from "@/app/useLanguage";
-import { AlertTriangleIcon } from "../icon";
+import { AlertTriangleIcon } from "@/shared/icon";
 
 export const AlertBanner = () => {
   const { t } = useLanguage();

@@ -2,15 +2,7 @@ import { useState } from "react";
 import { useLanguage } from "@/app/useLanguage";
 import { Input, Select, Button, Toggle } from "@/shared/components";
 import { ProgressBar } from "./ProgressBar";
-import {
-  ContactCardIcon,
-  UserProfileIcon,
-  RelationshipIcon,
-  PhoneIcon,
-  BellNotifyIcon,
-  ShieldLockIcon,
-  CheckCircleFilledIcon,
-} from "../icon";
+import { ContactCardIcon, UserProfileIcon, RelationshipIcon, PhoneClassicIcon, BellNotifyIcon, ShieldLockAltIcon, CheckCircleFilledIcon } from "@/shared/icon";
 import type { ContactData } from "../store/onboardingStore";
 
 interface Step3ContactProps {
@@ -106,7 +98,7 @@ export const Step3Contact = ({
           value={data.phone}
           onChange={(e) => onChange({ ...data, phone: e.target.value })}
           error={errors.phone}
-          leftIcon={<PhoneIcon className="h-4 w-4" />}
+          leftIcon={<PhoneClassicIcon className="h-4 w-4" />}
         />
 
         {/* Notify toggle */}
@@ -142,7 +134,7 @@ export const Step3Contact = ({
 
       {/* ── Encrypted note ────────────────────────────── */}
       <div className="flex items-center justify-center gap-2 pb-2">
-        <ShieldLockIcon className="text-text-muted h-4 w-4 shrink-0" />
+        <ShieldLockAltIcon className="text-text-muted h-4 w-4 shrink-0" />
         <p className="text-text-muted text-center text-xs break-words">
           {t.onboarding.dataEncryptedNote}
         </p>
