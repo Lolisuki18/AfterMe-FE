@@ -1,50 +1,41 @@
 import { useLanguage } from "@/app/useLanguage";
+import { Button } from "@/shared/components/Button";
 import { GoogleIcon } from "../icon/GoogleIcon";
-import { GitHubIcon } from "../icon/GitHubIcon";
-import { resolveKey } from "../utils/authUtils";
-
-interface SocialAuthProps {
-  mode?: "login" | "register";
-}
+import { AppleIcon } from "../icon/AppleIcon";
 
 // ─────────────────────────────────────────────────────────────────────────────
-export const SocialAuth = ({ mode = "login" }: SocialAuthProps) => {
+export const SocialAuth = () => {
   const { t } = useLanguage();
-  void mode; // reserved for future differentiation
-
-  const handleSocialClick = (provider: string) => {
-    alert(resolveKey(t, "auth.social.comingSoon") + ` (${provider})`);
-  };
 
   return (
     <div className="mt-6">
       {/* Divider */}
       <div className="relative flex items-center">
-        <div className="border-border flex-grow border-t" />
-        <span className="text-text-muted mx-4 flex-shrink text-xs font-medium">
+        <div className="border-border grow border-t" />
+        <span className="text-text-muted mx-4 shrink text-xs font-medium">
           {t.auth.orContinueWith}
         </span>
-        <div className="border-border flex-grow border-t" />
+        <div className="border-border grow border-t" />
       </div>
 
       {/* Social buttons */}
       <div className="mt-4 grid grid-cols-2 gap-3">
-        <button
+        <Button
           type="button"
-          onClick={() => handleSocialClick("Google")}
-          className="border-border bg-surface hover:bg-surface-alt text-text flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition-colors"
+          variant="outline"
+          size="lg"
+          leftIcon={<GoogleIcon className="h-5 w-5" />}
         >
-          <GoogleIcon />
-          Google
-        </button>
-        <button
+          {t.auth.login.google}
+        </Button>
+        <Button
           type="button"
-          onClick={() => handleSocialClick("GitHub")}
-          className="border-border bg-surface hover:bg-surface-alt text-text flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition-colors"
+          variant="outline"
+          size="lg"
+          leftIcon={<AppleIcon className="h-5 w-5" />}
         >
-          <GitHubIcon />
-          GitHub
-        </button>
+          {t.auth.login.apple}
+        </Button>
       </div>
     </div>
   );

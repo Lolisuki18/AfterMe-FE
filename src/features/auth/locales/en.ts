@@ -1,48 +1,77 @@
 export const authEn = {
   auth: {
-    // ─── Shared ──────────────────────────────────────────────────────────────
-    brandingTagline: "Remember what matters.",
-    brandingSubtitle:
-      "AfterMe helps you leave behind messages and memories for the people you love.",
-    backToHome: "← Back to Home",
-    orContinueWith: "Or continue with",
-    alreadyHaveAccount: "Already have an account?",
-    dontHaveAccount: "Don't have an account?",
-    signInLink: "Sign in",
-    signUpLink: "Sign up",
-    termsNotice: "By continuing, you agree to our",
-    termsLink: "Terms of Service",
-    andText: "and",
-    privacyLink: "Privacy Policy",
+    // ─── Header / Navigation ─────────────────────────────────────────────
+    signUp: "Sign Up",
+    getHelp: "Get Help",
+    logIn: "Log In",
+    navHome: "Home",
+    navAbout: "About",
+    navSafety: "Safety",
+    navContact: "Contact",
 
-    // ─── Login ───────────────────────────────────────────────────────────────
+    // ─── Footer ──────────────────────────────────────────────────────────
+    footer: "© 2024 AfterMe. Safe. Secure. Private.",
+
+    // ─── Shared ──────────────────────────────────────────────────────────
+    orContinueWith: "Or continue with",
+    dontHaveAccount: "Don't have an account?",
+    alreadyHaveAccount: "Already have an account?",
+    signUpForFree: "Sign up for free",
+
+    // ─── Login: Left Banner ──────────────────────────────────────────────
+    loginBadge: "Passive Protection Active",
+    loginHeadline: "Your quiet safety net.",
+    loginSubtext:
+      "Daily check-ins and passive monitoring designed for peace of mind, without the intrusion.",
+    loginFeature1: "Encrypted Data",
+    loginFeature2: "Emergency Contacts",
+    loginFeature3: "24/7 Monitoring",
+
+    // ─── Login: Form ─────────────────────────────────────────────────────
     login: {
-      welcomeBack: "Welcome back",
-      subtitle: "Sign in to continue your journey with AfterMe",
-      emailLabel: "Email address",
-      emailPlaceholder: "you@example.com",
+      welcomeBack: "Welcome Back",
+      subtitle: "Please enter your details to sign in.",
+      emailLabel: "Email",
+      emailPlaceholder: "student@university.edu",
       passwordLabel: "Password",
-      passwordPlaceholder: "Min. 6 characters",
-      forgotPassword: "Forgot password?",
+      passwordPlaceholder: "••••••••",
+      rememberMe: "Remember me",
+      forgotPassword: "Forgot Password?",
       submitButton: "Sign In",
       submitting: "Signing in...",
+      google: "Google",
+      apple: "Apple",
       successMessage: "Signed in successfully! Redirecting...",
       errorInvalidCredentials: "Invalid email or password.",
       errorGeneral: "Something went wrong. Please try again.",
     },
 
-    // ─── Register ────────────────────────────────────────────────────────────
+    // ─── Register: Left Banner ───────────────────────────────────────────
+    registerWelcome: "Welcome to",
+    registerBrand: "AfterMe",
+    registerSubtext:
+      "Live freely, passively protected. Join the community focusing on daily safety without the intrusion.",
+    registerFeature1Title: "Daily Reminders",
+    registerFeature1Desc: "Gentle nudges to keep you safe.",
+    registerFeature2Title: "Community Watch",
+    registerFeature2Desc: "Students looking out for students.",
+    registerFeature3Title: "Privacy First",
+    registerFeature3Desc: "We never track your live location.",
+
+    // ─── Register: Form ──────────────────────────────────────────────────
     register: {
-      createAccount: "Create your account",
-      subtitle: "Start preserving your memories and messages today",
-      nameLabel: "Full name",
-      namePlaceholder: "John Doe",
-      emailLabel: "Email address",
-      emailPlaceholder: "you@example.com",
+      createAccount: "Create Account",
+      subtitle: "Enter your details below to join AfterMe.",
+      nameLabel: "Full Name",
+      namePlaceholder: "e.g. Alex Smith",
+      emailLabel: "University Email",
+      emailPlaceholder: "e.g. alex@university.edu",
       passwordLabel: "Password",
-      passwordPlaceholder: "Min. 6 characters",
-      confirmPasswordLabel: "Confirm password",
-      confirmPasswordPlaceholder: "Re-enter your password",
+      passwordPlaceholder: "Create a strong password",
+      agreeTerms: "I agree to the",
+      termsOfService: "Terms of Service",
+      and: "and",
+      privacyPolicy: "Privacy Policy",
       submitButton: "Create Account",
       submitting: "Creating account...",
       successMessage: "Account created! You can now sign in.",
@@ -50,22 +79,14 @@ export const authEn = {
       errorGeneral: "Something went wrong. Please try again.",
     },
 
-    // ─── Validation ──────────────────────────────────────────────────────────
+    // ─── Validation ──────────────────────────────────────────────────────
     validation: {
       nameRequired: "Full name is required.",
       emailRequired: "Email address is required.",
       emailInvalid: "Please enter a valid email address.",
       passwordRequired: "Password is required.",
       passwordMin: "Password must be at least 6 characters.",
-      confirmPasswordRequired: "Please confirm your password.",
-      confirmPasswordMatch: "Passwords do not match.",
-    },
-
-    // ─── Social ──────────────────────────────────────────────────────────────
-    social: {
-      google: "Continue with Google",
-      github: "Continue with GitHub",
-      comingSoon: "Social login coming soon",
+      termsRequired: "You must agree to the terms.",
     },
   },
 };

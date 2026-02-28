@@ -1,71 +1,92 @@
 export const authVi = {
   auth: {
-    // ─── Shared ──────────────────────────────────────────────────────────────
-    brandingTagline: "Lưu giữ điều quan trọng.",
-    brandingSubtitle:
-      "AfterMe giúp bạn để lại những thông điệp và ký ức cho những người thân yêu.",
-    backToHome: "← Về trang chủ",
-    orContinueWith: "Hoặc tiếp tục với",
-    alreadyHaveAccount: "Đã có tài khoản?",
-    dontHaveAccount: "Chưa có tài khoản?",
-    signInLink: "Đăng nhập",
-    signUpLink: "Đăng ký",
-    termsNotice: "Bằng việc tiếp tục, bạn đồng ý với",
-    termsLink: "Điều khoản dịch vụ",
-    andText: "và",
-    privacyLink: "Chính sách bảo mật",
+    // ─── Header / Navigation ─────────────────────────────────────────────
+    signUp: "Đăng Ký",
+    getHelp: "Trợ Giúp",
+    logIn: "Đăng Nhập",
+    navHome: "Trang Chủ",
+    navAbout: "Giới Thiệu",
+    navSafety: "An Toàn",
+    navContact: "Liên Hệ",
 
-    // ─── Login ───────────────────────────────────────────────────────────────
+    // ─── Footer ──────────────────────────────────────────────────────────
+    footer: "© 2024 AfterMe. An toàn. Bảo mật. Riêng tư.",
+
+    // ─── Shared ──────────────────────────────────────────────────────────
+    orContinueWith: "Hoặc tiếp tục với",
+    dontHaveAccount: "Chưa có tài khoản?",
+    alreadyHaveAccount: "Đã có tài khoản?",
+    signUpForFree: "Đăng ký miễn phí",
+
+    // ─── Login: Left Banner ──────────────────────────────────────────────
+    loginBadge: "Bảo Vệ Thụ Động Hoạt Động",
+    loginHeadline: "Lưới an toàn thầm lặng của bạn.",
+    loginSubtext:
+      "Nhắc nhở hàng ngày và giám sát thụ động được thiết kế cho sự an tâm, không có sự xâm phạm.",
+    loginFeature1: "Dữ Liệu Mã Hóa",
+    loginFeature2: "Liên Hệ Khẩn Cấp",
+    loginFeature3: "Giám Sát 24/7",
+
+    // ─── Login: Form ─────────────────────────────────────────────────────
     login: {
-      welcomeBack: "Chào mừng trở lại",
-      subtitle: "Đăng nhập để tiếp tục hành trình của bạn với AfterMe",
-      emailLabel: "Địa chỉ email",
-      emailPlaceholder: "ban@example.com",
+      welcomeBack: "Chào Mừng Trở Lại",
+      subtitle: "Vui lòng nhập thông tin để đăng nhập.",
+      emailLabel: "Email",
+      emailPlaceholder: "sinhvien@truongdaihoc.edu",
       passwordLabel: "Mật khẩu",
-      passwordPlaceholder: "Tối thiểu 6 ký tự",
+      passwordPlaceholder: "••••••••",
+      rememberMe: "Ghi nhớ đăng nhập",
       forgotPassword: "Quên mật khẩu?",
-      submitButton: "Đăng nhập",
+      submitButton: "Đăng Nhập",
       submitting: "Đang đăng nhập...",
+      google: "Google",
+      apple: "Apple",
       successMessage: "Đăng nhập thành công! Đang chuyển hướng...",
       errorInvalidCredentials: "Email hoặc mật khẩu không đúng.",
       errorGeneral: "Đã có lỗi xảy ra. Vui lòng thử lại.",
     },
 
-    // ─── Register ────────────────────────────────────────────────────────────
+    // ─── Register: Left Banner ───────────────────────────────────────────
+    registerWelcome: "Chào mừng đến",
+    registerBrand: "AfterMe",
+    registerSubtext:
+      "Sống tự do, được bảo vệ thụ động. Tham gia cộng đồng tập trung vào an toàn hàng ngày mà không bị xâm phạm.",
+    registerFeature1Title: "Nhắc Nhở Hàng Ngày",
+    registerFeature1Desc: "Nhắc nhở nhẹ nhàng giúp bạn an toàn.",
+    registerFeature2Title: "Cộng Đồng Theo Dõi",
+    registerFeature2Desc: "Sinh viên quan tâm lẫn nhau.",
+    registerFeature3Title: "Quyền Riêng Tư",
+    registerFeature3Desc: "Chúng tôi không bao giờ theo dõi vị trí trực tiếp.",
+
+    // ─── Register: Form ──────────────────────────────────────────────────
     register: {
-      createAccount: "Tạo tài khoản mới",
-      subtitle: "Bắt đầu lưu giữ ký ức và thông điệp của bạn ngay hôm nay",
+      createAccount: "Tạo Tài Khoản",
+      subtitle: "Nhập thông tin của bạn để tham gia AfterMe.",
       nameLabel: "Họ và tên",
-      namePlaceholder: "Nguyễn Văn A",
-      emailLabel: "Địa chỉ email",
-      emailPlaceholder: "ban@example.com",
+      namePlaceholder: "VD: Nguyễn Văn A",
+      emailLabel: "Email Trường",
+      emailPlaceholder: "VD: ten@truongdaihoc.edu",
       passwordLabel: "Mật khẩu",
-      passwordPlaceholder: "Tối thiểu 6 ký tự",
-      confirmPasswordLabel: "Xác nhận mật khẩu",
-      confirmPasswordPlaceholder: "Nhập lại mật khẩu",
-      submitButton: "Tạo tài khoản",
+      passwordPlaceholder: "Tạo mật khẩu mạnh",
+      agreeTerms: "Tôi đồng ý với",
+      termsOfService: "Điều khoản dịch vụ",
+      and: "và",
+      privacyPolicy: "Chính sách bảo mật",
+      submitButton: "Tạo Tài Khoản",
       submitting: "Đang tạo tài khoản...",
-      successMessage: "Tạo tài khoản thành công! Bạn có thể đăng nhập ngay.",
+      successMessage: "Tạo tài khoản thành công! Bạn có thể đăng nhập.",
       errorEmailTaken: "Đã có tài khoản với email này.",
       errorGeneral: "Đã có lỗi xảy ra. Vui lòng thử lại.",
     },
 
-    // ─── Validation ──────────────────────────────────────────────────────────
+    // ─── Validation ──────────────────────────────────────────────────────
     validation: {
       nameRequired: "Vui lòng nhập họ và tên.",
       emailRequired: "Vui lòng nhập địa chỉ email.",
       emailInvalid: "Địa chỉ email không hợp lệ.",
       passwordRequired: "Vui lòng nhập mật khẩu.",
       passwordMin: "Mật khẩu phải có ít nhất 6 ký tự.",
-      confirmPasswordRequired: "Vui lòng xác nhận mật khẩu.",
-      confirmPasswordMatch: "Mật khẩu xác nhận không khớp.",
-    },
-
-    // ─── Social ──────────────────────────────────────────────────────────────
-    social: {
-      google: "Tiếp tục với Google",
-      github: "Tiếp tục với GitHub",
-      comingSoon: "Đăng nhập mạng xã hội sắp ra mắt",
+      termsRequired: "Bạn phải đồng ý với điều khoản.",
     },
   },
 };
