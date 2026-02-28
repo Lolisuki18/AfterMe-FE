@@ -210,6 +210,7 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
           icon: ChartIcon,
         },
         { label: s.reminders, to: "/reminders/new", icon: BellIcon },
+        { label: s.wellbeing, to: "/dashboard/wellbeing", icon: HeartIcon },
       ],
     },
     {

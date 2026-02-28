@@ -13,6 +13,7 @@ export const dashboardEn = {
       family: "Family",
       activityLog: "Activity Log",
       reminders: "Reminders",
+      wellbeing: "Wellbeing",
       account: "Account",
       personalInfo: "Personal Info",
       security: "Security",

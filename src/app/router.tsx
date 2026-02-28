@@ -34,7 +34,6 @@ const PersonalInfoPage = lazy(
 const SecurityPage = lazy(
   () => import("@/features/settings/pages/SecurityPage"),
 );
-const PrivacyPage = lazy(() => import("@/features/settings/pages/PrivacyPage"));
 const NotificationsPage = lazy(
   () => import("@/features/settings/pages/NotificationsPage"),
 );
@@ -55,6 +54,13 @@ const ActivityLogPage = lazy(
 );
 const SubscriptionPage = lazy(
   () => import("@/features/subscription/pages/SubscriptionPage"),
+);
+const PrivacyCenterPage = lazy(
+  () => import("@/features/privacy/pages/PrivacyCenterPage"),
+);
+const PricingPage = lazy(() => import("@/features/pricing/pages/PricingPage"));
+const WellbeingPage = lazy(
+  () => import("@/features/wellbeing/pages/WellbeingPage"),
 );
 
 const PageLoader = () => (
@@ -80,10 +86,7 @@ export const AppRouter = () => {
           {/* Public Routes - Sử dụng MainLayout */}
           <Route element={<MainLayout />}>
             <Route path="/" element={<HomePage />} />
-            {/* Có thể thêm các route public khác: */}
-            {/* <Route path="/about" element={<AboutPage />} /> */}
-            {/* <Route path="/services" element={<ServicesPage />} /> */}
-            {/* <Route path="/contact" element={<ContactPage />} /> */}
+            <Route path="/pricing" element={<PricingPage />} />
           </Route>
 
           {/* Protected Routes - Sử dụng DashboardLayout */}
@@ -104,7 +107,7 @@ export const AppRouter = () => {
             />
             <Route
               path="/dashboard/account/privacy"
-              element={<PrivacyPage />}
+              element={<PrivacyCenterPage />}
             />
             <Route
               path="/dashboard/account/notifications"
@@ -131,6 +134,7 @@ export const AppRouter = () => {
               path="/dashboard/subscription"
               element={<SubscriptionPage />}
             />
+            <Route path="/dashboard/wellbeing" element={<WellbeingPage />} />
             <Route path="/users" element={<UserListPage />} />
             <Route path="/reminders/new" element={<CreateReminderPage />} />
           </Route>

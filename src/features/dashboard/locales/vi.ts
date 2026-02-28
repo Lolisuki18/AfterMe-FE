@@ -15,6 +15,7 @@ export const dashboardVi: DashboardTranslations = {
       family: "Gia đình",
       activityLog: "Nhật ký",
       reminders: "Nhắc nhở",
+      wellbeing: "Sức khỏe",
       account: "Tài khoản",
       personalInfo: "Thông tin cá nhân",
       security: "Bảo mật",

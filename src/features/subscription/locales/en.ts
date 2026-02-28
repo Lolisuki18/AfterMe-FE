@@ -4,6 +4,21 @@ export const subscriptionEn = {
     subtitle:
       "Manage your subscription plan, view billing history, and update payment methods.",
 
+    // Plan summary
+    planSummary: "Plan Summary",
+    selectedPlan: "Selected Plan",
+    planFeatures: "What's included:",
+    securityGuarantee: "30-day money-back guarantee",
+    totalToday: "Total today",
+    free: "Free",
+    then: "then",
+
+    // Payment method tabs
+    paymentMethod: "Payment Method",
+    creditCard: "Credit Card",
+    googlePay: "Google Pay",
+    applePay: "Apple Pay",
+
     // Checkout form
     secureCheckout: "Secure Checkout",
     email: "Email Address",
@@ -23,12 +38,15 @@ export const subscriptionEn = {
     trialDesc: "You won't be charged until the trial ends. Cancel anytime.",
     startTrial: "Start Free Trial",
     subscribe: "Subscribe Now",
+    payWithGoogle: "Pay with Google Pay",
+    payWithApple: "Pay with Apple Pay",
 
     securedBy: "Secured by SSL encryption",
     acceptedCards: "We accept",
 
     // Subscription Management
     currentPlan: "Current Plan",
+    activeBadge: "ACTIVE",
     proPlan: "Pro Plan",
     proPlanPrice: "$9.99/month",
     proPlanDesc:
@@ -36,6 +54,7 @@ export const subscriptionEn = {
     nextBilling: "Next billing date",
     changePlan: "Change Plan",
     cancelSubscription: "Cancel Subscription",
+    managePlan: "Manage Plan",
 
     // Billing history
     billingHistory: "Billing History",
@@ -46,6 +65,7 @@ export const subscriptionEn = {
     paid: "Paid",
     pending: "Pending",
     failed: "Failed",
+    viewAll: "View All",
 
     // Mock billing entries
     proMonthly: "Pro Plan — Monthly",

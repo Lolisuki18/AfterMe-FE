@@ -1,8 +1,9 @@
 import { useLanguage } from "@/app/useLanguage";
 import { subscriptionStore } from "../store/subscriptionStore";
 import {
-  CheckoutForm,
-  CurrentPlanCard,
+  PlanSummaryCard,
+  PaymentMethodForm,
+  SubscriptionManagement,
   BillingHistoryTable,
 } from "../components";
 
@@ -21,17 +22,28 @@ const SubscriptionPage = () => {
         </p>
       </div>
 
-      {/* Current plan */}
-      <CurrentPlanCard
-        planName={data.planName}
-        planPrice={data.planPrice}
-        nextBillingDate={data.nextBillingDate}
-      />
+      {/* Main 2-column layout */}
+      <div className="grid gap-6 lg:grid-cols-5">
+        {/* Left: Plan summary */}
+        <div className="lg:col-span-2">
+          <PlanSummaryCard
+            planName={data.planName}
+            planPrice={data.planPrice}
+          />
+        </div>
 
-      {/* Checkout form */}
-      <CheckoutForm />
+        {/* Right: Payment + Management */}
+        <div className="space-y-6 lg:col-span-3">
+          <PaymentMethodForm />
+          <SubscriptionManagement
+            planName={data.planName}
+            planPrice={data.planPrice}
+            nextBillingDate={data.nextBillingDate}
+          />
+        </div>
+      </div>
 
-      {/* Billing history */}
+      {/* Billing history - full width */}
       <BillingHistoryTable entries={data.billingHistory} />
     </div>
   );

@@ -11,6 +11,9 @@ import { lifestyleEn } from "@/features/lifestyle/locales/en";
 import { familyEn } from "@/features/family/locales/en";
 import { activityEn } from "@/features/activity/locales/en";
 import { subscriptionEn } from "@/features/subscription/locales/en";
+import { privacyEn } from "@/features/privacy/locales/en";
+import { pricingEn } from "@/features/pricing/locales/en";
+import { wellbeingEn } from "@/features/wellbeing/locales/en";
 
 export const en = {
   ...sharedEn,
@@ -26,6 +29,9 @@ export const en = {
   ...familyEn,
   ...activityEn,
   ...subscriptionEn,
+  ...privacyEn,
+  ...pricingEn,
+  ...wellbeingEn,
 };
 
 export type Translations = typeof en;

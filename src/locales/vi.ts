@@ -11,6 +11,9 @@ import { lifestyleVi } from "@/features/lifestyle/locales/vi";
 import { familyVi } from "@/features/family/locales/vi";
 import { activityVi } from "@/features/activity/locales/vi";
 import { subscriptionVi } from "@/features/subscription/locales/vi";
+import { privacyVi } from "@/features/privacy/locales/vi";
+import { pricingVi } from "@/features/pricing/locales/vi";
+import { wellbeingVi } from "@/features/wellbeing/locales/vi";
 
 export const vi = {
   ...sharedVi,
@@ -26,4 +29,7 @@ export const vi = {
   ...familyVi,
   ...activityVi,
   ...subscriptionVi,
+  ...privacyVi,
+  ...pricingVi,
+  ...wellbeingVi,
 };
