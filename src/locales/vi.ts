@@ -19,6 +19,8 @@ import { gracePeriodVi } from "@/features/grace-period/locales/vi";
 import { landingVi } from "@/features/landing/locales/vi";
 import { referralVi } from "@/features/referral/locales/vi";
 import { familyLinkVi } from "@/features/family-link/locales/vi";
+import { aiSetupVi } from "@/features/ai-setup/locales/vi";
+import { sosTriggerVi } from "@/features/sos-trigger/locales/vi";
 
 export const vi = {
   ...sharedVi,
@@ -42,4 +44,6 @@ export const vi = {
   ...landingVi,
   ...referralVi,
   ...familyLinkVi,
+  ...aiSetupVi,
+  ...sosTriggerVi,
 };

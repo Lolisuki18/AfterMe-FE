@@ -19,6 +19,8 @@ import { gracePeriodEn } from "@/features/grace-period/locales/en";
 import { landingEn } from "@/features/landing/locales/en";
 import { referralEn } from "@/features/referral/locales/en";
 import { familyLinkEn } from "@/features/family-link/locales/en";
+import { aiSetupEn } from "@/features/ai-setup/locales/en";
+import { sosTriggerEn } from "@/features/sos-trigger/locales/en";
 
 export const en = {
   ...sharedEn,
@@ -42,6 +44,8 @@ export const en = {
   ...landingEn,
   ...referralEn,
   ...familyLinkEn,
+  ...aiSetupEn,
+  ...sosTriggerEn,
 };
 
 export type Translations = typeof en;

@@ -74,6 +74,10 @@ const ReferralPage = lazy(
 const FamilyLinkPage = lazy(
   () => import("@/features/family-link/pages/FamilyLinkPage"),
 );
+const AiSetupPage = lazy(() => import("@/features/ai-setup/pages/AiSetupPage"));
+const SosTriggerPage = lazy(
+  () => import("@/features/sos-trigger/pages/SosTriggerPage"),
+);
 
 const PageLoader = () => (
   <div className="flex h-screen items-center justify-center">
@@ -156,6 +160,8 @@ export const AppRouter = () => {
           <Route path="/grace-period" element={<GracePeriodPage />} />
           <Route path="/landing" element={<LandingPage />} />
           <Route path="/family-link" element={<FamilyLinkPage />} />
+          <Route path="/ai-setup" element={<AiSetupPage />} />
+          <Route path="/sos-trigger" element={<SosTriggerPage />} />
 
           {/* 404 - Not Found */}
           <Route path="/404" element={<NotFoundPage />} />
