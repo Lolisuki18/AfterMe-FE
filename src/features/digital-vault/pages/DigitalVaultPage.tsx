@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { useLanguage } from "@/app/useLanguage";
 import { Button, Textarea } from "@/shared/components";
+import {
+  PlusIcon,
+  ShieldCheckIcon,
+  ClockOutlineIcon,
+  SaveIcon,
+} from "@/shared/icon";
 import { vaultStore } from "../store/vaultStore";
 import { AssetItem, VaultSidebar } from "../components";
 
@@ -32,21 +38,7 @@ const DigitalVaultPage = () => {
         <Button
           variant="primary"
           rounded
-          leftIcon={
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4v16m8-8H4"
-              />
-            </svg>
-          }
+          leftIcon={<PlusIcon className="h-4 w-4" />}
         >
           {v.addAsset}
         </Button>
@@ -64,19 +56,10 @@ const DigitalVaultPage = () => {
           </div>
         </div>
         <div className="bg-surface flex items-center gap-3 rounded-2xl px-4 py-4">
-          <svg
+          <ShieldCheckIcon
             className="text-primary h-5 w-5 shrink-0"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
             strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-            />
-          </svg>
+          />
           <div>
             <p className="text-text-muted text-[10px] font-semibold tracking-wider uppercase">
               {v.encryptedItems}
@@ -87,19 +70,7 @@ const DigitalVaultPage = () => {
           </div>
         </div>
         <div className="bg-surface flex items-center gap-3 rounded-2xl px-4 py-4">
-          <svg
-            className="text-primary h-5 w-5 shrink-0"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
+          <ClockOutlineIcon className="text-primary h-5 w-5 shrink-0" />
           <div>
             <p className="text-text-muted text-[10px] font-semibold tracking-wider uppercase">
               {v.lastBackup}
@@ -149,19 +120,7 @@ const DigitalVaultPage = () => {
                 onClick={handleSaveMessage}
                 className="text-primary flex items-center gap-1.5 text-sm font-semibold hover:underline"
               >
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
-                  />
-                </svg>
+                <SaveIcon className="h-4 w-4" />
                 {v.saveMessage}
               </button>
             </div>

@@ -1,4 +1,5 @@
 import { useLanguage } from "@/app/useLanguage";
+import { MapPinIcon, ClockOutlineIcon } from "@/shared/icon";
 import type { FamilyMember, MemberStatus } from "../store/familyStore";
 
 const STATUS_STYLES: Record<MemberStatus, string> = {
@@ -52,40 +53,11 @@ export const FamilyMemberCard = ({ member }: FamilyMemberCardProps) => {
 
           <div className="text-text-muted mt-3 space-y-1 text-xs">
             <div className="flex items-center gap-1.5">
-              <svg
-                className="h-3.5 w-3.5 shrink-0"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
+              <MapPinIcon className="h-3.5 w-3.5 shrink-0" />
               {location}
             </div>
             <div className="flex items-center gap-1.5">
-              <svg
-                className="h-3.5 w-3.5 shrink-0"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+              <ClockOutlineIcon className="h-3.5 w-3.5 shrink-0" />
               {f.lastCheckIn}: {checkIn}
             </div>
           </div>

@@ -18,6 +18,8 @@ import {
   EyeIcon,
   ChevronDownIcon,
   CreditCardIcon,
+  HomeOutlineIcon,
+  LogoutIcon,
 } from "@/shared/icon";
 
 interface SidebarProps {
@@ -308,19 +310,7 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
               onClick={() => navigate("/")}
               className="text-text-muted hover:bg-surface-alt hover:text-text flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2 text-xs font-medium transition-colors"
             >
-              <svg
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"
-                />
-              </svg>
+              <HomeOutlineIcon className="h-4 w-4" />
               {s.backToHome}
             </button>
             <button
@@ -331,19 +321,7 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
               }}
               className="flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-red-500 transition-colors hover:bg-red-50 hover:text-red-600"
             >
-              <svg
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                />
-              </svg>
+              <LogoutIcon className="h-4 w-4" />
               {s.logout}
             </button>
           </div>

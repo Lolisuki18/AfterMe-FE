@@ -1,4 +1,9 @@
 import { useLanguage } from "@/app/useLanguage";
+import {
+  LockClosedIcon,
+  KeyOutlineIcon,
+  AlertWarningIcon,
+} from "@/shared/icon";
 
 export const VaultSidebar = () => {
   const { t } = useLanguage();
@@ -12,19 +17,7 @@ export const VaultSidebar = () => {
         <div className="mt-3 space-y-2.5">
           {/* Encrypted */}
           <div className="flex items-center gap-3 rounded-xl bg-green-500/10 px-3 py-2.5">
-            <svg
-              className="h-4 w-4 shrink-0 text-green-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-              />
-            </svg>
+            <LockClosedIcon className="h-4 w-4 shrink-0 text-green-500" />
             <div>
               <p className="text-text text-xs font-semibold">{v.endToEnd}</p>
               <p className="text-text-muted text-[10px]">{v.aes256}</p>
@@ -32,19 +25,7 @@ export const VaultSidebar = () => {
           </div>
           {/* Master Key */}
           <div className="flex items-center gap-3 rounded-xl bg-green-500/10 px-3 py-2.5">
-            <svg
-              className="h-4 w-4 shrink-0 text-green-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
-              />
-            </svg>
+            <KeyOutlineIcon className="h-4 w-4 shrink-0 text-green-500" />
             <div>
               <p className="text-text text-xs font-semibold">{v.masterKey}</p>
               <p className="text-text-muted text-[10px]">{v.storedLocally}</p>
@@ -52,19 +33,7 @@ export const VaultSidebar = () => {
           </div>
           {/* Beneficiary Pending */}
           <div className="flex items-center gap-3 rounded-xl bg-amber-500/10 px-3 py-2.5">
-            <svg
-              className="h-4 w-4 shrink-0 text-amber-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-              />
-            </svg>
+            <AlertWarningIcon className="h-4 w-4 shrink-0 text-amber-500" />
             <div>
               <p className="text-text text-xs font-semibold">
                 {v.beneficiaryPending}

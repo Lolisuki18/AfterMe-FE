@@ -1,5 +1,6 @@
 import { useLanguage } from "@/app/useLanguage";
 import Logo from "@/shared/icon/Logo";
+import { ClockOutlineIcon } from "@/shared/icon";
 
 interface ComingSoonProps {
   /** The feature / page name to display */
@@ -16,19 +17,10 @@ const ComingSoonPage = ({ featureName }: ComingSoonProps) => {
 
       {/* Illustration */}
       <div className="bg-primary/10 mb-6 flex h-24 w-24 items-center justify-center rounded-full">
-        <svg
+        <ClockOutlineIcon
           className="text-primary h-12 w-12"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
           strokeWidth={1.5}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
+        />
       </div>
 
       {/* Title */}
