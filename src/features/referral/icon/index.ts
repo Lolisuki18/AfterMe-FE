@@ -1,0 +1,9 @@
+export { default as GiftIcon } from "./GiftIcon";
+export { default as CopyIcon } from "./CopyIcon";
+export { default as TwitterIcon } from "./TwitterIcon";
+export { default as FacebookIcon } from "./FacebookIcon";
+export { default as InstagramIcon } from "./InstagramIcon";
+export { default as EmailIcon } from "./EmailIcon";
+export { default as UsersIcon } from "./UsersIcon";
+export { default as TrophyIcon } from "./TrophyIcon";
+export { default as ChevronRightIcon } from "./ChevronRightIcon";

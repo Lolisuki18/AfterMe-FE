@@ -18,7 +18,6 @@ const RegisterPage = lazy(() => import("@/features/auth/pages/RegisterPage"));
 const DashboardPage = lazy(
   () => import("@/features/dashboard/pages/DashboardPage"),
 );
-const UserListPage = lazy(() => import("@/features/user/pages/UserListPage"));
 const OnboardingPage = lazy(
   () => import("@/features/onboarding/page/OnboardingPage"),
 );
@@ -61,6 +60,19 @@ const PrivacyCenterPage = lazy(
 const PricingPage = lazy(() => import("@/features/pricing/pages/PricingPage"));
 const WellbeingPage = lazy(
   () => import("@/features/wellbeing/pages/WellbeingPage"),
+);
+const EmergencyAlertPage = lazy(
+  () => import("@/features/emergency-alert/pages/EmergencyAlertPage"),
+);
+const GracePeriodPage = lazy(
+  () => import("@/features/grace-period/pages/GracePeriodPage"),
+);
+const LandingPage = lazy(() => import("@/features/landing/pages/LandingPage"));
+const ReferralPage = lazy(
+  () => import("@/features/referral/pages/ReferralPage"),
+);
+const FamilyLinkPage = lazy(
+  () => import("@/features/family-link/pages/FamilyLinkPage"),
 );
 
 const PageLoader = () => (
@@ -135,9 +147,15 @@ export const AppRouter = () => {
               element={<SubscriptionPage />}
             />
             <Route path="/dashboard/wellbeing" element={<WellbeingPage />} />
-            <Route path="/users" element={<UserListPage />} />
+            <Route path="/dashboard/referral" element={<ReferralPage />} />
             <Route path="/reminders/new" element={<CreateReminderPage />} />
           </Route>
+
+          {/* Standalone pages – no layout wrapper */}
+          <Route path="/emergency-alert" element={<EmergencyAlertPage />} />
+          <Route path="/grace-period" element={<GracePeriodPage />} />
+          <Route path="/landing" element={<LandingPage />} />
+          <Route path="/family-link" element={<FamilyLinkPage />} />
 
           {/* 404 - Not Found */}
           <Route path="/404" element={<NotFoundPage />} />

@@ -14,6 +14,11 @@ import { subscriptionEn } from "@/features/subscription/locales/en";
 import { privacyEn } from "@/features/privacy/locales/en";
 import { pricingEn } from "@/features/pricing/locales/en";
 import { wellbeingEn } from "@/features/wellbeing/locales/en";
+import { emergencyAlertEn } from "@/features/emergency-alert/locales/en";
+import { gracePeriodEn } from "@/features/grace-period/locales/en";
+import { landingEn } from "@/features/landing/locales/en";
+import { referralEn } from "@/features/referral/locales/en";
+import { familyLinkEn } from "@/features/family-link/locales/en";
 
 export const en = {
   ...sharedEn,
@@ -32,6 +37,11 @@ export const en = {
   ...privacyEn,
   ...pricingEn,
   ...wellbeingEn,
+  ...emergencyAlertEn,
+  ...gracePeriodEn,
+  ...landingEn,
+  ...referralEn,
+  ...familyLinkEn,
 };
 
 export type Translations = typeof en;

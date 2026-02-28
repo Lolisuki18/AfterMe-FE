@@ -14,6 +14,11 @@ import { subscriptionVi } from "@/features/subscription/locales/vi";
 import { privacyVi } from "@/features/privacy/locales/vi";
 import { pricingVi } from "@/features/pricing/locales/vi";
 import { wellbeingVi } from "@/features/wellbeing/locales/vi";
+import { emergencyAlertVi } from "@/features/emergency-alert/locales/vi";
+import { gracePeriodVi } from "@/features/grace-period/locales/vi";
+import { landingVi } from "@/features/landing/locales/vi";
+import { referralVi } from "@/features/referral/locales/vi";
+import { familyLinkVi } from "@/features/family-link/locales/vi";
 
 export const vi = {
   ...sharedVi,
@@ -32,4 +37,9 @@ export const vi = {
   ...privacyVi,
   ...pricingVi,
   ...wellbeingVi,
+  ...emergencyAlertVi,
+  ...gracePeriodVi,
+  ...landingVi,
+  ...referralVi,
+  ...familyLinkVi,
 };
