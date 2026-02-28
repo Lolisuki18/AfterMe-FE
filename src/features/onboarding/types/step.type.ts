@@ -1,1 +1,1 @@
-export type CheckInDay = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun";
+export type OnboardingStep = 1 | 2 | 3;

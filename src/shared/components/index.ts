@@ -1,5 +1,8 @@
 export { Button } from "./Button";
 export { Input } from "./Input";
+export { Textarea } from "./Textarea";
+export { Toggle } from "./Toggle";
+export { Select } from "./Select";
 export { Navbar } from "./Navbar";
 export { Sidebar } from "../../features/dashboard/components/Sidebar";
 export { Header } from "./Header";

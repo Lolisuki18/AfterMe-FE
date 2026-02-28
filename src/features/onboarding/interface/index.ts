@@ -1,6 +1,8 @@
+export type { OnboardingStep } from "./onboarding.interface";
 export type {
-  OnboardingFormData,
-  OnboardingStep,
+  ProfileData,
+  PulseData,
+  ContactData,
+  OnboardingData,
 } from "./onboarding.interface";
-export { defaultFormData } from "./onboarding.interface";
 export * from "./steps.interface";

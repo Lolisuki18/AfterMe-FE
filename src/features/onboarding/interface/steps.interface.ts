@@ -1,37 +1,26 @@
-import type { CheckInDay } from "../types";
-import type { OnboardingFormData } from "./onboarding.interface";
+import type {
+  ProfileData,
+  PulseData,
+  ContactData,
+} from "../store/onboardingStore";
 
-export interface Step1WelcomeProps {
+export interface Step1ProfileProps {
+  data: ProfileData;
+  onChange: (data: ProfileData) => void;
   onNext: () => void;
+  onSkip: () => void;
 }
 
-export interface Step2ProfileProps {
-  data: OnboardingFormData;
-  onChange: (field: keyof OnboardingFormData, value: string) => void;
+export interface Step2PulseProps {
+  data: PulseData;
+  onChange: (data: PulseData) => void;
   onNext: () => void;
   onBack: () => void;
 }
 
-export interface Step3CheckInProps {
-  data: OnboardingFormData;
-  onChange: (
-    field: keyof OnboardingFormData,
-    value: string | "daily" | "weekly" | boolean | CheckInDay[],
-  ) => void;
-  onNext: () => void;
-  onBack: () => void;
-}
-
-export interface Step4TriggerProps {
-  data: OnboardingFormData;
-  onChange: (field: keyof OnboardingFormData, value: 1 | 3 | 7) => void;
-  onNext: () => void;
-  onBack: () => void;
-}
-
-export interface Step5ContactProps {
-  data: OnboardingFormData;
-  onChange: (field: keyof OnboardingFormData, value: string | boolean) => void;
-  onNext: () => void;
+export interface Step3ContactProps {
+  data: ContactData;
+  onChange: (data: ContactData) => void;
+  onComplete: () => void;
   onBack: () => void;
 }

@@ -2,101 +2,94 @@ import type { OnboardingTranslations } from "./en";
 
 export const onboardingVi: OnboardingTranslations = {
   onboarding: {
-    step: "Bước",
-    percentComplete: "% Hoàn thành",
-    back: "← Quay lại",
-    next: "Tiếp theo →",
-    getStarted: "Bắt đầu",
-    goToDashboard: "Đến Bảng điều khiển →",
+    // ── Shared / Layout ──────────────────────────────────────────────────
+    stepOf: "BƯỚC {current} TRÊN {total}",
+    percentCompleted: "{percent}% Hoàn thành",
+    welcomeTitle: "Chào mừng đến với AfterMe",
+    welcomeSubtitle:
+      "Hãy thiết lập hồ sơ an toàn của bạn trong 3 bước đơn giản.",
+    privacyFirst: "Quyền riêng tư",
+    back: "Quay lại",
+    next: "Tiếp: Thời gian check-in",
+    continue: "Tiếp tục",
+    skipForNow: "Bỏ qua",
+    completeSetup: "Hoàn tất thiết lập",
+    saveAndExit: "Lưu & Thoát",
+    helpAndSupport: "Trợ giúp & Hỗ trợ",
 
-    // Step 1 – Welcome
-    welcome: {
-      title: "Chào mừng đến với AfterMe",
+    // ── Footer links ──────────────────────────────────────────────────
+    termsOfService: "Điều khoản dịch vụ",
+    privacyPolicy: "Chính sách bảo mật",
+    helpCenter: "Trung tâm trợ giúp",
+    dataEncryptedNote:
+      "Dữ liệu của bạn được mã hóa và chỉ chia sẻ trong trường hợp khẩn cấp thực sự.",
+
+    // ── Step 1 – Basic Profile ───────────────────────────────────────
+    step1: {
+      title: "Hồ sơ cơ bản",
+      whyTitle: "Tại sao cần thông tin này?",
+      whyDescription:
+        "Hồ sơ cơ bản giúp nhân viên cứu hộ xác định bạn nhanh chóng nếu có cảnh báo. Chúng tôi lưu trữ mã hóa cục bộ trên thiết bị của bạn.",
+      criticalInfoTitle: "Thông tin quan trọng",
+      criticalInfoDesc: "Chia sẻ dị ứng hoặc tình trạng sức khỏe.",
+      encryptedTitle: "Mã hóa đầu cuối",
+      encryptedDesc: "Chỉ bạn và liên hệ của bạn mới xem được.",
+      testimonialQuote:
+        '"AfterMe giúp tôi an tâm khi đi bộ về nhà muộn từ thư viện."',
+      testimonialAuthor: "Sarah J., Sinh viên",
+      fullNameLabel: "Họ và tên",
+      fullNameRequired: "*",
+      fullNamePlaceholder: "VD: Nguyễn Văn A",
+      medicalNoteLabel: "Ghi chú y tế / Giới thiệu",
+      medicalNoteOptional: "Tùy chọn",
+      medicalNotePlaceholder:
+        "Thông tin y tế quan trọng (VD: Hen suyễn, Tiểu đường) hoặc đôi nét về bạn...",
+      medicalNoteHelper:
+        "Thông tin này sẽ được chia sẻ với liên hệ khẩn cấp khi có cảnh báo.",
+      checkInPreferences: "Ưu tiên check-in",
+      morning: "Buổi sáng",
+      evening: "Buổi tối",
+    },
+
+    // ── Step 2 – Check-in Pulse ──────────────────────────────────────
+    step2: {
+      title: "Thiết lập nhịp check-in",
       subtitle:
-        "Hãy thiết lập mạng lưới an toàn cá nhân của bạn. Chúng tôi sẽ giúp bạn cấu hình lịch check-in và liên hệ khẩn cấp trong vài phút.",
-      coverTitle: "Những gì chúng tôi sẽ thiết lập:",
-      items: [
-        "Thông tin hồ sơ cơ bản của bạn",
-        "Cài đặt lịch check-in định kỳ",
-        "Xác định ngưỡng không hoạt động",
-        "Thêm liên hệ tin cậy",
-      ],
+        "Chúng tôi không cần giờ chính xác. Chỉ cần chọn khung giờ bạn thường hoạt động để chúng tôi biết khi nào cần kiểm tra.",
+      whyWeAsk: "Tại sao chúng tôi hỏi? (Đây là kiểm tra nhịp thụ động)",
+      morning: "Buổi sáng",
+      morningTime: "Khoảng 8:00 SA - 10:00 SA",
+      afternoon: "Buổi trưa",
+      afternoonTime: "Khoảng 12:00 CH - 2:00 CH",
+      evening: "Buổi chiều",
+      eveningTime: "Khoảng 6:00 CH - 8:00 CH",
+      night: "Ban đêm",
+      nightTime: "Khoảng 10:00 CH - 12:00 SA",
+      addCustomTime: "Thêm khung giờ tùy chỉnh",
     },
 
-    // Step 2 – Profile
-    profile: {
-      title: "Hãy để chúng tôi hiểu bạn hơn",
-      subtitle: "Hãy cho chúng tôi biết tần suất bạn muốn thực hiện check-in",
-      firstName: "Họ",
-      lastName: "Tên",
-      email: "Email",
-      phone: "Số điện thoại",
-      hearAboutUs: "Bạn biết đến chúng tôi qua đâu?",
-      hearAboutUsPlaceholder: "Chọn một lựa chọn",
-      hearOptions: [
-        "Mạng xã hội",
-        "Bạn bè hoặc gia đình",
-        "Công cụ tìm kiếm",
-        "Quảng cáo",
-        "Khác",
-      ],
-      required: "*",
-      optional: "(Tùy chọn)",
-    },
-
-    // Step 3 – Check-in
-    checkin: {
-      title: "Cài đặt lịch check-in định kỳ",
-      subtitle: "Hãy cho chúng tôi biết tần suất bạn muốn thực hiện check-in.",
-      frequency: "Tần suất check-in",
-      daily: "Hàng ngày",
-      weekly: "Hàng tuần",
-      time: "Giờ check-in",
-      am: "SA",
-      pm: "CH",
-      "...": "...",
-      selectDay: "Chọn các ngày trong tuần",
-      mon: "T2",
-      tue: "T3",
-      wed: "T4",
-      thu: "T5",
-      fri: "T6",
-      sat: "T7",
-      sun: "CN",
-    },
-
-    // Step 4 – Inactivity trigger
-    trigger: {
-      title: "Xác định ngưỡng không hoạt động",
+    // ── Step 3 – Emergency Contact ───────────────────────────────────
+    step3: {
+      title: "Liên hệ khẩn cấp",
       subtitle:
-        "Nếu bạn bỏ lỡ các lần check-in trong một khoảng thời gian nhất định, chúng tôi sẽ cho rằng bạn không có mặt và kích hoạt kế hoạch di sản của bạn.",
-      label: "Kích hoạt Chế độ Di sản sau:",
-      day: "1 ngày",
-      days3: "3 ngày",
-      days7: "7 ngày",
-      daysChoose: "Thời gian không hoạt động:",
-      day1: "ngày",
-      days: "ngày",
-      quickSelect: "Lựa chọn nhanh:",
-    },
-
-    // Step 5 – Trusted contact
-    contact: {
-      title: "Thêm liên hệ tin cậy",
-      subtitle:
-        "Nếu bạn bỏ lỡ các lần check-in trong một khoảng thời gian nhất định, chúng tôi sẽ kích hoạt kế hoạch di sản.",
-      name: "Tên",
-      email: "Email",
-      phone: "Số điện thoại",
-      note: "Liên hệ tin cậy của bạn sẽ được xác lập sau khi họ xác nhận qua email",
-      skip: "Bỏ qua bước này",
-      required: "*",
-      tooltip1: "Sẽ được bổ sung sau",
-    },
-
-    // Step 6 – Complete
-    complete: {
-      title: "Bạn đã sẵn sàng!",
+        "Thêm liên hệ tin cậy sẽ được thông báo ngay lập tức trong trường hợp khẩn cấp. Chúng tôi khuyên bạn thêm phụ huynh hoặc bạn thân.",
+      fullNameLabel: "Họ và tên",
+      fullNamePlaceholder: "VD: Trần Thị B",
+      relationshipLabel: "Mối quan hệ",
+      relationshipPlaceholder: "Chọn mối quan hệ",
+      phoneLabel: "Số điện thoại",
+      phonePlaceholder: "+84 912 345 678",
+      notifyTitle: "Thông báo cho họ tôi đã tham gia AfterMe",
+      notifyDesc: "Chúng tôi sẽ gửi SMS an toàn giới thiệu ứng dụng.",
+      emergencyContact: "Liên hệ khẩn cấp",
+      relationships: {
+        parent: "Phụ huynh",
+        sibling: "Anh chị em",
+        spouse: "Vợ / Chồng",
+        friend: "Bạn thân",
+        roommate: "Bạn cùng phòng",
+        other: "Khác",
+      },
     },
   },
 };

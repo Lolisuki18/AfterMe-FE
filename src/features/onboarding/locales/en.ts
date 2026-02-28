@@ -1,100 +1,92 @@
 export const onboardingEn = {
   onboarding: {
-    step: "Step",
-    percentComplete: "% Complete",
-    back: "← Back",
-    next: "Next Step →",
-    getStarted: "Get Started",
-    goToDashboard: "Go to Dashboard →",
+    // ── Shared / Layout ──────────────────────────────────────────────────
+    stepOf: "STEP {current} OF {total}",
+    percentCompleted: "{percent}% Completed",
+    welcomeTitle: "Welcome to AfterMe",
+    welcomeSubtitle: "Let's set up your safety profile in 3 simple steps.",
+    privacyFirst: "Privacy First",
+    back: "Back",
+    next: "Next: Check-in Times",
+    continue: "Continue",
+    skipForNow: "Skip for now",
+    completeSetup: "Complete Setup",
+    saveAndExit: "Save & Exit",
+    helpAndSupport: "Help & Support",
 
-    // Step 1 – Welcome
-    welcome: {
-      title: "Welcome to AfterMe",
+    // ── Footer links ──────────────────────────────────────────────────
+    termsOfService: "Terms of Service",
+    privacyPolicy: "Privacy Policy",
+    helpCenter: "Help Center",
+    dataEncryptedNote:
+      "Your data is encrypted and only shared in actual emergencies.",
+
+    // ── Step 1 – Basic Profile ───────────────────────────────────────
+    step1: {
+      title: "Basic Profile",
+      whyTitle: "Why this info?",
+      whyDescription:
+        "Your basic profile helps emergency responders identify you quickly if an alert is triggered. We store this locally encrypted on your device.",
+      criticalInfoTitle: "Critical Info",
+      criticalInfoDesc: "Share allergies or conditions.",
+      encryptedTitle: "End-to-End Encrypted",
+      encryptedDesc: "Only you and your contacts can see this.",
+      testimonialQuote:
+        '"AfterMe gives me peace of mind when I walk home late from the library."',
+      testimonialAuthor: "Sarah J., Student",
+      fullNameLabel: "Full Name",
+      fullNameRequired: "*",
+      fullNamePlaceholder: "e.g. Alex Morgan",
+      medicalNoteLabel: "Medical Note / Bio",
+      medicalNoteOptional: "Optional",
+      medicalNotePlaceholder:
+        "Any critical medical info (e.g., Asthma, Diabetes) or just a bit about you...",
+      medicalNoteHelper:
+        "This will be shared with your emergency contact during an alert.",
+      checkInPreferences: "Check-in Preferences",
+      morning: "Morning",
+      evening: "Evening",
+    },
+
+    // ── Step 2 – Check-in Pulse ──────────────────────────────────────
+    step2: {
+      title: "Set your check-in pulse",
       subtitle:
-        "Let's set up your personal safety net. We'll help you configure your check-ins and emergency contacts in just a few minutes.",
-      coverTitle: "What we'll cover:",
-      items: [
-        "Your basic profile information",
-        "Establish your check-in routine",
-        "Define inactivity trigger",
-        "Setting up a trusted contact",
-      ],
+        "We don't need exact times. Just pick the windows when you're usually active so we know when to check on you.",
+      whyWeAsk: "Why we ask? (This is a passive pulse check)",
+      morning: "Morning",
+      morningTime: "Around 8:00 AM - 10:00 AM",
+      afternoon: "Afternoon",
+      afternoonTime: "Around 12:00 PM - 2:00 PM",
+      evening: "Evening",
+      eveningTime: "Around 6:00 PM - 8:00 PM",
+      night: "Night",
+      nightTime: "Around 10:00 PM - 12:00 AM",
+      addCustomTime: "Add a custom time window",
     },
 
-    // Step 2 – Profile
-    profile: {
-      title: "Let's get to know you",
-      subtitle: "Choose how often you want AfterMe to check in on you.",
-      firstName: "First Name",
-      lastName: "Last Name",
-      email: "Email",
-      phone: "Numbers",
-      hearAboutUs: "How did you hear about us?",
-      hearAboutUsPlaceholder: "Select an option",
-      hearOptions: [
-        "Social media",
-        "Friend or family",
-        "Search engine",
-        "Advertisement",
-        "Other",
-      ],
-      required: "*",
-      optional: "(Optional)",
-    },
-
-    // Step 3 – Check-in
-    checkin: {
-      title: "Establish your check-in routine",
-      subtitle: "Choose how often you want AfterMe to check in on you.",
-      frequency: "Check-in Frequency",
-      daily: "Daily",
-      weekly: "Weekly",
-      time: "Check-in Time",
-      am: "AM",
-      pm: "PM",
-      "...": "...",
-      selectDay: "Select days of the week",
-      mon: "Mon",
-      tue: "Tue",
-      wed: "Wed",
-      thu: "Thu",
-      fri: "Fri",
-      sat: "Sat",
-      sun: "Sun",
-    },
-
-    // Step 4 – Inactivity trigger
-    trigger: {
-      title: "Define Inactivity Trigger",
+    // ── Step 3 – Emergency Contact ───────────────────────────────────
+    step3: {
+      title: "Emergency Contact",
       subtitle:
-        "If no check-in is detected for your chosen duration, your Legacy Plan will be automatically executed.",
-      label: "Activate Legacy Mode after:",
-      day: "1 day",
-      days3: "3 days",
-      days7: "7 days",
-      daysChoose: "Inactivity period:",
-      day1: "day",
-      days: "days",
-      quickSelect: "Quick Select:",
-    },
-
-    // Step 5 – Trusted contact
-    contact: {
-      title: "Add a trusted contact",
-      subtitle:
-        "If you miss your daily check-ins for a set period, we will assume you are unavailable and activate your legacy plan.",
-      name: "Name",
-      email: "Email",
-      phone: "Numbers",
-      note: "Your trusted contact will be established after they confirm it via email",
-      skip: "Skip this for now",
-      required: "*",
-      tooltip1: "Will be added later",
-    },
-
-    // Step 6 – Complete
-    complete: {
-      title: "You're all set !",
+        "Add a trusted contact who will be notified instantly in case of an emergency. We recommend adding a parent or close friend.",
+      fullNameLabel: "Full Name",
+      fullNamePlaceholder: "e.g. Jane Doe",
+      relationshipLabel: "Relationship",
+      relationshipPlaceholder: "Select relationship",
+      phoneLabel: "Phone Number",
+      phonePlaceholder: "+1 (555) 000-0000",
+      notifyTitle: "Notify them I joined AfterMe",
+      notifyDesc: "We'll send them a secure SMS introducing the app.",
+      emergencyContact: "Emergency Contact",
+      relationships: {
+        parent: "Parent",
+        sibling: "Sibling",
+        spouse: "Spouse / Partner",
+        friend: "Close Friend",
+        roommate: "Roommate",
+        other: "Other",
+      },
     },
   },
 };
