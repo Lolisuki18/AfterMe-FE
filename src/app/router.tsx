@@ -69,7 +69,7 @@ const EmergencyAlertPage = lazy(
 const GracePeriodPage = lazy(
   () => import("@/features/grace-period/pages/GracePeriodPage"),
 );
-const LandingPage = lazy(() => import("@/features/landing/pages/LandingPage"));
+const AboutUsPage = lazy(() => import("@/features/landing/pages/AboutUsPage"));
 const ReferralPage = lazy(
   () => import("@/features/referral/pages/ReferralPage"),
 );
@@ -156,7 +156,7 @@ export const AppRouter = () => {
           {/* Standalone pages – no layout wrapper */}
           <Route path="/emergency-alert" element={<EmergencyAlertPage />} />
           <Route path="/grace-period" element={<GracePeriodPage />} />
-          <Route path="/landing" element={<LandingPage />} />
+          <Route path="/about" element={<AboutUsPage />} />
           <Route path="/family-link" element={<FamilyLinkPage />} />
           <Route path="/ai-setup" element={<AiSetupPage />} />
           <Route path="/sos-trigger" element={<SosTriggerPage />} />

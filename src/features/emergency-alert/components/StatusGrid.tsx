@@ -8,17 +8,17 @@ export const StatusGrid = () => {
   return (
     <section className="grid gap-4 sm:grid-cols-2">
       {/* Last Check-In Card */}
-      <div className="rounded-2xl bg-gray-800/70 p-5 sm:p-6">
-        <div className="mb-3 flex items-center gap-2 text-xs font-bold tracking-wider text-gray-400 uppercase">
+      <div className="bg-surface rounded-2xl p-5 sm:p-6">
+        <div className="text-text-muted mb-3 flex items-center gap-2 text-xs font-bold tracking-wider uppercase">
           <ClockBasicIcon className="text-primary h-4 w-4" />
           {a.lastCheckIn}
         </div>
-        <p className="text-3xl font-extrabold text-white">10:42 AM</p>
-        <p className="text-sm text-gray-400">{a.today}</p>
+        <p className="text-text text-3xl font-extrabold">10:42 AM</p>
+        <p className="text-text-muted text-sm">{a.today}</p>
 
-        <hr className="my-4 border-gray-700" />
+        <hr className="border-border my-4" />
 
-        <div className="flex items-center gap-2 text-xs font-bold tracking-wider text-gray-400 uppercase">
+        <div className="text-text-muted flex items-center gap-2 text-xs font-bold tracking-wider uppercase">
           <MapPinIcon className="text-primary h-4 w-4" />
           {a.currentStatus}
         </div>
@@ -29,7 +29,7 @@ export const StatusGrid = () => {
       </div>
 
       {/* Location / Map Card */}
-      <div className="relative overflow-hidden rounded-2xl bg-gray-800/70">
+      <div className="bg-surface relative overflow-hidden rounded-2xl">
         {/* Simulated map background */}
         <div className="relative h-full min-h-[200px] bg-[url('https://api.mapbox.com/styles/v1/mapbox/dark-v11/static/-122.4194,37.7749,12,0/400x300?access_token=placeholder')] bg-cover bg-center">
           {/* Fallback gradient when image doesn't load */}
@@ -37,23 +37,23 @@ export const StatusGrid = () => {
 
           {/* City label overlay */}
           <div className="relative flex h-full min-h-[200px] items-center justify-center">
-            <span className="text-lg font-bold text-white/60">
+            <span className="text-text-muted text-lg font-bold">
               San Francisco
             </span>
           </div>
 
           {/* Location info card at bottom */}
-          <div className="absolute right-3 bottom-3 left-3 rounded-xl bg-gray-900/90 p-3 backdrop-blur-sm">
+          <div className="bg-bg/90 absolute right-3 bottom-3 left-3 rounded-xl p-3 backdrop-blur-sm">
             <div className="flex items-start gap-2">
               <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-red-400" />
               <div>
-                <p className="text-[10px] font-bold tracking-wider text-gray-400 uppercase">
+                <p className="text-text-muted text-[10px] font-bold tracking-wider uppercase">
                   {a.lastKnownLocation}
                 </p>
-                <p className="mt-0.5 text-sm font-semibold text-white">
+                <p className="text-text mt-0.5 text-sm font-semibold">
                   {a.address}
                 </p>
-                <p className="text-xs text-gray-500">{a.locationAgo}</p>
+                <p className="text-text-muted text-xs">{a.locationAgo}</p>
               </div>
             </div>
           </div>

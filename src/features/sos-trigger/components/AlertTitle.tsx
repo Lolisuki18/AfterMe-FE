@@ -13,10 +13,10 @@ const AlertTitle = () => {
       </span>
 
       {/* Title */}
-      <h1 className="text-4xl font-extrabold text-white sm:text-5xl">
+      <h1 className="text-text text-4xl font-extrabold sm:text-5xl">
         {s.title}
       </h1>
-      <p className="max-w-md text-sm text-gray-400">{s.subtitle}</p>
+      <p className="text-text-muted max-w-md text-sm">{s.subtitle}</p>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
 
 import Logo from "@/shared/icon/Logo";
+import { appConfig } from "@/app/config";
 
 interface AuthLayoutProps {
   /** Content for the left column (hidden on mobile) */
@@ -46,7 +47,7 @@ export const AuthLayout = ({
 
       {/* ── Footer ────────────────────────────────────────────────────────── */}
       <footer className="px-4 py-4 text-center sm:px-6 lg:px-10">
-        <p className="text-text-muted text-xs">{t.auth.footer}</p>
+        © {new Date().getFullYear()} {appConfig.appName}. {t.authLayout.rights}
       </footer>
     </div>
   );

@@ -7,12 +7,12 @@ export const ActionCenter = () => {
   const a = t.emergencyAlert;
 
   return (
-    <section className="rounded-2xl bg-gray-800/70 p-5 sm:p-6">
+    <section className="bg-surface rounded-2xl p-5 sm:p-6">
       <div className="mb-4 flex items-center gap-2">
         <BoltIcon className="h-5 w-5 text-yellow-400" />
         <div>
-          <h2 className="text-base font-bold text-white">{a.actionTitle}</h2>
-          <p className="text-xs text-gray-400">{a.actionSubtitle}</p>
+          <h2 className="text-text text-base font-bold">{a.actionTitle}</h2>
+          <p className="text-text-muted text-xs">{a.actionSubtitle}</p>
         </div>
       </div>
 
@@ -32,13 +32,13 @@ export const ActionCenter = () => {
           rounded
           fullWidth
           leftIcon={<ShieldAlertIcon className="h-5 w-5" />}
-          className="border-gray-600 py-4 text-base font-bold text-white hover:bg-gray-700"
+          className="border-border text-text hover:bg-surface-alt py-4 text-base font-bold"
         >
           {a.callEmergency}
         </Button>
       </div>
 
-      <button className="mt-4 flex w-full items-center justify-center gap-1.5 text-sm text-gray-400 transition-colors hover:text-white">
+      <button className="text-text-muted hover:text-text mt-4 flex w-full items-center justify-center gap-1.5 text-sm transition-colors">
         <ShareIcon className="h-4 w-4" />
         {a.shareLocation}
       </button>

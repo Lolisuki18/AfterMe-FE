@@ -21,12 +21,12 @@ const TimeUnit = ({
       className={`flex h-20 w-20 items-center justify-center rounded-2xl border text-3xl font-extrabold sm:h-24 sm:w-24 sm:text-4xl ${
         accent
           ? "border-primary/60 text-primary bg-primary/5"
-          : "border-gray-600 bg-gray-800/60 text-white"
+          : "border-border bg-surface text-text"
       }`}
     >
       {value}
     </div>
-    <span className="mt-2 text-[10px] font-bold tracking-widest text-gray-500 uppercase">
+    <span className="text-text-muted mt-2 text-[10px] font-bold tracking-widest uppercase">
       {label}
     </span>
   </div>

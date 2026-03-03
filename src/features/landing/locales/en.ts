@@ -1,67 +1,83 @@
 export const landingEn = {
-  landing: {
+  aboutUs: {
+    /* Mission */
+    missionTag: "Our Mission",
+    missionTitle: "A safety net that respects your independence.",
+    missionDesc:
+      "AfterMe was born from a simple belief: living alone doesn't mean living unprotected. We build quiet, unobtrusive tools that give independent people — and the ones who love them — genuine peace of mind.",
+    missionStatUsers: "10,000+",
+    missionStatUsersLabel: "Early adopters",
+    missionStatCountries: "12",
+    missionStatCountriesLabel: "Countries",
+    missionStatUptime: "99.9%",
+    missionStatUptimeLabel: "Uptime SLA",
+    missionImgAlt: "Team working together",
+    missionBadgeLabel: "Users protected this year",
+    missionBadgeValue: "10,000+",
+
+    /* Story */
+    storyTag: "Our Story",
+    storyTitle: "Built for people who want to live freely — not forgotten.",
+    storyPara1:
+      "AfterMe started with a simple question: how can we help people live independently without their loved ones losing sleep over them? We built a smart reminder and check-in app that quietly watches over you — sending gentle nudges, escalating alerts only when truly needed, and helping you stay on top of what matters most every day.",
+    storyPara2:
+      "Digital legacy storage is just one part of the picture. AfterMe lets you organize important documents, leave personal messages, and designate trusted contacts — so everything is in place if it ever needs to be. But at its heart, AfterMe is about living well today, not just planning for tomorrow.",
+    storyImgAlt: "Team collaborating in office",
+    storyMilestone1:
+      "2025 — Idea born from a real need: staying connected without being intrusive.",
+    storyMilestone2:
+      "2025 — Team formed, MVP built and tested with early users.",
+    storyMilestone3:
+      "2026 — Official launch with check-ins, reminders & digital legacy.",
+
+    /* Values */
+    valuesTag: "Our Values",
+    valuesTitle: "Principles we live by",
+    valuesSubtitle:
+      "These aren't just words on a wall — they shape every product decision we make.",
+    value1Title: "Privacy First",
+    value1Desc:
+      "Your data is yours. We use end-to-end encryption and never sell user information to third parties.",
+    value2Title: "Reliability",
+    value2Desc:
+      "A safety net that fails when you need it most is worse than having none. We maintain 99.9% uptime.",
+    value3Title: "Compassion",
+    value3Desc:
+      "We design for real people in stressful moments. Every feature is considered through the lens of empathy.",
+    value4Title: "Simplicity",
+    value4Desc:
+      "The best safety technology is the kind you forget is there. We keep our product invisible and effortless.",
+
+    /* Team */
+    teamTag: "The Team",
+    teamTitle: "People behind AfterMe",
+    teamSubtitle: "A small, passionate team with a big mission.",
+    member1Name: "Lê Nguyễn An Ninh",
+    member1Role: "Founder / PM / Tech Lead",
+    member2Name: "Trương Đình Bảo Trân",
+    member2Role: "UX/UI Lead",
+    member3Name: "Nguyễn Thị Tường Vy",
+    member3Role: "Backend & QA Lead",
+    member4Name: "Nguyễn Ly Vi",
+    member4Role: "Backend (Core Logic)",
+    member5Name: "Nguyễn Đăng Khoa",
+    member5Role: "Backend (Integration)",
+    member6Name: "Đỗ Trương Ly Na",
+    member6Role: "Business & Marketing Lead",
+
+    /* CTA */
+    ctaTitle: "Ready to feel at ease?",
+    ctaDesc:
+      "Join thousands of people who sleep better knowing AfterMe is watching over them.",
+    ctaButton: "Start your Free Trial",
+    ctaSecondary: "Learn How It Works",
+
     /* Header nav */
-    navHow: "How it Works",
-    navFeatures: "Features",
+    navHome: "Home",
+    navAbout: "About Us",
     navPricing: "Pricing",
-    navTrust: "Trust Center",
     signIn: "Sign In",
     getStarted: "Get Started",
-
-    /* Hero */
-    heroLine1: "Living Alone",
-    heroLine2: "Doesn't Mean",
-    heroBeingAlone: "Being Alone.",
-    heroDesc:
-      "Your quiet safety net for peace of mind. A non-intrusive digital companion that checks in so you can live freely.",
-    heroCta: "Start your 14-Day Free Trial →",
-    heroCtaSecondary: "Learn More",
-    heroSocialProof: "Trusted by 10,000+ early adopters",
-    heroImgAlt: "Person relaxing at home",
-
-    /* How It Works */
-    howTitle: "How It Works",
-    howSubtitle:
-      "Simple, non-intrusive safety checks that fit seamlessly into your lifestyle.",
-    step1Title: "1. Set your routine",
-    step1Desc:
-      "Customize check-in times based on your daily schedule. Morning coffee or evening wind-down, it's up to you.",
-    step2Title: "2. Live your life",
-    step2Desc:
-      "Go about your day knowing you have a safety net. We stay silent unless you miss a scheduled check-in.",
-    step3Title: "3. We check in",
-    step3Desc:
-      "If you don't respond, we gently notify you. If there's still no answer, we alert your trusted contacts.",
-
-    /* Security & Trust */
-    trustTitle: "Security & Trust",
-    trustDesc:
-      "Built with privacy-first architecture and full regulatory compliance. Your data is yours alone.",
-    trustItem1Title: "Decree 13/2023 Compliant",
-    trustItem1Desc:
-      "Fully compliant with the latest personal data protection regulations for maximum legal safety.",
-    trustItem2Title: "End-to-End Encryption",
-    trustItem2Desc:
-      "Your data is encrypted and only accessible by you and your trusted contacts. We can't see it.",
-    trustCardTitle: "Secure Connection",
-    trustCardSubtitle: "AES-256 Encryption Active",
-
-    /* Pricing Preview */
-    pricingTitle: "Simple, Transparent Pricing",
-    pricingSubtitle:
-      "Start for free, then pay less than a cup of coffee per month.",
-    pricingBadge: "POPULAR",
-    planName: "Standard Plan",
-    planPrice: "$4.99",
-    planPeriod: "/month",
-    planCta: "Start 14-Day Free Trial",
-    planFeatures: [
-      "Unlimited Daily Check-ins",
-      "Up to 3 Trusted Contacts",
-      "Real-Time SMS & Email Alerts",
-      "24/7 Automated Monitoring",
-      "Vacation Mode (Pause Anytime)",
-    ],
 
     /* Footer */
     footerDesc:

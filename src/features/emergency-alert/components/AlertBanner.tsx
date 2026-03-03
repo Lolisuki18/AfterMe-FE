@@ -12,13 +12,13 @@ export const AlertBanner = () => {
         <AlertTriangleIcon className="h-7 w-7 text-red-500" />
       </div>
 
-      <h1 className="text-2xl font-extrabold tracking-wide text-white sm:text-3xl">
+      <h1 className="text-text text-2xl font-extrabold tracking-wide sm:text-3xl">
         {a.bannerTitle}
       </h1>
       <p className="mt-1 text-lg font-semibold text-red-400">
         {a.bannerStatus}
       </p>
-      <p className="mt-2 max-w-md text-sm text-gray-400">{a.bannerDesc}</p>
+      <p className="text-text-muted mt-2 max-w-md text-sm">{a.bannerDesc}</p>
     </section>
   );
 };

@@ -6,18 +6,17 @@ import { HamburgerIcon, XIcon } from "@/shared/icon";
 
 export const PublicHeader = () => {
   const { t } = useLanguage();
-  const l = t.landing;
+  const l = t.aboutUs;
   const [open, setOpen] = useState(false);
 
   const links = [
-    { href: "#how", label: l.navHow },
-    { href: "#features", label: l.navFeatures },
-    { href: "#pricing", label: l.navPricing },
-    { href: "#trust", label: l.navTrust },
+    { href: "/", label: l.navHome },
+    { href: "/about", label: l.navAbout },
+    { href: "/pricing", label: l.navPricing },
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm">
+    <header className="bg-bg border-border sticky top-0 z-50 border-b shadow-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <a href="/">
           <Logo className="h-8 w-auto" />
@@ -30,7 +29,7 @@ export const PublicHeader = () => {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
+                className="text-text-muted hover:text-text text-sm font-medium transition-colors"
               >
                 {l.label}
               </a>
@@ -38,34 +37,34 @@ export const PublicHeader = () => {
           </nav>
           <a
             href="/login"
-            className="text-sm font-medium text-gray-600 hover:text-gray-900"
+            className="text-text-muted hover:text-text text-sm font-medium"
           >
-            {t.landing.signIn}
+            {l.signIn}
           </a>
           <Button rounded size="md">
-            <a href="/onboarding">{t.landing.getStarted}</a>
+            <a href="/onboarding">{l.getStarted}</a>
           </Button>
         </div>
 
         {/* Mobile hamburger */}
-        <button className="md:hidden" onClick={() => setOpen(!open)}>
+        <button className="text-text md:hidden" onClick={() => setOpen(!open)}>
           {open ? (
-            <XIcon className="h-6 w-6 text-gray-700" />
+            <XIcon className="text-text h-6 w-6" />
           ) : (
-            <HamburgerIcon className="h-6 w-6 text-gray-700" />
+            <HamburgerIcon className="text-text h-6 w-6" />
           )}
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-gray-200 bg-white px-4 pb-4 md:hidden">
+        <div className="bg-bg border-border border-t px-4 pb-4 md:hidden">
           <nav className="flex flex-col gap-1 pt-2">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-100"
+                className="text-text-muted hover:bg-surface-alt rounded-lg px-3 py-2.5 text-sm font-medium"
                 onClick={() => setOpen(false)}
               >
                 {l.label}
@@ -74,10 +73,10 @@ export const PublicHeader = () => {
           </nav>
           <div className="mt-3 flex gap-2">
             <Button variant="outline" rounded fullWidth>
-              <a href="/login">{t.landing.signIn}</a>
+              <a href="/login">{l.signIn}</a>
             </Button>
             <Button rounded fullWidth>
-              <a href="/onboarding">{t.landing.getStarted}</a>
+              <a href="/onboarding">{l.getStarted}</a>
             </Button>
           </div>
         </div>

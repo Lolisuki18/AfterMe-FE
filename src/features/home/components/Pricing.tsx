@@ -30,11 +30,11 @@ export const Pricing = () => {
         </div>
 
         {/* Plans grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {p.plans.map((plan, idx) => (
             <div
               key={plan.name}
-              className={`relative flex flex-col rounded-2xl p-8 sm:[&:last-child]:col-span-2 sm:[&:last-child]:mx-auto sm:[&:last-child]:w-1/2 lg:[&:last-child]:col-span-1 lg:[&:last-child]:mx-0 lg:[&:last-child]:w-auto ${
+              className={`relative flex flex-col rounded-2xl p-8 ${
                 idx === 1
                   ? "border-primary bg-surface border-2 shadow-xl"
                   : "border-border bg-surface border shadow-sm"
@@ -56,14 +56,16 @@ export const Pricing = () => {
 
               {/* Price */}
               <div className="mb-2 flex items-end gap-1">
-                <span className="text-secondary text-5xl font-extrabold">
-                  {plan.price}
-                </span>
-                {plan.per && (
-                  <span className="text-text-muted mb-1 text-base">
-                    {plan.per}
+                <span className="flex w-full items-baseline justify-center gap-1">
+                  <span className="text-secondary text-5xl font-extrabold">
+                    {plan.price}
                   </span>
-                )}
+                  {plan.per && (
+                    <span className="text-text-muted mb-1 text-base">
+                      {plan.per}
+                    </span>
+                  )}
+                </span>
               </div>
 
               {/* Tagline */}
@@ -87,8 +89,10 @@ export const Pricing = () => {
                     idx === 1
                       ? "bg-primary hover:bg-primary-hover text-white"
                       : idx === 2
-                        ? "bg-navy hover:bg-navy/90 text-white"
-                        : "border-border text-secondary hover:bg-surface-alt border bg-transparent"
+                        ? "bg-primary/80 hover:bg-primary text-white"
+                        : idx === 3
+                          ? "bg-navy hover:bg-navy/90 text-white"
+                          : "border-border text-secondary hover:bg-surface-alt border bg-transparent"
                   }`}
                 >
                   {plan.cta}

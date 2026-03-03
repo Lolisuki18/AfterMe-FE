@@ -8,7 +8,7 @@ import {
 import { SettingToggle } from "../../../shared/components";
 
 const SosTriggerPage = () => (
-  <div className="flex min-h-screen flex-col bg-gray-950">
+  <div className="bg-bg flex min-h-screen flex-col">
     <EmergencyHeader />
 
     <main className="flex flex-1 flex-col items-center justify-center gap-8 px-4 pb-12">

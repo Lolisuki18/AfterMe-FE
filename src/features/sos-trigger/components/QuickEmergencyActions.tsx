@@ -11,13 +11,13 @@ interface ActionCardProps {
 const ActionCard = ({ icon, title, description }: ActionCardProps) => (
   <button
     type="button"
-    className="flex flex-col items-center gap-2 rounded-2xl border border-gray-800 bg-gray-900/70 px-4 py-6 text-center transition hover:border-gray-600 hover:bg-gray-800"
+    className="bg-surface border-border hover:bg-surface-alt flex flex-col items-center gap-2 rounded-2xl border px-4 py-6 text-center transition"
   >
-    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-700 bg-gray-800">
+    <div className="border-border bg-surface-alt flex h-12 w-12 items-center justify-center rounded-full border">
       {icon}
     </div>
-    <span className="text-sm font-semibold text-white">{title}</span>
-    <span className="text-xs text-gray-400">{description}</span>
+    <span className="text-text text-sm font-semibold">{title}</span>
+    <span className="text-text-muted text-xs">{description}</span>
   </button>
 );
 

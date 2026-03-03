@@ -6,7 +6,7 @@ const GracePeriodPage = () => {
   const g = t.gracePeriod;
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-950 px-4">
+    <div className="bg-bg flex min-h-screen flex-col items-center justify-center px-4">
       <WarningCard />
 
       {/* Trigger SOS link below card */}
@@ -16,7 +16,7 @@ const GracePeriodPage = () => {
       </button>
 
       {/* Decorative bottom pill */}
-      <div className="mt-6 h-1.5 w-16 rounded-full bg-gray-700" />
+      <div className="bg-border mt-6 h-1.5 w-16 rounded-full" />
     </div>
   );
 };

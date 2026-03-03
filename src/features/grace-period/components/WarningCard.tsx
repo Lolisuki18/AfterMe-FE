@@ -10,7 +10,7 @@ export const WarningCard = () => {
   const { hours, mins, secs, cancel } = useCountdown();
 
   return (
-    <div className="relative w-full max-w-md overflow-hidden rounded-2xl border border-gray-700/60 bg-gray-800/80 shadow-2xl backdrop-blur-sm">
+    <div className="bg-surface border-border relative w-full max-w-md overflow-hidden rounded-2xl border shadow-2xl backdrop-blur-sm">
       {/* Top accent gradient bar */}
       <div className="h-1 w-full bg-linear-to-r from-yellow-500 via-orange-400 to-yellow-500" />
 
@@ -20,10 +20,10 @@ export const WarningCard = () => {
           <WarningTriangleIcon className="h-8 w-8 text-yellow-500" />
         </div>
 
-        <h1 className="text-xl font-extrabold text-white sm:text-2xl">
+        <h1 className="text-text text-xl font-extrabold sm:text-2xl">
           {g.title}
         </h1>
-        <p className="mt-2 max-w-sm text-center text-sm text-gray-400">
+        <p className="text-text-muted mt-2 max-w-sm text-center text-sm">
           {g.subtitle}
         </p>
 
@@ -49,7 +49,7 @@ export const WarningCard = () => {
           {g.cancelBtn}
         </Button>
 
-        <p className="mt-4 max-w-xs text-center text-xs leading-relaxed text-gray-500">
+        <p className="text-text-muted mt-4 max-w-xs text-center text-xs leading-relaxed">
           {g.noAlerts}
         </p>
       </div>

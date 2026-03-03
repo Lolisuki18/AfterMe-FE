@@ -17,7 +17,7 @@ const EmergencyHeader = () => {
       {/* Brand */}
       <div className="flex items-center gap-2">
         <ShieldRedIcon className="h-6 w-6 text-red-500" />
-        <span className="text-lg font-bold text-white">{s.brandName}</span>
+        <span className="text-text text-lg font-bold">{s.brandName}</span>
       </div>
 
       {/* Nav links – hidden on mobile */}
@@ -26,7 +26,7 @@ const EmergencyHeader = () => {
           <a
             key={link}
             href="#"
-            className="text-sm text-gray-400 transition hover:text-white"
+            className="text-text-muted hover:text-text text-sm transition"
           >
             {link}
           </a>
@@ -36,7 +36,7 @@ const EmergencyHeader = () => {
       {/* Profile pill */}
       <button
         type="button"
-        className="rounded-full border border-gray-700 px-4 py-1.5 text-sm font-medium text-white transition hover:bg-gray-800"
+        className="border-border text-text hover:bg-surface rounded-full border px-4 py-1.5 text-sm font-medium transition"
       >
         {s.navProfile}
       </button>

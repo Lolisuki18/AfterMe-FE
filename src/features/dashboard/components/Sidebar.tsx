@@ -16,7 +16,6 @@ import {
   PeopleGroupIcon,
   ChartIcon,
   ShieldCheckIcon,
-  EyeIcon,
   ChevronDownIcon,
   CreditCardIcon,
   HomeOutlineIcon,
@@ -89,11 +88,6 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
           icon: ChartIcon,
         },
         { label: s.reminders, to: "/reminders/new", icon: BellIcon },
-        {
-          label: s.wellbeing,
-          to: "/wellbeing",
-          icon: HeartOutlineIcon,
-        },
       ],
     },
     {
@@ -111,7 +105,6 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
           to: "/dashboard/account/security",
           icon: ShieldCheckIcon,
         },
-        { label: s.privacy, to: "/privacy", icon: EyeIcon },
         {
           label: s.notifications,
           to: "/dashboard/account/notifications",

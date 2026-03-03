@@ -25,22 +25,22 @@ export const SecureVaultUnlock = () => {
   };
 
   return (
-    <section className="rounded-2xl bg-gray-800/70 p-5 sm:p-6">
+    <section className="bg-surface rounded-2xl p-5 sm:p-6">
       {/* Header */}
       <div className="mb-5 flex items-center gap-3">
-        <LockIcon className="h-5 w-5 text-gray-400" />
+        <LockIcon className="text-text-muted h-5 w-5" />
         <div className="flex items-center gap-2">
-          <h2 className="text-base font-bold text-white">{a.vaultTitle}</h2>
+          <h2 className="text-text text-base font-bold">{a.vaultTitle}</h2>
           <span className="bg-primary/20 text-primary rounded px-2 py-0.5 text-[10px] font-bold tracking-wider uppercase">
             {a.vaultBadge}
           </span>
         </div>
       </div>
-      <p className="mb-6 text-sm text-gray-400">{a.vaultDesc}</p>
+      <p className="text-text-muted mb-6 text-sm">{a.vaultDesc}</p>
 
       {/* PIN Entry box */}
-      <div className="mx-auto max-w-xs rounded-xl bg-gray-900/60 p-6 text-center">
-        <p className="mb-1 text-sm font-semibold text-white">{a.pinTitle}</p>
+      <div className="bg-surface-alt mx-auto max-w-xs rounded-xl p-6 text-center">
+        <p className="text-text mb-1 text-sm font-semibold">{a.pinTitle}</p>
         <p className="text-primary mb-5 text-xs">{a.pinHint}</p>
 
         <div className="flex justify-center gap-3">
@@ -56,7 +56,7 @@ export const SecureVaultUnlock = () => {
               value={digit}
               onChange={(e) => handleChange(i, e.target.value)}
               onKeyDown={(e) => handleKeyDown(i, e)}
-              className="focus:border-primary focus:ring-primary h-12 w-12 rounded-lg border border-gray-600 bg-gray-800 text-center text-lg font-bold text-white transition-colors outline-none focus:ring-1"
+              className="focus:border-primary focus:ring-primary border-border bg-surface text-text h-12 w-12 rounded-lg border text-center text-lg font-bold transition-colors outline-none focus:ring-1"
             />
           ))}
         </div>
