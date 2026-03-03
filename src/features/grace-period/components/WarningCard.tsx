@@ -1,13 +1,17 @@
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
-import { WarningTriangleIcon, CheckCircleOutlineIcon } from "@/shared/icon";
+import {
+  WarningTriangleIcon,
+  CheckCircleOutlineIcon,
+  BoltIcon,
+} from "@/shared/icon";
 import { CountdownTimer } from "./CountdownTimer";
 import { useCountdown } from "../hooks/useCountdown";
 
 export const WarningCard = () => {
   const { t } = useLanguage();
   const g = t.gracePeriod;
-  const { hours, mins, secs, cancel } = useCountdown();
+  const { hours, mins, secs, cancel, escalate } = useCountdown();
 
   return (
     <div className="bg-surface border-border relative w-full max-w-md overflow-hidden rounded-2xl border shadow-2xl backdrop-blur-sm">
@@ -37,7 +41,7 @@ export const WarningCard = () => {
           />
         </div>
 
-        {/* Cancel Alert Button */}
+        {/* I'm Safe button */}
         <Button
           size="lg"
           rounded
@@ -52,6 +56,20 @@ export const WarningCard = () => {
         <p className="text-text-muted mt-4 max-w-xs text-center text-xs leading-relaxed">
           {g.noAlerts}
         </p>
+
+        {/* Divider */}
+        <div className="border-border mt-6 mb-4 w-full border-t" />
+
+        {/* SOS escalation button */}
+        <button
+          type="button"
+          onClick={escalate}
+          className="flex items-center gap-1.5 text-sm font-semibold text-red-400 transition-colors hover:text-red-300"
+        >
+          <BoltIcon className="h-4 w-4" />
+          <span className="font-extrabold">SOS</span>
+          {g.triggerSos}
+        </button>
       </div>
     </div>
   );

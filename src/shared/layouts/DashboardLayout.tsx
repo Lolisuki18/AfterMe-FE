@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Sidebar } from "@/features/dashboard/components/Sidebar";
 import { HamburgerIcon } from "@/shared/icon";
 import Logo from "@/shared/icon/Logo";
+import { SOSFloatingButton } from "@/shared/components";
 
 export const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  // Hide floating SOS on the dedicated SOS page to avoid duplication
+  const hideSOS = pathname === "/sos-trigger";
 
   return (
     <div className="bg-bg flex h-screen">
@@ -30,6 +35,9 @@ export const DashboardLayout = () => {
           <Outlet />
         </main>
       </div>
+
+      {/* Global SOS floating button */}
+      {!hideSOS && <SOSFloatingButton />}
     </div>
   );
 };

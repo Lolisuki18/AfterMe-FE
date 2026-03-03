@@ -1,10 +1,14 @@
 import { useLanguage } from "../../../app/useLanguage";
 
+interface MainSOSButtonProps {
+  onActivate?: () => void;
+}
+
 /**
  * Giant pulsating SOS button – the hero element.
- * Uses Tailwind animations + custom box-shadow for the alarm glow.
+ * Calls onActivate() → triggers immediate emergency alert (no grace period).
  */
-const MainSOSButton = () => {
+const MainSOSButton = ({ onActivate }: MainSOSButtonProps) => {
   const { t } = useLanguage();
   const s = t.sosTrigger;
 
@@ -25,6 +29,8 @@ const MainSOSButton = () => {
       {/* Main button */}
       <button
         type="button"
+        onClick={onActivate}
+        aria-label="Activate SOS emergency alert"
         className="relative z-10 flex h-44 w-44 flex-col items-center justify-center rounded-full bg-linear-to-br from-red-500 via-red-600 to-red-700 shadow-[0_0_60px_rgba(239,68,68,0.5)] transition-transform duration-200 hover:scale-105 active:scale-95 sm:h-52 sm:w-52"
       >
         <span className="text-4xl font-black tracking-wider text-white sm:text-5xl">

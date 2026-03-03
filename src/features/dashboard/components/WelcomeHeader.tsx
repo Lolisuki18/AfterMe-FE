@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
 import { ShieldBadgeIcon } from "@/shared/icon";
@@ -9,6 +10,7 @@ interface WelcomeHeaderProps {
 export const WelcomeHeader = ({ userName }: WelcomeHeaderProps) => {
   const { t } = useLanguage();
   const d = t.dashboard;
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -27,6 +29,7 @@ export const WelcomeHeader = ({ userName }: WelcomeHeaderProps) => {
         size="sm"
         rounded
         leftIcon={<ShieldBadgeIcon className="h-4 w-4" />}
+        onClick={() => navigate("/grace-period")}
       >
         {d.checkStatus}
       </Button>
