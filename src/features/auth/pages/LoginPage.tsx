@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
 import { useDocumentTitle } from "@/hooks";
-import { AuthLayout } from "../components/AuthLayout";
+import { AuthLayout } from "../../../shared/layouts/AuthLayout";
 import { LoginForm } from "../components/LoginForm";
 import { ShieldCheckIcon, AuthCheckIcon } from "@/shared/icon";
 

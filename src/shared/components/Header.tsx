@@ -51,9 +51,7 @@ export const Header = () => {
               ),
             )}
           </nav>
-          <Button onClick={() => navigate("/onboarding")}>
-            {t.header.cta}
-          </Button>
+          <Button onClick={() => navigate("/register")}>{t.header.cta}</Button>
         </div>
 
         {/* Mobile hamburger */}
