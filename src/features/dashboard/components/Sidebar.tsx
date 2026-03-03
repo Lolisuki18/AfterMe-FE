@@ -20,6 +20,7 @@ import {
   CreditCardIcon,
   HomeOutlineIcon,
   LogoutIcon,
+  ShieldAlertIcon,
 } from "@/shared/icon";
 
 interface SidebarProps {
@@ -109,6 +110,11 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
           label: s.notifications,
           to: "/dashboard/account/notifications",
           icon: BellIcon,
+        },
+        {
+          label: s.privacy,
+          to: "/dashboard/privacy",
+          icon: ShieldAlertIcon,
         },
       ],
     },

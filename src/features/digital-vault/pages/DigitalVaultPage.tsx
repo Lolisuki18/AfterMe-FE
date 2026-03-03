@@ -8,21 +8,33 @@ import {
   SaveIcon,
 } from "@/shared/icon";
 import { vaultStore } from "../store/vaultStore";
-import { AssetItem, VaultSidebar } from "../components";
+import { AssetItem, VaultSidebar, AddAssetModal } from "../components";
+import { toast } from "sonner";
 
 const DigitalVaultPage = () => {
   const { t } = useLanguage();
   const v = t.vault;
+  const [, setRefreshKey] = useState(0);
   const data = vaultStore.getData();
 
   const [message, setMessage] = useState(data.finalMessage);
+  const [showAddAsset, setShowAddAsset] = useState(false);
 
   const handleDelete = (id: string) => {
     vaultStore.removeAsset(id);
+    setRefreshKey((k) => k + 1);
+    toast.success(v.assetDeleted);
   };
 
   const handleSaveMessage = () => {
     vaultStore.saveFinalMessage(message);
+    toast.success(v.messageSaved);
+  };
+
+  const handleAddAsset = (asset: Parameters<typeof vaultStore.addAsset>[0]) => {
+    vaultStore.addAsset(asset);
+    setRefreshKey((k) => k + 1);
+    toast.success(v.assetAdded);
   };
 
   return (
@@ -39,6 +51,7 @@ const DigitalVaultPage = () => {
           variant="primary"
           rounded
           leftIcon={<PlusIcon className="h-4 w-4" />}
+          onClick={() => setShowAddAsset(true)}
         >
           {v.addAsset}
         </Button>
@@ -132,6 +145,13 @@ const DigitalVaultPage = () => {
           <VaultSidebar />
         </aside>
       </div>
+
+      {/* Add Asset Modal */}
+      <AddAssetModal
+        open={showAddAsset}
+        onClose={() => setShowAddAsset(false)}
+        onAdd={handleAddAsset}
+      />
     </div>
   );
 };

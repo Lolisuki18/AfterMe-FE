@@ -1,5 +1,4 @@
 import { useLanguage } from "@/app/useLanguage";
-import { Button } from "@/shared/components";
 import { FamilyGroupIcon } from "@/shared/icon";
 
 export const FamilyPlanBanner = () => {
@@ -24,9 +23,12 @@ export const FamilyPlanBanner = () => {
             <span className="text-2xl font-extrabold">{p.familyPrice}</span>
             <span className="text-sm text-white/70">{p.familyPeriod}</span>
           </div>
-          <Button rounded className="text-primary bg-white hover:bg-white/90">
+          <button
+            type="button"
+            className="text-primary hover:bg-surface rounded-full bg-white px-5 py-2 text-sm font-bold transition-colors"
+          >
             {p.familyCta}
-          </Button>
+          </button>
         </div>
       </div>
     </section>

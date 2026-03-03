@@ -11,7 +11,7 @@ export const DangerZone = () => {
         <TrashIcon className="h-4 w-4" />
         {p.deleteAccount}
       </button>
-      <p className="text-text-muted text-xs">{p.copyright}</p>
+      {/* <p className="text-text-muted text-xs">{p.copyright}</p> */}
     </section>
   );
 };

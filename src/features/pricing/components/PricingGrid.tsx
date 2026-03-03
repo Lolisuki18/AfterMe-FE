@@ -68,14 +68,18 @@ const PlanCard = ({
     </ul>
 
     <div className="mt-6">
-      <Button
-        fullWidth
-        rounded
-        variant={highlighted ? "primary" : "outline"}
-        className={highlighted ? "text-primary bg-white hover:bg-white/90" : ""}
-      >
-        {cta}
-      </Button>
+      {highlighted ? (
+        <button
+          type="button"
+          className="bg-bg text-primary hover:bg-surface w-full rounded-full py-2.5 text-sm font-bold transition-colors"
+        >
+          {cta}
+        </button>
+      ) : (
+        <Button fullWidth rounded variant="outline">
+          {cta}
+        </Button>
+      )}
     </div>
   </div>
 );

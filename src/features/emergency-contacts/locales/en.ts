@@ -34,6 +34,26 @@ export const emergencyEn = {
     systemStatus: "System Status",
     active: "Active",
     testAlert: "Test Alert System",
+
+    // Add Contact Modal
+    addContactTitle: "Add Emergency Contact",
+    contactName: "Full Name",
+    contactNamePlaceholder: "e.g. Sarah Jenkins",
+    relationship: "Relationship",
+    selectRelationship: "Select relationship",
+    phonePlaceholder: "e.g. +1 (555) 123-4567",
+    priority: "Priority Level",
+    selectPriority: "Select priority",
+    notificationMethods: "Notification Methods",
+    cancel: "Cancel",
+    addContactBtn: "Add Contact",
+    contactAdded: "Contact added successfully!",
+    contactAddError: "Failed to add contact. Please try again.",
+    contactDeleted: "Contact deleted.",
+    spouse: "Spouse",
+    partner: "Partner",
+    colleague: "Colleague",
+    other: "Other",
   },
 };
 

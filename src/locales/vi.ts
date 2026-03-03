@@ -21,6 +21,7 @@ import { referralVi } from "@/features/referral/locales/vi";
 import { familyLinkVi } from "@/features/family-link/locales/vi";
 import { aiSetupVi } from "@/features/ai-setup/locales/vi";
 import { sosTriggerVi } from "@/features/sos-trigger/locales/vi";
+import { legalVi } from "@/features/legal/locales/vi";
 
 export const vi = {
   ...sharedVi,
@@ -46,4 +47,5 @@ export const vi = {
   ...familyLinkVi,
   ...aiSetupVi,
   ...sosTriggerVi,
+  ...legalVi,
 };

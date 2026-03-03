@@ -38,5 +38,33 @@ export const vaultVi: VaultTranslations = {
     manage: "Quản lý",
     accessorsDesc:
       "Các liên hệ này sẽ nhận khóa giải mã chỉ sau khi giao thức Công tắc an toàn được kích hoạt hoàn toàn.",
+
+    // Add Asset Modal
+    addAssetTitle: "Thêm tài sản mới",
+    assetName: "Tên tài sản",
+    assetNamePlaceholder: "VD: Đăng nhập ngân hàng",
+    category: "Danh mục",
+    selectCategory: "Chọn danh mục",
+    usernamePlaceholder: "VD: alex.morgan",
+    passwordPlaceholder: "Nhập mật khẩu",
+    locationLabel: "Vị trí tệp",
+    locationPlaceholder: "VD: Google Drive / Tài liệu",
+    cancel: "Hủy",
+    add: "Thêm tài sản",
+    assetAdded: "Thêm tài sản thành công!",
+    assetAddError: "Thêm tài sản thất bại. Vui lòng thử lại.",
+    assetDeleted: "Đã xóa tài sản.",
+    messageSaved: "Lưu tin nhắn thành công!",
+
+    // Manage Accessors Modal
+    manageAccessors: "Quản lý người truy cập kho",
+    manageAccessorsDesc:
+      "Chọn liên hệ khẩn cấp sẽ nhận khóa giải mã kho của bạn.",
+    accessorAdded: "Đã thêm người truy cập.",
+    accessorRemoved: "Đã xóa người truy cập.",
+    saveChanges: "Lưu thay đổi",
+    close: "Đóng",
+    noContactsAvailable:
+      "Chưa có liên hệ khẩn cấp. Hãy thêm liên hệ ở trang Liên hệ khẩn cấp trước.",
   },
 };

@@ -87,6 +87,38 @@ export const authVi = {
       passwordRequired: "Vui lòng nhập mật khẩu.",
       passwordMin: "Mật khẩu phải có ít nhất 6 ký tự.",
       termsRequired: "Bạn phải đồng ý với điều khoản.",
+      passwordMismatch: "Mật khẩu không khớp.",
+    },
+
+    // ─── Forgot Password ─────────────────────────────────────────────────
+    forgotPassword: {
+      title: "Quên mật khẩu",
+      subtitle:
+        "Nhập địa chỉ email của bạn và chúng tôi sẽ gửi link đặt lại mật khẩu.",
+      emailLabel: "Email",
+      emailPlaceholder: "sinhvien@truongdaihoc.edu",
+      submitButton: "Gửi liên kết đặt lại",
+      submitting: "Đang gửi...",
+      successMessage:
+        "Đã gửi liên kết đặt lại mật khẩu! Kiểm tra email của bạn.",
+      errorNotFound: "Không tìm thấy tài khoản với email này.",
+      errorGeneral: "Đã có lỗi xảy ra. Vui lòng thử lại.",
+      backToLogin: "Quay lại đăng nhập",
+    },
+
+    // ─── Reset Password ──────────────────────────────────────────────────
+    resetPassword: {
+      title: "Đặt lại mật khẩu",
+      subtitle: "Nhập mật khẩu mới của bạn bên dưới.",
+      newPasswordLabel: "Mật khẩu mới",
+      newPasswordPlaceholder: "Nhập mật khẩu mới",
+      confirmPasswordLabel: "Xác nhận mật khẩu",
+      confirmPasswordPlaceholder: "Xác nhận mật khẩu mới",
+      submitButton: "Đặt lại mật khẩu",
+      submitting: "Đang đặt lại...",
+      successMessage: "Đặt lại mật khẩu thành công! Bạn có thể đăng nhập.",
+      errorGeneral: "Đã có lỗi xảy ra. Vui lòng thử lại.",
+      backToLogin: "Quay lại đăng nhập",
     },
   },
 };

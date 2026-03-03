@@ -34,7 +34,7 @@ const RegisterPage = () => {
             {t.auth.navSafety}
           </Link>
           <Link
-            to="/contact"
+            to="/about"
             className="text-text-muted hover:text-text hidden text-sm transition-colors sm:inline"
           >
             {t.auth.navContact}

@@ -21,6 +21,7 @@ import { referralEn } from "@/features/referral/locales/en";
 import { familyLinkEn } from "@/features/family-link/locales/en";
 import { aiSetupEn } from "@/features/ai-setup/locales/en";
 import { sosTriggerEn } from "@/features/sos-trigger/locales/en";
+import { legalEn } from "@/features/legal/locales/en";
 
 export const en = {
   ...sharedEn,
@@ -46,6 +47,7 @@ export const en = {
   ...familyLinkEn,
   ...aiSetupEn,
   ...sosTriggerEn,
+  ...legalEn,
 };
 
 export type Translations = typeof en;

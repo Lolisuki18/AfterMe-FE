@@ -17,6 +17,12 @@ const NotFoundPage = lazy(
 
 const LoginPage = lazy(() => import("@/features/auth/pages/LoginPage"));
 const RegisterPage = lazy(() => import("@/features/auth/pages/RegisterPage"));
+const ForgotPasswordPage = lazy(
+  () => import("@/features/auth/pages/ForgotPasswordPage"),
+);
+const ResetPasswordPage = lazy(
+  () => import("@/features/auth/pages/ResetPasswordPage"),
+);
 const DashboardPage = lazy(
   () => import("@/features/dashboard/pages/DashboardPage"),
 );
@@ -80,6 +86,12 @@ const AiSetupPage = lazy(() => import("@/features/ai-setup/pages/AiSetupPage"));
 const SosTriggerPage = lazy(
   () => import("@/features/sos-trigger/pages/SosTriggerPage"),
 );
+const TermsOfServicePage = lazy(
+  () => import("@/features/legal/pages/TermsOfServicePage"),
+);
+const PrivacyPolicyPage = lazy(
+  () => import("@/features/legal/pages/PrivacyPolicyPage"),
+);
 
 export const AppRouter = () => {
   return (
@@ -89,6 +101,8 @@ export const AppRouter = () => {
           {/* Auth Routes - pages manage their own full-page split-screen layout */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
 
           {/* Onboarding Routes - Sử dụng OnboardingLayout */}
           <Route element={<OnboardingLayout />}>
@@ -100,7 +114,7 @@ export const AppRouter = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/wellbeing" element={<WellbeingPage />} />
-            <Route path="/privacy" element={<PrivacyCenterPage />} />
+            {/* <Route path="/privacy" element={<PrivacyCenterPage />} /> */}
           </Route>
 
           {/* Protected Routes - Sử dụng DashboardLayout */}
@@ -148,6 +162,10 @@ export const AppRouter = () => {
                 path="/dashboard/subscription"
                 element={<SubscriptionPage />}
               />
+              <Route
+                path="/dashboard/privacy"
+                element={<PrivacyCenterPage />}
+              />
               <Route path="/dashboard/referral" element={<ReferralPage />} />
               <Route path="/reminders/new" element={<CreateReminderPage />} />
             </Route>
@@ -160,6 +178,8 @@ export const AppRouter = () => {
           <Route path="/family-link" element={<FamilyLinkPage />} />
           <Route path="/ai-setup" element={<AiSetupPage />} />
           <Route path="/sos-trigger" element={<SosTriggerPage />} />
+          <Route path="/terms" element={<TermsOfServicePage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
 
           {/* 404 - Not Found */}
           <Route path="/404" element={<NotFoundPage />} />

@@ -48,6 +48,34 @@ export const vaultEn = {
     manage: "Manage",
     accessorsDesc:
       "These contacts will receive your decryption key only after the Dead Man Switch protocol is fully activated.",
+
+    // Add Asset Modal
+    addAssetTitle: "Add New Asset",
+    assetName: "Asset Name",
+    assetNamePlaceholder: "e.g. Chase Bank Login",
+    category: "Category",
+    selectCategory: "Select a category",
+    usernamePlaceholder: "e.g. alex.morgan",
+    passwordPlaceholder: "Enter password",
+    locationLabel: "File Location",
+    locationPlaceholder: "e.g. Google Drive / Documents",
+    cancel: "Cancel",
+    add: "Add Asset",
+    assetAdded: "Asset added successfully!",
+    assetAddError: "Failed to add asset. Please try again.",
+    assetDeleted: "Asset deleted.",
+    messageSaved: "Message saved successfully!",
+
+    // Manage Accessors Modal
+    manageAccessors: "Manage Vault Accessors",
+    manageAccessorsDesc:
+      "Select emergency contacts who should receive your vault decryption key.",
+    accessorAdded: "Accessor added.",
+    accessorRemoved: "Accessor removed.",
+    saveChanges: "Save Changes",
+    close: "Close",
+    noContactsAvailable:
+      "No emergency contacts available. Add contacts in the Emergency Contacts page first.",
   },
 };
 

@@ -87,6 +87,37 @@ export const authEn = {
       passwordRequired: "Password is required.",
       passwordMin: "Password must be at least 6 characters.",
       termsRequired: "You must agree to the terms.",
+      passwordMismatch: "Passwords do not match.",
+    },
+
+    // ─── Forgot Password ─────────────────────────────────────────────────
+    forgotPassword: {
+      title: "Forgot Password",
+      subtitle:
+        "Enter your email address and we'll send you a link to reset your password.",
+      emailLabel: "Email",
+      emailPlaceholder: "student@university.edu",
+      submitButton: "Send Reset Link",
+      submitting: "Sending...",
+      successMessage: "Password reset link sent! Check your email.",
+      errorNotFound: "No account found with this email address.",
+      errorGeneral: "Something went wrong. Please try again.",
+      backToLogin: "Back to Login",
+    },
+
+    // ─── Reset Password ──────────────────────────────────────────────────
+    resetPassword: {
+      title: "Reset Password",
+      subtitle: "Enter your new password below.",
+      newPasswordLabel: "New Password",
+      newPasswordPlaceholder: "Enter new password",
+      confirmPasswordLabel: "Confirm Password",
+      confirmPasswordPlaceholder: "Confirm your new password",
+      submitButton: "Reset Password",
+      submitting: "Resetting...",
+      successMessage: "Password reset successfully! You can now sign in.",
+      errorGeneral: "Something went wrong. Please try again.",
+      backToLogin: "Back to Login",
     },
   },
 };

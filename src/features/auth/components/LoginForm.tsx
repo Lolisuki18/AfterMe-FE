@@ -16,6 +16,7 @@ import {
   ArrowRightIcon,
 } from "@/shared/icon";
 import { SocialAuth } from "./SocialAuth";
+import { toast } from "sonner";
 
 // ─────────────────────────────────────────────────────────────────────────────
 export const LoginForm = () => {
@@ -48,10 +49,12 @@ export const LoginForm = () => {
     if (result.success) {
       setStatus("success");
       setMessage(resolveKey(t, result.messageKey));
+      toast.success(resolveKey(t, result.messageKey));
       setTimeout(() => navigate("/dashboard"), 1200);
     } else {
       setStatus("error");
       setMessage(resolveKey(t, result.messageKey));
+      toast.error(resolveKey(t, result.messageKey));
     }
   };
 

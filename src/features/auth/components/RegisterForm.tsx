@@ -9,6 +9,7 @@ import { registerSchema, type RegisterFormData } from "../schemas/authSchemas";
 import { authStore } from "../store/authStore";
 import { resolveKey } from "../utils/authUtils";
 import { UserIcon, MailIcon, LockIcon } from "@/shared/icon";
+import { toast } from "sonner";
 
 // ─────────────────────────────────────────────────────────────────────────────
 export const RegisterForm = () => {
@@ -41,10 +42,12 @@ export const RegisterForm = () => {
     if (result.success) {
       setStatus("success");
       setMessage(resolveKey(t, result.messageKey));
+      toast.success(resolveKey(t, result.messageKey));
       setTimeout(() => navigate("/login"), 2000);
     } else {
       setStatus("error");
       setMessage(resolveKey(t, result.messageKey));
+      toast.error(resolveKey(t, result.messageKey));
     }
   };
 

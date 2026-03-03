@@ -1,13 +1,47 @@
+import { useState } from "react";
 import { useLanguage } from "@/app/useLanguage";
 import {
   LockClosedIcon,
   KeyOutlineIcon,
   AlertWarningIcon,
 } from "@/shared/icon";
+import { ManageAccessorsModal } from "./ManageAccessorsModal";
+import { emergencyStore } from "@/features/emergency-contacts/store/emergencyStore";
+import { toast } from "sonner";
+
+const ACCESSOR_STORAGE_KEY = "afterme_vault_accessors";
+
+function getAccessorIds(): string[] {
+  try {
+    const raw = localStorage.getItem(ACCESSOR_STORAGE_KEY);
+    if (raw) return JSON.parse(raw) as string[];
+  } catch {
+    /* ignore */
+  }
+  // Default: all emergency contacts are accessors
+  const contacts = emergencyStore.getData().contacts;
+  return contacts.map((c) => c.id);
+}
+
+function saveAccessorIds(ids: string[]) {
+  localStorage.setItem(ACCESSOR_STORAGE_KEY, JSON.stringify(ids));
+}
 
 export const VaultSidebar = () => {
   const { t } = useLanguage();
   const v = t.vault;
+
+  const [showManage, setShowManage] = useState(false);
+  const [accessorIds, setAccessorIds] = useState<string[]>(getAccessorIds);
+
+  const contacts = emergencyStore.getData().contacts;
+  const accessors = contacts.filter((c) => accessorIds.includes(c.id));
+
+  const handleSaveAccessors = (selectedIds: string[]) => {
+    saveAccessorIds(selectedIds);
+    setAccessorIds(selectedIds);
+    toast.success(v.saveChanges);
+  };
 
   return (
     <div className="space-y-5">
@@ -71,6 +105,7 @@ export const VaultSidebar = () => {
           <h3 className="text-text text-sm font-bold">{v.vaultAccessors}</h3>
           <button
             type="button"
+            onClick={() => setShowManage(true)}
             className="text-primary text-xs font-semibold hover:underline"
           >
             {v.manage}
@@ -79,21 +114,45 @@ export const VaultSidebar = () => {
 
         {/* Avatar stack */}
         <div className="mt-3 flex -space-x-2">
-          <div className="bg-primary/20 flex h-8 w-8 items-center justify-center rounded-full ring-2 ring-[var(--color-bg)]">
-            <span className="text-primary text-xs font-bold">SJ</span>
-          </div>
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-500/20 ring-2 ring-[var(--color-bg)]">
-            <span className="text-xs font-bold text-purple-500">DC</span>
-          </div>
-          <div className="bg-surface-alt text-text-muted flex h-8 w-8 items-center justify-center rounded-full ring-2 ring-[var(--color-bg)]">
-            <span className="text-xs font-bold">+1</span>
-          </div>
+          {accessors.slice(0, 3).map((contact, i) => {
+            const colors = [
+              "bg-primary/20 text-primary",
+              "bg-purple-500/20 text-purple-500",
+              "bg-amber-500/20 text-amber-500",
+            ];
+            return (
+              <div
+                key={contact.id}
+                className={`flex h-8 w-8 items-center justify-center rounded-full ring-2 ring-[var(--color-bg)] ${colors[i % colors.length]}`}
+              >
+                <span className="text-xs font-bold">
+                  {contact.avatarInitials}
+                </span>
+              </div>
+            );
+          })}
+          {accessors.length > 3 && (
+            <div className="bg-surface-alt text-text-muted flex h-8 w-8 items-center justify-center rounded-full ring-2 ring-[var(--color-bg)]">
+              <span className="text-xs font-bold">+{accessors.length - 3}</span>
+            </div>
+          )}
+          {accessors.length === 0 && (
+            <p className="text-text-muted text-xs">—</p>
+          )}
         </div>
 
         <p className="text-text-muted mt-3 text-xs leading-relaxed">
           {v.accessorsDesc}
         </p>
       </div>
+
+      {/* Manage Accessors Modal */}
+      <ManageAccessorsModal
+        open={showManage}
+        onClose={() => setShowManage(false)}
+        currentAccessorIds={accessorIds}
+        onSave={handleSaveAccessors}
+      />
     </div>
   );
 };

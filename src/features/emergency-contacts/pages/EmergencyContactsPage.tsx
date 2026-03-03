@@ -1,13 +1,25 @@
+import { useState } from "react";
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
 import { UserAddIcon, PlusIcon } from "@/shared/icon";
 import { emergencyStore } from "../store/emergencyStore";
-import { ContactStats, ContactCard } from "../components";
+import { ContactStats, ContactCard, AddContactModal } from "../components";
+import { toast } from "sonner";
 
 const EmergencyContactsPage = () => {
   const { t } = useLanguage();
   const s = t.emergency;
+  const [, setRefreshKey] = useState(0);
   const { contacts } = emergencyStore.getData();
+  const [showAddContact, setShowAddContact] = useState(false);
+
+  const handleAddContact = (
+    contact: Parameters<typeof emergencyStore.addContact>[0],
+  ) => {
+    emergencyStore.addContact(contact);
+    setRefreshKey((k) => k + 1);
+    toast.success(s.contactAdded);
+  };
 
   return (
     <div className="mx-auto w-full max-w-4xl space-y-6">
@@ -23,6 +35,7 @@ const EmergencyContactsPage = () => {
           variant="primary"
           rounded
           leftIcon={<UserAddIcon className="h-4 w-4" />}
+          onClick={() => setShowAddContact(true)}
         >
           {s.addContact}
         </Button>
@@ -45,11 +58,19 @@ const EmergencyContactsPage = () => {
       {/* Add another (dashed) */}
       <button
         type="button"
+        onClick={() => setShowAddContact(true)}
         className="border-border text-text-muted hover:border-primary hover:text-primary flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-dashed py-5 text-sm font-medium transition-colors"
       >
         <PlusIcon className="h-5 w-5" />
         {s.addAnother}
       </button>
+
+      {/* Add Contact Modal */}
+      <AddContactModal
+        open={showAddContact}
+        onClose={() => setShowAddContact(false)}
+        onAdd={handleAddContact}
+      />
     </div>
   );
 };
