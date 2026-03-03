@@ -1,61 +1,54 @@
-import { Outlet } from "react-router-dom";
-import { appConfig } from "@/app/config";
-import { SettingToggle } from "@/shared/components/SettingToggle";
+import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/app/useLanguage";
 
-export const AuthLayout = () => {
+import Logo from "@/shared/icon/Logo";
+import { appConfig } from "@/app/config";
+
+interface AuthLayoutProps {
+  /** Content for the left column (hidden on mobile) */
+  leftContent: ReactNode;
+  /** Content for the right column (form card) */
+  rightContent: ReactNode;
+  /** Navigation elements rendered in the header's right side */
+  headerRight?: ReactNode;
+}
+
+export const AuthLayout = ({
+  leftContent,
+  rightContent,
+  headerRight,
+}: AuthLayoutProps) => {
+  const { t } = useLanguage();
+
   return (
     <div className="bg-bg flex min-h-screen flex-col">
-      {/* Simple Header */}
-      <header className="border-border bg-surface border-b">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          {/* Logo */}
-          <a href="/" className="text-text text-xl font-bold">
-            {appConfig.appName}
-          </a>
+      {/* ── Header ────────────────────────────────────────────────────────── */}
+      <header className="relative z-10 flex items-center justify-between px-4 py-4 sm:px-6 lg:px-10">
+        <Link to="/" className="flex items-center gap-2">
+          <Logo />
+        </Link>
 
-          {/* Controls */}
-          <div className="flex items-center gap-2">
-            <a
-              href="/"
-              className="text-text-muted hover:text-text ml-2 text-sm font-medium"
-            >
-              ← Về trang chủ
-            </a>
-          </div>
-        </div>
+        {headerRight && (
+          <nav className="flex items-center gap-3 lg:gap-4">{headerRight}</nav>
+        )}
       </header>
 
-      {/* Main Content - Centered Auth Forms */}
-      <main className="flex flex-1 items-center justify-center px-4 py-12">
-        <div className="w-full max-w-md">
-          {/* Card wrapper */}
-          <div className="rounded-lg bg-white p-8 shadow-md">
-            <Outlet />
-          </div>
+      {/* ── Main: Two-column layout ──────────────────────────────────────── */}
+      <main className="flex flex-1 items-center justify-center p-4 sm:p-6 md:p-8">
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center xl:gap-16">
+          {/* Left column — banner / marketing (hidden on mobile/tablet) */}
+          <div className="hidden lg:flex">{leftContent}</div>
 
-          {/* Additional info below card */}
-          <div className="mt-6 text-center">
-            <p className="text-xs text-gray-500">
-              Bằng việc tiếp tục, bạn đồng ý với{" "}
-              <a href="/terms" className="text-blue-600 hover:underline">
-                Điều khoản dịch vụ
-              </a>{" "}
-              và{" "}
-              <a href="/privacy" className="text-blue-600 hover:underline">
-                Chính sách bảo mật
-              </a>
-            </p>
-          </div>
+          {/* Right column — form */}
+          <div className="flex w-full justify-center">{rightContent}</div>
         </div>
       </main>
 
-      {/* Simple Footer */}
-      <footer className="border-t border-gray-200 bg-white py-6">
-        <div className="container mx-auto px-4 text-center text-sm text-gray-600">
-          © {new Date().getFullYear()} {appConfig.appName}. All rights reserved.
-        </div>
+      {/* ── Footer ────────────────────────────────────────────────────────── */}
+      <footer className="px-4 py-4 text-center sm:px-6 lg:px-10">
+        © {new Date().getFullYear()} {appConfig.appName}. {t.authLayout.rights}
       </footer>
-      <SettingToggle />
     </div>
   );
 };

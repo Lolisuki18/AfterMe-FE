@@ -28,6 +28,7 @@ html {
   /* Other */
   --color-accent: var(--app-accent);
   --color-third: var(--app-third);
+  --color-gentle: var(--app-gentle);
 }
 
 @layer base {
@@ -58,6 +59,7 @@ html {
     --app-error: #ef4444;
     /* Other */
     --app-accent: #ef7a73;
+    --app-gentle: #8fb6c6;
   }
 
   /* ── DARK MODE ── */
@@ -86,6 +88,7 @@ html {
 
     /* Other */
     --app-accent: #f49791;
+    --app-gentle: #a3c9d9;
   }
 
   /* ── Body defaults ── */

@@ -1,8 +1,16 @@
 export { Button } from "./Button";
 export { Input } from "./Input";
+export { Textarea } from "./Textarea";
+export { Toggle } from "./Toggle";
+export { Select } from "./Select";
+export { Modal } from "./Modal";
 export { Navbar } from "./Navbar";
-export { Sidebar } from "./Sidebar";
+export { Sidebar } from "../../features/dashboard/components/Sidebar";
 export { Header } from "./Header";
 export { Footer } from "./Footer";
 export { LanguageToggle } from "./LanguageToggle";
 export * from "./SettingToggle";
+export { ProtectedRoute } from "./ProtectedRoute";
+export { ErrorBoundary } from "./ErrorBoundary";
+export { PageSkeleton } from "./PageSkeleton";
+export { SOSFloatingButton } from "./SOSFloatingButton";

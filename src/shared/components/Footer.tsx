@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { appConfig } from "@/app/config";
 import { useLanguage } from "@/app/useLanguage";
 import { CONTACT } from "../constants";
@@ -20,19 +21,19 @@ export const Footer = () => {
             <h3 className="text-text mb-4 text-sm font-semibold">{f.links}</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/about" className="text-text-muted hover:text-text">
+                <Link to="/about" className="text-text-muted hover:text-text">
                   {f.aboutLink}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/services" className="text-text-muted hover:text-text">
+                <Link to="/pricing" className="text-text-muted hover:text-text">
                   {f.services}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#pricing" className="text-text-muted hover:text-text">
+                <Link to="/pricing" className="text-text-muted hover:text-text">
                   {f.pricingLink}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -42,19 +43,22 @@ export const Footer = () => {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/faq" className="text-text-muted hover:text-text">
+                <Link to="/about" className="text-text-muted hover:text-text">
                   {f.faq}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="text-text-muted hover:text-text">
+                <Link to="/about" className="text-text-muted hover:text-text">
                   {f.contact}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/privacy" className="text-text-muted hover:text-text">
+                <Link
+                  to="/privacy-policy"
+                  className="text-text-muted hover:text-text"
+                >
                   {f.privacyPolicy}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

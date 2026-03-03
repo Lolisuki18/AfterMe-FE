@@ -1,0 +1,80 @@
+const STORAGE_KEY = "afterme_emergency_contacts";
+
+export type ContactPriority = "primary" | "secondary" | "backup";
+export type NotifyMethod = "sms" | "voice-call" | "live-location" | "no-call";
+
+export interface EmergencyContact {
+  id: string;
+  name: string;
+  relationship: string;
+  phone: string;
+  priority: ContactPriority;
+  notifyMethods: NotifyMethod[];
+  avatarInitials: string;
+}
+
+export interface EmergencyData {
+  contacts: EmergencyContact[];
+}
+
+const defaultData: EmergencyData = {
+  contacts: [
+    {
+      id: "c1",
+      name: "Sarah Jenkins",
+      relationship: "mother",
+      phone: "+1 (555) 123-4567",
+      priority: "primary",
+      notifyMethods: ["sms", "voice-call", "live-location"],
+      avatarInitials: "SJ",
+    },
+    {
+      id: "c2",
+      name: "David Chen",
+      relationship: "roommate",
+      phone: "+1 (555) 987-6543",
+      priority: "secondary",
+      notifyMethods: ["sms", "no-call"],
+      avatarInitials: "DC",
+    },
+    {
+      id: "c3",
+      name: "Emma Lewis",
+      relationship: "sister",
+      phone: "+1 (555) 246-8101",
+      priority: "backup",
+      notifyMethods: ["sms", "live-location"],
+      avatarInitials: "EL",
+    },
+  ],
+};
+
+function load(): EmergencyData {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw) as EmergencyData;
+  } catch {
+    /* ignore */
+  }
+  return JSON.parse(JSON.stringify(defaultData));
+}
+
+function persist(data: EmergencyData) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+export const emergencyStore = {
+  getData: (): EmergencyData => load(),
+
+  addContact: (contact: Omit<EmergencyContact, "id">) => {
+    const data = load();
+    data.contacts.push({ ...contact, id: `c${Date.now()}` });
+    persist(data);
+  },
+
+  removeContact: (id: string) => {
+    const data = load();
+    data.contacts = data.contacts.filter((c) => c.id !== id);
+    persist(data);
+  },
+};

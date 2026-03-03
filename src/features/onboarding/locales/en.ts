@@ -1,100 +1,92 @@
 export const onboardingEn = {
   onboarding: {
-    step: "Step",
-    percentComplete: "% Complete",
-    back: "← Back",
-    next: "Next Step →",
-    getStarted: "Get Started",
-    goToDashboard: "Go to Dashboard →",
+    // ── Shared / Layout ──────────────────────────────────────────────────
+    stepOf: "STEP {current} OF {total}",
+    percentCompleted: "{percent}% Completed",
+    back: "Back",
+    continue: "Continue",
+    next: "Next",
+    skipForNow: "Skip for now",
+    completeSetup: "Complete Setup",
+    dataEncryptedNote:
+      "Your data is encrypted and only shared in actual emergencies.",
+    welcomeTitle: "Set Up Your Safety Profile",
+    welcomeSubtitle:
+      "This information helps us keep you safe and notify your loved ones if something goes wrong.",
+    privacyFirst: "Privacy First",
 
-    // Step 1 – Welcome
-    welcome: {
-      title: "Welcome to AfterMe",
+    // ── Step 1 – Basic Profile ───────────────────────────────────────────
+    step1: {
+      title: "Basic Profile",
+      whyTitle: "Why do we need this?",
+      whyDescription:
+        "Your profile helps emergency services identify you quickly and ensures your contacts receive accurate information.",
+      criticalInfoTitle: "Critical Information",
+      criticalInfoDesc:
+        "Medical notes are shared with emergency responders to provide better care.",
+      encryptedTitle: "Fully Encrypted",
+      encryptedDesc:
+        "All data is stored encrypted on your device and never shared without your consent.",
+      testimonialQuote:
+        "Having my medical info pre-filled saved precious minutes in the ER.",
+      testimonialAuthor: "AfterMe User",
+      fullNameLabel: "Full Name",
+      fullNameRequired: "*",
+      fullNamePlaceholder: "e.g. Alex Morgan",
+      medicalNoteLabel: "Medical Note",
+      medicalNoteOptional: "(Optional)",
+      medicalNotePlaceholder: "Allergies, blood type, medications, conditions…",
+      medicalNoteHelper:
+        "Shared only with emergency contacts and first responders.",
+      checkInPreferences: "Preferred Check-in Time",
+      morning: "Morning",
+      evening: "Evening",
+    },
+
+    // ── Step 2 – Check-in Pulse ──────────────────────────────────────────
+    step2: {
+      title: "Set your check-in pulse",
       subtitle:
-        "Let's set up your personal safety net. We'll help you configure your check-ins and emergency contacts in just a few minutes.",
-      coverTitle: "What we'll cover:",
-      items: [
-        "Your basic profile information",
-        "Establish your check-in routine",
-        "Define inactivity trigger",
-        "Setting up a trusted contact",
-      ],
+        "Choose the times of day when you want AfterMe to check in on you.",
+      whyWeAsk:
+        "We'll send a gentle notification at each selected window. No response triggers an alert to your emergency contact after a grace period.",
+      morning: "Morning",
+      morningTime: "6:00 AM – 9:00 AM",
+      afternoon: "Afternoon",
+      afternoonTime: "12:00 PM – 2:00 PM",
+      evening: "Evening",
+      eveningTime: "5:00 PM – 8:00 PM",
+      night: "Night",
+      nightTime: "9:00 PM – 11:00 PM",
+      addCustomTime: "Add custom time",
     },
 
-    // Step 2 – Profile
-    profile: {
-      title: "Let's get to know you",
-      subtitle: "Choose how often you want AfterMe to check in on you.",
-      firstName: "First Name",
-      lastName: "Last Name",
-      email: "Email",
-      phone: "Numbers",
-      hearAboutUs: "How did you hear about us?",
-      hearAboutUsPlaceholder: "Select an option",
-      hearOptions: [
-        "Social media",
-        "Friend or family",
-        "Search engine",
-        "Advertisement",
-        "Other",
-      ],
-      required: "*",
-      optional: "(Optional)",
-    },
-
-    // Step 3 – Check-in
-    checkin: {
-      title: "Establish your check-in routine",
-      subtitle: "Choose how often you want AfterMe to check in on you.",
-      frequency: "Check-in Frequency",
-      daily: "Daily",
-      weekly: "Weekly",
-      time: "Check-in Time",
-      am: "AM",
-      pm: "PM",
-      "...": "...",
-      selectDay: "Select days of the week",
-      mon: "Mon",
-      tue: "Tue",
-      wed: "Wed",
-      thu: "Thu",
-      fri: "Fri",
-      sat: "Sat",
-      sun: "Sun",
-    },
-
-    // Step 4 – Inactivity trigger
-    trigger: {
-      title: "Define Inactivity Trigger",
+    // ── Step 3 – Emergency Contact ───────────────────────────────────────
+    step3: {
+      title: "Emergency Contact",
       subtitle:
-        "If no check-in is detected for your chosen duration, your Legacy Plan will be automatically executed.",
-      label: "Activate Legacy Mode after:",
-      day: "1 day",
-      days3: "3 days",
-      days7: "7 days",
-      daysChoose: "Inactivity period:",
-      day1: "day",
-      days: "days",
-      quickSelect: "Quick Select:",
-    },
-
-    // Step 5 – Trusted contact
-    contact: {
-      title: "Add a trusted contact",
-      subtitle:
-        "If you miss your daily check-ins for a set period, we will assume you are unavailable and activate your legacy plan.",
-      name: "Name",
-      email: "Email",
-      phone: "Numbers",
-      note: "Your trusted contact will be established after they confirm it via email",
-      skip: "Skip this for now",
-      required: "*",
-      tooltip1: "Will be added later",
-    },
-
-    // Step 6 – Complete
-    complete: {
-      title: "You're all set !",
+        "Add someone we can notify if you miss a check-in. They'll only be contacted after a grace period.",
+      required: "This field is required",
+      fullNameLabel: "Full Name",
+      fullNamePlaceholder: "e.g. Jane Morgan",
+      relationshipLabel: "Relationship",
+      relationshipPlaceholder: "Select relationship",
+      phoneLabel: "Phone Number",
+      phonePlaceholder: "+1 (555) 000-0000",
+      notifyLabel: "Notify this contact",
+      notifyDescription:
+        "Send alerts to this person if you miss a check-in after the grace period.",
+      completeButton: "Complete Setup",
+      encryptedNote:
+        "Contact details are encrypted and stored securely on your device.",
+      relationships: {
+        parent: "Parent",
+        sibling: "Sibling",
+        spouse: "Spouse / Partner",
+        friend: "Friend",
+        roommate: "Roommate",
+        other: "Other",
+      },
     },
   },
 };
