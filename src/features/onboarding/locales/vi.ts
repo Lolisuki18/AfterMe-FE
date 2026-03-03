@@ -5,88 +5,87 @@ export const onboardingVi: OnboardingTranslations = {
     // ── Shared / Layout ──────────────────────────────────────────────────
     stepOf: "BƯỚC {current} TRÊN {total}",
     percentCompleted: "{percent}% Hoàn thành",
-    welcomeTitle: "Chào mừng đến với AfterMe",
-    welcomeSubtitle:
-      "Hãy thiết lập hồ sơ an toàn của bạn trong 3 bước đơn giản.",
-    privacyFirst: "Quyền riêng tư",
     back: "Quay lại",
-    next: "Tiếp: Thời gian check-in",
     continue: "Tiếp tục",
+    next: "Tiếp theo",
     skipForNow: "Bỏ qua",
     completeSetup: "Hoàn tất thiết lập",
-    saveAndExit: "Lưu & Thoát",
-    helpAndSupport: "Trợ giúp & Hỗ trợ",
-
-    // ── Footer links ──────────────────────────────────────────────────
-    termsOfService: "Điều khoản dịch vụ",
-    privacyPolicy: "Chính sách bảo mật",
-    helpCenter: "Trung tâm trợ giúp",
     dataEncryptedNote:
       "Dữ liệu của bạn được mã hóa và chỉ chia sẻ trong trường hợp khẩn cấp thực sự.",
+    welcomeTitle: "Thiết lập Hồ sơ An toàn",
+    welcomeSubtitle:
+      "Thông tin này giúp chúng tôi bảo vệ bạn và thông báo cho người thân nếu có sự cố xảy ra.",
+    privacyFirst: "Bảo mật Hàng đầu",
 
-    // ── Step 1 – Basic Profile ───────────────────────────────────────
+    // ── Step 1 – Basic Profile ───────────────────────────────────────────
     step1: {
-      title: "Hồ sơ cơ bản",
-      whyTitle: "Tại sao cần thông tin này?",
+      title: "Hồ sơ Cơ bản",
+      whyTitle: "Tại sao chúng tôi cần thông tin này?",
       whyDescription:
-        "Hồ sơ cơ bản giúp nhân viên cứu hộ xác định bạn nhanh chóng nếu có cảnh báo. Chúng tôi lưu trữ mã hóa cục bộ trên thiết bị của bạn.",
-      criticalInfoTitle: "Thông tin quan trọng",
-      criticalInfoDesc: "Chia sẻ dị ứng hoặc tình trạng sức khỏe.",
-      encryptedTitle: "Mã hóa đầu cuối",
-      encryptedDesc: "Chỉ bạn và liên hệ của bạn mới xem được.",
+        "Hồ sơ của bạn giúp dịch vụ khẩn cấp nhanh chóng nhận diện và đảm bảo liên hệ nhận được thông tin chính xác.",
+      criticalInfoTitle: "Thông tin Quan trọng",
+      criticalInfoDesc:
+        "Ghi chú y tế được chia sẻ với nhân viên cấp cứu để cung cấp sự chăm sóc tốt hơn.",
+      encryptedTitle: "Mã hóa Hoàn toàn",
+      encryptedDesc:
+        "Mọi dữ liệu được lưu trữ mã hóa trên thiết bị của bạn và không bao giờ được chia sẻ khi chưa có sự đồng ý.",
       testimonialQuote:
-        '"AfterMe giúp tôi an tâm khi đi bộ về nhà muộn từ thư viện."',
-      testimonialAuthor: "Sarah J., Sinh viên",
-      fullNameLabel: "Họ và tên",
+        "Thông tin y tế được điền sẵn đã tiết kiệm những phút quý giá tại phòng cấp cứu.",
+      testimonialAuthor: "Người dùng AfterMe",
+      fullNameLabel: "Họ và Tên",
       fullNameRequired: "*",
-      fullNamePlaceholder: "VD: Nguyễn Văn A",
-      medicalNoteLabel: "Ghi chú y tế / Giới thiệu",
-      medicalNoteOptional: "Tùy chọn",
-      medicalNotePlaceholder:
-        "Thông tin y tế quan trọng (VD: Hen suyễn, Tiểu đường) hoặc đôi nét về bạn...",
+      fullNamePlaceholder: "VD: Nguyễn Văn An",
+      medicalNoteLabel: "Ghi chú Y tế",
+      medicalNoteOptional: "(Tùy chọn)",
+      medicalNotePlaceholder: "Dị ứng, nhóm máu, thuốc, bệnh lý…",
       medicalNoteHelper:
-        "Thông tin này sẽ được chia sẻ với liên hệ khẩn cấp khi có cảnh báo.",
-      checkInPreferences: "Ưu tiên check-in",
+        "Chỉ chia sẻ với liên hệ khẩn cấp và nhân viên cứu thương.",
+      checkInPreferences: "Thời gian Check-in Ưa thích",
       morning: "Buổi sáng",
       evening: "Buổi tối",
     },
 
-    // ── Step 2 – Check-in Pulse ──────────────────────────────────────
+    // ── Step 2 – Check-in Pulse ──────────────────────────────────────────
     step2: {
       title: "Thiết lập nhịp check-in",
       subtitle:
-        "Chúng tôi không cần giờ chính xác. Chỉ cần chọn khung giờ bạn thường hoạt động để chúng tôi biết khi nào cần kiểm tra.",
-      whyWeAsk: "Tại sao chúng tôi hỏi? (Đây là kiểm tra nhịp thụ động)",
+        "Chọn các khung thời gian trong ngày để AfterMe kiểm tra sức khỏe của bạn.",
+      whyWeAsk:
+        "Chúng tôi sẽ gửi thông báo nhẹ nhàng vào mỗi khung giờ bạn chọn. Không có phản hồi sẽ kích hoạt cảnh báo sau thời gian ân hạn.",
       morning: "Buổi sáng",
-      morningTime: "Khoảng 8:00 SA - 10:00 SA",
-      afternoon: "Buổi trưa",
-      afternoonTime: "Khoảng 12:00 CH - 2:00 CH",
-      evening: "Buổi chiều",
-      eveningTime: "Khoảng 6:00 CH - 8:00 CH",
-      night: "Ban đêm",
-      nightTime: "Khoảng 10:00 CH - 12:00 SA",
-      addCustomTime: "Thêm khung giờ tùy chỉnh",
+      morningTime: "6:00 SA – 9:00 SA",
+      afternoon: "Buổi chiều",
+      afternoonTime: "12:00 CH – 2:00 CH",
+      evening: "Buổi chiều tối",
+      eveningTime: "5:00 CH – 8:00 CH",
+      night: "Buổi tối",
+      nightTime: "9:00 CH – 11:00 CH",
+      addCustomTime: "Thêm thời gian tùy chỉnh",
     },
 
-    // ── Step 3 – Emergency Contact ───────────────────────────────────
+    // ── Step 3 – Emergency Contact ───────────────────────────────────────
     step3: {
-      title: "Liên hệ khẩn cấp",
+      title: "Liên hệ Khẩn cấp",
       subtitle:
-        "Thêm liên hệ tin cậy sẽ được thông báo ngay lập tức trong trường hợp khẩn cấp. Chúng tôi khuyên bạn thêm phụ huynh hoặc bạn thân.",
-      fullNameLabel: "Họ và tên",
-      fullNamePlaceholder: "VD: Trần Thị B",
+        "Thêm người chúng tôi có thể thông báo nếu bạn bỏ lỡ check-in. Họ chỉ được liên hệ sau thời gian ân hạn.",
+      required: "Trường này là bắt buộc",
+      fullNameLabel: "Họ và Tên",
+      fullNamePlaceholder: "VD: Nguyễn Thị Bình",
       relationshipLabel: "Mối quan hệ",
       relationshipPlaceholder: "Chọn mối quan hệ",
       phoneLabel: "Số điện thoại",
-      phonePlaceholder: "+84 912 345 678",
-      notifyTitle: "Thông báo cho họ tôi đã tham gia AfterMe",
-      notifyDesc: "Chúng tôi sẽ gửi SMS an toàn giới thiệu ứng dụng.",
-      emergencyContact: "Liên hệ khẩn cấp",
+      phonePlaceholder: "+84 xxx xxx xxx",
+      notifyLabel: "Thông báo liên hệ này",
+      notifyDescription:
+        "Gửi cảnh báo đến người này nếu bạn bỏ lỡ check-in sau thời gian ân hạn.",
+      completeButton: "Hoàn tất Thiết lập",
+      encryptedNote:
+        "Thông tin liên hệ được mã hóa và lưu trữ an toàn trên thiết bị của bạn.",
       relationships: {
-        parent: "Phụ huynh",
-        sibling: "Anh chị em",
-        spouse: "Vợ / Chồng",
-        friend: "Bạn thân",
+        parent: "Cha / Mẹ",
+        sibling: "Anh / Chị / Em",
+        spouse: "Vợ / Chồng / Bạn đời",
+        friend: "Bạn bè",
         roommate: "Bạn cùng phòng",
         other: "Khác",
       },

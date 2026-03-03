@@ -5,7 +5,7 @@ const STORAGE_KEY = "afterme_onboarding";
 export interface ProfileData {
   fullName: string;
   medicalNote: string;
-  checkInPreference: "morning" | "evening" | "";
+  checkInPreference: "morning" | "evening";
 }
 
 export interface PulseData {
@@ -30,19 +30,27 @@ export interface OnboardingData {
 }
 
 const defaultData: OnboardingData = {
-  profile: { fullName: "", medicalNote: "", checkInPreference: "" },
-  pulse: { morning: false, afternoon: true, evening: true, night: false },
-  contact: { fullName: "", relationship: "", phone: "", notifyContact: false },
+  profile: { fullName: "", medicalNote: "", checkInPreference: "morning" },
+  pulse: { morning: true, afternoon: false, evening: false, night: false },
+  contact: { fullName: "", relationship: "", phone: "", notifyContact: true },
 };
 
 function load(): OnboardingData {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw) as OnboardingData;
+    if (raw) {
+      const parsed = JSON.parse(raw) as Partial<OnboardingData>;
+      return {
+        profile: parsed.profile ?? defaultData.profile,
+        pulse: parsed.pulse ?? defaultData.pulse,
+        contact: parsed.contact ?? defaultData.contact,
+        completedAt: parsed.completedAt,
+      };
+    }
   } catch {
     /* ignore corrupt data */
   }
-  return { ...defaultData };
+  return JSON.parse(JSON.stringify(defaultData));
 }
 
 function persist(data: OnboardingData) {
@@ -67,7 +75,7 @@ export const onboardingStore = {
     persist(data);
   },
 
-  /** Save Step 3 – Emergency Contact */
+  /** Save Step 3 – Emergency Contact (marks onboarding complete) */
   saveContact: (contact: ContactData) => {
     const data = load();
     data.contact = contact;

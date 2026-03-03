@@ -1,7 +1,14 @@
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
 import { ProgressBar } from "./ProgressBar";
-import { SunriseIcon, SunMiddayIcon, SunsetIcon, MoonStarIcon, PlusCircleIcon, InfoCircleIcon } from "@/shared/icon";
+import {
+  SunriseIcon,
+  SunMiddayIcon,
+  SunsetIcon,
+  MoonStarIcon,
+  PlusCircleIcon,
+  InfoCircleIcon,
+} from "@/shared/icon";
 import type { PulseData } from "../store/onboardingStore";
 
 interface Step2PulseProps {
@@ -37,10 +44,10 @@ export const Step2Pulse = ({
 
       {/* ── Title ─────────────────────────────────────── */}
       <div>
-        <h1 className="text-text text-xl font-bold break-words sm:text-2xl">
+        <h1 className="text-text text-xl font-bold sm:text-2xl">
           {t.onboarding.step2.title}
         </h1>
-        <p className="text-text-muted mt-2 text-sm leading-relaxed break-words">
+        <p className="text-text-muted mt-2 text-sm leading-relaxed">
           {t.onboarding.step2.subtitle}
         </p>
       </div>
@@ -48,9 +55,7 @@ export const Step2Pulse = ({
       {/* ── Why we ask ────────────────────────────────── */}
       <div className="bg-surface-alt flex items-start gap-2 rounded-lg p-3">
         <InfoCircleIcon className="text-primary mt-0.5 h-4 w-4 shrink-0" />
-        <p className="text-text-muted text-xs break-words">
-          {t.onboarding.step2.whyWeAsk}
-        </p>
+        <p className="text-text-muted text-xs">{t.onboarding.step2.whyWeAsk}</p>
       </div>
 
       {/* ── Pulse Toggle Cards ────────────────────────── */}
@@ -85,10 +90,8 @@ export const Step2Pulse = ({
               </div>
 
               <div className="min-w-0 flex-1">
-                <p className="text-text text-sm font-semibold break-words">
-                  {label}
-                </p>
-                <p className="text-text-muted text-xs break-words">{time}</p>
+                <p className="text-text text-sm font-semibold">{label}</p>
+                <p className="text-text-muted text-xs">{time}</p>
               </div>
 
               {/* Visual toggle indicator */}

@@ -23,4 +23,5 @@ export interface Step3ContactProps {
   onChange: (data: ContactData) => void;
   onComplete: () => void;
   onBack: () => void;
+  loading?: boolean;
 }

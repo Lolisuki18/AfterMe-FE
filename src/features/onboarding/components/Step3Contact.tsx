@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { useLanguage } from "@/app/useLanguage";
-import { Input, Select, Button, Toggle } from "@/shared/components";
+import { Button } from "@/shared/components";
 import { ProgressBar } from "./ProgressBar";
-import { ContactCardIcon, UserProfileIcon, RelationshipIcon, PhoneClassicIcon, BellNotifyIcon, ShieldLockAltIcon, CheckCircleFilledIcon } from "@/shared/icon";
+import {
+  ContactCardIcon,
+  UserProfileIcon,
+  PhoneClassicIcon,
+  ShieldLockAltIcon,
+  CheckCircleFilledIcon,
+} from "@/shared/icon";
 import type { ContactData } from "../store/onboardingStore";
 
 interface Step3ContactProps {
@@ -10,6 +16,7 @@ interface Step3ContactProps {
   onChange: (data: ContactData) => void;
   onComplete: () => void;
   onBack: () => void;
+  loading?: boolean;
 }
 
 export const Step3Contact = ({
@@ -17,132 +24,185 @@ export const Step3Contact = ({
   onChange,
   onComplete,
   onBack,
+  loading,
 }: Step3ContactProps) => {
   const { t } = useLanguage();
-  const [errors, setErrors] = useState<{ fullName?: string; phone?: string }>(
-    {},
-  );
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof ContactData, string>>
+  >({});
 
-  const relationshipOptions = Object.entries(
-    t.onboarding.step3.relationships,
-  ).map(([value, label]) => ({ value, label }));
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const newErrors: typeof errors = {};
-    if (!data.fullName.trim()) newErrors.fullName = "Required";
-    if (!data.phone.trim()) newErrors.phone = "Required";
-    if (Object.keys(newErrors).length) {
-      setErrors(newErrors);
-      return;
-    }
-    setErrors({});
-    onComplete();
+  const set = <K extends keyof ContactData>(key: K, value: ContactData[K]) => {
+    onChange({ ...data, [key]: value });
+    if (errors[key]) setErrors((e) => ({ ...e, [key]: undefined }));
   };
+
+  const validate = () => {
+    const e: typeof errors = {};
+    if (!data.fullName.trim()) e.fullName = t.onboarding.step3.required;
+    if (!data.relationship) e.relationship = t.onboarding.step3.required;
+    if (!data.phone.trim()) e.phone = t.onboarding.step3.required;
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  };
+
+  const handleSubmit = () => {
+    if (validate()) onComplete();
+  };
+
+  const relationships: { value: string; label: string }[] = [
+    { value: "parent", label: t.onboarding.step3.relationships.parent },
+    { value: "sibling", label: t.onboarding.step3.relationships.sibling },
+    { value: "spouse", label: t.onboarding.step3.relationships.spouse },
+    { value: "friend", label: t.onboarding.step3.relationships.friend },
+    { value: "roommate", label: t.onboarding.step3.relationships.roommate },
+    { value: "other", label: t.onboarding.step3.relationships.other },
+  ];
 
   return (
     <div className="space-y-6">
       {/* ── Progress ──────────────────────────────────── */}
-      <div>
-        <div className="mb-2 flex items-center gap-2">
-          <span className="bg-primary/10 text-primary rounded-full px-2.5 py-0.5 text-xs font-medium">
-            {t.onboarding.step3.emergencyContact}
-          </span>
-        </div>
-        <ProgressBar currentStep={3} />
-      </div>
+      <ProgressBar currentStep={3} />
 
-      {/* ── Card header ───────────────────────────────── */}
-      <div className="flex items-start gap-3">
-        <div className="bg-primary/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl">
-          <ContactCardIcon className="text-primary h-5 w-5" />
+      {/* ── Icon header ───────────────────────────────── */}
+      <div className="flex flex-col items-center gap-3 text-center">
+        <div className="bg-primary/10 flex h-14 w-14 items-center justify-center rounded-2xl">
+          <ContactCardIcon className="text-primary h-8 w-8" />
         </div>
         <div>
-          <h1 className="text-text text-lg font-bold break-words sm:text-xl">
+          <h1 className="text-text text-xl font-bold sm:text-2xl">
             {t.onboarding.step3.title}
           </h1>
-          <p className="text-text-muted mt-1 text-sm leading-relaxed break-words">
+          <p className="text-text-muted mt-1 text-sm">
             {t.onboarding.step3.subtitle}
           </p>
         </div>
       </div>
 
       {/* ── Form ──────────────────────────────────────── */}
-      <form onSubmit={handleSubmit} className="space-y-5">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <Input
-            label={t.onboarding.step3.fullNameLabel}
-            placeholder={t.onboarding.step3.fullNamePlaceholder}
+      <div className="space-y-4">
+        {/* Full Name */}
+        <div>
+          <label className="text-text mb-1.5 flex items-center gap-2 text-sm font-medium">
+            <UserProfileIcon className="text-text-muted h-4 w-4" />
+            {t.onboarding.step3.fullNameLabel}
+          </label>
+          <input
+            type="text"
             value={data.fullName}
-            onChange={(e) => onChange({ ...data, fullName: e.target.value })}
-            error={errors.fullName}
-            leftIcon={<UserProfileIcon className="h-4 w-4" />}
+            onChange={(e) => set("fullName", e.target.value)}
+            placeholder={t.onboarding.step3.fullNamePlaceholder}
+            className={`border-border bg-surface text-text placeholder:text-text-muted w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-offset-1 ${
+              errors.fullName
+                ? "border-red-400 focus:ring-red-300"
+                : "focus:border-primary focus:ring-primary/30"
+            }`}
           />
+          {errors.fullName && (
+            <p className="mt-1 text-xs text-red-500">{errors.fullName}</p>
+          )}
+        </div>
 
-          <Select
-            label={t.onboarding.step3.relationshipLabel}
-            placeholder={t.onboarding.step3.relationshipPlaceholder}
-            options={relationshipOptions}
+        {/* Relationship */}
+        <div>
+          <label className="text-text mb-1.5 flex items-center gap-2 text-sm font-medium">
+            <span className="text-text-muted h-4 w-4 text-center text-xs">
+              ♥
+            </span>
+            {t.onboarding.step3.relationshipLabel}
+          </label>
+          <select
             value={data.relationship}
-            onChange={(e) =>
-              onChange({ ...data, relationship: e.target.value })
-            }
-            leftIcon={<RelationshipIcon className="h-4 w-4" />}
-          />
+            onChange={(e) => set("relationship", e.target.value)}
+            className={`border-border bg-surface text-text w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-offset-1 ${
+              errors.relationship
+                ? "border-red-400 focus:ring-red-300"
+                : "focus:border-primary focus:ring-primary/30"
+            }`}
+          >
+            <option value="">
+              {t.onboarding.step3.relationshipPlaceholder}
+            </option>
+            {relationships.map((r) => (
+              <option key={r.value} value={r.value}>
+                {r.label}
+              </option>
+            ))}
+          </select>
+          {errors.relationship && (
+            <p className="mt-1 text-xs text-red-500">{errors.relationship}</p>
+          )}
         </div>
 
-        <Input
-          label={t.onboarding.step3.phoneLabel}
-          placeholder={t.onboarding.step3.phonePlaceholder}
-          type="tel"
-          value={data.phone}
-          onChange={(e) => onChange({ ...data, phone: e.target.value })}
-          error={errors.phone}
-          leftIcon={<PhoneClassicIcon className="h-4 w-4" />}
-        />
+        {/* Phone */}
+        <div>
+          <label className="text-text mb-1.5 flex items-center gap-2 text-sm font-medium">
+            <PhoneClassicIcon className="text-text-muted h-4 w-4" />
+            {t.onboarding.step3.phoneLabel}
+          </label>
+          <input
+            type="tel"
+            value={data.phone}
+            onChange={(e) => set("phone", e.target.value)}
+            placeholder={t.onboarding.step3.phonePlaceholder}
+            className={`border-border bg-surface text-text placeholder:text-text-muted w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-offset-1 ${
+              errors.phone
+                ? "border-red-400 focus:ring-red-300"
+                : "focus:border-primary focus:ring-primary/30"
+            }`}
+          />
+          {errors.phone && (
+            <p className="mt-1 text-xs text-red-500">{errors.phone}</p>
+          )}
+        </div>
 
-        {/* Notify toggle */}
-        <div className="border-border flex items-center justify-between rounded-lg border p-4">
-          <div className="flex items-start gap-3">
-            <BellNotifyIcon className="text-primary mt-0.5 h-5 w-5 shrink-0" />
-            <div>
-              <p className="text-text text-sm font-medium break-words">
-                {t.onboarding.step3.notifyTitle}
-              </p>
-              <p className="text-text-muted text-xs break-words">
-                {t.onboarding.step3.notifyDesc}
-              </p>
-            </div>
+        {/* Notify Toggle */}
+        <div className="bg-surface-alt flex items-center justify-between rounded-xl p-4">
+          <div>
+            <p className="text-text text-sm font-medium">
+              {t.onboarding.step3.notifyLabel}
+            </p>
+            <p className="text-text-muted text-xs">
+              {t.onboarding.step3.notifyDescription}
+            </p>
           </div>
-          <Toggle
-            checked={data.notifyContact}
-            onChange={(checked) =>
-              onChange({ ...data, notifyContact: checked })
-            }
-          />
+          <button
+            type="button"
+            onClick={() => set("notifyContact", !data.notifyContact)}
+            className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${
+              data.notifyContact ? "bg-primary" : "bg-border"
+            }`}
+            aria-checked={data.notifyContact}
+            role="switch"
+          >
+            <span
+              className={`absolute top-0.5 left-0.5 inline-block h-5 w-5 rounded-full bg-white shadow-sm transition-transform ${
+                data.notifyContact ? "translate-x-5" : "translate-x-0"
+              }`}
+            />
+          </button>
         </div>
+      </div>
 
-        {/* Complete button */}
+      {/* ── Submit ────────────────────────────────────── */}
+      <div className="space-y-3 pt-2">
         <Button
-          type="submit"
-          fullWidth
-          rightIcon={<CheckCircleFilledIcon className="h-4 w-4" />}
+          onClick={handleSubmit}
+          isLoading={loading}
+          className="flex w-full items-center justify-center gap-2"
         >
-          {t.onboarding.completeSetup}
+          <CheckCircleFilledIcon className="h-4 w-4" />
+          {t.onboarding.step3.completeButton}
         </Button>
-      </form>
 
-      {/* ── Encrypted note ────────────────────────────── */}
-      <div className="flex items-center justify-center gap-2 pb-2">
-        <ShieldLockAltIcon className="text-text-muted h-4 w-4 shrink-0" />
-        <p className="text-text-muted text-center text-xs break-words">
-          {t.onboarding.dataEncryptedNote}
+        <p className="text-text-muted flex items-center justify-center gap-1.5 text-center text-xs">
+          <ShieldLockAltIcon className="h-3.5 w-3.5" />
+          {t.onboarding.step3.encryptedNote}
         </p>
       </div>
 
       {/* ── Back ──────────────────────────────────────── */}
-      <div className="flex justify-start">
-        <Button variant="ghost" onClick={onBack}>
+      <div className="flex justify-center">
+        <Button variant="ghost" onClick={onBack} className="text-sm">
           {t.onboarding.back}
         </Button>
       </div>

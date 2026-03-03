@@ -3,87 +3,87 @@ export const onboardingEn = {
     // ── Shared / Layout ──────────────────────────────────────────────────
     stepOf: "STEP {current} OF {total}",
     percentCompleted: "{percent}% Completed",
-    welcomeTitle: "Welcome to AfterMe",
-    welcomeSubtitle: "Let's set up your safety profile in 3 simple steps.",
-    privacyFirst: "Privacy First",
     back: "Back",
-    next: "Next: Check-in Times",
     continue: "Continue",
+    next: "Next",
     skipForNow: "Skip for now",
     completeSetup: "Complete Setup",
-    saveAndExit: "Save & Exit",
-    helpAndSupport: "Help & Support",
-
-    // ── Footer links ──────────────────────────────────────────────────
-    termsOfService: "Terms of Service",
-    privacyPolicy: "Privacy Policy",
-    helpCenter: "Help Center",
     dataEncryptedNote:
       "Your data is encrypted and only shared in actual emergencies.",
+    welcomeTitle: "Set Up Your Safety Profile",
+    welcomeSubtitle:
+      "This information helps us keep you safe and notify your loved ones if something goes wrong.",
+    privacyFirst: "Privacy First",
 
-    // ── Step 1 – Basic Profile ───────────────────────────────────────
+    // ── Step 1 – Basic Profile ───────────────────────────────────────────
     step1: {
       title: "Basic Profile",
-      whyTitle: "Why this info?",
+      whyTitle: "Why do we need this?",
       whyDescription:
-        "Your basic profile helps emergency responders identify you quickly if an alert is triggered. We store this locally encrypted on your device.",
-      criticalInfoTitle: "Critical Info",
-      criticalInfoDesc: "Share allergies or conditions.",
-      encryptedTitle: "End-to-End Encrypted",
-      encryptedDesc: "Only you and your contacts can see this.",
+        "Your profile helps emergency services identify you quickly and ensures your contacts receive accurate information.",
+      criticalInfoTitle: "Critical Information",
+      criticalInfoDesc:
+        "Medical notes are shared with emergency responders to provide better care.",
+      encryptedTitle: "Fully Encrypted",
+      encryptedDesc:
+        "All data is stored encrypted on your device and never shared without your consent.",
       testimonialQuote:
-        '"AfterMe gives me peace of mind when I walk home late from the library."',
-      testimonialAuthor: "Sarah J., Student",
+        "Having my medical info pre-filled saved precious minutes in the ER.",
+      testimonialAuthor: "AfterMe User",
       fullNameLabel: "Full Name",
       fullNameRequired: "*",
       fullNamePlaceholder: "e.g. Alex Morgan",
-      medicalNoteLabel: "Medical Note / Bio",
-      medicalNoteOptional: "Optional",
-      medicalNotePlaceholder:
-        "Any critical medical info (e.g., Asthma, Diabetes) or just a bit about you...",
+      medicalNoteLabel: "Medical Note",
+      medicalNoteOptional: "(Optional)",
+      medicalNotePlaceholder: "Allergies, blood type, medications, conditions…",
       medicalNoteHelper:
-        "This will be shared with your emergency contact during an alert.",
-      checkInPreferences: "Check-in Preferences",
+        "Shared only with emergency contacts and first responders.",
+      checkInPreferences: "Preferred Check-in Time",
       morning: "Morning",
       evening: "Evening",
     },
 
-    // ── Step 2 – Check-in Pulse ──────────────────────────────────────
+    // ── Step 2 – Check-in Pulse ──────────────────────────────────────────
     step2: {
       title: "Set your check-in pulse",
       subtitle:
-        "We don't need exact times. Just pick the windows when you're usually active so we know when to check on you.",
-      whyWeAsk: "Why we ask? (This is a passive pulse check)",
+        "Choose the times of day when you want AfterMe to check in on you.",
+      whyWeAsk:
+        "We'll send a gentle notification at each selected window. No response triggers an alert to your emergency contact after a grace period.",
       morning: "Morning",
-      morningTime: "Around 8:00 AM - 10:00 AM",
+      morningTime: "6:00 AM – 9:00 AM",
       afternoon: "Afternoon",
-      afternoonTime: "Around 12:00 PM - 2:00 PM",
+      afternoonTime: "12:00 PM – 2:00 PM",
       evening: "Evening",
-      eveningTime: "Around 6:00 PM - 8:00 PM",
+      eveningTime: "5:00 PM – 8:00 PM",
       night: "Night",
-      nightTime: "Around 10:00 PM - 12:00 AM",
-      addCustomTime: "Add a custom time window",
+      nightTime: "9:00 PM – 11:00 PM",
+      addCustomTime: "Add custom time",
     },
 
-    // ── Step 3 – Emergency Contact ───────────────────────────────────
+    // ── Step 3 – Emergency Contact ───────────────────────────────────────
     step3: {
       title: "Emergency Contact",
       subtitle:
-        "Add a trusted contact who will be notified instantly in case of an emergency. We recommend adding a parent or close friend.",
+        "Add someone we can notify if you miss a check-in. They'll only be contacted after a grace period.",
+      required: "This field is required",
       fullNameLabel: "Full Name",
-      fullNamePlaceholder: "e.g. Jane Doe",
+      fullNamePlaceholder: "e.g. Jane Morgan",
       relationshipLabel: "Relationship",
       relationshipPlaceholder: "Select relationship",
       phoneLabel: "Phone Number",
       phonePlaceholder: "+1 (555) 000-0000",
-      notifyTitle: "Notify them I joined AfterMe",
-      notifyDesc: "We'll send them a secure SMS introducing the app.",
-      emergencyContact: "Emergency Contact",
+      notifyLabel: "Notify this contact",
+      notifyDescription:
+        "Send alerts to this person if you miss a check-in after the grace period.",
+      completeButton: "Complete Setup",
+      encryptedNote:
+        "Contact details are encrypted and stored securely on your device.",
       relationships: {
         parent: "Parent",
         sibling: "Sibling",
         spouse: "Spouse / Partner",
-        friend: "Close Friend",
+        friend: "Friend",
         roommate: "Roommate",
         other: "Other",
       },

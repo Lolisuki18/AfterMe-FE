@@ -50,7 +50,8 @@ export const LoginForm = () => {
       setStatus("success");
       setMessage(resolveKey(t, result.messageKey));
       toast.success(resolveKey(t, result.messageKey));
-      setTimeout(() => navigate("/dashboard"), 1200);
+      const dest = result.user?.onboarded ? "/dashboard" : "/onboarding";
+      setTimeout(() => navigate(dest), 1200);
     } else {
       setStatus("error");
       setMessage(resolveKey(t, result.messageKey));

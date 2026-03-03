@@ -4,7 +4,10 @@ import {
   MainLayout,
   OnboardingLayout,
 } from "@/shared/layouts";
-import { ProtectedRoute } from "@/shared/components/ProtectedRoute";
+import {
+  ProtectedRoute,
+  OnboardingRoute,
+} from "@/shared/components/ProtectedRoute";
 import { PageSkeleton } from "@/shared/components/PageSkeleton";
 
 // Feature page imports (lazy load cho performance)
@@ -104,9 +107,11 @@ export const AppRouter = () => {
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
 
-          {/* Onboarding Routes - Sử dụng OnboardingLayout */}
-          <Route element={<OnboardingLayout />}>
-            <Route path="/onboarding" element={<OnboardingPage />} />
+          {/* Onboarding Routes - Requires auth, redirects if already onboarded */}
+          <Route element={<OnboardingRoute />}>
+            <Route element={<OnboardingLayout />}>
+              <Route path="/onboarding" element={<OnboardingPage />} />
+            </Route>
           </Route>
 
           {/* Public Routes - Sử dụng MainLayout */}

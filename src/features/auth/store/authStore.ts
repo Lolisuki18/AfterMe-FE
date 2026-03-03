@@ -13,12 +13,14 @@ export interface StoredUser {
   name: string;
   email: string;
   password: string;
+  onboarded: boolean;
 }
 
 export interface AuthUser {
   id: string;
   name: string;
   email: string;
+  onboarded: boolean;
 }
 
 export interface LoginPayload {
@@ -45,6 +47,7 @@ const MOCK_USER: StoredUser = {
   name: "Admin",
   email: "admin@afterme.app",
   password: "123456",
+  onboarded: true,
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -82,6 +85,7 @@ interface AuthState {
   // Actions
   login: (payload: LoginPayload) => Promise<AuthResult>;
   register: (payload: RegisterPayload) => Promise<AuthResult>;
+  completeOnboarding: () => void;
   getCurrentUser: () => AuthUser | null;
   getToken: () => string | null;
   clearSession: () => void;
@@ -132,6 +136,7 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
       id: matched.id,
       name: matched.name,
       email: matched.email,
+      onboarded: matched.onboarded ?? false,
     };
 
     localStorage.setItem(STORAGE_KEYS.TOKEN, token);
@@ -160,12 +165,30 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
       name: payload.name,
       email: payload.email,
       password: payload.password,
+      onboarded: false,
     };
 
     saveUserToStorage(newUser);
     return { success: true, messageKey: "auth.register.successMessage" };
   },
+  // ─── Complete Onboarding ──────────────────────────────────────────────
+  completeOnboarding: () => {
+    const user = get().user;
+    if (!user) return;
 
+    const updatedUser: AuthUser = { ...user, onboarded: true };
+    localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(updatedUser));
+
+    // Also update the stored user in the users list
+    const users = getUsers();
+    const idx = users.findIndex((u) => u.id === user.id);
+    if (idx !== -1) {
+      users[idx] = { ...users[idx], onboarded: true };
+      localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
+    }
+
+    set({ user: updatedUser });
+  },
   // ─── Getters ──────────────────────────────────────────────────────────────
   getCurrentUser: () => get().user,
   getToken: () => get().token,
@@ -186,8 +209,10 @@ export const authStore = {
   login: (payload: LoginPayload) => useAuthStore.getState().login(payload),
   register: (payload: RegisterPayload) =>
     useAuthStore.getState().register(payload),
+  completeOnboarding: () => useAuthStore.getState().completeOnboarding(),
   getToken: () => useAuthStore.getState().token,
   getCurrentUser: () => useAuthStore.getState().user,
   clearSession: () => useAuthStore.getState().clearSession(),
   isAuthenticated: () => useAuthStore.getState().isAuthenticated,
+  isOnboarded: () => useAuthStore.getState().user?.onboarded ?? false,
 };

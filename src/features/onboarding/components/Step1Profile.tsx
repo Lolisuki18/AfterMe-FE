@@ -2,7 +2,16 @@ import { useState } from "react";
 import { useLanguage } from "@/app/useLanguage";
 import { Input, Textarea, Button } from "@/shared/components";
 import { ProgressBar } from "./ProgressBar";
-import { ShieldLockAltIcon, CriticalInfoIcon, EncryptedIcon, UserProfileIcon, NoteIcon, SunriseIcon, MoonStarIcon, ArrowRightIcon } from "@/shared/icon";
+import {
+  ShieldLockAltIcon,
+  CriticalInfoIcon,
+  EncryptedIcon,
+  UserProfileIcon,
+  NoteIcon,
+  SunriseIcon,
+  MoonStarIcon,
+  ArrowRightIcon,
+} from "@/shared/icon";
 import type { ProfileData } from "../store/onboardingStore";
 
 interface Step1ProfileProps {
@@ -42,10 +51,10 @@ export const Step1Profile = ({
         <div className="bg-primary/10 mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full">
           <ShieldLockAltIcon className="text-primary h-6 w-6" />
         </div>
-        <h1 className="text-text text-xl font-bold break-words sm:text-2xl">
+        <h1 className="text-text text-xl font-bold sm:text-2xl">
           {t.onboarding.welcomeTitle}
         </h1>
-        <p className="text-text-muted mt-1 text-sm break-words">
+        <p className="text-text-muted mt-1 text-sm">
           {t.onboarding.welcomeSubtitle}
         </p>
       </div>
@@ -53,7 +62,7 @@ export const Step1Profile = ({
       {/* ── Progress + Step badge ──────────────────────── */}
       <div>
         <div className="mb-2 flex items-center gap-2">
-          <span className="text-text text-sm font-semibold break-words">
+          <span className="text-text text-sm font-semibold">
             {t.onboarding.step1.title}
           </span>
           <span className="bg-primary/10 text-primary inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium">
@@ -68,10 +77,10 @@ export const Step1Profile = ({
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
         {/* Left – Why this info? (hidden on mobile) */}
         <div className="hidden space-y-4 lg:block">
-          <h3 className="text-text text-sm font-semibold break-words">
+          <h3 className="text-text text-sm font-semibold">
             {t.onboarding.step1.whyTitle}
           </h3>
-          <p className="text-text-muted text-sm leading-relaxed break-words">
+          <p className="text-text-muted text-sm leading-relaxed">
             {t.onboarding.step1.whyDescription}
           </p>
 
@@ -82,10 +91,10 @@ export const Step1Profile = ({
                 <CriticalInfoIcon className="text-primary h-4 w-4" />
               </div>
               <div>
-                <p className="text-text text-sm font-medium break-words">
+                <p className="text-text text-sm font-medium">
                   {t.onboarding.step1.criticalInfoTitle}
                 </p>
-                <p className="text-text-muted text-xs break-words">
+                <p className="text-text-muted text-xs">
                   {t.onboarding.step1.criticalInfoDesc}
                 </p>
               </div>
@@ -96,10 +105,10 @@ export const Step1Profile = ({
                 <EncryptedIcon className="text-primary h-4 w-4" />
               </div>
               <div>
-                <p className="text-text text-sm font-medium break-words">
+                <p className="text-text text-sm font-medium">
                   {t.onboarding.step1.encryptedTitle}
                 </p>
-                <p className="text-text-muted text-xs break-words">
+                <p className="text-text-muted text-xs">
                   {t.onboarding.step1.encryptedDesc}
                 </p>
               </div>
@@ -108,10 +117,10 @@ export const Step1Profile = ({
 
           {/* Testimonial */}
           <blockquote className="border-primary/30 border-l-2 pl-4">
-            <p className="text-text-muted text-sm break-words italic">
+            <p className="text-text-muted text-sm italic">
               {t.onboarding.step1.testimonialQuote}
             </p>
-            <footer className="text-text-muted mt-1 text-xs break-words">
+            <footer className="text-text-muted mt-1 text-xs">
               — {t.onboarding.step1.testimonialAuthor}
             </footer>
           </blockquote>
@@ -140,7 +149,7 @@ export const Step1Profile = ({
 
           {/* Check-in Preferences */}
           <div className="space-y-3">
-            <p className="text-text text-sm font-semibold break-words">
+            <p className="text-text text-sm font-semibold">
               {t.onboarding.step1.checkInPreferences}
             </p>
             <div className="grid grid-cols-2 gap-3">
@@ -168,7 +177,7 @@ export const Step1Profile = ({
                     }`}
                   />
                 </div>
-                <span className="text-text text-sm font-medium break-words">
+                <span className="text-text text-sm font-medium">
                   {t.onboarding.step1.morning}
                 </span>
               </button>
@@ -197,7 +206,7 @@ export const Step1Profile = ({
                     }`}
                   />
                 </div>
-                <span className="text-text text-sm font-medium break-words">
+                <span className="text-text text-sm font-medium">
                   {t.onboarding.step1.evening}
                 </span>
               </button>

@@ -9,17 +9,40 @@ import {
   type PulseData,
   type ContactData,
 } from "../store/onboardingStore";
+import { authStore } from "@/features/auth/store/authStore";
 
 type OnboardingStep = 1 | 2 | 3;
 
 const OnboardingPage = () => {
   const navigate = useNavigate();
   const stored = onboardingStore.getData();
+  const currentUser = authStore.getCurrentUser();
 
   const [step, setStep] = useState<OnboardingStep>(1);
-  const [profile, setProfile] = useState<ProfileData>(stored.profile);
-  const [pulse, setPulse] = useState<PulseData>(stored.pulse);
-  const [contact, setContact] = useState<ContactData>(stored.contact);
+
+  const [profile, setProfile] = useState<ProfileData>({
+    fullName: stored.profile?.fullName || currentUser?.name || "",
+    medicalNote: stored.profile?.medicalNote || "",
+    checkInPreference: stored.profile?.checkInPreference ?? "morning",
+  });
+
+  const [pulse, setPulse] = useState<PulseData>(
+    stored.pulse ?? {
+      morning: true,
+      afternoon: false,
+      evening: false,
+      night: false,
+    },
+  );
+
+  const [contact, setContact] = useState<ContactData>(
+    stored.contact ?? {
+      fullName: "",
+      relationship: "",
+      phone: "",
+      notifyContact: true,
+    },
+  );
 
   const next = useCallback(() => {
     if (step === 1) {
@@ -36,15 +59,13 @@ const OnboardingPage = () => {
   }, []);
 
   const skip = useCallback(() => {
-    // Skip saves current data and moves to next step
-    if (step === 1) {
-      onboardingStore.saveProfile(profile);
-      setStep(2);
-    }
-  }, [step, profile]);
+    // Skip profile step → go to pulse
+    setStep(2);
+  }, []);
 
   const complete = useCallback(() => {
     onboardingStore.saveContact(contact);
+    authStore.completeOnboarding();
     navigate("/dashboard");
   }, [contact, navigate]);
 
