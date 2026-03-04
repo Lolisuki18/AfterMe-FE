@@ -1,9 +1,13 @@
 import { HeaderimgIcon, StarIcon } from "@/shared/icon";
 import { useLanguage } from "@/app/useLanguage";
+import { useAuthStore } from "@/features/auth/store/authStore";
 
 export const Hero = () => {
   const { t } = useLanguage();
   const h = t.hero;
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+
+  const ctaHref = isAuthenticated ? "/dashboard" : "/onboarding";
 
   return (
     <section className="bg-bg relative overflow-hidden">
@@ -39,10 +43,10 @@ export const Hero = () => {
 
           <div className="flex w-full flex-col gap-4 sm:flex-row sm:flex-wrap">
             <a
-              href="/onboarding"
+              href={ctaHref}
               className="bg-primary hover:bg-primary-hover inline-flex w-full items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-base font-semibold text-white shadow-md transition-colors sm:w-auto"
             >
-              {h.ctaPrimary}
+              {isAuthenticated ? t.header.dashboard : h.ctaPrimary}
               <span aria-hidden="true">→</span>
             </a>
             <a

@@ -29,6 +29,9 @@ export const vaultEn = {
       "This message will be sent to your designated emergency contacts along with access to your Digital Vault if your status becomes inactive.",
     messagePlaceholder: "Write a personal message to your loved ones...",
     saveMessage: "Save Message",
+    viewMessage: "View Message",
+    editMessage: "Edit Message",
+    savedLabel: "Saved",
 
     // Sidebar
     securityStatus: "Security Status",

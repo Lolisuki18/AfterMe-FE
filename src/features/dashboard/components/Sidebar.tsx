@@ -88,7 +88,7 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
           to: "/dashboard/activity-log",
           icon: ChartIcon,
         },
-        { label: s.reminders, to: "/reminders/new", icon: BellIcon },
+        { label: s.reminders, to: "/dashboard/reminders", icon: BellIcon },
       ],
     },
     {

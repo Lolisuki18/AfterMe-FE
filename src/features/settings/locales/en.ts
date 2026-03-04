@@ -19,6 +19,9 @@ export const settingsEn = {
         "We'll use this for account recovery and critical notifications.",
       phoneNumber: "Phone Number",
       saveChanges: "Save Changes",
+      familyMembers: "Family Members",
+      viewAll: "View All",
+      noFamilyMembers: "No family members added yet.",
     },
 
     // ── Security ───────────────────────────────────────────────────────
@@ -36,6 +39,21 @@ export const settingsEn = {
       confirmPassword: "Confirm New Password",
       updatePassword: "Update Password",
       cancel: "Cancel",
+      allFieldsRequired: "All fields are required.",
+      passwordMinLength: "Password must be at least 6 characters.",
+      passwordMismatch: "Passwords do not match.",
+      passwordUpdated: "Password updated successfully!",
+      // Email change
+      email: "Email Address",
+      currentEmail: "Current email",
+      changeEmail: "Change Email",
+      changeEmailTitle: "Change Email Address",
+      newEmail: "New Email Address",
+      confirmEmail: "Confirm New Email",
+      updateEmail: "Update Email",
+      emailInvalid: "Please enter a valid email address.",
+      emailMismatch: "Email addresses do not match.",
+      emailUpdated: "Email updated successfully!",
     },
 
     // ── Danger Zone ────────────────────────────────────────────────────

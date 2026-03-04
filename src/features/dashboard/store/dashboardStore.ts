@@ -99,5 +99,12 @@ export const dashboardStore = {
     }
   },
 
+  /** Replace entire routines array */
+  setRoutines: (routines: RoutineItem[]) => {
+    const data = load();
+    data.routines = routines;
+    persist(data);
+  },
+
   clear: () => localStorage.removeItem(STORAGE_KEY),
 };

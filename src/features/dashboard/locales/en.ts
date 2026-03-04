@@ -35,14 +35,24 @@ export const dashboardEn = {
     checkInDesc:
       "Letting us know you're okay keeps your safety circle updated without intruding on your day.",
     checkInAction: "I'm Doing Great",
+    checkInSuccess: "Check-in recorded! Stay safe.",
+    checkedInToday: "You've checked in today!",
 
     // ── Routine Timeline ───────────────────────────────────────────────
     todaysRoutine: "Today's Routine",
     editSchedule: "Edit Schedule",
+    editScheduleDesc: "Add, edit, or remove your daily routine items.",
     now: "NOW",
     timeRemaining: "Time remaining",
     completed: "Completed",
     upcoming: "Upcoming",
+    routineNamePlaceholder: "Routine name",
+    iconLabel: "Icon",
+    startTime: "Start",
+    endTime: "End",
+    addRoutine: "Add Routine",
+    cancelEdit: "Cancel",
+    saveSchedule: "Save Schedule",
 
     // ── SOS ────────────────────────────────────────────────────────────
     sos: "SOS",

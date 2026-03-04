@@ -66,5 +66,18 @@ export const subscriptionVi = {
     viewAll: "Xem tất cả",
 
     proMonthly: "Gói Pro — Hàng tháng",
+
+    // Validation
+    fieldRequired: "Trường này là bắt buộc.",
+    emailInvalid: "Vui lòng nhập địa chỉ email hợp lệ.",
+    cardNumberInvalid: "Số thẻ phải có 16 chữ số.",
+    expiryInvalid: "Nhập ngày hết hạn hợp lệ (MM/YY).",
+    cvcInvalid: "CVC phải có 3 chữ số.",
+
+    // Success
+    paymentSuccessTitle: "Thanh toán thành công!",
+    paymentSuccessDesc:
+      "Gói dịch vụ đã được kích hoạt. Chào mừng đến với AfterMe!",
+    goToDashboard: "Đi tới Dashboard",
   },
 };

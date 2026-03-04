@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLanguage } from "@/app/useLanguage";
 import { Modal, Input, Button } from "@/shared/components";
+import { TimePicker } from "@/shared/components/DateTimePicker";
 import { ClockIcon } from "@/shared/icon";
 
 interface CustomTimeModalProps {
@@ -88,28 +89,24 @@ export const CustomTimeModal = ({
             <label className="text-text mb-1.5 block text-sm font-medium">
               {s.customStartTime}
             </label>
-            <input
-              type="time"
-              value={startTime}
-              onChange={(e) => {
-                setStartTime(e.target.value);
+            <TimePicker
+              value={startTime || "09:00"}
+              onChange={(val) => {
+                setStartTime(val);
                 setError("");
               }}
-              className="border-border bg-surface text-text focus:border-primary focus:ring-primary w-full rounded-lg border px-3 py-2.5 text-sm outline-none focus:ring-1"
             />
           </div>
           <div>
             <label className="text-text mb-1.5 block text-sm font-medium">
               {s.customEndTime}
             </label>
-            <input
-              type="time"
-              value={endTime}
-              onChange={(e) => {
-                setEndTime(e.target.value);
+            <TimePicker
+              value={endTime || "10:00"}
+              onChange={(val) => {
+                setEndTime(val);
                 setError("");
               }}
-              className="border-border bg-surface text-text focus:border-primary focus:ring-primary w-full rounded-lg border px-3 py-2.5 text-sm outline-none focus:ring-1"
             />
           </div>
         </div>

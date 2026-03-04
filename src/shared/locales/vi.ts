@@ -7,6 +7,7 @@ export const sharedVi: SharedTranslations = {
     pricing: "Bảng giá",
     login: "Đăng nhập",
     cta: "Bắt đầu hành trình",
+    dashboard: "Bảng điều khiển",
   },
   footer: {
     about: "Về chúng tôi",

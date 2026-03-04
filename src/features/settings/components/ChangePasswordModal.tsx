@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useLanguage } from "@/app/useLanguage";
 import { Modal, Button, Input } from "@/shared/components";
+import { settingsStore } from "../store/settingsStore";
+import { toast } from "sonner";
 
 interface ChangePasswordModalProps {
   open: boolean;
@@ -17,6 +19,7 @@ export const ChangePasswordModal = ({
   const [current, setCurrent] = useState("");
   const [newPwd, setNewPwd] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [error, setError] = useState("");
 
   const isValid =
     current.trim().length > 0 &&
@@ -24,8 +27,22 @@ export const ChangePasswordModal = ({
     newPwd === confirm;
 
   const handleSubmit = () => {
-    if (!isValid) return;
-    // Mock: just close — no real backend
+    setError("");
+    if (!current.trim()) {
+      setError(s.allFieldsRequired);
+      return;
+    }
+    if (newPwd.length < 6) {
+      setError(s.passwordMinLength);
+      return;
+    }
+    if (newPwd !== confirm) {
+      setError(s.passwordMismatch);
+      return;
+    }
+    // Simulate password change
+    settingsStore.updateProfile({ passwordLastChanged: "Just now" });
+    toast.success(s.passwordUpdated);
     handleClose();
   };
 
@@ -33,6 +50,7 @@ export const ChangePasswordModal = ({
     setCurrent("");
     setNewPwd("");
     setConfirm("");
+    setError("");
     onClose();
   };
 
@@ -59,6 +77,11 @@ export const ChangePasswordModal = ({
       }
     >
       <div className="space-y-4">
+        {error && (
+          <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400">
+            {error}
+          </p>
+        )}
         <Input
           label={s.currentPassword}
           type="password"

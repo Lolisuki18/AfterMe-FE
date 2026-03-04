@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLanguage } from "@/app/useLanguage";
 import { Modal, Button, Input } from "@/shared/components";
+import { TimePicker } from "@/shared/components/DateTimePicker";
 import type { RoutineTime } from "../store/lifestyleStore";
 
 interface QuickAddModalProps {
@@ -76,18 +77,24 @@ export const QuickAddModal = ({
           onChange={(e) => setName(e.target.value)}
         />
         <div className="grid grid-cols-2 gap-3">
-          <Input
-            label={ls.startTime}
-            type="time"
-            value={startTime}
-            onChange={(e) => setStartTime(e.target.value)}
-          />
-          <Input
-            label={ls.endTime}
-            type="time"
-            value={endTime}
-            onChange={(e) => setEndTime(e.target.value)}
-          />
+          <div>
+            <label className="text-text mb-1.5 block text-sm font-medium">
+              {ls.startTime}
+            </label>
+            <TimePicker
+              value={startTime || "09:00"}
+              onChange={(val) => setStartTime(val)}
+            />
+          </div>
+          <div>
+            <label className="text-text mb-1.5 block text-sm font-medium">
+              {ls.endTime}
+            </label>
+            <TimePicker
+              value={endTime || "10:00"}
+              onChange={(val) => setEndTime(val)}
+            />
+          </div>
         </div>
       </div>
     </Modal>

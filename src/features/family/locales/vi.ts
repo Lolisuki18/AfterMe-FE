@@ -19,12 +19,12 @@ export const familyVi = {
     viewProfile: "Xem hồ sơ",
     callNow: "Gọi ngay",
 
-    sarahName: "Sarah Johnson",
+    sarahName: "Yoshino Himekawa",
     sarahRelation: "Con gái",
     sarahLocation: "Khuôn viên Đại học",
     sarahCheckIn: "10 phút trước",
 
-    davidName: "David Johnson",
+    davidName: "Yui Yuigahama",
     davidRelation: "Con trai",
     davidLocation: "Nhà",
     davidCheckIn: "2 giờ trước",

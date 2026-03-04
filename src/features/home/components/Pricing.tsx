@@ -1,9 +1,23 @@
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
 import { CheckIcon } from "@/shared/icon";
+import { useAuthStore } from "@/features/auth/store/authStore";
 
 export const Pricing = () => {
   const { t } = useLanguage();
   const p = t.homePricing;
+  const navigate = useNavigate();
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+
+  const handlePlanClick = (planName: string, planPrice: string) => {
+    if (isAuthenticated) {
+      navigate("/dashboard/subscription", {
+        state: { planName, planPrice },
+      });
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <section
@@ -85,6 +99,7 @@ export const Pricing = () => {
               <div className="mt-auto">
                 <button
                   type="button"
+                  onClick={() => handlePlanClick(plan.name, plan.price)}
                   className={`w-full rounded-xl py-3 text-base font-semibold transition-colors ${
                     idx === 1
                       ? "bg-primary hover:bg-primary-hover text-white"

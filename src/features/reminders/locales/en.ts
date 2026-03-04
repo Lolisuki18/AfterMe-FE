@@ -43,8 +43,17 @@ export const remindersEn = {
     create: "Create Reminder",
 
     // Toast messages
-    toastSuccess: "Reminder created! Redirecting to dashboard...",
+    toastSuccess: "Reminder created! Redirecting to your reminders...",
     toastError: "Something went wrong. Please try again.",
+  },
+  remindersList: {
+    title: "My Reminders",
+    subtitle: "View, manage and create reminders to stay on track.",
+    createNew: "New Reminder",
+    empty: "No reminders yet",
+    emptyDesc: "Create your first reminder to get started.",
+    deleted: "Reminder deleted.",
+    delete: "Delete",
   },
 };
 

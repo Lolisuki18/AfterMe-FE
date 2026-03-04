@@ -9,6 +9,7 @@ import {
   OnboardingRoute,
 } from "@/shared/components/ProtectedRoute";
 import { PageSkeleton } from "@/shared/components/PageSkeleton";
+import { ScrollToTop } from "@/shared/components/ScrollToTop";
 
 // Feature page imports (lazy load cho performance)
 import { lazy, Suspense } from "react";
@@ -34,6 +35,12 @@ const OnboardingPage = lazy(
 );
 const CreateReminderPage = lazy(
   () => import("@/features/reminders/pages/CreateReminderPage"),
+);
+const RemindersListPage = lazy(
+  () => import("@/features/reminders/pages/RemindersListPage"),
+);
+const DailyRoutinePage = lazy(
+  () => import("@/features/dashboard/pages/DailyRoutinePage"),
 );
 const SettingsPage = lazy(
   () => import("@/features/dashboard/pages/SettingsPage"),
@@ -99,6 +106,7 @@ const PrivacyPolicyPage = lazy(
 export const AppRouter = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Suspense fallback={<PageSkeleton />}>
         <Routes>
           {/* Auth Routes - pages manage their own full-page split-screen layout */}
@@ -173,6 +181,14 @@ export const AppRouter = () => {
               />
               <Route path="/dashboard/referral" element={<ReferralPage />} />
               <Route path="/reminders/new" element={<CreateReminderPage />} />
+              <Route
+                path="/dashboard/reminders"
+                element={<RemindersListPage />}
+              />
+              <Route
+                path="/dashboard/daily-routine"
+                element={<DailyRoutinePage />}
+              />
             </Route>
           </Route>
 

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
 import { CheckSmIcon } from "@/shared/icon";
+import { useAuthStore } from "@/features/auth/store/authStore";
 
 interface PlanCardProps {
   title: string;
@@ -96,11 +97,16 @@ export const PricingGrid = ({ isYearly }: PricingGridProps) => {
   const { t } = useLanguage();
   const p = t.pricing;
   const navigate = useNavigate();
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
 
   const goToSubscription = (planName: string, planPrice: string) => {
-    navigate("/dashboard/subscription", {
-      state: { planName, planPrice },
-    });
+    if (isAuthenticated) {
+      navigate("/dashboard/subscription", {
+        state: { planName, planPrice },
+      });
+    } else {
+      navigate("/login");
+    }
   };
 
   return (

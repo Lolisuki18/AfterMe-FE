@@ -6,7 +6,13 @@ import {
   EyeOpenIcon,
   BellAlertIcon,
 } from "@/shared/icon";
-import { PersonalInfoForm, SecuritySettings, DangerZone } from "../components";
+import {
+  PersonalInfoForm,
+  SecuritySettings,
+  DangerZone,
+  ChangePasswordModal,
+  ChangeEmailModal,
+} from "../components";
 import { settingsStore } from "../store/settingsStore";
 
 type SettingsTab = "personal" | "security" | "privacy" | "notifications";
@@ -22,6 +28,8 @@ const AccountSettingsPage = () => {
   const { t } = useLanguage();
   const nav = t.accountSettings.nav;
   const [activeTab, setActiveTab] = useState<SettingsTab>("personal");
+  const [showChangePwd, setShowChangePwd] = useState(false);
+  const [showChangeEmail, setShowChangeEmail] = useState(false);
   const profile = settingsStore.getProfile();
 
   const tabs: { key: SettingsTab; label: string }[] = [
@@ -95,8 +103,19 @@ const AccountSettingsPage = () => {
           {activeTab === "personal" && <PersonalInfoForm />}
           {activeTab === "security" && (
             <>
-              <SecuritySettings />
+              <SecuritySettings
+                onChangePassword={() => setShowChangePwd(true)}
+                onChangeEmail={() => setShowChangeEmail(true)}
+              />
               <DangerZone />
+              <ChangePasswordModal
+                open={showChangePwd}
+                onClose={() => setShowChangePwd(false)}
+              />
+              <ChangeEmailModal
+                open={showChangeEmail}
+                onClose={() => setShowChangeEmail(false)}
+              />
             </>
           )}
           {activeTab === "privacy" && (

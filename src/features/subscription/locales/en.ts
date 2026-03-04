@@ -69,5 +69,18 @@ export const subscriptionEn = {
 
     // Mock billing entries
     proMonthly: "Pro Plan — Monthly",
+
+    // Validation
+    fieldRequired: "This field is required.",
+    emailInvalid: "Please enter a valid email address.",
+    cardNumberInvalid: "Card number must be 16 digits.",
+    expiryInvalid: "Enter a valid expiry date (MM/YY).",
+    cvcInvalid: "CVC must be 3 digits.",
+
+    // Success
+    paymentSuccessTitle: "Payment Successful!",
+    paymentSuccessDesc:
+      "Your subscription has been activated. Welcome to AfterMe!",
+    goToDashboard: "Go to Dashboard",
   },
 };
