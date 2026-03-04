@@ -3,6 +3,7 @@ import {
   DashboardLayout,
   MainLayout,
   OnboardingLayout,
+  StandaloneLayout,
 } from "@/shared/layouts";
 import {
   ProtectedRoute,
@@ -207,14 +208,16 @@ export const AppRouter = () => {
           </Route>
 
           {/* Standalone pages – no layout wrapper */}
-          <Route path="/emergency-alert" element={<EmergencyAlertPage />} />
-          <Route path="/grace-period" element={<GracePeriodPage />} />
-          <Route path="/about" element={<AboutUsPage />} />
-          <Route path="/family-link" element={<FamilyLinkPage />} />
-          <Route path="/ai-setup" element={<AiSetupPage />} />
-          <Route path="/sos-trigger" element={<SosTriggerPage />} />
-          <Route path="/terms" element={<TermsOfServicePage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route element={<StandaloneLayout />}>
+            <Route path="/emergency-alert" element={<EmergencyAlertPage />} />
+            <Route path="/grace-period" element={<GracePeriodPage />} />
+            <Route path="/about" element={<AboutUsPage />} />
+            <Route path="/family-link" element={<FamilyLinkPage />} />
+            <Route path="/ai-setup" element={<AiSetupPage />} />
+            <Route path="/sos-trigger" element={<SosTriggerPage />} />
+            <Route path="/terms" element={<TermsOfServicePage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          </Route>
 
           {/* 404 - Not Found */}
           <Route path="/404" element={<NotFoundPage />} />

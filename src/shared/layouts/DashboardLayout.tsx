@@ -3,7 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { Sidebar } from "@/features/dashboard/components/Sidebar";
 import { HamburgerIcon } from "@/shared/icon";
 import Logo from "@/shared/icon/Logo";
-import { SOSFloatingButton } from "@/shared/components";
+import { SOSFloatingButton, PageTransition } from "@/shared/components";
 
 export const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -32,7 +32,9 @@ export const DashboardLayout = () => {
         </header>
 
         <main className="flex-1 overflow-y-auto p-4 sm:p-6">
-          <Outlet />
+          <PageTransition routeKey={pathname} variant="panel">
+            <Outlet />
+          </PageTransition>
         </main>
       </div>
 
