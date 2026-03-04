@@ -20,4 +20,3 @@ export const AmbulanceIcon = (props: SVGProps<SVGSVGElement>) => (
     <circle cx={7} cy={18} r={2} />
   </svg>
 );
-

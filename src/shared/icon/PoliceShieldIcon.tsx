@@ -17,4 +17,3 @@ export const PoliceShieldIcon = (props: SVGProps<SVGSVGElement>) => (
     <path d="M12 16h.01" />
   </svg>
 );
-

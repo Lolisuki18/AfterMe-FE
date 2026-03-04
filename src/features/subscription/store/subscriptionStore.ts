@@ -138,7 +138,7 @@ export const subscriptionStore = {
   },
 
   removeCard(cardId: string): void {
-    let cards = this.getCards().filter((c) => c.id !== cardId);
+    const cards = this.getCards().filter((c) => c.id !== cardId);
     // Ensure at least one default
     if (cards.length > 0 && !cards.some((c) => c.isDefault)) {
       cards[0].isDefault = true;

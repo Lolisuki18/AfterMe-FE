@@ -17,4 +17,3 @@ export const PlusCircleIcon = (props: SVGProps<SVGSVGElement>) => (
     <path d="M12 8v8" />
   </svg>
 );
-

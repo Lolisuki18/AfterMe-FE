@@ -1,5 +1,9 @@
 import { useLanguage } from "@/app/useLanguage";
-import { ShieldCheckIcon, SupportCircleIcon, HeartOutlineIcon } from "@/shared/icon";
+import {
+  ShieldCheckIcon,
+  SupportCircleIcon,
+  HeartOutlineIcon,
+} from "@/shared/icon";
 
 interface WhyItemProps {
   icon: React.ReactNode;

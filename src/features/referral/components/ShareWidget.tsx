@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { useLanguage } from "../../../app/useLanguage";
 import { Button } from "../../../shared/components";
-import { CopyIcon, TwitterIcon, FacebookIcon, InstagramIcon, EmailIcon } from "@/shared/icon";
+import {
+  CopyIcon,
+  TwitterIcon,
+  FacebookIcon,
+  InstagramIcon,
+  EmailIcon,
+} from "@/shared/icon";
 
 const MOCK_LINK = "https://afterme.app/ref/sarah-m-2024";
 

@@ -1,6 +1,15 @@
 import { useLanguage } from "@/app/useLanguage";
 import type { RoutineItem as RoutineItemData } from "../store/dashboardStore";
-import { CoffeeIcon, BookIcon, ForkKnifeIcon, MoonIcon, RunIcon, HeartSmIcon, CheckCircleSmFilledIcon, ClockSmIcon } from "@/shared/icon";
+import {
+  CoffeeIcon,
+  BookIcon,
+  ForkKnifeIcon,
+  MoonIcon,
+  RunIcon,
+  HeartSmIcon,
+  CheckCircleSmFilledIcon,
+  ClockSmIcon,
+} from "@/shared/icon";
 import type { ComponentType } from "react";
 
 interface RoutineItemProps {

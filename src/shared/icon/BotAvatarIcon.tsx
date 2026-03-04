@@ -20,4 +20,3 @@ export const BotAvatarIcon = (props: SVGProps<SVGSVGElement>) => (
     <path d="M9 13v2" />
   </svg>
 );
-

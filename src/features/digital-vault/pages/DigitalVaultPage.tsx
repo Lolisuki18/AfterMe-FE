@@ -151,8 +151,8 @@ const DigitalVaultPage = () => {
                   className="text-text-muted hover:text-text flex items-center gap-1.5 rounded-lg p-1.5 text-sm transition-colors"
                   title={
                     editingMessage
-                      ? ((v as any).viewMessage ?? "View")
-                      : ((v as any).editMessage ?? "Edit")
+                      ? (v.viewMessage ?? "View")
+                      : (v.editMessage ?? "Edit")
                   }
                 >
                   {editingMessage ? (
@@ -171,7 +171,7 @@ const DigitalVaultPage = () => {
                   {data.finalMessage}
                 </p>
                 <p className="text-text-muted mt-3 text-xs">
-                  {(v as any).savedLabel ?? "Saved"} •{" "}
+                  {v.savedLabel ?? "Saved"} •{" "}
                   {new Date().toLocaleDateString(undefined, {
                     year: "numeric",
                     month: "short",

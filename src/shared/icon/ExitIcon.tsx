@@ -17,4 +17,3 @@ export const ExitIcon = (props: SVGProps<SVGSVGElement>) => (
     <line x1={21} y1={12} x2={9} y2={12} />
   </svg>
 );
-
