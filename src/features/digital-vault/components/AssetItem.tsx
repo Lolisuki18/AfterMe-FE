@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLanguage } from "@/app/useLanguage";
 import {
   CreditCardIcon,
   UserOutlineIcon,
   DocumentIcon,
   EyeSlashIcon,
+  EyeIcon,
   TrashIcon,
 } from "@/shared/icon";
 import type { DigitalAsset, AssetCategory } from "../store/vaultStore";
+import { vaultStore } from "../store/vaultStore";
+import { UnlockAssetModal } from "./UnlockAssetModal";
+import { DeleteConfirmModal } from "./DeleteConfirmModal";
+import { toast } from "sonner";
 
 const CATEGORY_ICONS: Record<AssetCategory, React.ReactNode> = {
   banking: <CreditCardIcon className="h-4 w-4" />,
@@ -29,6 +34,32 @@ interface AssetItemProps {
 export const AssetItem = ({ asset, onDelete }: AssetItemProps) => {
   const { t } = useLanguage();
   const v = t.vault;
+
+  const [showUnlock, setShowUnlock] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
+  const [revealed, setRevealed] = useState(false);
+
+  const handleEyeClick = () => {
+    if (revealed) {
+      setRevealed(false);
+      return;
+    }
+    if (!vaultStore.hasSecurityKey()) {
+      toast.error(v.noKeySetError);
+      return;
+    }
+    setShowUnlock(true);
+  };
+
+  const handleUnlocked = () => {
+    setShowUnlock(false);
+    setRevealed(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    setShowDelete(false);
+    onDelete(asset.id);
+  };
 
   const categoryLabel =
     asset.category === "banking"
@@ -59,6 +90,9 @@ export const AssetItem = ({ asset, onDelete }: AssetItemProps) => {
             <p className="text-text-muted text-[10px] font-semibold tracking-wider uppercase">
               {v.username}
             </p>
+            <p className="text-text text-sm">
+              {revealed ? asset.username : "••••••"}
+            </p>
           </div>
         )}
         {asset.password && (
@@ -66,7 +100,9 @@ export const AssetItem = ({ asset, onDelete }: AssetItemProps) => {
             <p className="text-text-muted text-[10px] font-semibold tracking-wider uppercase">
               {v.password}
             </p>
-            <p className="text-text text-sm">••••••</p>
+            <p className="text-text text-sm">
+              {revealed ? asset.password : "••••••"}
+            </p>
           </div>
         )}
         {asset.location && (
@@ -74,24 +110,49 @@ export const AssetItem = ({ asset, onDelete }: AssetItemProps) => {
             <p className="text-text-muted text-[10px] font-semibold tracking-wider uppercase">
               {v.location}
             </p>
-            <p className="text-text text-sm">{asset.location}</p>
+            <p className="text-text text-sm">
+              {revealed ? asset.location : "••••••"}
+            </p>
           </div>
         )}
 
         {/* Action icons */}
         <div className="flex items-center gap-2">
-          <button type="button" className="text-text-muted hover:text-text p-1">
-            <EyeSlashIcon className="h-4 w-4" />
+          <button
+            type="button"
+            onClick={handleEyeClick}
+            className="text-text-muted hover:text-text p-1"
+            title={revealed ? v.hideDetails : v.showDetails}
+          >
+            {revealed ? (
+              <EyeIcon className="h-4 w-4" />
+            ) : (
+              <EyeSlashIcon className="h-4 w-4" />
+            )}
           </button>
           <button
             type="button"
-            onClick={() => onDelete(asset.id)}
+            onClick={() => setShowDelete(true)}
             className="text-text-muted hover:text-error p-1"
           >
             <TrashIcon className="h-4 w-4" />
           </button>
         </div>
       </div>
+
+      {/* Modals */}
+      <UnlockAssetModal
+        open={showUnlock}
+        onClose={() => setShowUnlock(false)}
+        onUnlocked={handleUnlocked}
+        assetTitle={asset.title}
+      />
+      <DeleteConfirmModal
+        open={showDelete}
+        onClose={() => setShowDelete(false)}
+        onConfirm={handleDeleteConfirm}
+        assetTitle={asset.title}
+      />
     </div>
   );
 };

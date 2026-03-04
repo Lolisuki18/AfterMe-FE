@@ -6,7 +6,10 @@ import type { ReminderFormValues } from "../types";
 import { FeelingCard } from "./FeelingCard";
 import { FrequencyGroup } from "./FrequencyGroup";
 import { SafetyToggle } from "./SafetyToggle";
-import { DatePicker, TimePicker } from "./DateTimePicker";
+import {
+  DatePicker,
+  TimePicker,
+} from "../../../shared/components/DateTimePicker";
 
 interface ReminderFormProps {
   r: Record<string, string>; // reminders locale namespace

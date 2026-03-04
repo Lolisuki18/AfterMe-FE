@@ -60,7 +60,7 @@ export const useReminderActions = ({
         });
 
         // ── Redirect sau khi toast hiển thị ──────────────────────────────
-        setTimeout(() => navigate("/dashboard"), redirectDelay);
+        setTimeout(() => navigate("/dashboard/reminders"), redirectDelay);
       } catch {
         setToast({
           id: `error_${Date.now()}`,

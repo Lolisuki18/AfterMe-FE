@@ -54,6 +54,42 @@ export const subscriptionVi = {
     changePlan: "Đổi gói",
     cancelSubscription: "Hủy đăng ký",
     managePlan: "Quản lý gói",
+    cancelConfirmTitle: "Hủy đăng ký?",
+    cancelConfirmDesc:
+      "Bạn có chắc chắn muốn hủy đăng ký? Bạn sẽ mất quyền truy cập vào tất cả tính năng cao cấp vào cuối kỳ thanh toán hiện tại.",
+    keepPlan: "Giữ gói",
+    confirmCancel: "Có, Hủy",
+
+    // Subscription Management page
+    manageTitle: "Quản lý Gói dịch vụ",
+    manageSubtitle:
+      "Quản lý phương thức thanh toán, xem thông tin tài khoản và cập nhật gói.",
+    managePlanTitle: "Quản lý Gói",
+    managePlanSubtitle: "Chuyển đổi hoặc nâng cấp gói dịch vụ bất kỳ lúc nào.",
+    paymentCards: "Phương thức Thanh toán",
+    addCard: "Thêm thẻ",
+    defaultBadge: "MẶC ĐỊNH",
+    setAsDefault: "Đặt làm mặc định",
+    removeCard: "Xóa",
+    removeCardConfirmTitle: "Xóa thẻ này?",
+    removeCardConfirmDesc:
+      "Thẻ này sẽ bị xóa vĩnh viễn khỏi tài khoản của bạn.",
+    removeCardCancel: "Giữ thẻ",
+    removeCardConfirm: "Có, Xóa",
+    cannotRemoveDefault: "Không thể xóa phương thức thanh toán mặc định.",
+    noCards: "Chưa có phương thức thanh toán nào.",
+    cardEndsWith: "kết thúc bằng",
+    expires: "Hết hạn",
+    accountInfo: "Thông tin Tài khoản",
+    accountEmail: "Email",
+    memberSince: "Thành viên từ",
+    currentPlanLabel: "Gói hiện tại",
+    addCardTitle: "Thêm Thẻ mới",
+    addCardBtn: "Thêm phương thức thanh toán",
+    backToSubscription: "Quay lại Đăng ký",
+    cardAdded: "Thẻ đã được thêm thành công!",
+    cardRemoved: "Thẻ đã được xóa.",
+    defaultChanged: "Thẻ mặc định đã được cập nhật.",
 
     billingHistory: "Lịch sử Thanh toán",
     date: "Ngày",
@@ -66,5 +102,18 @@ export const subscriptionVi = {
     viewAll: "Xem tất cả",
 
     proMonthly: "Gói Pro — Hàng tháng",
+
+    // Validation
+    fieldRequired: "Trường này là bắt buộc.",
+    emailInvalid: "Vui lòng nhập địa chỉ email hợp lệ.",
+    cardNumberInvalid: "Số thẻ phải có 16 chữ số.",
+    expiryInvalid: "Nhập ngày hết hạn hợp lệ (MM/YY).",
+    cvcInvalid: "CVC phải có 3 chữ số.",
+
+    // Success
+    paymentSuccessTitle: "Thanh toán thành công!",
+    paymentSuccessDesc:
+      "Gói dịch vụ đã được kích hoạt. Chào mừng đến với AfterMe!",
+    goToDashboard: "Đi tới Dashboard",
   },
 };

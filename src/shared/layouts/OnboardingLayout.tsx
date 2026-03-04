@@ -1,7 +1,10 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Logo from "@/shared/icon/Logo";
+import { PageTransition } from "@/shared/components/PageTransition";
 
 export const OnboardingLayout = () => {
+  const { pathname } = useLocation();
+
   return (
     <div className="bg-bg flex min-h-screen flex-col">
       <main className="flex flex-1 items-start justify-center px-4 py-6 sm:items-center sm:py-8">
@@ -10,7 +13,9 @@ export const OnboardingLayout = () => {
           <div className="mb-4 flex items-center justify-between">
             <Logo className="h-7 w-auto sm:h-8" />
           </div>
-          <Outlet />
+          <PageTransition routeKey={pathname} variant="page">
+            <Outlet />
+          </PageTransition>
         </div>
       </main>
     </div>

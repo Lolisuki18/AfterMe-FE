@@ -4,18 +4,25 @@ import Logo from "../icon/Logo";
 import { Button } from "./Button";
 import { HamburgerIcon, XIcon } from "../icon";
 import { useLanguage } from "@/app/useLanguage";
+import { useAuthStore } from "@/features/auth/store/authStore";
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { t } = useLanguage();
   const navigate = useNavigate();
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
 
-  const NAV_LINKS = [
+  const ALL_NAV_LINKS = [
     { to: "/#features", label: t.header.features },
     { to: "/#how-it-works", label: t.header.howItWorks },
     { to: "/pricing", label: t.header.pricing },
     { to: "/login", label: t.header.login },
   ];
+
+  // If authenticated, remove the Login link
+  const NAV_LINKS = isAuthenticated
+    ? ALL_NAV_LINKS.filter((l) => l.to !== "/login")
+    : ALL_NAV_LINKS;
 
   /** Hash links (/#xyz) are handled via native anchor; everything else via router. */
   const isHashLink = (to: string) => to.startsWith("/#");
@@ -51,7 +58,13 @@ export const Header = () => {
               ),
             )}
           </nav>
-          <Button onClick={() => navigate("/register")}>{t.header.cta}</Button>
+          <Button
+            onClick={() =>
+              navigate(isAuthenticated ? "/dashboard" : "/register")
+            }
+          >
+            {isAuthenticated ? t.header.dashboard : t.header.cta}
+          </Button>
         </div>
 
         {/* Mobile hamburger */}
@@ -96,10 +109,10 @@ export const Header = () => {
             <Button
               onClick={() => {
                 setMenuOpen(false);
-                navigate("/onboarding");
+                navigate(isAuthenticated ? "/dashboard" : "/onboarding");
               }}
             >
-              {t.header.cta}
+              {isAuthenticated ? t.header.dashboard : t.header.cta}
             </Button>
           </div>
         </div>

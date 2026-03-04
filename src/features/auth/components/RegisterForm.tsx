@@ -127,7 +127,10 @@ export const RegisterForm = () => {
                 {t.auth.register.termsOfService}
               </Link>{" "}
               {t.auth.register.and}{" "}
-              <Link to="/privacy" className="text-primary hover:underline">
+              <Link
+                to="/privacy-policy"
+                className="text-primary hover:underline"
+              >
                 {t.auth.register.privacyPolicy}
               </Link>
               .

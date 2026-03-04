@@ -15,4 +15,3 @@ export const ChevronRightIcon = (props: SVGProps<SVGSVGElement>) => (
     <path d="m9 18 6-6-6-6" />
   </svg>
 );
-

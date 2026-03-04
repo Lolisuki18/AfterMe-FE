@@ -22,17 +22,17 @@ export const familyEn = {
     callNow: "Call Now",
 
     // Mock members
-    sarahName: "Sarah Johnson",
+    sarahName: "Yoshino Himekawa",
     sarahRelation: "Daughter",
     sarahLocation: "University Campus",
     sarahCheckIn: "10 minutes ago",
 
-    davidName: "David Johnson",
+    davidName: "Hachiman Hikigaya",
     davidRelation: "Son",
     davidLocation: "Home",
     davidCheckIn: "2 hours ago",
 
-    emmaName: "Emma Johnson",
+    emmaName: "Yui Yuigahama",
     emmaRelation: "Spouse",
     emmaLocation: "Office Downtown",
     emmaCheckIn: "30 minutes ago",
@@ -50,11 +50,11 @@ export const familyEn = {
     // Add Member Modal
     addMemberTitle: "Add Family Member",
     fullName: "Full Name",
-    fullNamePlaceholder: "e.g. John Doe",
+    fullNamePlaceholder: "Yukino Yukinoshita",
     relationship: "Relationship",
     relationshipPlaceholder: "e.g. Brother, Sister, Parent",
     emailOrPhone: "Email or Phone",
-    emailOrPhonePlaceholder: "e.g. john@example.com",
+    emailOrPhonePlaceholder: "e.g. yukino@example.com",
     sendInvite: "Send Invite",
     cancel: "Cancel",
 

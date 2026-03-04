@@ -8,11 +8,19 @@ export interface ProfileData {
   checkInPreference: "morning" | "evening";
 }
 
+export interface CustomTime {
+  id: string;
+  label: string;
+  startTime: string; // HH:mm
+  endTime: string; // HH:mm
+}
+
 export interface PulseData {
   morning: boolean;
   afternoon: boolean;
   evening: boolean;
   night: boolean;
+  customTimes: CustomTime[];
 }
 
 export interface ContactData {
@@ -31,7 +39,13 @@ export interface OnboardingData {
 
 const defaultData: OnboardingData = {
   profile: { fullName: "", medicalNote: "", checkInPreference: "morning" },
-  pulse: { morning: true, afternoon: false, evening: false, night: false },
+  pulse: {
+    morning: true,
+    afternoon: false,
+    evening: false,
+    night: false,
+    customTimes: [],
+  },
   contact: { fullName: "", relationship: "", phone: "", notifyContact: true },
 };
 

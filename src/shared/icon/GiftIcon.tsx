@@ -18,4 +18,3 @@ export const GiftIcon = (props: SVGProps<SVGSVGElement>) => (
     <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 4.8 0 0 1 12 8a4.8 4.8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" />
   </svg>
 );
-

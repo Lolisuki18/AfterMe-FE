@@ -33,7 +33,7 @@ export interface DashboardData {
 }
 
 const defaultData: DashboardData = {
-  user: { name: "Alex", plan: "Student Plan" },
+  user: { name: "Ninh", plan: "Student Plan" },
   routines: [
     {
       id: "r1",
@@ -97,6 +97,13 @@ export const dashboardStore = {
       item.status = status;
       persist(data);
     }
+  },
+
+  /** Replace entire routines array */
+  setRoutines: (routines: RoutineItem[]) => {
+    const data = load();
+    data.routines = routines;
+    persist(data);
   },
 
   clear: () => localStorage.removeItem(STORAGE_KEY),

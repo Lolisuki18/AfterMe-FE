@@ -1,4 +1,8 @@
-export const ShieldLockAltIcon = ({ className = "" }: { className?: string }) => (
+export const ShieldLockAltIcon = ({
+  className = "",
+}: {
+  className?: string;
+}) => (
   <svg
     className={className}
     viewBox="0 0 24 24"

@@ -6,9 +6,17 @@ import {
   ShieldCheckIcon,
   ClockOutlineIcon,
   SaveIcon,
+  KeyIcon,
+  PencilEditIcon,
+  EyeIcon,
 } from "@/shared/icon";
 import { vaultStore } from "../store/vaultStore";
-import { AssetItem, VaultSidebar, AddAssetModal } from "../components";
+import {
+  AssetItem,
+  VaultSidebar,
+  AddAssetModal,
+  SetSecurityKeyModal,
+} from "../components";
 import { toast } from "sonner";
 
 const DigitalVaultPage = () => {
@@ -19,6 +27,8 @@ const DigitalVaultPage = () => {
 
   const [message, setMessage] = useState(data.finalMessage);
   const [showAddAsset, setShowAddAsset] = useState(false);
+  const [showSetKey, setShowSetKey] = useState(false);
+  const [editingMessage, setEditingMessage] = useState(!data.finalMessage);
 
   const handleDelete = (id: string) => {
     vaultStore.removeAsset(id);
@@ -47,14 +57,24 @@ const DigitalVaultPage = () => {
             {v.subtitle}
           </p>
         </div>
-        <Button
-          variant="primary"
-          rounded
-          leftIcon={<PlusIcon className="h-4 w-4" />}
-          onClick={() => setShowAddAsset(true)}
-        >
-          {v.addAsset}
-        </Button>
+        <div className="flex gap-2">
+          <Button
+            variant="outline"
+            rounded
+            leftIcon={<KeyIcon className="h-4 w-4" />}
+            onClick={() => setShowSetKey(true)}
+          >
+            {v.setKeyButton}
+          </Button>
+          <Button
+            variant="primary"
+            rounded
+            leftIcon={<PlusIcon className="h-4 w-4" />}
+            onClick={() => setShowAddAsset(true)}
+          >
+            {v.addAsset}
+          </Button>
+        </div>
       </div>
 
       {/* Stats */}
@@ -115,28 +135,78 @@ const DigitalVaultPage = () => {
 
           {/* Final Personal Message */}
           <section className="bg-surface rounded-2xl p-5">
-            <h2 className="text-text text-base font-bold">{v.finalMessage}</h2>
-            <p className="text-text-muted mt-1 text-sm leading-relaxed">
-              {v.finalMessageDesc}
-            </p>
-            <div className="mt-4">
-              <Textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder={v.messagePlaceholder}
-                className="min-h-25"
-              />
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-text text-base font-bold">
+                  {v.finalMessage}
+                </h2>
+                <p className="text-text-muted mt-1 text-sm leading-relaxed">
+                  {v.finalMessageDesc}
+                </p>
+              </div>
+              {data.finalMessage && (
+                <button
+                  type="button"
+                  onClick={() => setEditingMessage((p) => !p)}
+                  className="text-text-muted hover:text-text flex items-center gap-1.5 rounded-lg p-1.5 text-sm transition-colors"
+                  title={
+                    editingMessage
+                      ? (v.viewMessage ?? "View")
+                      : (v.editMessage ?? "Edit")
+                  }
+                >
+                  {editingMessage ? (
+                    <EyeIcon className="h-4 w-4" />
+                  ) : (
+                    <PencilEditIcon className="h-4 w-4" />
+                  )}
+                </button>
+              )}
             </div>
-            <div className="mt-3 flex justify-end">
-              <button
-                type="button"
-                onClick={handleSaveMessage}
-                className="text-primary flex items-center gap-1.5 text-sm font-semibold hover:underline"
-              >
-                <SaveIcon className="h-4 w-4" />
-                {v.saveMessage}
-              </button>
-            </div>
+
+            {/* View mode — show saved message */}
+            {!editingMessage && data.finalMessage && (
+              <div className="border-border mt-4 rounded-xl border bg-white/50 p-4 dark:bg-white/5">
+                <p className="text-text text-sm leading-relaxed whitespace-pre-wrap">
+                  {data.finalMessage}
+                </p>
+                <p className="text-text-muted mt-3 text-xs">
+                  {v.savedLabel ?? "Saved"} •{" "}
+                  {new Date().toLocaleDateString(undefined, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </p>
+              </div>
+            )}
+
+            {/* Edit mode — textarea */}
+            {editingMessage && (
+              <>
+                <div className="mt-4">
+                  <Textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder={v.messagePlaceholder}
+                    className="min-h-25"
+                  />
+                </div>
+                <div className="mt-3 flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleSaveMessage();
+                      setEditingMessage(false);
+                    }}
+                    className="text-primary flex items-center gap-1.5 text-sm font-semibold hover:underline"
+                  >
+                    <SaveIcon className="h-4 w-4" />
+                    {v.saveMessage}
+                  </button>
+                </div>
+              </>
+            )}
           </section>
         </div>
 
@@ -151,6 +221,12 @@ const DigitalVaultPage = () => {
         open={showAddAsset}
         onClose={() => setShowAddAsset(false)}
         onAdd={handleAddAsset}
+      />
+
+      {/* Set Security Key Modal */}
+      <SetSecurityKeyModal
+        open={showSetKey}
+        onClose={() => setShowSetKey(false)}
       />
     </div>
   );

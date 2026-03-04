@@ -23,6 +23,9 @@ export const vaultVi: VaultTranslations = {
       "Tin nhắn này sẽ được gửi đến các liên hệ khẩn cấp cùng với quyền truy cập vào Kho lưu trữ số nếu trạng thái của bạn trở nên không hoạt động.",
     messagePlaceholder: "Viết tin nhắn cá nhân gửi đến người thân...",
     saveMessage: "Lưu tin nhắn",
+    viewMessage: "Xem tin nhắn",
+    editMessage: "Chỉnh sửa tin nhắn",
+    savedLabel: "Đã lưu",
     securityStatus: "Trạng thái bảo mật",
     endToEnd: "Mã hóa đầu cuối",
     aes256: "Tiêu chuẩn AES-256",
@@ -45,7 +48,7 @@ export const vaultVi: VaultTranslations = {
     assetNamePlaceholder: "VD: Đăng nhập ngân hàng",
     category: "Danh mục",
     selectCategory: "Chọn danh mục",
-    usernamePlaceholder: "VD: alex.morgan",
+    usernamePlaceholder: "VD:  ninh.morgan",
     passwordPlaceholder: "Nhập mật khẩu",
     locationLabel: "Vị trí tệp",
     locationPlaceholder: "VD: Google Drive / Tài liệu",
@@ -66,5 +69,34 @@ export const vaultVi: VaultTranslations = {
     close: "Đóng",
     noContactsAvailable:
       "Chưa có liên hệ khẩn cấp. Hãy thêm liên hệ ở trang Liên hệ khẩn cấp trước.",
+
+    // Security Key
+    setKeyButton: "Khóa bảo mật",
+    setSecurityKeyTitle: "Tạo khóa bảo mật",
+    setSecurityKeyDesc: "Tạo khóa để bảo vệ thông tin tài sản của bạn.",
+    newKeyPlaceholder: "Nhập khóa bảo mật mới",
+    confirmKeyPlaceholder: "Xác nhận khóa bảo mật",
+    keyMinLength: "Khóa bảo mật phải có ít nhất 4 ký tự.",
+    keyMismatch: "Khóa không khớp. Vui lòng thử lại.",
+    keySetSuccess: "Tạo khóa bảo mật thành công!",
+    saveKey: "Lưu khóa",
+
+    // Unlock Asset Modal
+    unlockAssetTitle: "Mở khóa tài sản",
+    unlockAssetDesc: "Nhập khóa bảo mật để xem chi tiết tài sản này.",
+    enterSecurityKey: "Nhập khóa bảo mật",
+    unlockButton: "Mở khóa",
+    keyRequired: "Vui lòng nhập khóa bảo mật.",
+    keyIncorrect: "Khóa bảo mật không đúng. Vui lòng thử lại.",
+    noKeySetError: "Chưa tạo khóa bảo mật. Vui lòng tạo khóa trước.",
+    showDetails: "Hiện chi tiết",
+    hideDetails: "Ẩn chi tiết",
+
+    // Delete Confirm Modal
+    deleteConfirmTitle: "Xóa tài sản?",
+    deleteConfirmDesc:
+      'Bạn có chắc chắn muốn xóa "{asset}"? Hành động này không thể hoàn tác.',
+    deleteWarning: "Tài sản và tất cả dữ liệu sẽ bị xóa vĩnh viễn.",
+    deleteConfirmButton: "Xóa",
   },
 };

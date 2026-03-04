@@ -17,4 +17,3 @@ export const SilentIcon = (props: SVGProps<SVGSVGElement>) => (
     <line x1={16} y1={9} x2={22} y2={15} />
   </svg>
 );
-

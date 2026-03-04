@@ -5,6 +5,7 @@ export const sharedEn = {
     pricing: "Pricing",
     login: "Log In",
     cta: "Start your journey",
+    dashboard: "Dashboard",
   },
   footer: {
     about: "About",

@@ -5,10 +5,12 @@ import { settingsStore } from "../store/settingsStore";
 
 interface SecuritySettingsProps {
   onChangePassword?: () => void;
+  onChangeEmail?: () => void;
 }
 
 export const SecuritySettings = ({
   onChangePassword,
+  onChangeEmail,
 }: SecuritySettingsProps) => {
   const { t } = useLanguage();
   const s = t.accountSettings.security;
@@ -42,6 +44,17 @@ export const SecuritySettings = ({
             onClick={onChangePassword}
           >
             {s.changePassword}
+          </Button>
+        </div>
+
+        {/* Email row */}
+        <div className="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-text text-sm font-semibold">{s.email}</p>
+            <p className="text-text-muted text-xs">{profile.email}</p>
+          </div>
+          <Button variant="outline" size="sm" rounded onClick={onChangeEmail}>
+            {s.changeEmail}
           </Button>
         </div>
 

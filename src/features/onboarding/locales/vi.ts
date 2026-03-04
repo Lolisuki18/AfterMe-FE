@@ -61,6 +61,17 @@ export const onboardingVi: OnboardingTranslations = {
       night: "Buổi tối",
       nightTime: "9:00 CH – 11:00 CH",
       addCustomTime: "Thêm thời gian tùy chỉnh",
+      customTimeTitle: "Thêm thời gian check-in tùy chỉnh",
+      customTimeDesc: "Thiết lập khung giờ tùy chỉnh cho thông báo check-in.",
+      customLabel: "Tên",
+      customLabelPlaceholder: "VD: Tập gym, Giải lao",
+      customStartTime: "Giờ bắt đầu",
+      customEndTime: "Giờ kết thúc",
+      customLabelRequired: "Vui lòng nhập tên cho khung giờ này.",
+      customTimeRequired: "Vui lòng chọn cả giờ bắt đầu và kết thúc.",
+      customTimeInvalid: "Giờ kết thúc phải sau giờ bắt đầu.",
+      customCancel: "Hủy",
+      customAdd: "Thêm",
     },
 
     // ── Step 3 – Emergency Contact ───────────────────────────────────────

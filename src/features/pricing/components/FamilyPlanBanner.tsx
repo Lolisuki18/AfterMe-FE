@@ -1,9 +1,23 @@
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
 import { FamilyGroupIcon } from "@/shared/icon";
+import { useAuthStore } from "@/features/auth/store/authStore";
 
 export const FamilyPlanBanner = () => {
   const { t } = useLanguage();
   const p = t.pricing;
+  const navigate = useNavigate();
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+
+  const handleExplore = () => {
+    if (isAuthenticated) {
+      navigate("/dashboard/subscription", {
+        state: { planName: p.familyTitle, planPrice: p.familyPrice },
+      });
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <section className="bg-primary overflow-hidden rounded-2xl text-white">
@@ -25,6 +39,7 @@ export const FamilyPlanBanner = () => {
           </div>
           <button
             type="button"
+            onClick={handleExplore}
             className="text-primary hover:bg-surface rounded-full bg-white px-5 py-2 text-sm font-bold transition-colors"
           >
             {p.familyCta}

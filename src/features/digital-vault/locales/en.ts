@@ -29,6 +29,9 @@ export const vaultEn = {
       "This message will be sent to your designated emergency contacts along with access to your Digital Vault if your status becomes inactive.",
     messagePlaceholder: "Write a personal message to your loved ones...",
     saveMessage: "Save Message",
+    viewMessage: "View Message",
+    editMessage: "Edit Message",
+    savedLabel: "Saved",
 
     // Sidebar
     securityStatus: "Security Status",
@@ -55,7 +58,7 @@ export const vaultEn = {
     assetNamePlaceholder: "e.g. Chase Bank Login",
     category: "Category",
     selectCategory: "Select a category",
-    usernamePlaceholder: "e.g. alex.morgan",
+    usernamePlaceholder: "e.g. ninh.morgan",
     passwordPlaceholder: "Enter password",
     locationLabel: "File Location",
     locationPlaceholder: "e.g. Google Drive / Documents",
@@ -76,6 +79,36 @@ export const vaultEn = {
     close: "Close",
     noContactsAvailable:
       "No emergency contacts available. Add contacts in the Emergency Contacts page first.",
+
+    // Security Key
+    setKeyButton: "Security Key",
+    setSecurityKeyTitle: "Set Security Key",
+    setSecurityKeyDesc: "Create a key to protect your asset details.",
+    newKeyPlaceholder: "Enter new security key",
+    confirmKeyPlaceholder: "Confirm security key",
+    keyMinLength: "Security key must be at least 4 characters.",
+    keyMismatch: "Keys do not match. Please try again.",
+    keySetSuccess: "Security key set successfully!",
+    saveKey: "Save Key",
+
+    // Unlock Asset Modal
+    unlockAssetTitle: "Unlock Asset",
+    unlockAssetDesc:
+      "Enter your security key to view the details of this asset.",
+    enterSecurityKey: "Enter security key",
+    unlockButton: "Unlock",
+    keyRequired: "Please enter your security key.",
+    keyIncorrect: "Incorrect security key. Please try again.",
+    noKeySetError: "No security key set. Please create one first.",
+    showDetails: "Show details",
+    hideDetails: "Hide details",
+
+    // Delete Confirm Modal
+    deleteConfirmTitle: "Delete Asset?",
+    deleteConfirmDesc:
+      'Are you sure you want to delete "{asset}"? This action cannot be undone.',
+    deleteWarning: "This will permanently remove this asset and all its data.",
+    deleteConfirmButton: "Delete",
   },
 };
 

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { dashboardStore } from "../store/dashboardStore";
 import { WelcomeHeader } from "../components/WelcomeHeader";
 import { CheckInCard } from "../components/CheckInCard";
@@ -6,13 +7,14 @@ import { useDocumentTitle } from "@/hooks";
 
 const DashboardPage = () => {
   useDocumentTitle("Dashboard");
-  const { user, routines } = dashboardStore.getData();
+  const data = dashboardStore.getData();
+  const [routines, setRoutines] = useState(data.routines);
 
   return (
     <div className="mx-auto w-full max-w-2xl space-y-6 px-2 sm:px-0">
-      <WelcomeHeader userName={user.name} />
+      <WelcomeHeader userName={data.user.name} />
       <CheckInCard />
-      <RoutineTimeline routines={routines} />
+      <RoutineTimeline routines={routines} onRoutinesChange={setRoutines} />
     </div>
   );
 };

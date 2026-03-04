@@ -4,3 +4,4 @@ export { CheckInCard } from "./CheckInCard";
 export { RoutineTimeline } from "./RoutineTimeline";
 export { RoutineItem } from "./RoutineItem";
 export { SOSButton } from "./SOSButton";
+export { EditScheduleModal } from "./EditScheduleModal";

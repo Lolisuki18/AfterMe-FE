@@ -43,7 +43,16 @@ export const remindersVi = {
     create: "Tạo nhắc nhở",
 
     // Toast messages
-    toastSuccess: "Đã tạo nhắc nhở! Đang chuyển về trang chính...",
+    toastSuccess: "Đã tạo nhắc nhở! Đang chuyển đến danh sách nhắc nhở...",
     toastError: "Có lỗi xảy ra. Vui lòng thử lại.",
+  },
+  remindersList: {
+    title: "Nhắc nhở của tôi",
+    subtitle: "Xem, quản lý và tạo nhắc nhở để luôn đúng kế hoạch.",
+    createNew: "Tạo nhắc nhở",
+    empty: "Chưa có nhắc nhở nào",
+    emptyDesc: "Tạo nhắc nhở đầu tiên để bắt đầu.",
+    deleted: "Đã xoá nhắc nhở.",
+    delete: "Xoá",
   },
 };

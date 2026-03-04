@@ -144,3 +144,4 @@ export * from "./KeyOutlineIcon";
 export * from "./AlertWarningIcon";
 export * from "./GooglePayIcon";
 export * from "./SelectChevronIcon";
+export * from "./GripVerticalIcon";

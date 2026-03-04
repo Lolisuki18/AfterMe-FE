@@ -3,12 +3,14 @@ import {
   DashboardLayout,
   MainLayout,
   OnboardingLayout,
+  StandaloneLayout,
 } from "@/shared/layouts";
 import {
   ProtectedRoute,
   OnboardingRoute,
 } from "@/shared/components/ProtectedRoute";
 import { PageSkeleton } from "@/shared/components/PageSkeleton";
+import { ScrollToTop } from "@/shared/components/ScrollToTop";
 
 // Feature page imports (lazy load cho performance)
 import { lazy, Suspense } from "react";
@@ -34,6 +36,12 @@ const OnboardingPage = lazy(
 );
 const CreateReminderPage = lazy(
   () => import("@/features/reminders/pages/CreateReminderPage"),
+);
+const RemindersListPage = lazy(
+  () => import("@/features/reminders/pages/RemindersListPage"),
+);
+const DailyRoutinePage = lazy(
+  () => import("@/features/dashboard/pages/DailyRoutinePage"),
 );
 const SettingsPage = lazy(
   () => import("@/features/dashboard/pages/SettingsPage"),
@@ -64,6 +72,12 @@ const ActivityLogPage = lazy(
 );
 const SubscriptionPage = lazy(
   () => import("@/features/subscription/pages/SubscriptionPage"),
+);
+const SubscriptionManagementPage = lazy(
+  () => import("@/features/subscription/pages/SubscriptionManagementPage"),
+);
+const ManagePlanPage = lazy(
+  () => import("@/features/subscription/pages/ManagePlanPage"),
 );
 const PrivacyCenterPage = lazy(
   () => import("@/features/privacy/pages/PrivacyCenterPage"),
@@ -99,6 +113,7 @@ const PrivacyPolicyPage = lazy(
 export const AppRouter = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Suspense fallback={<PageSkeleton />}>
         <Routes>
           {/* Auth Routes - pages manage their own full-page split-screen layout */}
@@ -168,23 +183,41 @@ export const AppRouter = () => {
                 element={<SubscriptionPage />}
               />
               <Route
+                path="/dashboard/subscription/manage"
+                element={<SubscriptionManagementPage />}
+              />
+              <Route
+                path="/dashboard/subscription/plan"
+                element={<ManagePlanPage />}
+              />
+              <Route
                 path="/dashboard/privacy"
                 element={<PrivacyCenterPage />}
               />
               <Route path="/dashboard/referral" element={<ReferralPage />} />
               <Route path="/reminders/new" element={<CreateReminderPage />} />
+              <Route
+                path="/dashboard/reminders"
+                element={<RemindersListPage />}
+              />
+              <Route
+                path="/dashboard/daily-routine"
+                element={<DailyRoutinePage />}
+              />
             </Route>
           </Route>
 
           {/* Standalone pages – no layout wrapper */}
-          <Route path="/emergency-alert" element={<EmergencyAlertPage />} />
-          <Route path="/grace-period" element={<GracePeriodPage />} />
-          <Route path="/about" element={<AboutUsPage />} />
-          <Route path="/family-link" element={<FamilyLinkPage />} />
-          <Route path="/ai-setup" element={<AiSetupPage />} />
-          <Route path="/sos-trigger" element={<SosTriggerPage />} />
-          <Route path="/terms" element={<TermsOfServicePage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route element={<StandaloneLayout />}>
+            <Route path="/emergency-alert" element={<EmergencyAlertPage />} />
+            <Route path="/grace-period" element={<GracePeriodPage />} />
+            <Route path="/about" element={<AboutUsPage />} />
+            <Route path="/family-link" element={<FamilyLinkPage />} />
+            <Route path="/ai-setup" element={<AiSetupPage />} />
+            <Route path="/sos-trigger" element={<SosTriggerPage />} />
+            <Route path="/terms" element={<TermsOfServicePage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          </Route>
 
           {/* 404 - Not Found */}
           <Route path="/404" element={<NotFoundPage />} />

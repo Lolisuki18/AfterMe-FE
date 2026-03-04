@@ -1,4 +1,5 @@
 const STORAGE_KEY = "afterme_digital_vault";
+const KEY_STORAGE = "afterme_vault_security_key";
 
 export type AssetCategory = "banking" | "social" | "document";
 
@@ -24,7 +25,7 @@ const defaultData: VaultData = {
       title: "Chase Bank Login",
       category: "banking",
       addedDate: "Oct 24",
-      username: "alex.morgan",
+      username: "ninh.morgan",
       password: "••••••••••",
     },
     {
@@ -78,5 +79,23 @@ export const vaultStore = {
     const data = load();
     data.finalMessage = msg;
     persist(data);
+  },
+
+  /** Security key management */
+  getSecurityKey: (): string | null => {
+    return localStorage.getItem(KEY_STORAGE);
+  },
+
+  setSecurityKey: (key: string) => {
+    localStorage.setItem(KEY_STORAGE, key);
+  },
+
+  hasSecurityKey: (): boolean => {
+    return !!localStorage.getItem(KEY_STORAGE);
+  },
+
+  verifySecurityKey: (input: string): boolean => {
+    const stored = localStorage.getItem(KEY_STORAGE);
+    return stored === input;
   },
 };

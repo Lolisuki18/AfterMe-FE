@@ -3,6 +3,7 @@ import { useLanguage } from "@/app/useLanguage";
 import { Input, Button } from "@/shared/components";
 import { EnvelopeIcon, PhoneIcon } from "@/shared/icon";
 import { settingsStore } from "../store/settingsStore";
+import { FamilyMembersSection } from "./FamilyMembersSection";
 
 export const PersonalInfoForm = () => {
   const { t } = useLanguage();
@@ -64,6 +65,9 @@ export const PersonalInfoForm = () => {
           </Button>
         </div>
       </div>
+
+      {/* Family Members */}
+      <FamilyMembersSection />
     </div>
   );
 };

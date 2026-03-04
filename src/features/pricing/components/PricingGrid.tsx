@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
 import { CheckSmIcon } from "@/shared/icon";
+import { useAuthStore } from "@/features/auth/store/authStore";
 
 interface PlanCardProps {
   title: string;
@@ -11,6 +13,7 @@ interface PlanCardProps {
   features: string[];
   highlighted?: boolean;
   badge?: string;
+  onSelect?: () => void;
 }
 
 const PlanCard = ({
@@ -22,6 +25,7 @@ const PlanCard = ({
   features,
   highlighted,
   badge,
+  onSelect,
 }: PlanCardProps) => (
   <div
     className={`relative flex flex-col rounded-2xl p-6 transition-transform sm:p-8 ${
@@ -71,12 +75,13 @@ const PlanCard = ({
       {highlighted ? (
         <button
           type="button"
+          onClick={onSelect}
           className="bg-bg text-primary hover:bg-surface w-full rounded-full py-2.5 text-sm font-bold transition-colors"
         >
           {cta}
         </button>
       ) : (
-        <Button fullWidth rounded variant="outline">
+        <Button fullWidth rounded variant="outline" onClick={onSelect}>
           {cta}
         </Button>
       )}
@@ -91,6 +96,18 @@ interface PricingGridProps {
 export const PricingGrid = ({ isYearly }: PricingGridProps) => {
   const { t } = useLanguage();
   const p = t.pricing;
+  const navigate = useNavigate();
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+
+  const goToSubscription = (planName: string, planPrice: string) => {
+    if (isAuthenticated) {
+      navigate("/dashboard/subscription", {
+        state: { planName, planPrice },
+      });
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:items-start">
@@ -101,6 +118,7 @@ export const PricingGrid = ({ isYearly }: PricingGridProps) => {
         description={p.basicDesc}
         cta={p.basicCta}
         features={p.basicFeatures}
+        onSelect={() => goToSubscription(p.basicTitle, p.basicPrice)}
       />
       <PlanCard
         title={p.standardTitle}
@@ -111,6 +129,12 @@ export const PricingGrid = ({ isYearly }: PricingGridProps) => {
         features={p.standardFeatures}
         highlighted
         badge={p.standardBadge}
+        onSelect={() =>
+          goToSubscription(
+            p.standardTitle,
+            isYearly ? p.standardPriceYearly : p.standardPriceMonthly,
+          )
+        }
       />
       <PlanCard
         title={p.premiumTitle}
@@ -119,6 +143,12 @@ export const PricingGrid = ({ isYearly }: PricingGridProps) => {
         description={p.premiumDesc}
         cta={p.premiumCta}
         features={p.premiumFeatures}
+        onSelect={() =>
+          goToSubscription(
+            p.premiumTitle,
+            isYearly ? p.premiumPriceYearly : p.premiumPriceMonthly,
+          )
+        }
       />
     </section>
   );

@@ -1,4 +1,8 @@
-export const PhoneClassicIcon = ({ className = "" }: { className?: string }) => (
+export const PhoneClassicIcon = ({
+  className = "",
+}: {
+  className?: string;
+}) => (
   <svg
     className={className}
     viewBox="0 0 24 24"
