@@ -55,6 +55,42 @@ export const subscriptionEn = {
     changePlan: "Change Plan",
     cancelSubscription: "Cancel Subscription",
     managePlan: "Manage Plan",
+    cancelConfirmTitle: "Cancel Subscription?",
+    cancelConfirmDesc:
+      "Are you sure you want to cancel your subscription? You will lose access to all premium features at the end of the current billing period.",
+    keepPlan: "Keep Plan",
+    confirmCancel: "Yes, Cancel",
+
+    // Subscription Management page
+    manageTitle: "Subscription Management",
+    manageSubtitle:
+      "Manage your payment methods, view account details, and update your plan.",
+    managePlanTitle: "Manage Plan",
+    managePlanSubtitle: "Switch or upgrade your plan at any time.",
+    paymentCards: "Payment Methods",
+    addCard: "Add Card",
+    defaultBadge: "DEFAULT",
+    setAsDefault: "Set as Default",
+    removeCard: "Remove",
+    removeCardConfirmTitle: "Remove this card?",
+    removeCardConfirmDesc:
+      "This card will be permanently removed from your account.",
+    removeCardCancel: "Keep Card",
+    removeCardConfirm: "Yes, Remove",
+    cannotRemoveDefault: "Cannot remove the default payment method.",
+    noCards: "No payment methods added yet.",
+    cardEndsWith: "ending in",
+    expires: "Expires",
+    accountInfo: "Account Information",
+    accountEmail: "Email",
+    memberSince: "Member Since",
+    currentPlanLabel: "Current Plan",
+    addCardTitle: "Add New Card",
+    addCardBtn: "Add Payment Method",
+    backToSubscription: "Back to Subscription",
+    cardAdded: "Card added successfully!",
+    cardRemoved: "Card removed.",
+    defaultChanged: "Default card updated.",
 
     // Billing history
     billingHistory: "Billing History",

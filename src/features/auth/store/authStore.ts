@@ -195,8 +195,24 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
 
   // ─── Clear session ────────────────────────────────────────────────────────
   clearSession: () => {
-    localStorage.removeItem(STORAGE_KEYS.TOKEN);
-    localStorage.removeItem(STORAGE_KEYS.USER);
+    // Keys to preserve across logout
+    const KEEP_KEYS = [
+      "language",
+      "theme",
+      STORAGE_KEYS.USERS, // afterme_users  — so users can log back in
+      "afterme_onboarding", // onboarding profile data
+    ];
+
+    const preserved: Record<string, string> = {};
+    KEEP_KEYS.forEach((key) => {
+      const val = localStorage.getItem(key);
+      if (val !== null) preserved[key] = val;
+    });
+
+    localStorage.clear();
+
+    Object.entries(preserved).forEach(([k, v]) => localStorage.setItem(k, v));
+
     set({ token: null, user: null, isAuthenticated: false });
   },
 }));

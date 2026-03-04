@@ -1,3 +1,4 @@
+import { useState, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
 import { subscriptionStore } from "../store/subscriptionStore";
@@ -16,14 +17,20 @@ interface LocationState {
 const SubscriptionPage = () => {
   const { t } = useLanguage();
   const s = t.subscription;
+  const [revision, setRevision] = useState(0);
   const data = subscriptionStore.getData();
   const location = useLocation();
   const state = (location.state as LocationState) || {};
 
-  const planName = state.planName || data.planName;
+  const planName =
+    revision >= 0 ? state.planName || data.planName : data.planName;
   const planPrice = state.planPrice
     ? `${state.planPrice}/month`
     : data.planPrice;
+
+  const handlePlanCancelled = useCallback(() => {
+    setRevision((r) => r + 1);
+  }, []);
 
   return (
     <div className="mx-auto w-full max-w-5xl space-y-6">
@@ -49,6 +56,7 @@ const SubscriptionPage = () => {
             planName={planName}
             planPrice={planPrice}
             nextBillingDate={data.nextBillingDate}
+            onPlanCancelled={handlePlanCancelled}
           />
         </div>
       </div>

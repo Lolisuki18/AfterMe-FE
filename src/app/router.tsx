@@ -72,6 +72,12 @@ const ActivityLogPage = lazy(
 const SubscriptionPage = lazy(
   () => import("@/features/subscription/pages/SubscriptionPage"),
 );
+const SubscriptionManagementPage = lazy(
+  () => import("@/features/subscription/pages/SubscriptionManagementPage"),
+);
+const ManagePlanPage = lazy(
+  () => import("@/features/subscription/pages/ManagePlanPage"),
+);
 const PrivacyCenterPage = lazy(
   () => import("@/features/privacy/pages/PrivacyCenterPage"),
 );
@@ -174,6 +180,14 @@ export const AppRouter = () => {
               <Route
                 path="/dashboard/subscription"
                 element={<SubscriptionPage />}
+              />
+              <Route
+                path="/dashboard/subscription/manage"
+                element={<SubscriptionManagementPage />}
+              />
+              <Route
+                path="/dashboard/subscription/plan"
+                element={<ManagePlanPage />}
               />
               <Route
                 path="/dashboard/privacy"

@@ -21,6 +21,8 @@ import {
   HomeOutlineIcon,
   LogoutIcon,
   ShieldAlertIcon,
+  ClockOutlineIcon,
+  GearIcon,
 } from "@/shared/icon";
 
 interface SidebarProps {
@@ -84,6 +86,11 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
         },
         { label: s.family, to: "/dashboard/family", icon: PeopleGroupIcon },
         {
+          label: s.dailyRoutine,
+          to: "/dashboard/daily-routine",
+          icon: ClockOutlineIcon,
+        },
+        {
           label: s.activityLog,
           to: "/dashboard/activity-log",
           icon: ChartIcon,
@@ -115,6 +122,23 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
           label: s.privacy,
           to: "/dashboard/privacy",
           icon: ShieldAlertIcon,
+        },
+      ],
+    },
+    {
+      key: "subscription",
+      label: s.subscription,
+      icon: CreditCardIcon,
+      children: [
+        {
+          label: s.subscription,
+          to: "/dashboard/subscription",
+          icon: CreditCardIcon,
+        },
+        {
+          label: s.subscriptionManage,
+          to: "/dashboard/subscription/manage",
+          icon: GearIcon,
         },
       ],
     },
@@ -252,6 +276,7 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
                       <NavLink
                         key={child.to}
                         to={child.to}
+                        end
                         onClick={onClose}
                         className={({ isActive }) => childLinkClass(isActive)}
                       >
@@ -270,22 +295,6 @@ export const Sidebar = ({ open = false, onClose }: SidebarProps) => {
               </div>
             );
           })}
-
-          {/* Subscription — standalone */}
-          <NavLink
-            to="/dashboard/subscription"
-            onClick={onClose}
-            className={({ isActive }) => linkClass(isActive)}
-          >
-            {({ isActive }) => (
-              <>
-                <CreditCardIcon
-                  className={`h-[18px] w-[18px] ${isActive ? "text-white" : ""}`}
-                />
-                {s.subscription}
-              </>
-            )}
-          </NavLink>
         </nav>
 
         {/* User info + actions at bottom */}
