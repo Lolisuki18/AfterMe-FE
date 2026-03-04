@@ -34,10 +34,7 @@ export const SettingToggle = () => {
   }, [open]);
 
   return (
-    <div
-      ref={containerRef}
-      className="fixed right-6 bottom-24 z-50 lg:bottom-28"
-    >
+    <div ref={containerRef} className="fixed right-6 bottom-6 z-50 lg:bottom-8">
       {/* Dropdown Panel */}
       <div
         className={`border-border bg-surface absolute right-0 bottom-16 w-56 origin-bottom-left rounded-2xl border shadow-2xl transition-all duration-200 ${

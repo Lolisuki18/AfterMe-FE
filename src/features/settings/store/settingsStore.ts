@@ -10,10 +10,10 @@ export interface AccountProfile {
 }
 
 const defaultProfile: AccountProfile = {
-  firstName: "Alex",
-  lastName: "Morgan",
-  email: "alex.morgan@university.edu",
-  phone: "+1 (555) 123-4567",
+  firstName: "Ninh",
+  lastName: "Lê",
+  email: "Lolisuki@gmail.com",
+  phone: "0982677408",
   twoFactorEnabled: true,
   passwordLastChanged: "3 months ago",
 };

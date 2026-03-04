@@ -18,7 +18,7 @@ export const SOSFloatingButton = () => {
   };
 
   return (
-    <div className="pointer-events-none fixed right-5 bottom-6 z-50 sm:right-8 sm:bottom-8">
+    <div className="pointer-events-none fixed right-5 bottom-24 z-50 sm:right-8 sm:bottom-28">
       {/* Pulse rings */}
       <span className="absolute inset-0 animate-ping rounded-full bg-red-500/25 [animation-duration:2s]" />
       <span className="absolute inset-0 scale-110 animate-ping rounded-full bg-red-500/15 [animation-duration:2.8s]" />

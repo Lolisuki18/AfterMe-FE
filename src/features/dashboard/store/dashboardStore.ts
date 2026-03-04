@@ -33,7 +33,7 @@ export interface DashboardData {
 }
 
 const defaultData: DashboardData = {
-  user: { name: "Alex", plan: "Student Plan" },
+  user: { name: "Ninh", plan: "Student Plan" },
   routines: [
     {
       id: "r1",

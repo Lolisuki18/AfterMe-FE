@@ -14,7 +14,7 @@ export const settingsEn = {
       subtitle: "Manage your personal details and contact information.",
       firstName: "First Name",
       lastName: "Last Name",
-      universityEmail: "University Email",
+      universityEmail: "Email",
       emailHelper:
         "We'll use this for account recovery and critical notifications.",
       phoneNumber: "Phone Number",

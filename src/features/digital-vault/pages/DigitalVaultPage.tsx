@@ -6,9 +6,15 @@ import {
   ShieldCheckIcon,
   ClockOutlineIcon,
   SaveIcon,
+  KeyIcon,
 } from "@/shared/icon";
 import { vaultStore } from "../store/vaultStore";
-import { AssetItem, VaultSidebar, AddAssetModal } from "../components";
+import {
+  AssetItem,
+  VaultSidebar,
+  AddAssetModal,
+  SetSecurityKeyModal,
+} from "../components";
 import { toast } from "sonner";
 
 const DigitalVaultPage = () => {
@@ -19,6 +25,7 @@ const DigitalVaultPage = () => {
 
   const [message, setMessage] = useState(data.finalMessage);
   const [showAddAsset, setShowAddAsset] = useState(false);
+  const [showSetKey, setShowSetKey] = useState(false);
 
   const handleDelete = (id: string) => {
     vaultStore.removeAsset(id);
@@ -47,14 +54,24 @@ const DigitalVaultPage = () => {
             {v.subtitle}
           </p>
         </div>
-        <Button
-          variant="primary"
-          rounded
-          leftIcon={<PlusIcon className="h-4 w-4" />}
-          onClick={() => setShowAddAsset(true)}
-        >
-          {v.addAsset}
-        </Button>
+        <div className="flex gap-2">
+          <Button
+            variant="outline"
+            rounded
+            leftIcon={<KeyIcon className="h-4 w-4" />}
+            onClick={() => setShowSetKey(true)}
+          >
+            {v.setKeyButton}
+          </Button>
+          <Button
+            variant="primary"
+            rounded
+            leftIcon={<PlusIcon className="h-4 w-4" />}
+            onClick={() => setShowAddAsset(true)}
+          >
+            {v.addAsset}
+          </Button>
+        </div>
       </div>
 
       {/* Stats */}
@@ -151,6 +168,12 @@ const DigitalVaultPage = () => {
         open={showAddAsset}
         onClose={() => setShowAddAsset(false)}
         onAdd={handleAddAsset}
+      />
+
+      {/* Set Security Key Modal */}
+      <SetSecurityKeyModal
+        open={showSetKey}
+        onClose={() => setShowSetKey(false)}
       />
     </div>
   );
