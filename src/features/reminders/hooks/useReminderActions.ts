@@ -52,6 +52,9 @@ export const useReminderActions = ({
         // ── Lưu vào LocalStorage ─────────────────────────────────────────
         saveReminder(newReminder);
 
+        // ── Trigger custom event để update dashboard ──────────────────────
+        window.dispatchEvent(new Event("reminders-updated"));
+
         // ── Hiển thị toast thành công ─────────────────────────────────────
         setToast({
           id: newReminder.id,
@@ -59,8 +62,8 @@ export const useReminderActions = ({
           message: successMsg,
         });
 
-        // ── Redirect sau khi toast hiển thị ──────────────────────────────
-        setTimeout(() => navigate("/dashboard/reminders"), redirectDelay);
+        // ── Redirect về dashboard sau khi toast hiển thị ──────────────────
+        setTimeout(() => navigate("/dashboard"), redirectDelay);
       } catch {
         setToast({
           id: `error_${Date.now()}`,

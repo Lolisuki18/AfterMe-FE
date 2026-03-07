@@ -5,3 +5,4 @@ export { RoutineTimeline } from "./RoutineTimeline";
 export { RoutineItem } from "./RoutineItem";
 export { SOSButton } from "./SOSButton";
 export { EditScheduleModal } from "./EditScheduleModal";
+export { RemindersSection } from "./RemindersSection";

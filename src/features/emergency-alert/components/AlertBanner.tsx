@@ -18,7 +18,19 @@ export const AlertBanner = () => {
   const { triggeredBy, alertTriggeredAt } = safetyNetStore.getData();
   const contacts = emergencyStore.getData().contacts;
   const primary = contacts[0];
-  const name = primary?.name ?? "User";
+  // Get current user from localStorage
+  let userName = "";
+  try {
+    const userRaw = localStorage.getItem("afterme_current_user");
+    if (userRaw) {
+      const userObj = JSON.parse(userRaw);
+      userName = userObj.fullName || userObj.name || "";
+    }
+  } catch {
+    /* empty */
+  }
+  // Prefer userName, fallback to contact name
+  const name = userName || primary?.name || "User";
 
   const isSOS = triggeredBy === "sos";
   const time = formatTime(alertTriggeredAt);

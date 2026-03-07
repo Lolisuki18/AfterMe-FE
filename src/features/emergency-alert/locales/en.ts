@@ -22,7 +22,7 @@ export const emergencyAlertEn = {
     actionTitle: "Action Center",
     actionSubtitle: "Immediate actions recommended for you.",
     callContact: "Call Sarah",
-    callEmergency: "Call 911",
+    callEmergency: "Call 113",
     shareLocation: "Share location with responders",
 
     /* Vault */

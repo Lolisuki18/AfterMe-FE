@@ -50,6 +50,11 @@ export const dashboardVi: DashboardTranslations = {
     timeRemaining: "Thời gian còn lại",
     completed: "Hoàn thành",
     upcoming: "Sắp tới",
+    completeTask: "Đánh dấu hoàn thành",
+    taskCompleted: "Nhiệm vụ hoàn thành! An toàn được xác nhận.",
+    confirmComplete: "Hoàn thành nhiệm vụ này?",
+    confirmCompleteDesc:
+      "Điều này sẽ xác nhận an toàn của bạn và đặt lại bộ đếm giờ.",
     routineNamePlaceholder: "Tên lịch trình",
     iconLabel: "Biểu tượng",
     startTime: "Bắt đầu",
@@ -58,6 +63,23 @@ export const dashboardVi: DashboardTranslations = {
     cancelEdit: "Hủy",
     saveSchedule: "Lưu lịch trình",
 
+    // ── Reminders Section ──────────────────────────────────────────────
+    myReminders: "Lời nhắc của tôi",
+    noReminders: "Không có lời nhắc sắp tới",
+    createReminder: "Tạo lời nhắc",
+    viewAll: "Xem tất cả",
+    reminderDeleted: "Đã xóa lời nhắc",
+    editReminder: "Chỉnh sửa nhắc nhở",
+    reminderSaved: "Đã lưu nhắc nhở",
+    past: "Đã qua",
+    feelingGentle: "Nhẹ nhàng",
+    feelingNormal: "Bình thường",
+    feelingFirm: "Chắc chắn",
+    // ── Routine CRUD ───────────────────────────────────────────────────
+    editRoutine: "Chỉnh sửa",
+    deleteRoutine: "Xóa",
+    routineDeleted: "Đã xóa lịch trình",
+    routineSaved: "Đã lưu lịch trình",
     // ── SOS ────────────────────────────────────────────────────────────
     sos: "SOS",
   },

@@ -21,7 +21,7 @@ const defaultData: EmergencyData = {
   contacts: [
     {
       id: "c1",
-      name: "Sarah Jenkins",
+      name: "Yoshino Himekawa",
       relationship: "mother",
       phone: "1231231232",
       priority: "primary",
@@ -30,7 +30,7 @@ const defaultData: EmergencyData = {
     },
     {
       id: "c2",
-      name: "David Chen",
+      name: "Hikygaya Hachiman",
       relationship: "roommate",
       phone: "0982677408",
       priority: "secondary",
@@ -39,7 +39,7 @@ const defaultData: EmergencyData = {
     },
     {
       id: "c3",
-      name: "Emma Lewis",
+      name: "Menma",
       relationship: "sister",
       phone: "1231231231",
       priority: "backup",

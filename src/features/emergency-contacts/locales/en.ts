@@ -38,10 +38,10 @@ export const emergencyEn = {
     // Add Contact Modal
     addContactTitle: "Add Emergency Contact",
     contactName: "Full Name",
-    contactNamePlaceholder: "e.g. Sarah Jenkins",
+    contactNamePlaceholder: "e.g. Yoshino Himekawa ",
     relationship: "Relationship",
     selectRelationship: "Select relationship",
-    phonePlaceholder: "e.g. +1 (555) 123-4567",
+    phonePlaceholder: "e.g. 0982677408",
     priority: "Priority Level",
     selectPriority: "Select priority",
     notificationMethods: "Notification Methods",
