@@ -20,7 +20,7 @@ export const sosTriggerEn = {
 
     /* Quick actions */
     callPolice: "Call Police",
-    callPoliceDesc: "Direct 911 Dial",
+    callPoliceDesc: "Direct 113 Dial",
     ambulance: "Ambulance",
     ambulanceDesc: "Medical Emergency",
     silentSos: "Silent SOS",

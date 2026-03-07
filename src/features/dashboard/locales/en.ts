@@ -48,6 +48,11 @@ export const dashboardEn = {
     timeRemaining: "Time remaining",
     completed: "Completed",
     upcoming: "Upcoming",
+    completeTask: "Mark as Complete",
+    taskCompleted: "Task completed! Safety confirmed.",
+    confirmComplete: "Complete this task?",
+    confirmCompleteDesc:
+      "This will confirm your safety and reset the countdown timer.",
     routineNamePlaceholder: "Routine name",
     iconLabel: "Icon",
     startTime: "Start",
@@ -56,6 +61,23 @@ export const dashboardEn = {
     cancelEdit: "Cancel",
     saveSchedule: "Save Schedule",
 
+    // ── Reminders Section ──────────────────────────────────────────────
+    myReminders: "My Reminders",
+    noReminders: "No upcoming reminders",
+    createReminder: "Create Reminder",
+    viewAll: "View All",
+    reminderDeleted: "Reminder deleted",
+    editReminder: "Edit Reminder",
+    reminderSaved: "Reminder saved",
+    past: "Past",
+    feelingGentle: "Gentle",
+    feelingNormal: "Normal",
+    feelingFirm: "Firm",
+    // ── Routine CRUD ───────────────────────────────────────────────────
+    editRoutine: "Edit",
+    deleteRoutine: "Delete",
+    routineDeleted: "Routine deleted",
+    routineSaved: "Routine saved",
     // ── SOS ────────────────────────────────────────────────────────────
     sos: "SOS",
   },

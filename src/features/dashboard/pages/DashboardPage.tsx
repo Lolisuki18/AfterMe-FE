@@ -3,6 +3,7 @@ import { dashboardStore } from "../store/dashboardStore";
 import { WelcomeHeader } from "../components/WelcomeHeader";
 import { CheckInCard } from "../components/CheckInCard";
 import { RoutineTimeline } from "../components/RoutineTimeline";
+import { RemindersSection } from "../components/RemindersSection";
 import { useDocumentTitle } from "@/hooks";
 
 const DashboardPage = () => {
@@ -15,6 +16,7 @@ const DashboardPage = () => {
       <WelcomeHeader userName={data.user.name} />
       <CheckInCard />
       <RoutineTimeline routines={routines} onRoutinesChange={setRoutines} />
+      <RemindersSection />
     </div>
   );
 };

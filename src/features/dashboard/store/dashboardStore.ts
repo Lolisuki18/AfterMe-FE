@@ -38,12 +38,20 @@ const defaultData: DashboardData = {
     {
       id: "r1",
       title: "Morning Coffee",
-      time: "8:00 AM",
+      time: "7:00 AM",
       status: "completed",
       iconType: "coffee",
     },
     {
       id: "r2",
+      title: "Morning Run",
+      time: "7:30 AM",
+      endTime: "8:00 AM",
+      status: "completed",
+      iconType: "run",
+    },
+    {
+      id: "r3",
       title: "Study Session",
       time: "10:00 AM",
       endTime: "12:00 PM",
@@ -51,14 +59,22 @@ const defaultData: DashboardData = {
       iconType: "book",
     },
     {
-      id: "r3",
+      id: "r4",
       title: "Lunch Break",
       time: "12:30 PM",
       status: "upcoming",
       iconType: "fork-knife",
     },
     {
-      id: "r4",
+      id: "r5",
+      title: "Workout",
+      time: "5:00 PM",
+      endTime: "6:00 PM",
+      status: "upcoming",
+      iconType: "heart",
+    },
+    {
+      id: "r6",
       title: "Wind Down",
       time: "10:00 PM",
       status: "upcoming",
@@ -103,6 +119,29 @@ export const dashboardStore = {
   setRoutines: (routines: RoutineItem[]) => {
     const data = load();
     data.routines = routines;
+    persist(data);
+  },
+
+  /** Add a new routine item */
+  addRoutine: (item: Omit<RoutineItem, "id">) => {
+    const data = load();
+    data.routines.push({ ...item, id: `r${Date.now()}` });
+    persist(data);
+  },
+
+  /** Update an existing routine item */
+  updateRoutine: (updated: RoutineItem) => {
+    const data = load();
+    data.routines = data.routines.map((r) =>
+      r.id === updated.id ? updated : r,
+    );
+    persist(data);
+  },
+
+  /** Delete a routine by id */
+  deleteRoutine: (id: string) => {
+    const data = load();
+    data.routines = data.routines.filter((r) => r.id !== id);
     persist(data);
   },
 

@@ -20,7 +20,7 @@ export const emergencyAlertVi: EmergencyAlertTranslations = {
     actionTitle: "Trung tâm hành động",
     actionSubtitle: "Các hành động được đề xuất cho bạn.",
     callContact: "Gọi Sarah",
-    callEmergency: "Gọi 911",
+    callEmergency: "Gọi 113",
     shareLocation: "Chia sẻ vị trí với cứu hộ",
 
     vaultTitle: "Kho tài liệu bảo mật",
