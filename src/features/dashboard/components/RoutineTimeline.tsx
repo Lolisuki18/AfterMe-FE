@@ -9,7 +9,6 @@ import { RoutineItem } from "./RoutineItem";
 import { EditScheduleModal } from "./EditScheduleModal";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  PlusIcon,
   CoffeeIcon,
   BookIcon,
   ForkKnifeIcon,
