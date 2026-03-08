@@ -10,6 +10,7 @@ import {
   type ContactData,
 } from "../store/onboardingStore";
 import { authStore } from "@/features/auth/store/authStore";
+import { emergencyStore } from "@/features/emergency-contacts/store/emergencyStore";
 
 type OnboardingStep = 1 | 2 | 3;
 
@@ -65,6 +66,25 @@ const OnboardingPage = () => {
 
   const complete = useCallback(() => {
     onboardingStore.saveContact(contact);
+
+    // Sync to emergency contacts store if user opted in
+    if (contact.notifyContact && contact.fullName && contact.phone) {
+      const initials = contact.fullName
+        .trim()
+        .split(/\s+/)
+        .slice(0, 2)
+        .map((w) => w[0]?.toUpperCase() ?? "")
+        .join("");
+      emergencyStore.addContact({
+        name: contact.fullName,
+        relationship: contact.relationship || "other",
+        phone: contact.phone,
+        priority: "primary",
+        notifyMethods: ["sms"],
+        avatarInitials: initials,
+      });
+    }
+
     authStore.completeOnboarding();
     navigate("/dashboard");
   }, [contact, navigate]);

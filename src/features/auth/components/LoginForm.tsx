@@ -64,10 +64,10 @@ export const LoginForm = () => {
   return (
     <div className="bg-surface w-full max-w-md rounded-2xl p-6 sm:p-8">
       {/* Header */}
-      <h1 className="text-text text-2xl font-bold break-words">
+      <h1 className="text-text text-2xl font-bold wrap-break-word">
         {t.auth.login.welcomeBack}
       </h1>
-      <p className="text-text-muted mt-1 text-sm break-words whitespace-normal">
+      <p className="text-text-muted mt-1 text-sm wrap-break-word whitespace-normal">
         {t.auth.login.subtitle}
       </p>
 

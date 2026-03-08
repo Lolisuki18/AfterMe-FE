@@ -50,6 +50,47 @@ const MOCK_USER: StoredUser = {
   onboarded: true,
 };
 
+// ─── Default seed accounts (always present in afterme_users) ─────────────────
+
+const SEED_USERS: StoredUser[] = [
+  {
+    id: "seed-001",
+    name: "Test User",
+    email: "test@afterme.app",
+    password: "123456",
+    onboarded: false,
+  },
+];
+
+const seedDefaultUsers = (): void => {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.USERS);
+    const users: StoredUser[] = raw ? (JSON.parse(raw) as StoredUser[]) : [];
+    let changed = false;
+    for (const seed of SEED_USERS) {
+      const idx = users.findIndex(
+        (u) => u.email.toLowerCase() === seed.email.toLowerCase(),
+      );
+      if (idx === -1) {
+        users.push(seed);
+        changed = true;
+      } else if (users[idx].id === seed.id) {
+        // Always keep seed accounts in sync with the definition
+        users[idx] = seed;
+        changed = true;
+      }
+    }
+    if (changed) {
+      localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
+    }
+  } catch {
+    /* ignore */
+  }
+};
+
+// Run once at module load
+seedDefaultUsers();
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));

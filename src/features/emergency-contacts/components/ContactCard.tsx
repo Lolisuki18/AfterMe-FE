@@ -1,10 +1,19 @@
 import React from "react";
 import { useLanguage } from "@/app/useLanguage";
-import { ChatBubbleIcon, PhoneIcon, MapPinIcon, BanIcon } from "@/shared/icon";
+import {
+  ChatBubbleIcon,
+  PhoneIcon,
+  MapPinIcon,
+  BanIcon,
+  PencilEditIcon,
+  TrashIcon,
+} from "@/shared/icon";
 import type { EmergencyContact, NotifyMethod } from "../store/emergencyStore";
 
 interface ContactCardProps {
   contact: EmergencyContact;
+  onEdit?: (contact: EmergencyContact) => void;
+  onDelete?: (id: string) => void;
 }
 
 const PRIORITY_STYLES = {
@@ -36,7 +45,11 @@ const METHOD_LABELS: Record<NotifyMethod, string> = {
   "no-call": "No Call",
 };
 
-export const ContactCard = ({ contact }: ContactCardProps) => {
+export const ContactCard = ({
+  contact,
+  onEdit,
+  onDelete,
+}: ContactCardProps) => {
   const { t } = useLanguage();
   const s = t.emergency;
 
@@ -88,6 +101,32 @@ export const ContactCard = ({ contact }: ContactCardProps) => {
               </span>
             ))}
           </div>
+
+          {/* Action buttons */}
+          {(onEdit || onDelete) && (
+            <div className="mt-3 flex items-center gap-2">
+              {onEdit && (
+                <button
+                  type="button"
+                  onClick={() => onEdit(contact)}
+                  className="text-text-muted hover:text-primary hover:bg-primary/10 flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-medium transition-colors"
+                >
+                  <PencilEditIcon className="h-3.5 w-3.5" />
+                  {s.edit}
+                </button>
+              )}
+              {onDelete && (
+                <button
+                  type="button"
+                  onClick={() => onDelete(contact.id)}
+                  className="text-text-muted hover:text-danger hover:bg-danger/10 flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-medium transition-colors"
+                >
+                  <TrashIcon className="h-3.5 w-3.5" />
+                  {s.delete}
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

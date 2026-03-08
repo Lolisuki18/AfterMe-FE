@@ -1,15 +1,23 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { PlusIcon, TrashIcon, AlarmIcon, PencilEditIcon } from "@/shared/icon";
+import {
+  PlusIcon,
+  TrashIcon,
+  AlarmIcon,
+  PencilEditIcon,
+  CheckBasicIcon,
+} from "@/shared/icon";
 import { useLanguage } from "@/app/useLanguage";
 import {
   getReminders,
   deleteReminder,
   updateReminder,
+  completeReminder,
 } from "@/features/reminders/services/storage";
 import type { Reminder } from "@/features/reminders/types";
 import type { FeelingType } from "@/features/reminders/types";
+import { safetyNetStore } from "@/features/grace-period/store/safetyNetStore";
 import { toast } from "sonner";
 
 const FEELING_EMOJI: Record<string, string> = {
@@ -131,7 +139,19 @@ export const RemindersSection = () => {
     }
   };
 
+  const handleComplete = (reminder: Reminder) => {
+    completeReminder(reminder.id);
+    loadReminders();
+    if (reminder.safetyCheckin) {
+      safetyNetStore.resolve();
+      toast.success(d.taskCompleted ?? "Task completed! Safety confirmed.");
+    } else {
+      toast.success(d.taskCompleted ?? "Task completed!");
+    }
+  };
+
   const getReminderStatus = (reminder: Reminder) => {
+    if (reminder.completedAt) return "completed";
     const now = new Date();
     const reminderDateTime = new Date(reminder.date + "T" + reminder.time);
     const reminderDateOnly = new Date(reminder.date);
@@ -186,6 +206,9 @@ export const RemindersSection = () => {
               const status = getReminderStatus(r);
               return status === "upcoming" || status === "today-upcoming";
             });
+            const completedReminders = reminders.filter((r) => {
+              return getReminderStatus(r) === "completed";
+            });
             const pastReminders = reminders.filter((r) => {
               const status = getReminderStatus(r);
               return status === "past" || status === "today-past";
@@ -194,6 +217,9 @@ export const RemindersSection = () => {
             const renderReminder = (reminder: Reminder) => {
               const status = getReminderStatus(reminder);
               const isPast = status === "past" || status === "today-past";
+              const isDone = status === "completed";
+              const canComplete =
+                status === "upcoming" || status === "today-upcoming";
 
               return (
                 <motion.div
@@ -201,7 +227,7 @@ export const RemindersSection = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className={`border-border hover:border-border/80 flex items-start gap-3 rounded-xl border bg-linear-to-br from-transparent to-transparent p-3 transition-all hover:shadow-sm ${
-                    isPast ? "opacity-60" : ""
+                    isPast || isDone ? "opacity-60" : ""
                   }`}
                 >
                   {/* Feeling emoji */}
@@ -213,7 +239,7 @@ export const RemindersSection = () => {
                   <div className="min-w-0 flex-1">
                     <h3
                       className={`text-text truncate text-sm font-semibold ${
-                        isPast ? "line-through" : ""
+                        isPast || isDone ? "line-through" : ""
                       }`}
                     >
                       {reminder.title}
@@ -238,6 +264,16 @@ export const RemindersSection = () => {
 
                   {/* Actions */}
                   <div className="flex shrink-0 items-center gap-1">
+                    {canComplete && (
+                      <button
+                        type="button"
+                        onClick={() => handleComplete(reminder)}
+                        className="text-text-muted rounded-lg p-1.5 transition-colors hover:text-green-500"
+                        title={d.completeTask ?? "Mark as Complete"}
+                      >
+                        <CheckBasicIcon className="h-4 w-4" />
+                      </button>
+                    )}
                     <button
                       type="button"
                       onClick={() => handleEdit(reminder)}
@@ -274,6 +310,23 @@ export const RemindersSection = () => {
                     </div>
                     <div className="space-y-2">
                       {upcomingReminders.map(renderReminder)}
+                    </div>
+                  </div>
+                )}
+
+                {/* Completed Section */}
+                {completedReminders.length > 0 && (
+                  <div>
+                    <div className="mb-2 flex items-center gap-2">
+                      <h3 className="text-text-muted text-xs font-bold tracking-wider uppercase">
+                        {d.completed ?? "Completed"}
+                      </h3>
+                      <span className="rounded-full bg-green-100 px-2 py-0.5 text-[10px] font-bold text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                        {completedReminders.length}
+                      </span>
+                    </div>
+                    <div className="space-y-2">
+                      {completedReminders.map(renderReminder)}
                     </div>
                   </div>
                 )}

@@ -3,6 +3,7 @@ import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
 import { CheckBasicIcon } from "@/shared/icon";
 import { dashboardStore } from "../store/dashboardStore";
+import { safetyNetStore } from "@/features/grace-period/store/safetyNetStore";
 import { toast } from "sonner";
 
 export const CheckInCard = () => {
@@ -24,6 +25,11 @@ export const CheckInCard = () => {
 
   const handleCheckIn = () => {
     dashboardStore.checkIn();
+    // If user is in grace period, their check-in confirms they are safe
+    const { status } = safetyNetStore.getData();
+    if (status === "grace_period") {
+      safetyNetStore.resolve();
+    }
     setCheckedIn(true);
     toast.success(d.checkInSuccess ?? "Check-in recorded! Stay safe.");
   };

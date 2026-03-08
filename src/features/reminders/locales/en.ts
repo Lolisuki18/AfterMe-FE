@@ -54,6 +54,9 @@ export const remindersEn = {
     emptyDesc: "Create your first reminder to get started.",
     deleted: "Reminder deleted.",
     delete: "Delete",
+    complete: "Mark as Complete",
+    completed: "Done",
+    completedSafety: "Task completed! Safety confirmed.",
   },
 };
 

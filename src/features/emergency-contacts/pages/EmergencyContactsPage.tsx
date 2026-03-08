@@ -2,8 +2,13 @@ import { useState } from "react";
 import { useLanguage } from "@/app/useLanguage";
 import { Button } from "@/shared/components";
 import { UserAddIcon, PlusIcon } from "@/shared/icon";
-import { emergencyStore } from "../store/emergencyStore";
-import { ContactStats, ContactCard, AddContactModal } from "../components";
+import { emergencyStore, type EmergencyContact } from "../store/emergencyStore";
+import {
+  ContactStats,
+  ContactCard,
+  AddContactModal,
+  EditContactModal,
+} from "../components";
 import { toast } from "sonner";
 
 const EmergencyContactsPage = () => {
@@ -12,6 +17,9 @@ const EmergencyContactsPage = () => {
   const [, setRefreshKey] = useState(0);
   const { contacts } = emergencyStore.getData();
   const [showAddContact, setShowAddContact] = useState(false);
+  const [editingContact, setEditingContact] = useState<EmergencyContact | null>(
+    null,
+  );
 
   const handleAddContact = (
     contact: Parameters<typeof emergencyStore.addContact>[0],
@@ -19,6 +27,19 @@ const EmergencyContactsPage = () => {
     emergencyStore.addContact(contact);
     setRefreshKey((k) => k + 1);
     toast.success(s.contactAdded);
+  };
+
+  const handleEditContact = (contact: EmergencyContact) => {
+    emergencyStore.updateContact(contact);
+    setEditingContact(null);
+    setRefreshKey((k) => k + 1);
+    toast.success(s.contactUpdated);
+  };
+
+  const handleDeleteContact = (id: string) => {
+    emergencyStore.removeContact(id);
+    setRefreshKey((k) => k + 1);
+    toast.success(s.contactDeleted);
   };
 
   return (
@@ -51,7 +72,12 @@ const EmergencyContactsPage = () => {
       {/* Contact list */}
       <div className="space-y-4">
         {contacts.map((c) => (
-          <ContactCard key={c.id} contact={c} />
+          <ContactCard
+            key={c.id}
+            contact={c}
+            onEdit={setEditingContact}
+            onDelete={handleDeleteContact}
+          />
         ))}
       </div>
 
@@ -71,6 +97,16 @@ const EmergencyContactsPage = () => {
         onClose={() => setShowAddContact(false)}
         onAdd={handleAddContact}
       />
+
+      {/* Edit Contact Modal */}
+      {editingContact && (
+        <EditContactModal
+          open={true}
+          contact={editingContact}
+          onClose={() => setEditingContact(null)}
+          onEdit={handleEditContact}
+        />
+      )}
     </div>
   );
 };

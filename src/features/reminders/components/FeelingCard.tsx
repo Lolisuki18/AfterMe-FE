@@ -37,7 +37,7 @@ export const FeelingCard = ({
       whileTap={{ scale: 0.97 }}
       transition={{ type: "spring", stiffness: 400, damping: 20 }}
       className={[
-        "relative flex w-full cursor-pointer items-center gap-3 overflow-hidden rounded-xl border-2 bg-gradient-to-br px-4 py-3.5 text-left backdrop-blur-sm transition-all duration-200",
+        "relative flex w-full cursor-pointer items-center gap-3 overflow-hidden rounded-xl border-2 bg-linear-to-br px-4 py-3.5 text-left backdrop-blur-sm transition-all duration-200",
         option.gradient,
         selected
           ? `${option.ring} shadow-lg ring-2`
