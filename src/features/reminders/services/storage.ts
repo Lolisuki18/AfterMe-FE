@@ -91,3 +91,12 @@ export const updateReminder = (updated: Reminder): void => {
   const list = getReminders().map((r) => (r.id === updated.id ? updated : r));
   localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
 };
+
+/** Đánh dấu một reminder là đã hoàn thành. */
+export const completeReminder = (id: string): void => {
+  const list = getReminders().map((r) =>
+    r.id === id ? { ...r, completedAt: new Date().toISOString() } : r,
+  );
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  window.dispatchEvent(new Event("reminders-updated"));
+};

@@ -15,6 +15,7 @@ export interface Reminder {
   feeling: FeelingType;
   safetyCheckin: boolean;
   createdAt: string;
+  completedAt?: string; // ISO timestamp when user marked this done
 }
 
 // ── Form schema (used with react-hook-form + zod) ───────────────────────────

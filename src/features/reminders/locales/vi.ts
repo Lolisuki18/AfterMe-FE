@@ -54,5 +54,8 @@ export const remindersVi = {
     emptyDesc: "Tạo nhắc nhở đầu tiên để bắt đầu.",
     deleted: "Đã xoá nhắc nhở.",
     delete: "Xoá",
+    complete: "Đánh dấu hoàn thành",
+    completed: "Xong",
+    completedSafety: "Nhiệm vụ hoàn thành! An toàn được xác nhận.",
   },
 };

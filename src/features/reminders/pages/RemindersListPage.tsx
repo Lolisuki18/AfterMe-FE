@@ -1,9 +1,14 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/app/useLanguage";
-import { getReminders, deleteReminder } from "../services/storage";
+import {
+  getReminders,
+  deleteReminder,
+  completeReminder,
+} from "../services/storage";
 import type { Reminder } from "../types";
-import { PlusIcon, TrashIcon, BackIcon } from "@/shared/icon";
+import { PlusIcon, TrashIcon, BackIcon, CheckBasicIcon } from "@/shared/icon";
+import { safetyNetStore } from "@/features/grace-period/store/safetyNetStore";
 import { toast } from "sonner";
 
 const FEELING_EMOJI: Record<string, string> = {
@@ -38,6 +43,19 @@ const RemindersListPage = () => {
     deleteReminder(id);
     load();
     toast.success(list.deleted);
+  };
+
+  const handleComplete = (rem: Reminder) => {
+    completeReminder(rem.id);
+    load();
+    if (rem.safetyCheckin) {
+      safetyNetStore.resolve();
+      toast.success(
+        list.completedSafety ?? "Task completed! Safety confirmed.",
+      );
+    } else {
+      toast.success(list.completed ?? "Task completed!");
+    }
   };
 
   const formatDate = (dateStr: string) => {
@@ -96,55 +114,84 @@ const RemindersListPage = () => {
       {/* Reminder list */}
       {reminders.length > 0 && (
         <div className="space-y-3">
-          {reminders.map((rem) => (
-            <div
-              key={rem.id}
-              className="bg-surface flex items-start gap-4 rounded-2xl px-5 py-4 shadow-sm transition-shadow hover:shadow-md"
-            >
-              {/* Feeling emoji */}
-              <span className="mt-0.5 text-2xl">
-                {FEELING_EMOJI[rem.feeling] ?? "📌"}
-              </span>
+          {reminders.map((rem) => {
+            const isDone = !!rem.completedAt;
+            const now = new Date();
+            const remDate = new Date(rem.date + "T" + rem.time);
+            const canComplete = !isDone && remDate > now;
+            return (
+              <div
+                key={rem.id}
+                className={`bg-surface flex items-start gap-4 rounded-2xl px-5 py-4 shadow-sm transition-shadow hover:shadow-md ${
+                  isDone ? "opacity-60" : ""
+                }`}
+              >
+                {/* Feeling emoji */}
+                <span className="mt-0.5 text-2xl">
+                  {FEELING_EMOJI[rem.feeling] ?? "📌"}
+                </span>
 
-              {/* Content */}
-              <div className="min-w-0 flex-1">
-                <h3 className="text-text truncate text-base font-semibold">
-                  {rem.title}
-                </h3>
-                {rem.notes && (
-                  <p className="text-text-muted mt-0.5 line-clamp-2 text-sm">
-                    {rem.notes}
-                  </p>
-                )}
-                <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
-                  <span className="text-text-muted">
-                    📅 {formatDate(rem.date)}
-                  </span>
-                  <span className="text-text-muted">🕐 {rem.time}</span>
-                  <span
-                    className={`rounded-full px-2 py-0.5 text-[11px] font-medium ${FREQ_BADGE_CLASSES[rem.frequency] ?? ""}`}
+                {/* Content */}
+                <div className="min-w-0 flex-1">
+                  <h3
+                    className={`text-text truncate text-base font-semibold ${
+                      isDone ? "line-through" : ""
+                    }`}
                   >
-                    {r[rem.frequency as keyof typeof r] ?? rem.frequency}
-                  </span>
-                  {rem.safetyCheckin && (
-                    <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-medium text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">
-                      {r.safetyLabel}
-                    </span>
+                    {rem.title}
+                  </h3>
+                  {rem.notes && (
+                    <p className="text-text-muted mt-0.5 line-clamp-2 text-sm">
+                      {rem.notes}
+                    </p>
                   )}
+                  <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
+                    <span className="text-text-muted">
+                      📅 {formatDate(rem.date)}
+                    </span>
+                    <span className="text-text-muted">🕐 {rem.time}</span>
+                    <span
+                      className={`rounded-full px-2 py-0.5 text-[11px] font-medium ${FREQ_BADGE_CLASSES[rem.frequency] ?? ""}`}
+                    >
+                      {r[rem.frequency as keyof typeof r] ?? rem.frequency}
+                    </span>
+                    {rem.safetyCheckin && (
+                      <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-medium text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">
+                        {r.safetyLabel}
+                      </span>
+                    )}
+                    {isDone && (
+                      <span className="rounded-full bg-green-100 px-2 py-0.5 text-[11px] font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                        ✓ {list.completed ?? "Done"}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div className="flex shrink-0 items-center gap-1">
+                  {canComplete && (
+                    <button
+                      type="button"
+                      onClick={() => handleComplete(rem)}
+                      className="text-text-muted mt-1 rounded-lg p-1.5 transition-colors hover:text-green-500"
+                      title={list.complete ?? "Mark as Complete"}
+                    >
+                      <CheckBasicIcon className="h-4 w-4" />
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => handleDelete(rem.id)}
+                    className="text-text-muted mt-1 rounded-lg p-1.5 transition-colors hover:text-red-500"
+                    title={list.delete}
+                  >
+                    <TrashIcon className="h-4 w-4" />
+                  </button>
                 </div>
               </div>
-
-              {/* Actions */}
-              <button
-                type="button"
-                onClick={() => handleDelete(rem.id)}
-                className="text-text-muted mt-1 shrink-0 rounded-lg p-1.5 transition-colors hover:text-red-500"
-                title={list.delete}
-              >
-                <TrashIcon className="h-4 w-4" />
-              </button>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>

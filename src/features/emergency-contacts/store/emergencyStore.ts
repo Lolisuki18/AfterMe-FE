@@ -77,4 +77,13 @@ export const emergencyStore = {
     data.contacts = data.contacts.filter((c) => c.id !== id);
     persist(data);
   },
+
+  updateContact: (contact: EmergencyContact) => {
+    const data = load();
+    const idx = data.contacts.findIndex((c) => c.id === contact.id);
+    if (idx !== -1) {
+      data.contacts[idx] = contact;
+      persist(data);
+    }
+  },
 };
